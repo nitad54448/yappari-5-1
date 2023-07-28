@@ -105,8 +105,9 @@ Brief help listing the version of the program.
 This command opens a menu with several options as of now, designing which type of file to read. Note that reading a new file will just add more data wihtout losing the previous ones. You can remove some of the datasets with the command __Erase selected datasets__. You will need to select one or more datasets in order to plot them. 
 
 __3 columns__
-This reads a three-column ASCII file, which should be separated by tabs, ; or , and contain frequency in Hz, Zr, and Zi. The separator used can be selected in the Parameters page. It is important to note that for French users (and some others), the separator value should be a dot “.” and not a comma “,”. If the reading is successful, the dataset will be inserted in the first position with a name taken from the filename open. This name can be changed by the user. Only one dataset can be read with this command. 
-The first line of these files can be a text (the program will try to detect and discard a comment in the first line; if it fails, just remove all comments from the file and try again).
+This reads a three-column ASCII file, which should be separated by tabs, ; or , and contain frequency in Hz, Zr, and Zi. The separator used should be selected in the Parameters page. It is important to note that for French users (and some others), the separator value for a number should be a dot “.” and not a comma “,” (you may need to adjust this in the Windws parameters). I did not check if the program works when a number is represented as 1,256 instead of usual 1.256, but obviously one can not use ',' for separating both the digits in a number representation and separating values in a text file. 
+If the reading is successful, the dataset will be inserted in the first position with a name taken from the filename open. This name can be changed by the user. Only one dataset can be read with this command. 
+The first line of these files can be a text (the program will try to detect and discard a comment in the first line; if it fails, just remove all comments from the file and try again), or use the Custom format.
 
 __MFLI csv__
 This is a ';' or ',' separated values file as obtained from MFLI/MFIA, a Zurich Instruments impedance analyzer. As in the Zview text file, multiple data sets can be saved or read from this file. In the data folder that is provided with this installer you can find such a file containing 34 measurements of the same sample. It would be boring and useless to fit all these 34 datasets one by one. Yappari-5 can handle such multiple data sets. You should select the proper separator string in the Parameters page.
@@ -121,11 +122,11 @@ __Z-MFLI__
 This is a text file, that can hold multiple data sets, which is obtained by programs I wrote in my lab. An exemple of such file is given in the /data directory but it has probably little interest for other users.
 
 __Custom__
-Ih your data file has a format that is not usual you may define the format in a configuration file. An exemple of such file is given in the /data directory. The accepted keywords are :[header]= ; [label_length]=, #label, #ignore_line and #data_format=
+If your data file has a format that is not usual you may define the format in a configuration file. An exemple of such file is given in the /data directory. The accepted keywords are :[header]= ; [label_length]=, #label, #ignore_line and #data_format=
 
 For instance, the definition_file_ZMFLI.ini has this form :
 
-    __[header]=Temp /K before measurement : 
+    [header]=Temp /K before measurement : 
     [label_length]=5
     #label
     #ignore_line
