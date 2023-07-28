@@ -3,7 +3,7 @@ Yappari 5.1, Windows 10, compiled with Labview 2023
 
 last version 28th of July 2023
 
-This is an application that requires Labview 2023Q1 64b runtime engine. You may have this "engine" if you have previously installed Yappari or other program written in LV2023. If you don't have it, you should use the full installer which can be download from __Releases__ link, on the righ side of this page. Make sure you doawnload the installer and not what is labelled as source file archives. Source is not included in this distribution.
+This is an application that requires Labview 2023Q1 64b runtime engine. You may have this "engine" if you have previously installed Yappari or other program written in LV2023. If you don't have it, you should use the full installer which can be download from __Releases__ link, on the right side of this page. Make sure you doawnload the installer and not what is labelled as source file archive. The source is not included in this distribution.
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance.
 This program can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
