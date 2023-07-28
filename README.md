@@ -1,9 +1,9 @@
 # yappari-v5-2023
 Yappari 5.1, Windows 10, compiled with Labview 2023
 
-version 16th of July 2023
+last version 28th of July 2023
 
-This is an application that requires Labview 2023Q1 64b runtime engine. You may have this "engine" if you have previously installed Yappari or other program written in LV2023. If you don't have it, you should use the full installer which can be download from __Releases__ link, on the righ side of this page.
+This is an application that requires Labview 2023Q1 64b runtime engine. You may have this "engine" if you have previously installed Yappari or other program written in LV2023. If you don't have it, you should use the full installer which can be download from __Releases__ link, on the righ side of this page. Make sure you doawnload the installer and not what is labelled as source file archives. Source is not included in this distribution.
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance.
 This program can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
@@ -95,7 +95,7 @@ Overall, the notation is quite straightforward once you become familiar with the
 
 
 ## Parameters ##
-On this page you can adjust the parameters boudaries for TRDL and constrained Levenberg-Marquardt procedure. In addition the datafile separator can be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. 
+On this page you can adjust the parameters boudaries for TRDL and constrained Levenberg-Marquardt procedure. In addition the datafile separator can be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. In case you use a custom file format, see below, the separator parameter is ignored.
 
 ## About ##
 Brief help listing the version of the program. 
@@ -104,8 +104,12 @@ Brief help listing the version of the program.
 ## Read data ##
 This command opens a menu with several options as of now, designing which type of file to read. Note that reading a new file will just add more data wihtout losing the previous ones. You can remove some of the datasets with the command __Erase selected datasets__. You will need to select one or more datasets in order to plot them. 
 
+__3 columns__
+This reads a three-column ASCII file, which should be separated by tabs, ; or , and contain frequency in Hz, Zr, and Zi. The separator used can be selected in the Parameters page. It is important to note that for French users (and some others), the separator value should be a dot “.” and not a comma “,”. If the reading is successful, the dataset will be inserted in the first position with a name taken from the filename open. This name can be changed by the user. Only one dataset can be read with this command. 
+The first line of these files can be a text (the program will try to detect and discard a comment in the first line; if it fails, just remove all comments from the file and try again).
+
 __MFLI csv__
-This is a ';' or ',' separated values file as obtained from MFLI/MFIA, a Zurich Instruments impedance analyzer. As in the Zview text file, multiple data sets can be saved or read from this file. In the data folder that is provided with this installer you can find such a file containing 34 measurements of the same sample. It would be boring and useless to fit all these 34 datasets one by one. Yappari-5 can handle such multiple data sets. You can select the separator string to be used in the Parameters page.
+This is a ';' or ',' separated values file as obtained from MFLI/MFIA, a Zurich Instruments impedance analyzer. As in the Zview text file, multiple data sets can be saved or read from this file. In the data folder that is provided with this installer you can find such a file containing 34 measurements of the same sample. It would be boring and useless to fit all these 34 datasets one by one. Yappari-5 can handle such multiple data sets. You should select the proper separator string in the Parameters page.
 
 __Versa Studio par__
 This type of file contains data delimited by <Segments> and >/Segments>. I did not exenisively checked this type of file, an example is given in the /data folder. 
@@ -113,18 +117,69 @@ This type of file contains data delimited by <Segments> and >/Segments>. I did n
 __Zview txt__
 This is a Zview file, also an ASCII type, that can hold multiple data sets. Yappari will read all datasets it finds in this file and insert them in the datasets listing, with a name taken from the file name and a suffix indicating the position in the file : the first datasets will have__0__, then __1__, .. and so on. The separator setting will not be used in reading this file.
   
-__3 cols__
-This reads a three-column ASCII file, which should be separated by tabs, ; or , and contain frequency in Hz, Zr, and Zi. The separator used can be selected in the Parameters page. It is important to note that for French users (and some others), the separator value should be a dot “.” and not a comma “,”. If the reading is successful, the dataset will be inserted in the first position with a name taken from the filename open. This name can be changed by the user. Only one dataset can be read with this command. 
-The first line of these files can be a text (the program will try to detect and discard a comment in the first line; if it fails, just remove all comments from the file and try again).
+__Z-MFLI__
+This is a text file, that can hold multiple data sets, which is obtained by programs I wrote in my lab. An exemple of such file is given in the /data directory but it has probably little interest for other users.
+
+__Custom__
+Ih your data file has a format that is not usual you may define the format in a configuration file. An exemple of such file is given in the /data directory. The accepted keywords are :[header]= ; [label_length]=, #label, #ignore_line and #data_format=
+
+For instance, the definition_file_ZMFLI.ini has this form 
+__[header]=Temp /K before measurement : 
+[label_length]=5
+#label
+#ignore_line
+#ignore_line
+#ignore_line
+#ignore_line
+#data_format=%f\t%f\t%f__
+
+The command header will split the datafile (an exemple is /data/custom_file_ZMFLI.txt) in as many datasets it can find in the file, to each data set it will add a label consisting of the first 5 characters found after the header text. For example, the Z-MFLI program save a file like custom_file_ZMFLI.txt :
+
+Temp /K before measurement : 449.810
+measure started : 26/07/2023  18:33:58
+T34B descente
+temp /K  : 0.000
+frequency /Hz, Real Z /Ohm, Im Z /Ohm 
+1.000000E+6	9.414706E+5	-2.383074E+5
+8.154407E+5	1.130474E+5	-6.121182E+4
+6.649436E+5	9.185450E+4	-5.269764E+4
+5.422221E+5	9.023882E+4	-4.824161E+4
+4.421500E+5	9.325740E+4	-4.422129E+4
+3.605471E+5	9.751274E+4	-3.975290E+4
+2.940048E+5	1.016079E+5	-3.480507E+4
+2.397435E+5	1.048635E+5	-2.995933E+4
+....
+
+----------
+Temp /K before measurement : 449.660
+measure started : 26/07/2023  18:36:07
+T34B descente
+temp /K  : 0.000
+frequency /Hz, Real Z /Ohm, Im Z /Ohm 
+1.000000E+6	9.664908E+5	-2.747448E+5
+8.154407E+5	1.126409E+5	-6.080259E+4
+6.649436E+5	9.169096E+4	-5.206284E+4
+5.422221E+5	9.002227E+4	-4.803786E+4
+4.421500E+5	9.300340E+4	-4.387796E+4
+3.605471E+5	9.711612E+4	-3.944369E+4
+2.940048E+5	1.011267E+5	-3.451051E+4
+
+  
+The configuration file instructs the program to find all the measurements (446 for this case !), then label each data set with the text following the header (which is, in this case, the temperature), ignore the following 4 lines then read the data found in the three columns separated by tabs. There are many accepted format instructions (see Labview format commands for more exotic cases). For most cases we can use %f for floating number, \t for tab, \s for space...
+Note that even if you don't use a label, the data set will have an index indicating the position of the dataset in the file : 1 is for the first data set, 2 the second, and so on.
+An exemple of configuration file for a three columns separated by tab is also given in the /data directory. 
 
 In the /data folder you will find some datafiles, experimental or simulated with other impedance programs. 
-  
-  - _test_data.txt : is a three columns datafile, separated by Tabs with a simulated circuit R(RQ)(RQ)
-  - dev3221_imps_0_sample_0000 is a measurement of a sample (including more than 20 datasets) as obtained with a MFLI/MFIA from Zurich Instruments; separator for this file is ';'
-  - mod_dev3221_imps_0_sample_0000 is a Zview txt file, as obtained with MFLI instrument (one dataset)
-  - R(CR)(CR)W.txt is a simulated dataset with a Warburg element in a three columns separated by tabs
-  - R(CR)O.txt is a simulated dataset with a Warburg "short" element (three columns separated by tabs)
-  - R(CR)T.txt is a simulated dataset with a Warburg "open" element (three columns separated by tabs)
+  * definition_file_3_columns.ini
+  * definition_file_ZMFLI.ini
+  * _test_data.txt : is a three columns datafile, separated by Tabs with a simulated circuit R(RQ)(RQ)
+  * 3_columns_exemple_file.txt, to be used with the custom read function
+  * custom_file_ZMFLI.txt, to be used with the custom read function or with Read ZMFLI and practice batch fitting for more than 400 measurements
+  * dev3221_imps_0_sample_0000.csv is a measurement of a sample (including more than 20 datasets) as obtained with a MFLI/MFIA from Zurich Instruments; separator for this file is ';'
+  * mod_dev3221_imps_0_sample_0000 is a Zview txt file, as obtained with MFLI instrument (one dataset)
+  * R(CR)(CR)W.txt is a simulated dataset with a Warburg element in a three columns separated by tabs
+  * R(CR)O.txt is a simulated dataset with a Warburg "short" element (three columns separated by tabs)
+  * R(CR)T.txt is a simulated dataset with a Warburg "open" element (three columns separated by tabs)
   
 
 ## Method ##
