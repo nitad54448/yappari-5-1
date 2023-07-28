@@ -123,47 +123,45 @@ This is a text file, that can hold multiple data sets, which is obtained by prog
 __Custom__
 Ih your data file has a format that is not usual you may define the format in a configuration file. An exemple of such file is given in the /data directory. The accepted keywords are :[header]= ; [label_length]=, #label, #ignore_line and #data_format=
 
-For instance, the definition_file_ZMFLI.ini has this form 
-__[header]=Temp /K before measurement : 
-[label_length]=5
-#label
-#ignore_line
-#ignore_line
-#ignore_line
-#ignore_line
-#data_format=%f\t%f\t%f__
+For instance, the definition_file_ZMFLI.ini has this form :
+
+    __[header]=Temp /K before measurement : 
+    [label_length]=5
+    #label
+    #ignore_line
+    #ignore_line
+    #ignore_line
+    #ignore_line
+    #data_format=%f\t%f\t%f__
 
 The command header will split the datafile (an exemple is /data/custom_file_ZMFLI.txt) in as many datasets it can find in the file, to each data set it will add a label consisting of the first 5 characters found after the header text. For example, the Z-MFLI program save a file like custom_file_ZMFLI.txt :
 
-Temp /K before measurement : 449.810
-measure started : 26/07/2023  18:33:58
-T34B descente
-temp /K  : 0.000
-frequency /Hz, Real Z /Ohm, Im Z /Ohm 
-1.000000E+6	9.414706E+5	-2.383074E+5
-8.154407E+5	1.130474E+5	-6.121182E+4
-6.649436E+5	9.185450E+4	-5.269764E+4
-5.422221E+5	9.023882E+4	-4.824161E+4
-4.421500E+5	9.325740E+4	-4.422129E+4
-3.605471E+5	9.751274E+4	-3.975290E+4
-2.940048E+5	1.016079E+5	-3.480507E+4
-2.397435E+5	1.048635E+5	-2.995933E+4
-....
-
-----------
-Temp /K before measurement : 449.660
-measure started : 26/07/2023  18:36:07
-T34B descente
-temp /K  : 0.000
-frequency /Hz, Real Z /Ohm, Im Z /Ohm 
-1.000000E+6	9.664908E+5	-2.747448E+5
-8.154407E+5	1.126409E+5	-6.080259E+4
-6.649436E+5	9.169096E+4	-5.206284E+4
-5.422221E+5	9.002227E+4	-4.803786E+4
-4.421500E+5	9.300340E+4	-4.387796E+4
-3.605471E+5	9.711612E+4	-3.944369E+4
-2.940048E+5	1.011267E+5	-3.451051E+4
-
+    Temp /K before measurement : 449.810
+    measure started : 26/07/2023  18:33:58
+    T34B descente
+    temp /K  : 0.000
+    frequency /Hz, Real Z /Ohm, Im Z /Ohm 
+    1.000000E+6	9.414706E+5	-2.383074E+5
+    8.154407E+5	1.130474E+5	-6.121182E+4
+    6.649436E+5	9.185450E+4	-5.269764E+4
+    5.422221E+5	9.023882E+4	-4.824161E+4
+    4.421500E+5	9.325740E+4	-4.422129E+4
+    3.605471E+5	9.751274E+4	-3.975290E+4
+    
+    ----------
+    Temp /K before measurement : 449.660
+    measure started : 26/07/2023  18:36:07
+    T34B descente
+    temp /K  : 0.000
+    frequency /Hz, Real Z /Ohm, Im Z /Ohm 
+    1.000000E+6	9.664908E+5	-2.747448E+5
+    8.154407E+5	1.126409E+5	-6.080259E+4
+    6.649436E+5	9.169096E+4	-5.206284E+4
+    5.422221E+5	9.002227E+4	-4.803786E+4
+    4.421500E+5	9.300340E+4	-4.387796E+4
+    3.605471E+5	9.711612E+4	-3.944369E+4
+    2.940048E+5	1.011267E+5	-3.451051E+4
+    
   
 The configuration file instructs the program to find all the measurements (446 for this case !), then label each data set with the text following the header (which is, in this case, the temperature), ignore the following 4 lines then read the data found in the three columns separated by tabs. There are many accepted format instructions (see Labview format commands for more exotic cases). For most cases we can use %f for floating number, \t for tab, \s for space...
 Note that even if you don't use a label, the data set will have an index indicating the position of the dataset in the file : 1 is for the first data set, 2 the second, and so on.
@@ -242,6 +240,7 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
+  -  28/07/2023 : added the possibility to read custom definition files.
   -  16/06/2023 : after loading a datafile, the first dataset is selected automatically.
   -  15/06/2023 : the user can select the separator used for MFLI CSV and 3 columns file. The same separator (space, comma or TAB) will be used for saving files.
   -  14/06/2023 : added user selected boundaries for TRDL and constrained LM fit.
