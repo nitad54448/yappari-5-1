@@ -178,6 +178,7 @@ An exemple of configuration file for a three columns separated by tab is also gi
 The custom file allows to read other columns from the data file. 
 
  For instance, the file _exemple_custom_5_columns.txt_ was saved with yappari and contains 4 data sets with experimental and fitted data. It has a form like this :
+ 
     dev3221_imps_34, freq /Hz, Zr , Zi, Zr calc, Zi calc
     5.000000E+6;2.308040E+3;-4.358320E+3;2.656137E+3;-6.062695E+3
     4.304039E+6;2.506840E+3;-5.120760E+3;3.017911E+3;-6.767093E+3
@@ -192,6 +193,7 @@ The custom file allows to read other columns from the data file.
     3.704951E+6;2.739930E+3;-5.990360E+3;3.635279E+3;-7.714612E+3
     3.189251E+6;3.033540E+3;-6.938630E+3;4.129017E+3;-8.583845E+3
    ...
+   
 If we want to read this data we can use a a definition file like
 
     [header]=dev3221_imps_ 
