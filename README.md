@@ -1,9 +1,10 @@
 # yappari-v5-2023
-Yappari 5.1, Windows 10, compiled with Labview 2023
+Yappari 5.1, compiled with Labview 2023 for Windows 10.
+It is supposed to work with win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
 
-last version 28th of July 2023
+last version 29th of July 2023
 
-This is an application that requires Labview 2023Q1 64b runtime engine. You may have this "engine" if you have previously installed Yappari or other program written in LV2023. If you don't have it, you should use the full installer which can be download from __Releases__ link, on the right side of this page. Make sure you doawnload the installer and not what is labelled as source file archive. The source is not included in this distribution.
+This is an application that requires Labview 2023Q1 64b runtime engine. You may have this "engine" if you have previously installed Yappari or other program written in LV2023 or you can download it freely from the ni.com. Alternatively, if you don't have it, you should use the full installer which can be download from __Releases__ link, on the right side of this page. Make sure you download the installer and not what is labelled as source file archive. The source is not included in this distribution.  
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance.
 This program can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
@@ -13,7 +14,7 @@ This program can perform multiple datasets fits. For a single dataset you may wa
 You are encouraged to contribute to this help file, you can send it to me or fork it on Github. As much as I like programming, writing documentation is boring. A short tutorial is included in the help pdf file which is installed with the exe file. Otherwise, the most updated description of the program is always here on this page.
 It is generally a good idea to read a help file before using the program, but if you are in a hurry, this is what you should do :
 
-  - select string delimiter on the Parameters page (essential, if you are using MFLI csv or 3 columns file)
+  - select string delimiter on the Parameters page (essential, if you are reading MFLI csv, 3 columns file or a user defined format)
   - read some data
   - build a model
   - fit
@@ -25,6 +26,7 @@ The program has several graphic panels and a parameter list with several command
 ## Zr, -Zi ##
 This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you can disable the Auto-axis feature by clicking on the graph, or directly changing the scale in the legend. Some other standard graph functions are available in the top left "palette" such as zoom in, out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
 The change of the plot colors, style, etc.... in this graph will affect all the graphs.
+If you use a large number of datasets (more than 200 sets), plotting can give some errors, they are inoffensive and can be ignored.
 
 ## Zr, Zi, ln R, theta ##
 These panels will show the dependency of impedances (real, imaginary, modulus or phase) as a function of frequency and the differences between the calculated and experimental values (if any).
@@ -33,20 +35,20 @@ These panels will show the dependency of impedances (real, imaginary, modulus or
 This panel will show a 3D plot of selected datasets, either in Nyquist, Zr or Zi or their difference, as selected by the user. This is useful for many datasets, more than 20 I guess, it will allow the user to see tendencies or check systematic errors in the fits. You can right click on the graph to adjust plotting properties to your liking (3D Plot Properties) or change the size of the graph.
 
 ## Model ##
-A model can be created by the user in this panel, by selecting element circuits. 
+In this panel a model can be created by the user, by selecting element circuits. 
 Up to ten elements can be added in the circuit (obviously it is not realistic to fit such a circuit, unless you want to fit a crocodile). Only the first 18 parameters will be shown in the right side of the program.
-When you click on one of the ten available cases, a new window will appear where you can select the element you want to add. Simply click on the picture of the element you want to add and it will be added to the model. The available circuit elements include resistors, capacitors, inductors, and more complex elements such as constant phase elements or Warburg elements (see below).
+When you click on one of the ten available cases, a new window will appear where you can select the element you want to add. Simply click on the picture of the element you want to add to the model. The available circuit elements include resistors, capacitors, inductors, and more complex elements such as constant phase elements or Warburg elements (see below).
 
 You can edit the png image files to your liking (just for aesthetics, the calculations are not affected), they are in the subdirectory __/models__. The size of the png files should be 150x100 pixels.
 
 ### Elements ###
-The elements used now (as of march 2023) are: Resistor, Capacitor, Inductor, CPE, Zarc, simple Randles circuit, Randles with kinetic and diffusion, Warburg (semi-infinite linear diffusion), Warburg short, Warburg Long, Gerischer, Havriliak-Negami and several compositions of these.
+The elements used are the most common: Resistor, Capacitor, Inductor, CPE, Zarc, simple Randles circuit, Randles with kinetic and diffusion, Warburg (semi-infinite linear diffusion), Warburg short, Warburg Long, Gerischer, Havriliak-Negami and several compositions of these.
 
 Warburg element represents semi-infinite diffusion to or from a flat electrode, expressed here as:
 
 Z(ω)= A<sub>w</sub>/($\sqrt{ω})$ -jA<sub>w</sub>/($\sqrt{ω})$
 
-This element contributes equally to Zr and Zi so it appears as a straigh line in a Nyquist plot, at 45 degrees or a straight line in Bode plot (log |Z| vs. log ω) with a slope of value –1/2. The A<sub>w</sub> term is expressed in Ohm sec<Sup>-1/2</sup> and is called Warburg coefficient. It is expressed as
+This element contributes equally to Zr and Zi so it appears as a straight line in a Nyquist plot, at 45 degrees or a straight line in Bode plot (log |Z| vs. log ω) with a slope of value –1/2. The A<sub>w</sub> term is expressed in Ohm sec<Sup>-1/2</sup> and is called Warburg coefficient. It is expressed as
 
 <img src="https://latex.codecogs.com/svg.image?Aw&space;=&space;\frac{RT}{{n^2&space;F^2&space;A&space;\sqrt{2}}}&space;\left(\frac{1}{{\sqrt{Do}&space;\cdot&space;Cb_o}}&space;-&space;\frac{1}{{\sqrt{Dr}&space;\cdot&space;Cb_r}}\right)" title="https://latex.codecogs.com/svg.image?Aw = \frac{RT}{{n^2 F^2 A \sqrt{2}}} \left(\frac{1}{{\sqrt{Do} \cdot Cb_o}} - \frac{1}{{\sqrt{Dr} \cdot Cb_r}}\right)" />
 
@@ -104,7 +106,7 @@ Brief help listing the version of the program.
 This command opens a menu with several options as of now, designing which type of file to read. Note that reading a new file will just add more data wihtout losing the previous ones. You can remove some of the datasets with the command __Erase selected datasets__. You will need to select one or more datasets in order to plot them. 
 
 __3 columns__
-This reads a three-column ASCII file, which should be separated by tabs, ; or , and contain frequency in Hz, Zr, and Zi. The separator used should be selected in the Parameters page. It is important to note that for French users (and some others), the separator value for a number should be a dot “.” and not a comma “,” (you may need to adjust this in the Windws parameters). I did not check if the program works when a number is represented as 1,256 instead of usual 1.256, but obviously one can not use ',' for separating both the digits in a number representation and separating values in a text file. 
+This option reads a three-column ASCII file, which should be separated by the character selected in the Parameters page, and it should contain frequency in Hz, Zr, and Zi. Is important to note that for French users (and some others), the separator value for a number should be a dot “.” and not a comma “,” (you may need to adjust this in the Windws parameters). I did not check if the program works when a number is represented as 1,256 instead of usual 1.256, but obviously one can not use ',' for separating both the digits in a number representation and separating values in a text file. 
 If the reading is successful, the dataset will be inserted in the first position with a name taken from the filename open. This name can be changed by the user. Only one dataset can be read with this command. 
 The first line of these files can be a text (the program will try to detect and discard a comment in the first line; if it fails, just remove all comments from the file and try again), or use the Custom format.
 
@@ -121,8 +123,14 @@ __Z-MFLI__
 This is a text file, that can hold multiple data sets, which is obtained by programs I wrote in my lab. An exemple of such file is given in the /data directory but it has probably little interest for other users.
 
 __Custom__
-If your data file has a format that is not usual you may define the format in a configuration file. Several exemples of such files are given in the /data directory. The accepted keywords are :[header]= ; [label_length]=, #label, #ignore_line and #data_columns=
+If your data file has a format that is not usual you may define the format in a configuration file. Several exemples of such files are given in the /data directory. The accepted keywords are :
 
+     [header]=
+     [label_length]=
+     #label
+     #ignore_line
+     #data_columns=
+     
 For instance, the definition_file_ZMFLI.ini has this form :
 
     [header]=Temp /K before measurement : 
@@ -163,8 +171,9 @@ The command header will split the datafile (an exemple is /data/custom_file_ZMFL
     2.940048E+5	1.011267E+5	-3.451051E+4
     
   
-The configuration file instructs the program to find all the measurements (446 for this case !), then label each data set with the text following the header (which is, in this case, the temperature), ignore the following 4 lines then read the data found in the three columns separated by the delimiter specified by the user in the Parameters case (here, it should be TAB).
-Note that even if you don't use a label, the data set will have an index indicating the position of the dataset in the file : 1 is for the first data set, 2 the second, and so on.
+The configuration file instructs the program to find all the measurements (446 for this case !), then label each data set with the text following the header (which is, in this case, the temperature), ignore the following 4 lines then read the data found in the three columns separated by the delimiter specified by the user in the Parameters case (here, it should be TAB). Yappari can fit in batch all these 446 measurements and save the results in a file.
+
+Note that even if you don't use a label, the data set will have an index indicating the position of the dataset in the file : 0 is for the first data set, 1 the second, and so on.
 An exemple of configuration file for a three columns separated by tab is also given in the /data directory. 
 The custom file allows to read other columns from the data file. 
 
@@ -184,11 +193,13 @@ The custom file allows to read other columns from the data file.
     3.189251E+6;3.033540E+3;-6.938630E+3;4.129017E+3;-8.583845E+3
    ...
 If we want to read this data we can use a a definition file like
-    [header]=dev3221_imps_
+
+    [header]=dev3221_imps_ 
     [label_length]=2
     #label
     #data_columns=1,4,5
-This instructs the program to read the fourth columns as Zr and the fifth as Zi (which are calculated values saved in this file. Make sure you have the separator set as ";" which is the one used in this file.
+
+This instructs the program to read the fourth columns as Zr and the fifth as Zi (which are the calculated values saved in this file). Make sure you have the separator set as ";" which is the one used in this file.
 
   In the /data folder you will find some datafiles, experimental or simulated with other impedance programs.
   * definition_file_3_columns.ini
@@ -227,7 +238,7 @@ This list box shows all the datasets in memory. You can select one or more datas
 This button can trigger several commands:
 
 ### Clone these parameters to all ### 
-Copy the listed parameters to all datasets. Useful for bulk fitting.
+Copy the listed parameters to all datasets. Useful for bulk fitting in order to set proper starting point for all the data sets.
 
 ### Save active exp datasets ###
 This command allows you to save the *active* experimental data, that means the selected ones, to a single file in a specific format. The format is three columns, separated by the string you selected in the Parameters page, with frequency in Hz, Zr, and Zi. This is useful for simulating impedance spectra for a given model. All the datasets will be saved in a single file, each data susequenntly added, with its name, to the same file.
@@ -265,6 +276,7 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
+  -  29/07/2023 : added the possibility to select which column to read if the data files have more columns or if the frequency is not in the first column
   -  28/07/2023 : added the possibility to read custom definition files.
   -  16/06/2023 : after loading a datafile, the first dataset is selected automatically.
   -  15/06/2023 : the user can select the separator used for MFLI CSV and 3 columns file. The same separator (space, comma or TAB) will be used for saving files.
