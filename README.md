@@ -130,19 +130,9 @@ If your data file has a format that is not usual you may define the format in a 
      #label
      #ignore_line
      #data_columns=
-     
-For instance, the definition_file_ZMFLI.ini has this form :
 
-    [header]=Temp /K before measurement : 
-    [label_length]=5
-    #label
-    #ignore_line
-    #ignore_line
-    #ignore_line
-    #ignore_line
-    #data_columns=1,2,3
 
-The command header will split the datafile (an exemple is /data/custom_file_ZMFLI.txt) in as many datasets it can find in the file, to each data set it will add a label consisting of the first 5 characters found after the header text. For example, the Z-MFLI program save a file like custom_file_ZMFLI.txt:
+For example, the Z-MFLI program saves a file like this:
 
     Temp /K before measurement : 449.810
     measure started : 26/07/2023  18:33:58
@@ -170,14 +160,24 @@ The command header will split the datafile (an exemple is /data/custom_file_ZMFL
     3.605471E+5	9.711612E+4	-3.944369E+4
     2.940048E+5	1.011267E+5	-3.451051E+4
     
-  
-The configuration file instructs the program to find all the measurements (446 for this case !), then label each data set with the text following the header (which is, in this case, the temperature), ignore the following 4 lines then read the data found in the three columns separated by the delimiter specified by the user in the Parameters case (here, it should be TAB). Yappari can fit in batch all these 446 measurements and save the results in a file.
+In order to read this file we can observe that the datasets are separated by a string  __Temp /K before measurement : __ One can use a definition like this :
 
-Note that even if you don't use a label, the data set will have an index indicating the position of the dataset in the file : 0 is for the first data set, 1 the second, and so on.
+    [header]=Temp /K before measurement : 
+    [label_length]=5
+    #label
+    #ignore_line
+    #ignore_line
+    #ignore_line
+    #ignore_line
+    #data_columns=1,2,3
+
+The command header will split the datafile (an exemple is /data/custom_file_ZMFLI.txt) in as many datasets it can find in the file, to each data set it will add a label consisting of the first 5 characters found after the header text which in this case is the temperature of the measurement.  The program will find all the measurements (446 for this case !), then label each data set with the text following the header (which is, in this case, the temperature), ignore the following 4 lines then read the data found in the three columns separated by the delimiter specified by the user in the Parameters case (here, it should be TAB). Yappari can fit in batch all these 446 measurements and save the results to a file.
+
+Note that even if you don't use a label, the dataset will have an index indicating the position of the data in the file : 0 is for the first dataset, 1 the second, and so on.
 An exemple of configuration file for a three columns separated by tab is also given in the /data directory. 
 The custom file allows to read other columns from the data file. 
 
- For instance, the file _exemple_custom_5_columns.txt_ was saved with yappari and contains 4 data sets with experimental and fitted data. It has a form like this :
+For instance, the file _exemple_custom_5_columns.txt_ was saved with yappari and contains 4 data sets with experimental and fitted data. It has a form like this :
  
     dev3221_imps_34, freq /Hz, Zr , Zi, Zr calc, Zi calc
     5.000000E+6;2.308040E+3;-4.358320E+3;2.656137E+3;-6.062695E+3
@@ -203,7 +203,7 @@ If we want to read this data we can use a a definition file like
 
 This instructs the program to read the fourth columns as Zr and the fifth as Zi (which are the calculated values saved in this file). Make sure you have the separator set as ";" which is the one used in this file.
 
-  In the /data folder you will find some datafiles, experimental or simulated with other impedance programs.
+In the /data folder you will find some files, experimental or simulated with other impedance programs and exemples of configurations for custom files.
   * definition_file_3_columns.ini
   * definition_file_5_columns.ini
   * definition_file_ZMFLI.ini
@@ -225,8 +225,8 @@ For TRDL and Constrained LM, the fit is constrained to certain intervals that ar
 
 
 ## Fit selected ##
-This command is used to fit the set of parameters that describes the circuit, if the circuit is valid (i.e., there are parameters to fit on the right side of the window). The user can select which parameters to fit and it is recommended to start with a few parameters first, ensuring that the initial values are close to the expected values. The simulated spectrum will be updated with every change in the parameters, and the user can perform manual adjustments as necessary. 
-For large datasets, if the data are described by the same model circuit, I suggest to select one measurement, adjust the parameters manually to be close to solution, then fit. After fit you can “Clone” these parameters to all other datasets and select all datasets, then Fit all selected in a go.
+This command is used to fit the set of parameters that describes the circuit, if the circuit is valid (i.e., there are parameters to fit on the right side of the window). The user can select which parameters to fit and it is recommended to start with a few parameters first, ensuring that the initial values are close to the expected values. The simulated spectrum will be updated with every change in the parameters, and the user can perform manual adjustments as necessary. The data can be selected by standard Ctrl+Click, or if you want you can select all by using Ctrl+A.
+For many datasets, the data are described by the same model circuit, I suggest to select one measurement, adjust the parameters manually to be close to solution, then fit. After fit you can “Clone” these parameters to all other datasets and select all datasets, then Fit all selected in a go.
 
 The fitting can be performed using different methods, which are discussed before, although there is not much difference in the output of these methods. The fitting process involves up to 8000 cycles for a dataset, and multiple iterations may be necessary, particularly if the initial values are far from the actual values.
 
@@ -240,7 +240,7 @@ This list box shows all the datasets in memory. You can select one or more datas
 This button can trigger several commands:
 
 ### Clone these parameters to all ### 
-Copy the listed parameters to all datasets. Useful for bulk fitting in order to set proper starting point for all the data sets.
+Copy the listed parameters to all datasets. Useful for bulk fitting in order to set proper starting point for all the sets.
 
 ### Save active exp datasets ###
 This command allows you to save the *active* experimental data, that means the selected ones, to a single file in a specific format. The format is three columns, separated by the string you selected in the Parameters page, with frequency in Hz, Zr, and Zi. This is useful for simulating impedance spectra for a given model. All the datasets will be saved in a single file, each data susequenntly added, with its name, to the same file.
