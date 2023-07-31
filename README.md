@@ -278,15 +278,16 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
-  -  31/07/2023 : increased he number of iteraions to 10K and decreased the limit step
+  -  August 1st, 2023 : added an indication of the fitting progress
+  -  July 31, 2023 : increased he number of iterations to 10000 and decreased the limit step
                   erased an error that appeared when plotting more than 20 datasets
-  -  29/07/2023 : added the possibility to select which column to read if the data files have more columns or if the frequency is not in the first column
-  -  28/07/2023 : added the possibility to read custom definition files.
-  -  16/06/2023 : after loading a datafile, the first dataset is selected automatically.
-  -  15/06/2023 : the user can select the separator used for MFLI CSV and 3 columns file. The same separator (space, comma or TAB) will be used for saving files.
-  -  14/06/2023 : added user selected boundaries for TRDL and constrained LM fit.
-  -  12/06/2023 : added a fourth term in the Z-hit calculations (the one with the pi^7/604800). It's contribution is very small though.
-  -  10/06/2023 : added the Z-hit calculation.
+  -  July 29, 2023 : added the possibility to select which column to read if the data files have more columns or if the frequency is not in the first column
+  -  July 28, 2023 : added the possibility to read custom definition files.
+  -  July 16, 2023 : after loading a datafile, the first dataset is selected automatically.
+  -  July 15, 2023 : the user can select the separator used for MFLI CSV and 3 columns file. The same separator (space, comma or TAB) will be used for saving files.
+  -  July 14, 2023 : added user selected boundaries for TRDL and constrained LM fit.
+  -  June 12, 2023 : added a fourth term in the Z-hit calculations (the one with the pi^7/604800). It's contribution is very small though.
+  -  June 10, 2023 : added the Z-hit calculation.
   
 --
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
