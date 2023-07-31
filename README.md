@@ -117,7 +117,7 @@ __Versa Studio par__
 This type of file contains data delimited by <Segments> and >/Segments>. I did not exenisively checked this type of file, an example is given in the /data folder. 
 
 __Zview txt__
-This is a Zview file, also an ASCII type, that can hold multiple data sets. Yappari will read all datasets it finds in this file and insert them in the datasets listing, with a name taken from the file name and a suffix indicating the position in the file : the first datasets will have__0__, then __1__, .. and so on. The separator setting will not be used in reading this file.
+This is a Zview file, also an ASCII type, that can hold multiple data sets. Yappari will read all datasets it finds in this file and insert them in the datasets listing, with a name taken from the file name and a suffix indicating the position in the file : the first datasets will have __0__, then __1__, .. and so on. The separator setting will not be used in reading this file.
   
 __Z-MFLI__
 This is a text file, that can hold multiple data sets, which is obtained by programs I wrote in my lab. An exemple of such file is given in the /data directory but it has probably little interest for other users.
@@ -160,7 +160,7 @@ For example, the Z-MFLI program saves a file like this:
     3.605471E+5	9.711612E+4	-3.944369E+4
     2.940048E+5	1.011267E+5	-3.451051E+4
     
-In order to read this file we can observe that the datasets are separated by a string  __Temp /K before measurement : __ One can use a definition like this :
+In order to read this file we can observe that the datasets are separated by a string  __Temp /K before measurement :__  One can use a definition like this :
 
     [header]=Temp /K before measurement : 
     [label_length]=5
