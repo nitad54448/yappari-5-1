@@ -2,7 +2,7 @@
 Yappari 5.1, compiled with Labview 2023 for Windows 10.
 It is supposed to work with win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
 
-last version 29th of July 2023
+last version 31th of July 2023
 
 This is an application that requires Labview 2023Q1 64b runtime engine. You may have this "engine" if you have previously installed Yappari or other program written in LV2023 or you can download it freely from the ni.com. Alternatively, if you don't have it, you should use the full installer which can be download from __Releases__ link, on the right side of this page. Make sure you download the installer and not what is labelled as source file archive. The source is not included in this distribution.  
 
@@ -278,6 +278,8 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
+  -  31/07/2023 : increased he number of iteraions to 10K and decreased the limit step
+                  erased an error that appeared when plotting more than 20 datasets
   -  29/07/2023 : added the possibility to select which column to read if the data files have more columns or if the frequency is not in the first column
   -  28/07/2023 : added the possibility to read custom definition files.
   -  16/06/2023 : after loading a datafile, the first dataset is selected automatically.
