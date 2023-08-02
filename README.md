@@ -285,6 +285,7 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
   -  August 2nd, 2023 : read impedance data from HDF5 data files
+                      - points can now be deleted from the Nyquist plot (see the Action menu).
   -  August 1st, 2023 : added an indication of the fitting progress
   -  July 31, 2023 : increased he number of iterations to 10000 and decreased the limit step
                   erased an error that appeared when plotting more than 20 datasets
