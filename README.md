@@ -1,6 +1,6 @@
 # yappari-v5-2023
 
-this version was compiled on August 1st, 2023
+this version was compiled on August 2nd, 2023
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance.
 This program can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
@@ -118,7 +118,10 @@ This type of file contains data delimited by <Segments> and >/Segments>. I did n
 
 __Zview txt__
 This is a Zview file, also an ASCII type, that can hold multiple data sets. Yappari will read all datasets it finds in this file and insert them in the datasets listing, with a name taken from the file name and a suffix indicating the position in the file : the first datasets will have __0__, then __1__, .. and so on. The separator setting will not be used in reading this file.
-  
+
+__HDF5-MFLI__
+This is a HDF5 file, a binary file, that can hold multiple data sets. The datafile must be saved by MFIA or MFLI with impedance options (it must hold an _imps_ group. An exemple of such file is given in the /data directory, it has a _h5_ extension.
+
 __Z-MFLI__
 This is a text file, that can hold multiple data sets, which is obtained by programs I wrote in my lab. An exemple of such file is given in the /data directory but it has probably little interest for other users.
 
@@ -278,6 +281,7 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
+  -  August 2nd, 2023 : added the possibility to read HDF5 data files
   -  August 1st, 2023 : added an indication of the fitting progress
   -  July 31, 2023 : increased he number of iterations to 10000 and decreased the limit step
                   erased an error that appeared when plotting more than 20 datasets
