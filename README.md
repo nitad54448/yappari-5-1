@@ -7,7 +7,7 @@ This program can be referenced in publications as http://dx.doi.org/10.13140/RG.
 
 This is Yappari 5.1, compiled with Labview 2023 for Windows 10.
 It is supposed to work with win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
-This application requires Labview 2023Q1 64b runtime engine. You may have this "engine" if you have previously installed Yappari or other program written in LV2023 or you can download it freely from the ni.com. Alternatively, you should use the full installer which can be download from __Releases__ link, on the right side of this page. Make sure you download the installer and not what is labelled as source file archive. The source is not included in this distribution.  
+This application requires Labview 2023Q1 64b runtime engine. You may have this "engine" if you have previously installed Yappari or other program written in LV2023 or you can download it freely from ni.com. Alternatively, you should use the full installer which can be download from __Releases__ link, on the right side of this page. Make sure you download the installer and not what is labelled as source file archive. The source is not included in this distribution.  
 
 This program can perform fits for one or multiple datasets (by multiple I mean hunderths or even thousands datasets, this may be slow but you get all the results in a datafile). For a single dataset you may want to use a simpler program called [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2), available also as a Windows 10 installer. This single dataset program will not be developed further.
 
