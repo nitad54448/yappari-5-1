@@ -265,7 +265,10 @@ This command generates an HTML report containing information about the model use
 
 ### Z-Hit active datasets ###
 This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given here. This is a procedure similar to the better known Kramers-Kronig test.
-  
+
+### Delete points from Nyquist ###
+You can delete points from datasets visible in the Nyquist plot : jus zomm the region where the points you want to delete then select this action command. This is irreversible.
+
 ### Help ###
 This will open a help file in a pdf format (the most recent help is always in this github page and not in the pdf file installed with the program).
 
