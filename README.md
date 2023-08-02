@@ -120,7 +120,7 @@ __Zview txt__
 This is a Zview file, also an ASCII type, that can hold multiple data sets. Yappari will read all datasets it finds in this file and insert them in the datasets listing, with a name taken from the file name and a suffix indicating the position in the file : the first datasets will have __0__, then __1__, .. and so on. The separator setting will not be used in reading this file.
 
 __HDF5-MFLI__
-This is a HDF5 file, a binary file, that can hold multiple data sets. The datafile must be saved by MFIA or MFLI with impedance options (it must hold an _imps_ group. An exemple of such file is given in the /data directory, it has a _h5_ extension.
+This is a HDF5 file, a binary file, that can hold multiple data sets. The datafile must be saved by MFIA or MFLI with impedance options. It must hold an _imps_ group. An exemple of such file is given in the /data directory, it has a _h5_ extension. An error will appear if the file does not hold _imps_ groups.
 
 __Z-MFLI__
 This is a text file, that can hold multiple data sets, which is obtained by programs I wrote in my lab. An exemple of such file is given in the /data directory but it has probably little interest for other users.
@@ -281,7 +281,7 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
-  -  August 2nd, 2023 : added the possibility to read HDF5 data files
+  -  August 2nd, 2023 : read impedance data from HDF5 data files
   -  August 1st, 2023 : added an indication of the fitting progress
   -  July 31, 2023 : increased he number of iterations to 10000 and decreased the limit step
                   erased an error that appeared when plotting more than 20 datasets
