@@ -1,4 +1,0 @@
-[header]=dev3221_imp_
-[label_length]=2
-#label
-#data_columns=1,4,5
