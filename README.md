@@ -1,21 +1,21 @@
 # yappari-v5-2023
 
-this version was compiled on August 2nd, 2023
+This version was compiled on August 2nd, 2023. See the end of this document for changes made to the program.
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance.
 This program can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
 This is Yappari 5.1, compiled with Labview 2023 for Windows 10.
 It is supposed to work with win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
-This application requires Labview 2023Q1 64b runtime engine. You may have this "engine" if you have previously installed Yappari or other program written in LV2023 or you can download it freely from the ni.com. Alternatively, you should use the full installer which can be download from __Releases__ link, on the right side of this page. Make sure you download the installer and not what is labelled as source file archive. The source is not included in this distribution.  
+This application requires Labview 2023Q1 64b runtime engine. You may have this "engine" if you have previously installed Yappari or other program written in LV2023 or you can download it freely from ni.com. Alternatively, you should use the full installer which can be download from __Releases__ link, on the right side of this page. Make sure you download the installer and not what is labelled as source file archive. The source is not included in this distribution.  
 
-This program can perform fits for one or multiple datasets fits (by multiple I mean hunderths or even thousands datasets, this may be slow but you get all the results in a datafile). For a single dataset you may want to use a simpler program called [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2), available also as a Windows 10 installer. This single dataset program will not be developed further.
+This program can perform fits for one or multiple datasets (by multiple I mean hunderths or even thousands datasets, this may be slow but you get all the results in a datafile). For a single dataset you may want to use a simpler program called [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2), available also as a Windows 10 installer. This single dataset program will not be developed further.
 
-You are encouraged to contribute to this help file, you can send it to me or fork it on Github. As much as I like programming, writing documentation is boring. A short tutorial is included in the help pdf file which is installed with the exe file. Otherwise, the most updated description of the program is always here on this page.
+You are encouraged to contribute to this help file, either you can send it to me or fork it on Github. As much as I like programming, writing documentation is boring. A short tutorial is included in the help pdf file which is installed with the exe file. Otherwise, the most updated description of the program is always here on this page.
 It is generally a good idea to read a help file before using the program, but if you are in a hurry, this is what you should do :
 
   - select string delimiter on the Parameters page (essential, if you are reading MFLI csv, 3 columns file or a user defined format)
-  - read some data
+  - read data
   - build a model
   - fit
 
@@ -265,7 +265,10 @@ This command generates an HTML report containing information about the model use
 
 ### Z-Hit active datasets ###
 This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given here. This is a procedure similar to the better known Kramers-Kronig test.
-  
+
+### Delete points from Nyquist ###
+You can delete points from datasets visible in the Nyquist plot : jus zomm the region where the points you want to delete then select this action command. This is irreversible.
+
 ### Help ###
 This will open a help file in a pdf format (the most recent help is always in this github page and not in the pdf file installed with the program).
 
@@ -282,6 +285,7 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
   -  August 2nd, 2023 : read impedance data from HDF5 data files
+                      - points can now be deleted from the Nyquist plot (see the Action menu).
   -  August 1st, 2023 : added an indication of the fitting progress
   -  July 31, 2023 : increased he number of iterations to 10000 and decreased the limit step
                   erased an error that appeared when plotting more than 20 datasets
