@@ -7,7 +7,7 @@ This program can be referenced in publications as http://dx.doi.org/10.13140/RG.
 
 This is Yappari 5.1, compiled with Labview 2023 for Windows 10.
 It is supposed to work with win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
-This application requires Labview 2023Q1 64b runtime engine. You may have this "engine" if you have previously installed Yappari or other program written in LV2023 or you can download it freely from ni.com. Alternatively, you should use the full installer which can be download from __Releases__ link, on the right side of this page. Make sure you download the installer and not what is labelled as source file archive. The source is not included in this distribution.  
+This application requires Labview 2023 or subsequent 64b runtime engine. You may have this "engine" if you have previously installed Yappari or other program written in LV2023 or you can download it freely from ni.com. Alternatively, you should use the full installer which can be download from __Releases__ link, on the right side of this page. Make sure you download the installer and not what is labelled as source file archive. The source is not included in this distribution.  
 
 This program can perform fits for one or multiple datasets (by multiple I mean hunderths or even thousands datasets, this may be slow but you get all the results in a datafile). For a single dataset you may want to use a simpler program called [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2), available also as a Windows 10 installer. This single dataset program will not be developed further.
 
@@ -24,8 +24,8 @@ It is generally a good idea to read a help file before using the program, but if
 The program has several graphic panels and a parameter list with several commands grouped on the right side of the window.
 
 ## Zr, -Zi ##
-This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you can disable the Auto-axis feature by clicking on the graph, or directly changing the scale in the legend. Some other standard graph functions are available in the top left "palette" such as zoom in, out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
-The change of the plot colors, style, etc.... in this graph will affect all the graphs.
+This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you can disable the Auto-axis feature by right clicking on the graph, or directly changing the scale in the legend. Some other standard graph functions are available in the top left "palette" such as zoom in, out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
+You can change the plot colors, style, etc.... by clicking on the label; the changes in this graph will affect all the graphs. You can remove some outlier points by zooming in and use the command _Action_/_Delete points from Nyquist_.
 If you use a large number of datasets (more than 200 sets), plotting can give some errors, they are inoffensive and can be ignored.
 
 ## Zr, Zi, ln R, theta ##
@@ -39,7 +39,7 @@ In this panel a model can be created by the user, by selecting element circuits.
 Up to ten elements can be added in the circuit (obviously it is not realistic to fit such a circuit, unless you want to fit a crocodile). Only the first 18 parameters will be shown in the right side of the program.
 When you click on one of the ten available cases, a new window will appear where you can select the element you want to add. Simply click on the picture of the element you want to add to the model. The available circuit elements include resistors, capacitors, inductors, and more complex elements such as constant phase elements or Warburg elements (see below).
 
-You can edit the png image files to your liking (just for aesthetics, the calculations are not affected), they are in the subdirectory __/models__. The size of the png files should be 150x100 pixels.
+You can edit the png image files to your liking (just for aesthetics, the calculations will not be affected), they are in the subdirectory __/models__. The ideal size of the png files is 150x100 pixels.
 
 ### Elements ###
 The elements used are the most common: Resistor, Capacitor, Inductor, CPE, Zarc, simple Randles circuit, Randles with kinetic and diffusion, Warburg (semi-infinite linear diffusion), Warburg short, Warburg Long, Gerischer, Havriliak-Negami and several compositions of these.
@@ -234,6 +234,7 @@ For many datasets, the data are described by the same model circuit, I suggest t
 The fitting can be performed using different methods, which are discussed before, although there is not much difference in the output of these methods. The fitting process involves up to 10000 cycles for a dataset, and multiple iterations -up to 12- may be necessary, particularly if the initial values are far from the actual values.
 
 The quality of the fit is evaluated using the R<sup>2</sup> statistical parameter and the chi<sup>2</sup> value. However, the use of the chi<sup>2</sup> value as a statistical parameter is debatable, as discussed in the paper "Dos and don'ts of reduced chi-squared" by Andrae et al. (https://arxiv.org/abs/1012.3754). The chi<sup>2</sup> value reported here is calculated as (Sum ((Z<sub>obs</sub>-Z<sub>calc</sub>)<sup>2</sup>/Z<sub>calc</sub>))/DOF. The degree of freedom (DOF) is considered as Nr_of_points - nr_of_fitted_params. 
+The standard deviation is properly estimated (assumming independent errors) only for unconstrained Levenberg-Marquardt fit.
 
 ## Datasets ##
 This list box shows all the datasets in memory. You can select one or more datasets. The parameters listed are those of the dataset selected (or the first selected dataset if you have more than one selection). The datasets label can be edited.
@@ -242,8 +243,14 @@ This list box shows all the datasets in memory. You can select one or more datas
 ## Action ##
 This button can trigger several commands:
 
-### Clone these parameters to all ### 
+### Delete points from Nyquist ###
+You can delete points from datasets visible in the Nyquist plot : just zoom in the region to show only the points you want to delete then select this action command. This is irreversible.
+
+### Clone the parameters to all ### 
 Copy the listed parameters to all datasets. Useful for bulk fitting in order to set proper starting point for all the sets.
+
+### Clone the parameters to active ### 
+Copy the listed parameters to selected datasets. 
 
 ### Save active exp datasets ###
 This command allows you to save the *active* experimental data, that means the selected ones, to a single file in a specific format. The format is three columns, separated by the string you selected in the Parameters page, with frequency in Hz, Zr, and Zi. This is useful for simulating impedance spectra for a given model. All the datasets will be saved in a single file, each data susequenntly added, with its name, to the same file.
@@ -265,9 +272,6 @@ This command generates an HTML report containing information about the model use
 
 ### Z-Hit active datasets ###
 This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given here. This is a procedure similar to the better known Kramers-Kronig test.
-
-### Delete points from Nyquist ###
-You can delete points from datasets visible in the Nyquist plot : jus zomm the region where the points you want to delete then select this action command. This is irreversible.
 
 ### Help ###
 This will open a help file in a pdf format (the most recent help is always in this github page and not in the pdf file installed with the program).
