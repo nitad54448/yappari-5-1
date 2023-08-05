@@ -1,19 +1,16 @@
-# yappari-v5-2023 #
-
-This ersion was compiled on August 5, 2023. See the end of this document for changes made to the program.
-
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
 This program can perform fits for one or multiple datasets (by multiple I mean hunderths or even thousands datasets, this may be slow but you'll get all the results in a run, the results can be saved in a datafile). For a single dataset you may want to use a simpler program called [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2), available also as a Windows 10 installer. This single dataset program will not be developed further.
 
 You are encouraged to contribute to this help file, either you can send it to me or fork it on Github. As much as I like programming, writing documentation is boring. A short tutorial is included in the help pdf file which is installed with the exe file. Otherwise, the most updated description of the program is always here on this page.
-It is generally a good idea to read a help file before using the program,...
+It is generally a good idea to read a help file before using a program.
 
-- [yappari-v5-2023](#yappari-v5-2023)
+# yappari-v5-2023 #
+
   * [How to install](#how-to-install)
   * [Panels](#panels)
-    + [Zr, -Zi](#zr-zi)
-    + [Zr, Zi, ln R, theta](#zr--zi--ln-r--theta)
+    + [Zr, -Zi](#zr--zi)
+    + [Zr, Zi, ln R, theta](#zr-zi-ln-r-theta)
     + [3D plot](#3d-plot)
     + [Model](#model)
       - [Elements](#elements)
