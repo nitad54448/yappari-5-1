@@ -129,13 +129,12 @@ The numbering of the devices goes from left to right and top to bottom. For exam
 Overall, the notation is quite straightforward once you become familiar with the conventions used.
 
 ### Parameters ###
-On this page you can adjust the parameters boudaries for TRDL and constrained Levenberg-Marquardt procedure. In addition the datafile separator can be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. 
-
-The _method_ command allows the user to select the method used for nonlinear fitting. There are three methods available: Trusted Region Dog Led algorithm (TRDL), Constrained Levenberg Marquardt, and Levenberg Marquardt. The user can choose any of these methods, and if the model is robust, they should obtain the same results. 
+On this page you can adjust the fitting algorithm and the parameters boudaries for TRDL and constrained Levenberg-Marquardt procedures. 
+In addition the datafile separator can be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. 
 
 For TRDL and Constrained LM, the fit is constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-14, and so on. You may need to adjust the parameters limits. I recommend to manually adjust the initial parameters to some values that describe correctly the spectra, start with TRDL and then make a final fit with the standard (unconstrained) LM method. The fitting results may depend on the starting parameters.
 
-Also, the fitting parameters can be adjusted here : by default they are set to 5000 iterations and a stop limit at 1E-8.
+Also, the fitting parameters can be adjusted here : by default they are set to 5000 iterations and a stop limit at 10E-8.
 
 ### About ###
 Brief help listing the version of the program. 
