@@ -1,6 +1,6 @@
 # yappari-v5-2023
 
-This version was compiled on August 4th, 2023. See the end of this document for changes made to the program.
+This version was compiled on August 5, 2023. See the end of this document for changes made to the program.
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance.
 This program can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
@@ -289,10 +289,11 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
+  -  August 5, 2023 : Small cosmetic changes.
   -  August 4, 2023 : Can copy parameters (aka clone) only to active datasets. The number of iterations and stop limit are now adjustable parameters.
   -  August 2, 2023 : read impedance data from HDF5 data files. Some points can now be deleted from the Nyquist plot (see the Action menu).
-  -  August 1st, 2023 : added an indication of the fitting progress
-  -  July 31, 2023 : increased he number of iterations to 10000 and decreased the limit step
+  -  August 1st, 2023 : added an indication of the fitting progress.
+  -  July 31, 2023 : increased he number of iterations to 10000 and decreased the limit step.
                   erased an error that appeared when plotting more than 20 datasets
   -  July 29, 2023 : added the possibility to select which column to read if the data files have more columns or if the frequency is not in the first column
   -  July 28, 2023 : added the possibility to read custom definition files.
