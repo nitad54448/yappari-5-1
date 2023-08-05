@@ -18,7 +18,7 @@ It is generally a good idea to read a help file before using the program, but if
 Yappari 5.1 is compiled with Labview 2023 for Windows 10.
 It is supposed to work with win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
 This application requires Labview 2023 runtime engine or a subsequent LV 64 bits runtime engine. You may have this "engine" if you have previously installed Yappari or other program written in LV2023 or you can download it freely from ni.com. 
-The recommended way to install is to use the full package which can be downloaded from __Releases__ [link](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the installer and not what is labelled as source file archive. The source is not included in this distribution. 
+The recommended way to install is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the yappari_installer.zip file and not what is labelled as source file archive. The source is not included in this distribution. 
 
 After installing the program in a directory of your choice, two other directories will be created : /Data and /models. The _models_ directory contains png files with images for creating circuit. The _data_ directory contains exemples of data files and some dll required by the program (if you remove these files the program will still work except for reading the HDF5 files.
 
