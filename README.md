@@ -129,9 +129,9 @@ The numbering of the devices goes from left to right and top to bottom. For exam
 Overall, the notation is quite straightforward once you become familiar with the conventions used.
 
 ### Parameters ###
-On this page you can adjust the fitting algorithm and the parameters boudaries for TRDL and constrained Levenberg-Marquardt procedures. 
+On this page you can adjust the fitting algorithm (TRDL is the default) and the parameters boudaries for TRDL and constrained Levenberg-Marquardt procedures. 
 
-In addition the datafile separator _should_ be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. 
+In addition the datafile separator _should_ be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. By default the separator is set to TAB.
 
 For TRDL and Constrained LM, the fit is constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-14, and so on. You may need to adjust the parameters limits. I recommend to manually adjust the initial parameters to some values that describe correctly the spectra, start with TRDL and then make a final fit with the standard (unconstrained) LM method. The fitting results may depend on the starting parameters.
 
