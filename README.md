@@ -290,11 +290,10 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
   -  August 5, 2023 : Small cosmetic changes.
-  -  August 4, 2023 : Can copy parameters (aka clone) only to active datasets. The number of iterations and stop limit are now adjustable parameters.
+  -  August 4, 2023 : Can copy parameters (aka clone) to active datasets. The number of iterations and stop limit are now adjustable parameters.
   -  August 2, 2023 : read impedance data from HDF5 data files. Some points can now be deleted from the Nyquist plot (see the Action menu).
   -  August 1st, 2023 : added an indication of the fitting progress.
-  -  July 31, 2023 : increased he number of iterations to 10000 and decreased the limit step.
-                  erased an error that appeared when plotting more than 20 datasets
+  -  July 31, 2023 : increased he number of iterations to 10000 and decreased the limit step, erased an error that appeared when plotting more than 20 datasets
   -  July 29, 2023 : added the possibility to select which column to read if the data files have more columns or if the frequency is not in the first column
   -  July 28, 2023 : added the possibility to read custom definition files.
   -  July 16, 2023 : after loading a datafile, the first dataset is selected automatically.
