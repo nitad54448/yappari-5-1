@@ -2,14 +2,9 @@
 
 This version was compiled on August 5, 2023. See the end of this document for changes made to the program.
 
-__YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance.
-This program can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
+__YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
-This is Yappari 5.1, compiled with Labview 2023 for Windows 10.
-It is supposed to work with win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
-This application requires Labview 2023 or subsequent 64b runtime engine. You may have this "engine" if you have previously installed Yappari or other program written in LV2023 or you can download it freely from ni.com. Alternatively, you should use the full installer which can be download from __Releases__ [link](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the installer and not what is labelled as source file archive. The source is not included in this distribution.  
-
-This program can perform fits for one or multiple datasets (by multiple I mean hunderths or even thousands datasets, this may be slow but you get all the results in a datafile). For a single dataset you may want to use a simpler program called [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2), available also as a Windows 10 installer. This single dataset program will not be developed further.
+This program can perform fits for one or multiple datasets (by multiple I mean hunderths or even thousands datasets, this may be slow but you'll get all the results in a run, the results can be saved in a datafile). For a single dataset you may want to use a simpler program called [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2), available also as a Windows 10 installer. This single dataset program will not be developed further.
 
 You are encouraged to contribute to this help file, either you can send it to me or fork it on Github. As much as I like programming, writing documentation is boring. A short tutorial is included in the help pdf file which is installed with the exe file. Otherwise, the most updated description of the program is always here on this page.
 It is generally a good idea to read a help file before using the program, but if you are in a hurry, this is what you should do :
@@ -19,6 +14,13 @@ It is generally a good idea to read a help file before using the program, but if
   - build a model
   - fit
 
+## How to install ##
+Yappari 5.1 is compiled with Labview 2023 for Windows 10.
+It is supposed to work with win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
+This application requires Labview 2023 runtime engine or a subsequent LV 64 bits runtime engine. You may have this "engine" if you have previously installed Yappari or other program written in LV2023 or you can download it freely from ni.com. 
+The recommended way to install is to use the full package which can be downloaded from __Releases__ [link](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the installer and not what is labelled as source file archive. The source is not included in this distribution. 
+
+After installing the program in a directory of your choice, two other directories will be created : /Data and /models. The _models_ directory contains png files with images for creating circuit. The _data_ directory contains exemples of data files and some dll required by the program (if you remove these files the program will still work except for reading the HDF5 files.
 
 # Panels #
 The program has several graphic panels and a parameter list with several commands grouped on the right side of the window.
@@ -93,7 +95,6 @@ For a more complex circuit, you can find on the right side of the screen names s
 The numbering of the devices goes from left to right and top to bottom. For example, the first device is a resistor and can be described by the parameter "2MR1D". The second device in the circuit is a Zarc, which is a combination of a constant phase element (CPE, or Q) in parallel with a resistor. This device is described by the parameters "Q2" and "N2". 
 
 Overall, the notation is quite straightforward once you become familiar with the conventions used.
-
 
 ## Parameters ##
 On this page you can adjust the parameters boudaries for TRDL and constrained Levenberg-Marquardt procedure. In addition the datafile separator can be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. 
