@@ -321,7 +321,7 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
-  -  August 5, 2023 : Small cosmetic changes.
+  -  August 6, 2023 : Small cosmetic changes, main font is the user system 15pt.
   -  August 4, 2023 : Can copy parameters (aka clone) to active datasets. The number of iterations and stop limit are now adjustable parameters.
   -  August 2, 2023 : read impedance data from HDF5 data files. Some points can now be deleted from the Nyquist plot (see the Action menu).
   -  August 1st, 2023 : added an indication of the fitting progress.
