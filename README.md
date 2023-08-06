@@ -1,47 +1,81 @@
-# yappari-v5-2023
+__YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
-This version was compiled on August 5, 2023. See the end of this document for changes made to the program.
-
-__YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance.
-This program can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
-
-This is Yappari 5.1, compiled with Labview 2023 for Windows 10.
-It is supposed to work with win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
-This application requires Labview 2023 or subsequent 64b runtime engine. You may have this "engine" if you have previously installed Yappari or other program written in LV2023 or you can download it freely from ni.com. Alternatively, you should use the full installer which can be download from __Releases__ [link](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the installer and not what is labelled as source file archive. The source is not included in this distribution.  
-
-This program can perform fits for one or multiple datasets (by multiple I mean hunderths or even thousands datasets, this may be slow but you get all the results in a datafile). For a single dataset you may want to use a simpler program called [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2), available also as a Windows 10 installer. This single dataset program will not be developed further.
+This program can perform fits for one or multiple datasets (by multiple I mean hunderths or even thousands datasets, this may be slow but you'll get all the results in a run, the results can be saved in a datafile). For a single dataset you may want to use a simpler program called [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2), available also as a Windows 10 installer. This single dataset program will not be developed further.
 
 You are encouraged to contribute to this help file, either you can send it to me or fork it on Github. As much as I like programming, writing documentation is boring. A short tutorial is included in the help pdf file which is installed with the exe file. Otherwise, the most updated description of the program is always here on this page.
-It is generally a good idea to read a help file before using the program, but if you are in a hurry, this is what you should do :
+It is generally a good idea to read a help file before using a program.
 
-  - select string delimiter on the Parameters page (essential, if you are reading MFLI csv, 3 columns file or a user defined format)
-  - read data
-  - build a model
-  - fit
+# yappari-v5-2023 #
+
+  * [How to install](#how-to-install)
+  * [Panels](#panels)
+    + [Zr, -Zi](#zr--zi)
+    + [Zr, Zi, ln R, theta](#zr-zi-ln-r-theta)
+    + [3D plot](#3d-plot)
+    + [Model](#model)
+      - [Elements](#elements)
+      - [Create a model](#create-a-model)
+    + [Parameters](#parameters)
+    + [About](#about)
+  * [Commands](#commands)
+    + [Read data](#read-data)
+      - [3 columns](#3-columns)
+      - [MFLI csv](#mfli-csv)
+      - [Versa Studio par](#versa-studio-par)
+      - [Zview txt](#zview-txt)
+      - [HDF5-MFLI](#hdf5-mfli)
+      - [Z-MFLI](#z-mfli)
+      - [Custom](#custom)
+    + [Action](#action)
+      - [Delete points from Nyquist](#delete-points-from-nyquist)
+      - [Clone the parameters to all](#clone-the-parameters-to-all)
+      - [Clone the parameters to active](#clone-the-parameters-to-active)
+      - [Save active exp datasets](#save-active-exp-datasets)
+      - [Save active calc datasets](#save-active-calc-datasets)
+      - [Save active exp and calc datasets](#save-active-exp-and-calc-datasets)
+      - [Average active datasets](#average-active-datasets)
+      - [Erase active datasets](#erase-active-datasets)
+      - [Report active](#report-active)
+      - [Z-Hit active datasets](#z-hit-active-datasets)
+      - [Help](#help)
+    + [Datasets](#datasets)
+    + [Fit selected](#fit-selected)
+    + [Exit](#exit)
+    + [Author](#author)
+    + [Changes](#changes)
 
 
-# Panels #
+
+## How to install ##
+Yappari 5.1 is compiled with Labview 2023 for Windows 10.
+It is supposed to work with win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
+This application requires Labview 2023 runtime engine or a subsequent LV 64 bits runtime engine. You may have this "engine" if you have previously installed Yappari or other program written in LV2023 or you can download it freely from ni.com. 
+The recommended way to install is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the yappari_installer.zip file and not what is labelled as source file archive. The source is not included in this distribution. 
+
+After installing the program in a directory of your choice, two other directories will be created : /Data and /models. The _models_ directory contains png files with images for creating circuit. The _data_ directory contains exemples of data files and some dll required by the program (if you remove these files the program will still work except for reading the HDF5 files.
+
+## Panels ##
 The program has several graphic panels and a parameter list with several commands grouped on the right side of the window.
 
-## Zr, -Zi ##
+### Zr, -Zi ###
 This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you can disable the Auto-axis feature by right clicking on the graph, or directly changing the scale in the legend. Some other standard graph functions are available in the top left "palette" such as zoom in, out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
 You can change the plot colors, style, etc.... by clicking on the label; the changes in this graph will affect all the graphs. You can remove some outlier points by zooming in and use the command _Action_/_Delete points from Nyquist_.
 If you use a large number of datasets (more than 200 sets), plotting can give some errors, they are inoffensive and can be ignored.
 
-## Zr, Zi, ln R, theta ##
+### Zr, Zi, ln R, theta ###
 These panels will show the dependency of impedances (real, imaginary, modulus or phase) as a function of frequency and the differences between the calculated and experimental values (if any).
 
-## 3D plot ##
+### 3D plot ###
 This panel will show a 3D plot of selected datasets, either in Nyquist, Zr or Zi or their difference, as selected by the user. This is useful for many datasets, more than 20 I guess, it will allow the user to see tendencies or check systematic errors in the fits. You can right click on the graph to adjust plotting properties to your liking (3D Plot Properties) or change the size of the graph.
 
-## Model ##
+### Model ###
 In this panel a model can be created by the user, by selecting element circuits. 
 Up to ten elements can be added in the circuit (obviously it is not realistic to fit such a circuit, unless you want to fit a crocodile). Only the first 18 parameters will be shown in the right side of the program.
 When you click on one of the ten available cases, a new window will appear where you can select the element you want to add. Simply click on the picture of the element you want to add to the model. The available circuit elements include resistors, capacitors, inductors, and more complex elements such as constant phase elements or Warburg elements (see below).
 
 You can edit the png image files to your liking (just for aesthetics, the calculations will not be affected), they are in the subdirectory __/models__. The ideal size of the png files is 150x100 pixels.
 
-### Elements ###
+#### Elements ####
 The elements used are the most common: Resistor, Capacitor, Inductor, CPE, Zarc, simple Randles circuit, Randles with kinetic and diffusion, Warburg (semi-infinite linear diffusion), Warburg short, Warburg Long, Gerischer, Havriliak-Negami and several compositions of these.
 
 Warburg element represents semi-infinite diffusion to or from a flat electrode, expressed here as:
@@ -76,7 +110,7 @@ A very good introduction to all these parameters can be found [here](https://pub
 
 Some others functions can be added upon request, if I will have the time and if there is real interest for them.
 
-### Create a model ###
+#### Create a model ####
 
 When you create a model using the  editor, the circuit is not valid unless a flow of current can be calculated (but not a short-circuit). Once the circuit is valid, a LED labeled "valid" will light up on the model panel, indicating that the circuit is ready for use and you can see a list of all the parameters for each element of the circuit. 
 _Note : the parameters will be listed only if you have loaded experimental data!_ If you forgot to load data and already built a model, you can read data then modify the model to check for its validity (for instance, replace one element with the same one, this will trigger a validity check in the program). However, in doing so, the paramaters of the model will be initialized to some dummy values. To see the experimental data and the simulaion you need to select one or several datasets.
@@ -94,39 +128,43 @@ The numbering of the devices goes from left to right and top to bottom. For exam
 
 Overall, the notation is quite straightforward once you become familiar with the conventions used.
 
+### Parameters ###
+On this page you can adjust the fitting algorithm (TRDL is the default) and the parameters boudaries for TRDL and constrained Levenberg-Marquardt procedures. 
 
-## Parameters ##
-On this page you can adjust the parameters boudaries for TRDL and constrained Levenberg-Marquardt procedure. In addition the datafile separator can be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. 
-On this panel the fitting parameters can be adjusted : by default they are set to 5000 iterations and a stop limit at 1E-8.
+In addition the datafile separator _should_ be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. By default the separator is set to TAB.
 
-## About ##
+For TRDL and Constrained LM, the fit is constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-14, and so on. You may need to adjust the parameters limits. I recommend to manually adjust the initial parameters to some values that describe correctly the spectra, start with TRDL and then make a final fit with the standard (unconstrained) LM method. The fitting results may depend on the starting parameters.
+
+Also, the fitting parameters can be adjusted here : by default they are set to 5000 iterations and a stop limit at 10E-8.
+
+### About ###
 Brief help listing the version of the program. 
 
-# Commands #
-## Read data ##
+## Commands ##
+### Read data ###
 This command opens a menu with several options as of now, designing which type of file to read. Note that reading a new file will just add more data wihtout losing the previous ones. You can remove some of the datasets with the command __Erase selected datasets__. You will need to select one or more datasets in order to plot them. 
 
-__3 columns__
+#### 3 columns ####
 This option reads a three-column ASCII file, which should be separated by the character selected in the Parameters page, and it should contain frequency in Hz, Zr, and Zi. Is important to note that for French users (and some others), the separator value for a number should be a dot “.” and not a comma “,” (you may need to adjust this in the Windws parameters). I did not check if the program works when a number is represented as 1,256 instead of usual 1.256, but obviously one can not use ',' for separating both the digits in a number representation and separating values in a text file. 
 If the reading is successful, the dataset will be inserted in the first position with a name taken from the filename open. This name can be changed by the user. Only one dataset can be read with this command. 
 The first line of these files can be a text (the program will try to detect and discard a comment in the first line; if it fails, just remove all comments from the file and try again), or use the Custom format.
 
-__MFLI csv__
+#### MFLI csv ####
 This is a ';' or ',' separated values file as obtained from MFLI/MFIA, a Zurich Instruments impedance analyzer. As in the Zview text file, multiple data sets can be saved or read from this file. In the data folder that is provided with this installer you can find such a file containing 34 measurements of the same sample. It would be boring and useless to fit all these 34 datasets one by one. Yappari-5 can handle such multiple data sets. You should select the proper separator string in the Parameters page.
 
-__Versa Studio par__
+#### Versa Studio par ####
 This type of file contains data delimited by <Segments> and >/Segments>. I did not exenisively checked this type of file, an example is given in the /data folder. 
 
-__Zview txt__
+#### Zview txt ####
 This is a Zview file, also an ASCII type, that can hold multiple data sets. Yappari will read all datasets it finds in this file and insert them in the datasets listing, with a name taken from the file name and a suffix indicating the position in the file : the first datasets will have __0__, then __1__, .. and so on. The separator setting will not be used in reading this file.
 
-__HDF5-MFLI__
+#### HDF5-MFLI ####
 This is a HDF5 file, a binary file, that can hold multiple data sets. The datafile must be saved by MFIA or MFLI with impedance options. It must hold an _imps_ group. An exemple of such file is given in the /data directory, it has a _h5_ extension. An error will appear if the file does not hold _imps_ groups.
 
-__Z-MFLI__
+#### Z-MFLI ####
 This is a text file, that can hold multiple data sets, which is obtained by programs I wrote in my lab. An exemple of such file is given in the /data directory but it has probably little interest for other users.
 
-__Custom__
+#### Custom ####
 If your data file has a format that is not usual you may define the format in a configuration file. Several exemples of such files are given in the /data directory. The accepted keywords are :
 
      [header]=
@@ -222,13 +260,47 @@ In the /data folder you will find some files, experimental or simulated with oth
   * type_VersaStudio.par
   * ZMFLI_exemple_file_.txt
 
-## Method ##
-This command allows the user to select the method used for nonlinear fitting. There are three methods available: Trusted Region Dog Led algorithm (TRDL), Constrained Levenberg Marquardt, and Levenberg Marquardt. The user can choose any of these methods, and if the model is robust, they should obtain the same results. 
 
-For TRDL and Constrained LM, the fit is constrained to certain intervals that are listed on the _Parameters_ page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-14, and so on. You may need to adjust the parameters limits, see the _Parameters_ page. I recommend to manually adjust the initial parameters to some values that describe correctly the spectra, start with TRDL and then make a final fit with the standard (unconstrained) LM method. The fitting results may depend on the starting parameters.
+### Action ###
+This button can trigger several commands:
 
+#### Delete points from Nyquist ####
+You can delete points from datasets visible in the Nyquist plot : just zoom in the region to show only the points you want to delete then select this action command. This is irreversible.
 
-## Fit selected ##
+#### Clone the parameters to all ####
+Copy the listed parameters to all datasets. Useful for bulk fitting in order to set proper starting point for all the sets.
+
+#### Clone the parameters to active ####
+Copy the listed parameters to selected datasets. 
+
+#### Save active exp datasets ####
+This command allows you to save the *active* experimental data, that means the selected ones, to a single file in a specific format. The format is three columns, separated by the string you selected in the Parameters page, with frequency in Hz, Zr, and Zi. This is useful for simulating impedance spectra for a given model. All the datasets will be saved in a single file, each data susequenntly added, with its name, to the same file.
+
+#### Save active calc datasets ####
+This command allows you to save the *active* calculated data to a file in a three columns format, separated by the string you selected in the Parameters page.
+
+#### Save active exp and calc datasets ####
+This command allows you to save the *active* experimental data and calculated data, in a 5 columns ASCII file. Note that all datasets are saved in a single file, each dataset will be separated by the label of the set. This might be used to plot nicer graphs.
+
+#### Average active datasets ####
+This command will calculate the mean of Zr and Zi for the selected datasets. This function can be applied to datasets measured at the same frequencies.
+
+#### Erase active datasets ####
+Irreversible action removing one or more datasets and all related parameters from memory (by active one should understand “selected”)
+
+#### Report active ####
+This command generates an HTML report containing information about the model used, the parameters used, the fitted parameters, and their standard deviation. It also includes images of the fit as well as all experimental and calculated data. The report is saved in your temporary directory and automatically opened in a browser. You can use the data in the report to create your own graphs or to check for any discrepancies. If you find any errors in the calculations, please report them so they can be corrected.
+
+#### Z-Hit active datasets ####
+This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given here. This is a procedure similar to the better known Kramers-Kronig test.
+
+#### Help ####
+This will open a help file in a pdf format (the most recent help is always in this github page and not in the pdf file installed with the program).
+
+### Datasets ###
+This list box shows all the datasets in memory. You can select one or more datasets. The parameters listed are those of the dataset selected (or the first selected dataset if you have more than one selection). The datasets label can be edited.
+
+### Fit selected ###
 This command is used to fit the set of parameters that describes the circuit, if the circuit is valid (i.e., there are parameters to fit on the right side of the window). The user can select which parameters to fit and it is recommended to start with a few parameters first, ensuring that the initial values are close to the expected values. The simulated spectrum will be updated with every change in the parameters, and the user can perform manual adjustments as necessary. The data can be selected by standard Ctrl+Click, or if you want you can select all by using Ctrl+A.
 For many datasets, the data are described by the same model circuit, I suggest to select one measurement, adjust the parameters manually to be close to solution, then fit. After fit you can “Clone” these parameters to all other datasets and select all datasets, then Fit all selected in a go.
 
@@ -237,50 +309,10 @@ The fitting can be performed using different methods, which are discussed before
 The quality of the fit is evaluated using the R<sup>2</sup> statistical parameter and the chi<sup>2</sup> value. However, the use of the chi<sup>2</sup> value as a statistical parameter is debatable, as discussed in the paper "Dos and don'ts of reduced chi-squared" by Andrae et al. (https://arxiv.org/abs/1012.3754). The chi<sup>2</sup> value reported here is calculated as (Sum ((Z<sub>obs</sub>-Z<sub>calc</sub>)<sup>2</sup>/Z<sub>calc</sub>))/DOF. The degree of freedom (DOF) is considered as Nr_of_points - nr_of_fitted_params. 
 The standard deviation is properly estimated (assumming independent errors) only for unconstrained Levenberg-Marquardt fit.
 
-## Datasets ##
-This list box shows all the datasets in memory. You can select one or more datasets. The parameters listed are those of the dataset selected (or the first selected dataset if you have more than one selection). The datasets label can be edited.
-
-
-## Action ##
-This button can trigger several commands:
-
-### Delete points from Nyquist ###
-You can delete points from datasets visible in the Nyquist plot : just zoom in the region to show only the points you want to delete then select this action command. This is irreversible.
-
-### Clone the parameters to all ### 
-Copy the listed parameters to all datasets. Useful for bulk fitting in order to set proper starting point for all the sets.
-
-### Clone the parameters to active ### 
-Copy the listed parameters to selected datasets. 
-
-### Save active exp datasets ###
-This command allows you to save the *active* experimental data, that means the selected ones, to a single file in a specific format. The format is three columns, separated by the string you selected in the Parameters page, with frequency in Hz, Zr, and Zi. This is useful for simulating impedance spectra for a given model. All the datasets will be saved in a single file, each data susequenntly added, with its name, to the same file.
-
-### Save active calc datasets ###
-This command allows you to save the *active* calculated data to a file in a three columns format, separated by the string you selected in the Parameters page.
-
-### Save active exp and calc datasets ###
-This command allows you to save the *active* experimental data and calculated data, in a 5 columns ASCII file. Note that all datasets are saved in a single file, each dataset will be separated by the label of the set. This might be used to plot nicer graphs.
-
-### Average active datasets ###
-This command will calculate the mean of Zr and Zi for the selected datasets. This function can be applied to datasets measured at the same frequencies.
-
-### Erase active datasets ###
-Irreversible action removing one or more datasets and all related parameters from memory (by active one should understand “selected”)
-
-### Report all ###
-This command generates an HTML report containing information about the model used, the parameters used, the fitted parameters, and their standard deviation. It also includes images of the fit as well as all experimental and calculated data. The report is saved in your temporary directory and automatically opened in a browser. You can use the data in the report to create your own graphs or to check for any discrepancies. If you find any errors in the calculations, please report them so they can be corrected.
-
-### Z-Hit active datasets ###
-This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given here. This is a procedure similar to the better known Kramers-Kronig test.
-
-### Help ###
-This will open a help file in a pdf format (the most recent help is always in this github page and not in the pdf file installed with the program).
-
-## Exit ##
+### Exit ###
 No need for explications on what this command does.
 
-## Author ##
+### Author ###
 This program can be used freely and distributed according to CC-BY-NC-SA.
 It was written in Labview 2023, National Instruments and it includes the JKI toolkits for Labview, © 2023, JKI. All rights reserved.
 
@@ -290,11 +322,10 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
   -  August 5, 2023 : Small cosmetic changes.
-  -  August 4, 2023 : Can copy parameters (aka clone) only to active datasets. The number of iterations and stop limit are now adjustable parameters.
+  -  August 4, 2023 : Can copy parameters (aka clone) to active datasets. The number of iterations and stop limit are now adjustable parameters.
   -  August 2, 2023 : read impedance data from HDF5 data files. Some points can now be deleted from the Nyquist plot (see the Action menu).
   -  August 1st, 2023 : added an indication of the fitting progress.
-  -  July 31, 2023 : increased he number of iterations to 10000 and decreased the limit step.
-                  erased an error that appeared when plotting more than 20 datasets
+  -  July 31, 2023 : increased he number of iterations to 10000 and decreased the limit step, erased an error that appeared when plotting more than 20 datasets
   -  July 29, 2023 : added the possibility to select which column to read if the data files have more columns or if the frequency is not in the first column
   -  July 28, 2023 : added the possibility to read custom definition files.
   -  July 16, 2023 : after loading a datafile, the first dataset is selected automatically.
