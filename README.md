@@ -27,7 +27,7 @@ It is generally a good idea to read a help file before using a program.
       - [Z-MFLI](#z-mfli)
       - [Custom](#custom)
     + [Action](#action)
-      - [Delete points from graph](#delete-points-from-nyquist)
+      - [Delete points from graph](#delete-points-from-graph)
       - [Clone the parameters to all](#clone-the-parameters-to-all)
       - [Clone the parameters to active](#clone-the-parameters-to-active)
       - [Save active exp datasets](#save-active-exp-datasets)
