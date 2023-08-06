@@ -27,7 +27,7 @@ It is generally a good idea to read a help file before using a program.
       - [Z-MFLI](#z-mfli)
       - [Custom](#custom)
     + [Action](#action)
-      - [Delete points from Nyquist](#delete-points-from-nyquist)
+      - [Delete points from graph](#delete-points-from-nyquist)
       - [Clone the parameters to all](#clone-the-parameters-to-all)
       - [Clone the parameters to active](#clone-the-parameters-to-active)
       - [Save active exp datasets](#save-active-exp-datasets)
@@ -264,8 +264,8 @@ In the /data folder you will find some files, experimental or simulated with oth
 ### Action ###
 This button can trigger several commands:
 
-#### Delete points from Nyquist ####
-You can delete points from datasets visible in the Nyquist plot : just zoom in the region to show only the points you want to delete then select this action command. This is irreversible.
+#### Delete points from graph ####
+You can delete experimental points from datasets visible in the Nyquist, Zr, Zi or lnR plots: just zoom in the region to show only the points you want to delete then select this action command. This is irreversible and it applies to the shown graph. Points from calculated or phase angle will not be erased.
 
 #### Clone the parameters to all ####
 Copy the listed parameters to all datasets. Useful for bulk fitting in order to set proper starting point for all the sets.
