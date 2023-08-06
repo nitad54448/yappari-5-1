@@ -27,7 +27,7 @@ It is generally a good idea to read a help file before using a program.
       - [Z-MFLI](#z-mfli)
       - [Custom](#custom)
     + [Action](#action)
-      - [Delete points from Nyquist](#delete-points-from-nyquist)
+      - [Delete points from graph](#delete-points-from-graph)
       - [Clone the parameters to all](#clone-the-parameters-to-all)
       - [Clone the parameters to active](#clone-the-parameters-to-active)
       - [Save active exp datasets](#save-active-exp-datasets)
@@ -264,8 +264,8 @@ In the /data folder you will find some files, experimental or simulated with oth
 ### Action ###
 This button can trigger several commands:
 
-#### Delete points from Nyquist ####
-You can delete points from datasets visible in the Nyquist plot : just zoom in the region to show only the points you want to delete then select this action command. This is irreversible.
+#### Delete points from graph ####
+You can delete experimental points from datasets visible in the Nyquist, Zr, Zi or lnR plots: just zoom in the region to show only the points you want to delete then select this action command. This is irreversible and it applies to the shown graph. Calculated points angle will not be erased (this action is not performed to differences plots nor to phase angle).
 
 #### Clone the parameters to all ####
 Copy the listed parameters to all datasets. Useful for bulk fitting in order to set proper starting point for all the sets.
@@ -321,7 +321,7 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
-  -  August 5, 2023 : Small cosmetic changes.
+  -  August 6, 2023 : Small cosmetic changes, main font is the user system 15pt. Experimental points can now be removed from Nyquist, Zr, Zi and lnR plots.
   -  August 4, 2023 : Can copy parameters (aka clone) to active datasets. The number of iterations and stop limit are now adjustable parameters.
   -  August 2, 2023 : read impedance data from HDF5 data files. Some points can now be deleted from the Nyquist plot (see the Action menu).
   -  August 1st, 2023 : added an indication of the fitting progress.
