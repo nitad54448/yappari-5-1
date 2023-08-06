@@ -265,7 +265,7 @@ In the /data folder you will find some files, experimental or simulated with oth
 This button can trigger several commands:
 
 #### Delete points from graph ####
-You can delete experimental points from datasets visible in the Nyquist, Zr, Zi or lnR plots: just zoom in the region to show only the points you want to delete then select this action command. This is irreversible and it applies to the shown graph. Points from calculated or phase angle will not be erased.
+You can delete experimental points from datasets visible in the Nyquist, Zr, Zi or lnR plots: just zoom in the region to show only the points you want to delete then select this action command. This is irreversible and it applies to the shown graph. Calculated points angle will not be erased (this action is not performed to differences plots nor to phase angle).
 
 #### Clone the parameters to all ####
 Copy the listed parameters to all datasets. Useful for bulk fitting in order to set proper starting point for all the sets.
