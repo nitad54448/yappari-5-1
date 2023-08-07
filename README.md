@@ -6,6 +6,7 @@ You are encouraged to contribute to this help file, either you can send it to me
 It is generally a good idea to read a help file before using a program.
 
 # yappari-v5-2023 #
+version 07-08-2023
 
   * [How to install](#how-to-install)
   * [Panels](#panels)
@@ -321,6 +322,7 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
+  -  August 7, 2023 : Change in the error management, if one fit fails, do not stop the oher fits anymore.
   -  August 6, 2023 : Small cosmetic changes, main font is the user system 15pt. Experimental points can now be removed from Nyquist, Zr, Zi and lnR plots.
   -  August 4, 2023 : Can copy parameters (aka clone) to active datasets. The number of iterations and stop limit are now adjustable parameters.
   -  August 2, 2023 : read impedance data from HDF5 data files. Some points can now be deleted from the Nyquist plot (see the Action menu).
