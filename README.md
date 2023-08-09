@@ -298,7 +298,7 @@ This option will provide a Z-HIT simulation (which is a Hilbert transform of the
 
 #### DRT active datasets ####
 This performs a (rather primitive) calculation of Distrubution of Relaxation Times for one or more dataset. The procedure used here is similar to the one described by Munoz et al in [Journal of Power Sources 297 (2015) 568-668 (https://www.sciencedirect.com/science/article/pii/S0378775315300033?via%3Dihub). Only the values of imaginary part of the impedance is taken into consideration; the optimal regularization parameter for the calculations in this program is around 1 to 10. This is just to provide an indications of the frequencies of the relaxations, the amplitude of the peaks is not directly related (as it should be) with the resistance part of the processes. Much more advanced free DRT program are available, see for instance [Ciucci et al](https://github.com/ciuccislab/DP-DRT).
-There is no need for a circuit model for the DRT calculations : these can help the user designing the electrical circuit.
+There is no need for a circuit model for the DRT calculations : these can help the user designing the electrical circuit. The usefulness of DRT depends much on the quality of the data.
 
 #### Help ####
 This will open a help file in a pdf format (the most recent help is always in this github page and not in the pdf file installed with the program).
