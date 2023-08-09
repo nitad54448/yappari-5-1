@@ -155,10 +155,10 @@ The first line of these files can be a text (the program will try to detect and 
 This is a ';' or ',' separated values file as obtained from MFLI/MFIA, a Zurich Instruments impedance analyzer. As in the Zview text file, multiple data sets can be saved or read from this file. In the data folder that is provided with this installer you can find such a file containing 34 measurements of the same sample. It would be boring and useless to fit all these 34 datasets one by one. Yappari-5 can handle such multiple data sets. You should select the proper separator string in the Parameters page.
 
 #### Versa Studio par ####
-This type of file contains data delimited by <Segments> and >/Segments>. I did not exenisively checked this type of file, an example is given in the /data folder. 
+This type of file contains data delimited by <Segments> and >/Segments>. I did not extenisively checked this type of file as I don't have access to this type of instrument, an example is given in the /data folder. If you encounter errors, feel free to drop me a line.
 
 #### Zview txt ####
-This is a Zview file, also an ASCII type, that can hold multiple data sets. Yappari will read all datasets it finds in this file and insert them in the datasets listing, with a name taken from the file name and a suffix indicating the position in the file : the first datasets will have __0__, then __1__, .. and so on. The separator setting will not be used in reading this file.
+This is a Zview file, also an ASCII type, that can hold multiple data sets. Yappari will read all datasets it finds in this file and insert them in the datasets listing, with a name taken from the file name and a suffix indicating the position in the file : the first datasets will have __0__, then __1__, .. and so on.
 
 #### HDF5-MFLI ####
 This is a HDF5 file, a binary file, that can hold multiple data sets. The datafile must be saved by MFIA or MFLI with impedance options. It must hold an _imps_ group. An exemple of such file is given in the /data directory, it has a _h5_ extension. An error will appear if the file does not hold _imps_ groups.
@@ -297,12 +297,13 @@ This command generates an HTML report containing information about the model use
 This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given here. This is a procedure similar to the better known Kramers-Kronig test.
 
 #### DRT active datasets ####
-This performs a (rather primitive) calculation of Distrubution of Relaxation Times for one or more dataset. The procedure used here is similar to the one described by Munoz et al in [Journal of Power Sources 297 (2015) 568-668 (https://www.sciencedirect.com/science/article/pii/S0378775315300033?via%3Dihub). Only the values of imaginary part of the impedance is taken into consideration; the optimal regularization parameter for the calculations in this program is around 1 to 10. If the regularization (or Tikhonov) parameter is too small, small artefact peaks appear, some negative.. while a parameter too large will just squash the information). The procedure I use here is just to provide an indications of the frequencies of the relaxations, the amplitude of the peaks is not directly related (as it should be) with the resistance part of the processes. Much more advanced free DRT program are available, see for instance [Ciucci et al](https://github.com/ciuccislab/DP-DRT) but there are many others (like [tikreg](https://github.com/gallantlab/tikreg) which provides Tikhonov regression in python).
+This performs a (rather primitive) calculation of Distrubution of Relaxation Times for one or more datasets. The procedure used here is similar to the one described by Munoz et al in [Journal of Power Sources 297 (2015) 568-668](https://www.sciencedirect.com/science/article/pii/S0378775315300033?via%3Dihub) but with a simple unconstrained linear regression with a Tikhonov parameter. Only the values of imaginary part of the impedance are taken into calculations; the optimal regularization parameter is decided by the user (there is no universal value for this, it can be estimated with a procedure known as L-curve). If the Tikhonov parameter is too small some artefact peaks will appear, some negative, while a parameter too large will just squash the information. The procedure I use here is just to provide an indication of the frequencies of the relaxations, the amplitude of the peaks is not directly related (as it should be) with the resistance part of the processes. Much more advanced free DRT programs are available, see for instance [Ciucci et al](https://github.com/ciuccislab/DP-DRT) and his papers but there are many others. The DRT procedure may help in detecting a proper electrical circuit, if you want to used it, I suggest to read first some publications describing the procedure and the limitations, a good start might be [this paper](https://www.mdpi.com/2313-0105/5/2/43).
+
 There is no need for a circuit model for the DRT calculations : these can help the user designing the electrical circuit. The usefulness of DRT depends much on the quality of the data.
-On the DRT graph, the experimental Zi is scaled to 100 in absolute value and shown for comparison with calculated DRT plot (it may help to detect a proper regularization parameter).
+On the DRT graph, the experimental Zi is scaled to 100 in absolute value and shown for comparison with calculated DRT plot which is also scaled to 100. 
 
 #### Help ####
-This will open a help file in a pdf format (the most recent help is always in this github page and not in the pdf file installed with the program).
+This will open a this website, hopefully the address will not change; while the program file may have some pdf help files, the most recent help is always on this github page.
 
 ### Datasets ###
 This list box shows all the datasets in memory. You can select one or more datasets. The parameters listed are those of the dataset selected (or the first selected dataset if you have more than one selection). The datasets label can be edited.
@@ -328,7 +329,7 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
-  -  August 9, 2023 : A simple DRT (Distribution of relaxation time) has been implemented.
+  -  August 9, 2023 : A rather simple calculation of DRT (Distribution of Relaxation Times) with unconstrained Tikhonov parametrisation has been added.
   -  August 7, 2023 : Change in the error management, if one fit fails, do not stop the oher fits anymore.
   -  August 6, 2023 : Small cosmetic changes, main font is the user system 15pt. Experimental points can now be removed from Nyquist, Zr, Zi and lnR plots.
   -  August 4, 2023 : Can copy parameters (aka clone) to active datasets. The number of iterations and stop limit are now adjustable parameters.
