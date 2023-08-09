@@ -5,6 +5,8 @@ This program can perform fits for one or multiple datasets (by multiple I mean h
 You are encouraged to contribute to this help file, either you can send it to me or fork it on Github. As much as I like programming, writing documentation is boring. A short tutorial is included in the help pdf file which is installed with the exe file. Otherwise, the most updated description of the program is always here on this page.
 It is generally a good idea to read a help file before using a program.
 
+Note : if you want I can setup an automatic email remainder when there is an update, if this is the case leave a note.
+
 # yappari-v5-2023 #
 version 09-08-2023
 
