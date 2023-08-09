@@ -329,7 +329,7 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
-  -  August 9, 2023 : A simple DRT (Distribution of relaxation time) has been implemented.
+  -  August 9, 2023 : A rather simple calculation of DRT (Distribution of Relaxation Times) with unconstrained Tikhonov parametrisation has been added.
   -  August 7, 2023 : Change in the error management, if one fit fails, do not stop the oher fits anymore.
   -  August 6, 2023 : Small cosmetic changes, main font is the user system 15pt. Experimental points can now be removed from Nyquist, Zr, Zi and lnR plots.
   -  August 4, 2023 : Can copy parameters (aka clone) to active datasets. The number of iterations and stop limit are now adjustable parameters.
