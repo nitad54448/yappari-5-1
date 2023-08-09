@@ -6,7 +6,7 @@ You are encouraged to contribute to this help file, either you can send it to me
 It is generally a good idea to read a help file before using a program.
 
 # yappari-v5-2023 #
-version 07-08-2023
+version 09-08-2023
 
   * [How to install](#how-to-install)
   * [Panels](#panels)
@@ -38,6 +38,7 @@ version 07-08-2023
       - [Erase active datasets](#erase-active-datasets)
       - [Report active](#report-active)
       - [Z-Hit active datasets](#z-hit-active-datasets)
+      - [DRT active datasets](#drt-active-datasets)
       - [Help](#help)
     + [Datasets](#datasets)
     + [Fit selected](#fit-selected)
@@ -295,6 +296,10 @@ This command generates an HTML report containing information about the model use
 #### Z-Hit active datasets ####
 This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given here. This is a procedure similar to the better known Kramers-Kronig test.
 
+#### DRT active datasets ####
+This performs a (rather primitive) calculations of Distrubution of Relaxation Times. The procedure used here is similar to the one described by Munoz et al in [Journal of Power Sources 297 (2015) 568-668 (https://www.sciencedirect.com/science/article/pii/S0378775315300033?via%3Dihub). Only the values of imaginary part of the impedance is taken into consideration; the optimal regularization parameter for the calculations in this program is around 1 to 10. This is just to provide an indications of the frequencies of the relaxations. Much more advanced free DRT program are available, see for instance [Ciucci et al](https://github.com/ciuccislab/DP-DRT).
+There is no need for a circuit model for the DRT calculations : these can help the user designing the electrical circuit.
+
 #### Help ####
 This will open a help file in a pdf format (the most recent help is always in this github page and not in the pdf file installed with the program).
 
@@ -322,6 +327,7 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
+  -  August 9, 2023 : A simple DRT (Distribution of relaxation time) has been implemented.
   -  August 7, 2023 : Change in the error management, if one fit fails, do not stop the oher fits anymore.
   -  August 6, 2023 : Small cosmetic changes, main font is the user system 15pt. Experimental points can now be removed from Nyquist, Zr, Zi and lnR plots.
   -  August 4, 2023 : Can copy parameters (aka clone) to active datasets. The number of iterations and stop limit are now adjustable parameters.
