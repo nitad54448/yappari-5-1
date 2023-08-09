@@ -301,8 +301,9 @@ This performs a (rather primitive) calculation of Distrubution of Relaxation Tim
 
 There is no need for a circuit model for the DRT calculations : these can help the user designing the electrical circuit. The usefulness of DRT depends much on the quality of the data.
 On the DRT graph, the experimental Zi is scaled to 100 in absolute value and shown for comparison with calculated DRT plot which is also scaled to 100. 
+
 #### Help ####
-This will open a help file in a pdf format (the most recent help is always in this github page and not in the pdf file installed with the program).
+This will open a this website, hopefully the address will not change; while the program file may have some pdf help files, the most recent help is always on this github page.
 
 ### Datasets ###
 This list box shows all the datasets in memory. You can select one or more datasets. The parameters listed are those of the dataset selected (or the first selected dataset if you have more than one selection). The datasets label can be edited.
