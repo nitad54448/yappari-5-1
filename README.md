@@ -308,7 +308,7 @@ Only the values of imaginary part of the impedance are taken into calculations; 
 There is no need for a circuit model for the DRT calculations. The usefulness of DRT depends much on the quality of the data.
 On the DRT graph, the experimental Zr and Zi are plotted together with the _recalculated impedances_ from the DRT data and a probability of distribution function. Calculations are made in real time if you change the Tikhonov parameter, so if you have multiple datasets and many iterations, it may be slow. Some files to test are in the /drt folder.
 An example of a DRT fit is shown below
-![plot](/help/images/drt_calc_RCRC_1k_3_5microF_80_20p_simulated.png)
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/drt_calc_RCRC_1k_3_5microF_80_20p_simulated.png?raw=true)
 
 #### Help ####
 This will open a this website, hopefully the address will not change; while the program file may have some pdf help files, the most recent help is always on this github page.
