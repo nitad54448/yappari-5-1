@@ -12,7 +12,7 @@ __Note__ : if you want I can setup an automatic email reminder when there is an 
 __Second note__ : there is no warrantee whatsoever for using this program. Use it if you want : you will not receive much help from me, everything is in this documentation file. If youd don't want : don't use it. There are many other programs, some commercial and some free.. and likely some are better than this one. 
 
 # yappari-v5-2023 #
-version 09-08-2023
+version 12-08-2023
 
   * [How to install](#how-to-install)
   * [Panels](#panels)
@@ -339,7 +339,7 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
-  -  August 12, 2023 : Implemented a full DRT calculation for ore or more datasets (with a Tikhonov-type constrained non-negative parameters least-squares procedure, see the documentation for reference to the method used). Added the possibility to change the X-scale in DRT graph (sometimes is convenient to check the time constants).
+  -  August 12, 2023 : Implemented a full DRT calculation for ore or more datasets (with a Tikhonov-type constrained non-negative parameters least-squares procedure, see the documentation for reference to the method used). Added the possibility to change the X-scale in DRT graph (sometimes is convenient to check the time constants). Added a debug/developper command to test things.
   -  August 10, 2023 : Cosmetics; DRT graph changed as a function of 1/&omega;
   -  August 9, 2023 : A rather simple calculation of DRT (Distribution of Relaxation Times) with unconstrained Tikhonov parametrisation has been added. The help command directs now to this page. In addition, an error in naming Z-Hit transformed files has been found and corrected. This is a major upgrade, please use this version or later.
   -  August 7, 2023 : Change in the error management, if one fit fails, do not stop the oher fits anymore.
