@@ -7,6 +7,8 @@ It is generally a good idea to read a help file before using a program.
 
 Note : if you want I can setup an automatic email reminder when there is an update, if this is the case leave a note.
 
+Second note : there is no warrantee whatsoever for using this program. Use it if you want : you will not receive much help from me, everything is in this documentation file. If youd don't want : don't use it. There are many other programs, some commercial and some free.. and likely many are better than this one. 
+
 # yappari-v5-2023 #
 version 09-08-2023
 
