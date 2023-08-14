@@ -35,13 +35,12 @@ version 14-08-2023
       - [Custom](#custom)
     + [Action](#action)
       - [Delete points from graph](#delete-points-from-graph)
+      - [Erase active datasets](#erase-active-datasets)
       - [Clone the parameters to all](#clone-the-parameters-to-all)
       - [Clone the parameters to active](#clone-the-parameters-to-active)
       - [Save active exp datasets](#save-active-exp-datasets)
       - [Save active calc datasets](#save-active-calc-datasets)
       - [Save active exp and calc datasets](#save-active-exp-and-calc-datasets)
-      - [Average active datasets](#average-active-datasets)
-      - [Erase active datasets](#erase-active-datasets)
       - [Report active](#report-active)
       - [Z-Hit active datasets](#z-hit-active-datasets)
       - [DRT active datasets](#drt-active-datasets)
@@ -151,6 +150,9 @@ _smooth_active_ will make a Savitzky smooth on the active datasets
 _rndz>>1_ will add white noise to the impedance active datasets in the range Z-1% to Z+1%
 _rndzr_>>0.5_ will add white noise to the real part of the impedance in the range Z-0.5% to Z+0.5%
 Other accepted parameters are _rndzi>>u_ where u is the range in %; _rndf>>u_, _average_ will calculate the mean of Zr and Zi for the selected datasets. This function can be applied only to datasets measured at the same frequencies.
+You can alse search the best Tikhonov parameter, the command :
+_search_lambda>>0.0002&0.1_ 
+will calculate 1024 DRTs in the range 0.0002 and 0.1 and reconstruct all the 1024 Z sets, then select best lambda parameter based on the minim squared error between the calculated and experimental sets. Obviously you can replace 0.0002 and 0.1 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2_ is accepted).
 
 ### About ###
 Brief help listing the version of the program. 
