@@ -12,7 +12,7 @@ __Note__ : if you want I can setup an automatic email reminder when there is an 
 __Second note__ : there is no warrantee whatsoever for using this program. Use it if you want : you will not receive much help from me, everything is in this documentation file. If youd don't want : don't use it. There are many other programs, some commercial and some free.. and likely some are better than this one. 
 
 # yappari-v5-2023 #
-version 12-08-2023
+version 14-08-2023
 
   * [How to install](#how-to-install)
   * [Panels](#panels)
@@ -303,9 +303,9 @@ This command generates an HTML report containing information about the model use
 This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given previously. This is a procedure similar to the better known Kramers-Kronig test.
 
 #### DRT active datasets ####
-This performs a calculation of Distribution of Relaxation Times for one or more datasets. The procedure used here is similar to the one described in [Munoz et al](https://www.sciencedirect.com/science/article/pii/S0378775315300033?via%3Dihub) by using an algorithm proposed [by Fiks](https://www.worldscientific.com/doi/abs/10.1142/S0219876213500710), you can see the paper also on [arxiv](https://arxiv.org/pdf/1307.7345), which is a constrained non-negative linear regression with a Tikhonov parameter. An additional damping parameter, that can be used to make the system more stable, is used. It may be left untouched for most of the cases.
+This performs a calculation of Distribution of Relaxation Times for one or more datasets. The procedure used now in Yappari is constrained non-negative linear regression with a Tikhonov parameter. The procedure used was described and coded by [Christian Altenbach](https://sites.google.com/site/altenbach/Home). This method is very fast and therefore it is possible to search an optimal regularization parameter, see below.
 Only the values of imaginary part of the impedance are taken into calculations; the optimal regularization parameter is decided by the user (there is no universal value for this, it can be estimated with a procedure known as L-curve). If the Tikhonov parameter is too small some spurious peaks will appear, particularly if pure capacitors are present in the data, while a parameter too large will just squash the information. The procedure I use here is to provide an indication of the frequencies of the relaxations. Much more advanced free DRT programs are available, see for instance [Ciucci et al](https://github.com/ciuccislab/DP-DRT) and his papers but there are many others. The DRT procedure may help in detecting a proper electrical circuit. If you want to used it, I suggest to read first some publications describing the procedure and the limitations, a good start might be [this paper](https://www.mdpi.com/2313-0105/5/2/43).
-There is no need for a circuit model for the DRT calculations. The usefulness of DRT depends much on the quality of the data.
+There is no need for a circuit model for the DRT calculations. The usefulness of DRT depends much on the quality of the data and in particular the first and the last points of the data.
 On the DRT graph, the experimental Zr and Zi are plotted together with the _recalculated impedances_ from the DRT data and a probability of distribution function. Calculations are made in real time if you change the Tikhonov parameter, so if you have multiple datasets and many iterations, it may be slow. Some files to test are in the /drt folder.
 An example of a DRT fit is shown below :
 
