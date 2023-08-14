@@ -136,13 +136,11 @@ The numbering of the devices goes from left to right and top to bottom. For exam
 Overall, the notation is quite straightforward once you become familiar with the conventions used.
 
 ### Parameters ###
-On this page you can adjust the fitting algorithm (TRDL is the default) and the parameters boudaries for TRDL and constrained Levenberg-Marquardt procedures. 
+On this page you can adjust some parameters of the program. In particular the datafile separator _should_ be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. By default the separator is set to TAB.
 
-In addition the datafile separator _should_ be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. By default the separator is set to TAB.
+The fitting algorithm (TRDL is the default) and the parameters bounds, if any, can be constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-14, and so on. You may need to adjust the parameters limits. The fitting results may depend on the starting parameters. You should probably start with TRDL to approach some values close to the solution then proceed with a LM fit. Note that esd of the fitted parameters are correct only for u constrained LM fit.
 
-For TRDL and Constrained LM, the fit is constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-14, and so on. You may need to adjust the parameters limits. I recommend to manually adjust the initial parameters to some values that describe correctly the spectra, start with TRDL and then make a final fit with the standard (unconstrained) LM method. The fitting results may depend on the starting parameters.
-
-Also, the fitting parameters can be adjusted here : by default they are set to 500 iterations and a stop limit at 10E-8.
+The fit termination parameters can be adjusted here : by default they are set to 500 iterations and a stop limit at 10E-8.
 
 __Developper commands__
 Can be used for manual control of programs, useful mostly for testing. Some commands are not available elsewhere, some examples :
@@ -153,6 +151,9 @@ Other accepted parameters are _rndzi>>u_ where u is the range in %; _rndf>>u_, _
 You can alse search the best Tikhonov parameter, the command :
 _search_lambda>>0.0002&0.1_ 
 will calculate 1024 DRTs in the range 0.0002 and 0.1 and reconstruct all the 1024 Z sets, then select best lambda parameter based on the minim squared error between the calculated and experimental sets. Obviously you can replace 0.0002 and 0.1 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2_ is accepted).
+Another command you may try is
+_calculate_drt_fisk
+if you want to test another non-negative Least-squares (NNLS) procedure. It is based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345) and implemented in versions of Yappari prior to 14th of aug 2023. 
 
 ### About ###
 Brief help listing the version of the program. 
