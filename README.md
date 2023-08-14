@@ -143,7 +143,11 @@ In addition the datafile separator _should_ be selected here. When reading a MFL
 
 For TRDL and Constrained LM, the fit is constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-14, and so on. You may need to adjust the parameters limits. I recommend to manually adjust the initial parameters to some values that describe correctly the spectra, start with TRDL and then make a final fit with the standard (unconstrained) LM method. The fitting results may depend on the starting parameters.
 
-Also, the fitting parameters can be adjusted here : by default they are set to 5000 iterations and a stop limit at 10E-8.
+Also, the fitting parameters can be adjusted here : by default they are set to 500 iterations and a stop limit at 10E-8.
+
+__Developper commands__
+Can be used for manual control of programs, useful mostly for testing.
+
 
 ### About ###
 Brief help listing the version of the program. 
