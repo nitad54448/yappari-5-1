@@ -146,8 +146,11 @@ For TRDL and Constrained LM, the fit is constrained to certain intervals that ar
 Also, the fitting parameters can be adjusted here : by default they are set to 500 iterations and a stop limit at 10E-8.
 
 __Developper commands__
-Can be used for manual control of programs, useful mostly for testing.
-
+Can be used for manual control of programs, useful mostly for testing. Some commands are not available elsewhere, some examples :
+_smooth_active_ will make a Savitzky smooth on the active datasets
+_rndz>>1_ will add white noise to the impedance active datasets in the range Z-1% to Z+1%
+_rndzr_>>0.5_ will add white noise to the real part of the impedance in the range Z-0.5% to Z+0.5%
+Other accepted parameters are _rndzi>>u_ where u is the range in %; _rndf>>u_, _average_ will calculate the mean of Zr and Zi for the selected datasets. This function can be applied only to datasets measured at the same frequencies.
 
 ### About ###
 Brief help listing the version of the program. 
@@ -294,9 +297,6 @@ This command allows you to save the *active* calculated data to a file in a thre
 #### Save active exp and calc datasets ####
 This command allows you to save the *active* experimental data and calculated data, in a 5 columns ASCII file. Note that all datasets are saved in a single file, each dataset will be separated by the label of the set. This might be used to plot nicer graphs.
 
-#### Average active datasets ####
-This command will calculate the mean of Zr and Zi for the selected datasets. This function can be applied to datasets measured at the same frequencies.
-
 #### Erase active datasets ####
 Irreversible action removing one or more datasets and all related parameters from memory (by active one should understand “selected”)
 
@@ -314,7 +314,10 @@ On the DRT graph, the experimental Zr and Zi are plotted together with the _reca
 An example of a DRT fit is shown below :
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/drt_calc_RCRC_1k_3_5microF_80_20p_simulated.PNG)
-Red dots are experimental Zr and the red line is calculated Zr based on the distribution function as RC (blue dots and line are experimental and calculated Zi values). The green spikes are calculated relaxation times. The fit is very good and corresponds well with the simulated values which are shown on the right side. Note that full impedance is calculated only from the "experimental" imaginary impedance, this should be true for all experimental spectra that respect the KK relation. This might not be the case if the data is noisy. 
+Red dots are experimental Zr and the red line is calculated Zr based on the distribution function as RC (blue dots and line are experimental and calculated Zi values). The green spikes are calculated relaxation times. The fit is very good and corresponds well with the simulated values. Note that full impedance is calculated only from the "experimental" imaginary impedance, this should be true for all experimental spectra that respect the KK relation. This might not be the case if the data is noisy or inadequate. 
+
+#### Search Tikhonov ####
+Will start a search of 1024 sets of Tikhonov regularization points (noted Lambda in the top left control) in the interval 10E-6 to 1 and then show the value for the smallest difference between experimental and calculated impedances with the optimal value. I found it is usually between 0.01 to 0.001.
 
 #### Help ####
 This will open a this website, hopefully the address will not change; while the program file may have some pdf help files, the most recent help is always on this github page.
