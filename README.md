@@ -35,13 +35,12 @@ version 14-08-2023
       - [Custom](#custom)
     + [Action](#action)
       - [Delete points from graph](#delete-points-from-graph)
+      - [Erase active datasets](#erase-active-datasets)
       - [Clone the parameters to all](#clone-the-parameters-to-all)
       - [Clone the parameters to active](#clone-the-parameters-to-active)
       - [Save active exp datasets](#save-active-exp-datasets)
       - [Save active calc datasets](#save-active-calc-datasets)
       - [Save active exp and calc datasets](#save-active-exp-and-calc-datasets)
-      - [Average active datasets](#average-active-datasets)
-      - [Erase active datasets](#erase-active-datasets)
       - [Report active](#report-active)
       - [Z-Hit active datasets](#z-hit-active-datasets)
       - [DRT active datasets](#drt-active-datasets)
@@ -137,13 +136,11 @@ The numbering of the devices goes from left to right and top to bottom. For exam
 Overall, the notation is quite straightforward once you become familiar with the conventions used.
 
 ### Parameters ###
-On this page you can adjust the fitting algorithm (TRDL is the default) and the parameters boudaries for TRDL and constrained Levenberg-Marquardt procedures. 
+On this page you can adjust some parameters of the program. In particular the datafile separator _should_ be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. By default the separator is set to TAB.
 
-In addition the datafile separator _should_ be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. By default the separator is set to TAB.
+The fitting algorithm (TRDL is the default) and the parameters bounds, if any, can be constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-14, and so on. You may need to adjust the parameters limits. The fitting results may depend on the starting parameters. You should probably start with TRDL to approach some values close to the solution then proceed with a LM fit. Note that esd of the fitted parameters are correct only for u constrained LM fit.
 
-For TRDL and Constrained LM, the fit is constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-14, and so on. You may need to adjust the parameters limits. I recommend to manually adjust the initial parameters to some values that describe correctly the spectra, start with TRDL and then make a final fit with the standard (unconstrained) LM method. The fitting results may depend on the starting parameters.
-
-Also, the fitting parameters can be adjusted here : by default they are set to 500 iterations and a stop limit at 10E-8.
+The fit termination parameters can be adjusted here : by default they are set to 500 iterations and a stop limit at 10E-8.
 
 __Developper commands__
 Can be used for manual control of programs, useful mostly for testing. Some commands are not available elsewhere, some examples :
@@ -151,6 +148,12 @@ _smooth_active_ will make a Savitzky smooth on the active datasets
 _rndz>>1_ will add white noise to the impedance active datasets in the range Z-1% to Z+1%
 _rndzr_>>0.5_ will add white noise to the real part of the impedance in the range Z-0.5% to Z+0.5%
 Other accepted parameters are _rndzi>>u_ where u is the range in %; _rndf>>u_, _average_ will calculate the mean of Zr and Zi for the selected datasets. This function can be applied only to datasets measured at the same frequencies.
+You can alse search the best Tikhonov parameter, the command :
+_search_lambda>>0.0002&0.1_ 
+will calculate 1024 DRTs in the range 0.0002 and 0.1 and reconstruct all the 1024 Z sets, then select best lambda parameter based on the minim squared error between the calculated and experimental sets. Obviously you can replace 0.0002 and 0.1 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2_ is accepted).
+Another command you may try is
+_calculate_drt_fisk
+if you want to test another non-negative Least-squares (NNLS) procedure. It is based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345) and implemented in versions of Yappari prior to 14th of aug 2023. 
 
 ### About ###
 Brief help listing the version of the program. 
@@ -308,7 +311,8 @@ This option will provide a Z-HIT simulation (which is a Hilbert transform of the
 
 #### DRT active datasets ####
 This performs a calculation of Distribution of Relaxation Times for one or more datasets. The method used is constrained non-negative linear regression with a Tikhonov parameter. The procedure used was described and coded by [Christian Altenbach](https://sites.google.com/site/altenbach/Home) which developed it for EPR spectrocopy [programs](https://sites.google.com/site/altenbach/labview-programs/epr-programs/long-distances). This method is very fast and therefore it is possible to search an optimal regularization parameter, see below and the description of [Parameters](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#parameters) page.
-Only the values of imaginary part of the impedance are taken into calculations. 
+
+Only the values of imaginary part of the impedance are taken into calculations. Data should be acquired with log spacing.
 For the fit, the optimal regularization parameter is decided by the user (there is no universal value for this, it can be estimated with a procedure known as L-curve). If the Tikhonov parameter, noted Lambda in this program, is too small some spurious peaks will appear while a parameter too large will just squash the information. 
 The procedure I use here is to provide an indication of the frequencies of the relaxations. Much more advanced free DRT programs are available, see for instance [Ciucci et al](https://github.com/ciuccislab/DP-DRT) and his papers but there are many others. The DRT procedure may help in detecting a proper electrical circuit. If you want to used it, I suggest to read first some publications describing the procedure and the limitations.
 There is no need for a circuit model for the DRT calculations. The usefulness of DRT depends much on the quality of the data and in particular the first and the last points of the data.
