@@ -310,7 +310,7 @@ This command generates an HTML report containing information about the model use
 This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given previously. This is a procedure similar to the better known Kramers-Kronig test.
 
 #### DRT active datasets ####
-This performs a calculation of Distribution of Relaxation Times for one or more datasets. The method used is constrained non-negative linear regression with a Tikhonov parameter. The procedure used was described and coded by [Christian Altenbach](https://sites.google.com/site/altenbach/Home) which developed it for EPR spectrocopy [programs](https://sites.google.com/site/altenbach/labview-programs/epr-programs/long-distances). This method is very fast and therefore it is possible to search an optimal regularization parameter, see below and the description of [Parameters](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#parameters) page.
+This performs a calculation of Distribution of Relaxation Times for one or more datasets. The method used is constrained non-negative linear regression with a Tikhonov parameter. The procedure used was implemented by [Christian Altenbach](https://sites.google.com/site/altenbach/Home) for for EPR spectrocopy. This [method](https://sites.google.com/site/altenbach/labview-programs/epr-programs/long-distances/ld-algorithms) is very fast and therefore it is possible to search an optimal regularization parameter, see below and the description of [Parameters](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#parameters) page.
 
 Only the values of imaginary part of the impedance are taken into calculations. Data should be acquired with log spacing.
 For the fit, the optimal regularization parameter is decided by the user (there is no universal value for this, it can be estimated with a procedure known as L-curve). If the Tikhonov parameter, noted Lambda in this program, is too small some spurious peaks will appear while a parameter too large will just squash the information. 
@@ -349,7 +349,7 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
-  -  August 14, 2023 : The method of NNLS for DRT was changed to that of Althenbach.
+  -  August 14, 2023 : The method of NNLS for DRT was changed to that of Altenbach.
   -  August 12, 2023 : Implemented a full DRT calculation for ore or more datasets (with a Tikhonov-type constrained non-negative parameters least-squares procedure, see the documentation for reference to the method used). Added the possibility to change the X-scale in DRT graph (sometimes is convenient to check the time constants). Added a debug/developper command to test things.
   -  August 10, 2023 : Cosmetics; DRT graph changed as a function of 1/&omega;
   -  August 9, 2023 : A rather simple calculation of DRT (Distribution of Relaxation Times) with unconstrained Tikhonov parametrisation has been added. The help command directs now to this page. In addition, an error in naming Z-Hit transformed files has been found and corrected. This is a major upgrade, please use this version or later.
