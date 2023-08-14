@@ -62,7 +62,7 @@ The recommended way to install is to use the full package which can be downloade
 After installing the program in a directory of your choice, two other directories will be created : /Data and /models. The _models_ directory contains png files with images for creating circuit. The _data_ directory contains exemples of data files and some dll required by the program (if you remove these files the program will still work except for reading the HDF5 files.
 
 ## Panels ##
-The program has several graphic panels and a parameter list with several commands grouped on the right side of the window.
+The program has several graphic [panels](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/panels.PNG) and a parameter list with several commands grouped on the right side of the window.
 
 ### Zr, -Zi ###
 This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you can disable the Auto-axis feature by right clicking on the graph, or directly changing the scale in the legend. Some other standard graph functions are available in the top left "palette" such as zoom in, out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
