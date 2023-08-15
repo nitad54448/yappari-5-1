@@ -82,6 +82,9 @@ This panel will show a 3D plot of selected datasets, either in Nyquist, Zr or Zi
 ### Model ###
 In this panel a model can be created by the user, by selecting element circuits. 
 Up to ten elements can be added in the circuit (obviously it is not realistic to fit such a circuit, unless you want to fit a crocodile). Only the first 18 parameters will be shown in the right side of the program.
+
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/page_model.PNG)
+
 When you click on one of the ten available cases, a new window will appear where you can select the element you want to add. Simply click on the picture of the element you want to add to the model. The available circuit elements include resistors, capacitors, inductors, and more complex elements such as constant phase elements or Warburg elements (see below).
 
 You can edit the png image files to your liking (just for aesthetics, the calculations will not be affected), they are in the subdirectory __/models__. The ideal size of the png files is 150x100 pixels.
