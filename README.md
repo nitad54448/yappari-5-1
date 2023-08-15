@@ -319,7 +319,7 @@ You can delete experimental points from datasets visible in the Nyquist, Zr, Zi 
 Copy the listed parameters to all datasets. Useful for bulk fitting in order to set proper starting point for all the sets.
 
 #### Clone the parameters to active ####
-Copy the listed parameters to selected datasets. 
+Copy the listed parameters to selected datasets. Copy the listed parameters to all selected sets. Note that the listed parameters are those of the first selected dataset.
 
 #### Save active exp datasets ####
 This command allows you to save the *active* experimental data, that means the selected ones, to a single file in a specific format. The format is three columns, separated by the string you selected in the Parameters page, with frequency in Hz, Zr, and Zi. This is useful for simulating impedance spectra for a given model. All the datasets will be saved in a single file, each data susequenntly added, with its name, to the same file.
