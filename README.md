@@ -2,14 +2,14 @@
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
-This program can perform fits for one or multiple datasets (by multiple I mean hunderths or even thousands datasets, this may be slow but you'll get all the results in a run, the results can be saved in a datafile). For a single dataset you may want to use a simpler program called [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2), available also as a Windows 10 installer. This single dataset program will not be developed further so it might be better to take a leap and move to version 5.
+This program can perform fits for one or multiple datasets (by multiple I mean hunderths or even thousands datasets, this may be slow but you'll get all the results in a run, the results can be saved in a datafile). An example of fitting 3568 datasets, each with about 80 points, is described here and the datafile holding this is included in the /files directory. For a single dataset you may want to use a simpler program called [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2), available also as a Windows 10 installer. This single dataset program will not be developed further so it might be better to take a leap of faith and move to this version.
 
 You are encouraged to contribute to this help file, either you can send it to me or fork it on Github. As much as I like programming, writing documentation is boring. A short tutorial is included in the help pdf file which is installed with the exe file. Otherwise, the most updated description of the program is always here on this page.
 It is generally a good idea to read a help file before using a program.
 
-__Note__ : if you want I can setup an automatic email reminder when there is an update, if this is the case leave a note (just be warned that I am fidgeting a lot with it these days, so you can get 10 mails per day).
+__Note__ : if you want I can setup an automatic email reminder when there is an update, if this is the case leave a note (just be warned that I am fidgeting a lot with it these days, so you will get 10 mails per day).
 
-__Second note__ : there is no warrantee whatsoever for using this program. Use it if you want : you will not receive much help from me, everything is in this documentation file. If youd don't want : don't use it. There are many other programs, some commercial and some free.. and likely some are better than this one. 
+__Second note__ : there is no warrantee whatsoever for using this program. Use it if you want : you will not receive much help from me, everything is in this documentation file. If you don't want, don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. 
 
 # yappari-v5-2023 #
 version 14-08-2023
@@ -56,13 +56,14 @@ version 14-08-2023
 ## How to install ##
 Yappari 5.1 is compiled with Labview 2023 for Windows 10.
 It is supposed to work with win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
-This application requires Labview 2023 runtime engine or a subsequent LV 64 bits runtime engine. You may have this "engine" if you have previously installed Yappari or other program written in LV2023 or you can download it freely from ni.com. 
-The recommended way to install is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the yappari_installer.zip file and not what is labelled as source file archive. The source is not included in this distribution. 
+This application requires Labview 2023 runtime engine or a subsequent LV 64 bits runtime engine. You may have this "engine" if you have previously installed Yappari or other programs written in LV2023 or you can download it freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336). 
+The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the yappari_installer.zip file and not what is labelled as source file archive. The source is not included in this distribution. 
 
-After installing the program in a directory of your choice, two other directories will be created : /Data and /models. The _models_ directory contains png files with images for creating circuit. The _data_ directory contains exemples of data files and some dll required by the program (if you remove these files the program will still work except for reading the HDF5 files.
+After installing the program in a directory of your choice, some other directories will be created : /data, /drt, /files, /help and /models. The _models_ directory contains png files with images for creating circuits. The _data_ directory contains and some dll required by the program and in the /files you can see some example of data files and custom definitions.
 
 ## Panels ##
-The program has several graphic [panels](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/panels.PNG) and a parameter list with several commands grouped on the right side of the window.
+The program has several graphic and a parameter list with several commands grouped on the right side of the window.
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/panels.PNG
 
 ### Zr, -Zi ###
 This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you can disable the Auto-axis feature by right clicking on the graph, or directly changing the scale in the legend. Some other standard graph functions are available in the top left "palette" such as zoom in, out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
