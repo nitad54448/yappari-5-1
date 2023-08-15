@@ -62,7 +62,8 @@ The recommended way to install this program is to use the full package which can
 After installing the program in a directory of your choice, some other directories will be created : /data, /drt, /files, /help and /models. The _models_ directory contains png files with images for creating circuits. The _data_ directory contains and some dll required by the program and in the /files you can see some example of data files and custom definitions.
 
 ## Panels ##
-The program has several graphic and a parameter list with several commands grouped on the right side of the window.
+The program has several graphic and a parameter list with several commands grouped on the right side of the window. When you start the program, if everything is normal, you should see something like this
+
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/panels.PNG)
 
 ### Zr, -Zi ###
@@ -71,10 +72,12 @@ You can change the plot colors, style, etc.... by clicking on the label; the cha
 If you use a large number of datasets (more than 200 sets), plotting can give some errors, they are inoffensive and can be ignored.
 
 ### Zr, Zi, ln R, theta ###
-These panels will show the dependency of impedances (real, imaginary, modulus or phase) as a function of frequency and the differences between the calculated and experimental values ([if any](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/fit_graph.PNG)).
+These panels will show the dependency of impedances (real, imaginary, modulus or phase) as a function of frequency and the differences between the calculated and experimental values, something like this
+
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/fit_graph.PNG)
 
 ### 3D plot ###
-This panel will show a 3D plot of selected datasets, either in Nyquist, Zr or Zi or their difference, as selected by the user. This is useful for many datasets, more than 20 I guess, it will allow the user to see tendencies or check systematic errors in the fits. You can right click on the graph to adjust plotting properties to your liking (3D Plot Properties) or change the size of the graph.
+This panel will show a 3D plot of selected datasets, either in Nyquist, Zr or Zi or their difference, as selected by the user. This is useful for many datasets, more than 20 I guess, it will allow the user to see tendencies or check systematic errors in the fits. You can right click on the graph to adjust plotting properties to your liking (3D Plot Properties) or change the size of the graph. If you have many datasets (a thousand or more) be patient, it will take some time to plot all data.
 
 ### Model ###
 In this panel a model can be created by the user, by selecting element circuits. 
