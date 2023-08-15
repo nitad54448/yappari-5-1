@@ -153,17 +153,24 @@ The fit termination parameters can be adjusted here : by default they are set to
 
 __Developer commands__
 
-Can be used for manual control of program, useful mostly for testing. Some commands are not available elsewhere, some examples :
+Can be used for manual control of program, useful mostly for testing. Some commands are not available elsewhere, some examples. To make a Savitzky smooth the active datasets :
 
-    _smooth_active_ will make a Savitzky smooth the active datasets
-    _rndz>>1_ will add white noise to the selected impedance datasets in the range Z-1% to Z+1%
-    _rndzr_>>0.5_ will add white noise to the real part of the impedance in the range Z-0.5% to Z+0.5%
+    _smooth_active_
 
+To add white noise to the selected impedance datasets in the range Z-1% to Z+1%   
+    
+    _rndz>>1_ 
+
+or
+  
+    _rndzr_>>0.5_ 
+    
+will add white noise to the real part of the impedance in the range Z-0.5% to Z+0.5%
 Other accepted parameters are _rndzi>>u_ for Zi white noise and _rndf>>u_ for frequency.
 
-     _average_ will calculate the mean of Zr and Zi for the selected datasets. This function has a sense 
+     _average_ 
      
-if it is applied to datasets measured at the same frequencies.
+will calculate the mean of Zr and Zi for the selected datasets. This function has a sense if it is applied to datasets measured at the same frequencies.
 You can also search the best Tikhonov parameter, the command :
 
     _search_lambda>>0.0002&0.1_ 
