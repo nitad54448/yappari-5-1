@@ -7,7 +7,7 @@ This program can perform fits for one or multiple datasets (by multiple I mean h
 You are encouraged to contribute to this help file, either you can send it to me or fork it on Github. As much as I like programming, writing documentation is boring. A short tutorial is included in the help pdf file which is installed with the exe file. Otherwise, the most updated description of the program is always here on this page.
 It is generally a good idea to read a help file before using a program.
 
-__Note__ : if you want I can setup an automatic email reminder when there is an update, if this is the case leave a note.
+__Note__ : if you want I can setup an automatic email reminder when there is an update, if this is the case leave a note (just be warned that I am fidgeting a lot with it these days, so you can get 10 mails per day).
 
 __Second note__ : there is no warrantee whatsoever for using this program. Use it if you want : you will not receive much help from me, everything is in this documentation file. If youd don't want : don't use it. There are many other programs, some commercial and some free.. and likely some are better than this one. 
 
@@ -62,7 +62,7 @@ The recommended way to install is to use the full package which can be downloade
 After installing the program in a directory of your choice, two other directories will be created : /Data and /models. The _models_ directory contains png files with images for creating circuit. The _data_ directory contains exemples of data files and some dll required by the program (if you remove these files the program will still work except for reading the HDF5 files.
 
 ## Panels ##
-The program has several graphic panels and a parameter list with several commands grouped on the right side of the window.
+The program has several graphic [panels](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/panels.PNG) and a parameter list with several commands grouped on the right side of the window.
 
 ### Zr, -Zi ###
 This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you can disable the Auto-axis feature by right clicking on the graph, or directly changing the scale in the legend. Some other standard graph functions are available in the top left "palette" such as zoom in, out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
@@ -70,7 +70,7 @@ You can change the plot colors, style, etc.... by clicking on the label; the cha
 If you use a large number of datasets (more than 200 sets), plotting can give some errors, they are inoffensive and can be ignored.
 
 ### Zr, Zi, ln R, theta ###
-These panels will show the dependency of impedances (real, imaginary, modulus or phase) as a function of frequency and the differences between the calculated and experimental values (if any).
+These panels will show the dependency of impedances (real, imaginary, modulus or phase) as a function of frequency and the differences between the calculated and experimental values ([if any](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/fit_graph.PNG)).
 
 ### 3D plot ###
 This panel will show a 3D plot of selected datasets, either in Nyquist, Zr or Zi or their difference, as selected by the user. This is useful for many datasets, more than 20 I guess, it will allow the user to see tendencies or check systematic errors in the fits. You can right click on the graph to adjust plotting properties to your liking (3D Plot Properties) or change the size of the graph.
@@ -83,7 +83,7 @@ When you click on one of the ten available cases, a new window will appear where
 You can edit the png image files to your liking (just for aesthetics, the calculations will not be affected), they are in the subdirectory __/models__. The ideal size of the png files is 150x100 pixels.
 
 #### Elements ####
-The elements used are the most common: Resistor, Capacitor, Inductor, CPE, Zarc, simple Randles circuit, Randles with kinetic and diffusion, Warburg (semi-infinite linear diffusion), Warburg short, Warburg Long, Gerischer, Havriliak-Negami and several compositions of these.
+The [elements](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/circuit.PNG) used are the most common: Resistor, Capacitor, Inductor, CPE, Zarc, simple Randles circuit, Randles with kinetic and diffusion, Warburg (semi-infinite linear diffusion), Warburg short, Warburg Long, Gerischer, Havriliak-Negami and several compositions of these.
 
 Warburg element represents semi-infinite diffusion to or from a flat electrode, expressed here as:
 
@@ -119,12 +119,12 @@ Some others functions can be added upon request, if I will have the time and if 
 
 #### Create a model ####
 
-When you create a model using the  editor, the circuit is not valid unless a flow of current can be calculated (but not a short-circuit). Once the circuit is valid, a LED labeled "valid" will light up on the model panel, indicating that the circuit is ready for use and you can see a list of all the parameters for each element of the circuit. 
+When you create a model using the  editor, the circuit is not valid unless a flow of current can be calculated (but not a short-circuit). Once the circuit is valid, a LED labeled "[valid](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/model_circuit.PNG)" will light up on the model panel, indicating that the circuit is ready for use and you can see a list of all the parameters for each element of the circuit. 
 _Note : the parameters will be listed only if you have loaded experimental data!_ If you forgot to load data and already built a model, you can read data then modify the model to check for its validity (for instance, replace one element with the same one, this will trigger a validity check in the program). However, in doing so, the paramaters of the model will be initialized to some dummy values. To see the experimental data and the simulaion you need to select one or several datasets.
 
 Calculations of impedances are made whenever the parameter values are changed... _if the model is valid_ and if you have some data loaded. You can use the wheel of the mouse to evaluate the change in the output impedance with the change in the value of a parameter.
 
-Each parameter, listed on the right side of the page, is labeled with a decimal, which indicates which element it belongs to. For example, the first element of the circuit will have parameters labeled as 0.x, the second element as 1.x, and so on. When you add a parallel RQ element to the first element of the circuit (a Zarc as element 0), you need to create "electrical contacts" in the next three elements (elements 1, 2, and 3, or 4,5 and 6, or 7, 8 and 9….) for the circuit to be complete. 
+Each [parameter](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/param_values.PNG), listed on the right side of the page, is labeled with a decimal, which indicates which element it belongs to. For example, the first element of the circuit will have parameters labeled as 0.x, the second element as 1.x, and so on. When you add a parallel RQ element to the first element of the circuit (a Zarc as element 0), you need to create "electrical contacts" in the next three elements (elements 1, 2, and 3, or 4,5 and 6, or 7, 8 and 9….) for the circuit to be complete. 
 Otherwise, the circuit will be open and no impedance can be calculated. In other words all the elements of the circuit need to be properly connected for the circuit to be valid and for impedance calculations to be performed.
 
 Let’s make a valid circuit, with a Zarc and three shorts. As the circuit is valid, with a Zarc in element 0 position, three parameters will appear in the tab of the right side of the panel: 0ZARR, 0ZARQ and 0ZARN; the names are rather self-explaining for the parameters describing a Zarc located in the position 0 of the circuit, with the three parameters describing a parallel RQ. You can use a RQ element and fix the N to 1 to obtain the equivalent RC circuit. The equivalent capacitance for a RQ circuit is C=((RQ)<sup>1/n</sup>)/R.
@@ -138,7 +138,7 @@ Overall, the notation is quite straightforward once you become familiar with the
 ### Parameters ###
 On this page you can adjust some parameters of the program. In particular the datafile separator _should_ be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. By default the separator is set to TAB.
 
-The fitting algorithm (TRDL is the default) and the parameters bounds, if any, can be constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-14, and so on. You may need to adjust the parameters limits. The fitting results may depend on the starting parameters. You should probably start with TRDL to approach some values close to the solution then proceed with a LM fit. Note that esd of the fitted parameters are correct only for u constrained LM fit.
+The fitting algorithm (TRDL is the default) and the parameters bounds, if any, can be constrained to certain intervals that are listed on this page. Initial [limits](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/parameters.PNG) are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-14, and so on. You may need to adjust the parameters limits. The fitting results may depend on the starting parameters. You should probably start with TRDL to approach some values close to the solution then proceed with a LM fit. Note that esd of the fitted parameters are correct only for u constrained LM fit.
 
 The fit termination parameters can be adjusted here : by default they are set to 500 iterations and a stop limit at 10E-8.
 
