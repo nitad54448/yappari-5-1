@@ -321,7 +321,7 @@ On the DRT graph, the experimental Zr and Zi are plotted together with the _reca
 An example of a DRT fit is shown below :
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/drt_calc_RCRC_1k_3_5microF_80_20p_simulated.PNG)
-Red dots are experimental Zr and the red line is calculated Zr based on the distribution function as RC (blue dots and line are experimental and calculated Zi values). The green spikes are calculated relaxation times. The fit is very good and corresponds well with the simulated values. Note that full impedance is calculated only from the "experimental" imaginary impedance, this should be true for all experimental spectra that respect the KK relation. This might not be the case if the data is noisy or inadequate. 
+Red dots are experimental Zr and the red line is calculated Zr based on the distribution function as RC (blue dots and line are experimental and calculated Zi values). The green spikes are calculated relaxation times. The fit is very good and corresponds well with the simulated values. Note that full impedance is calculated only from the "experimental" imaginary impedance, this should be correct for experimental spectra that respect the KK relation. This might not be the case if the data is noisy or inadequate. 
 
 #### Help ####
 This will open a this website, hopefully the address will not change; while the program file may have some pdf help files, the most recent help is always on this github page.
