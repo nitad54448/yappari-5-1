@@ -87,7 +87,7 @@ When you click on one of the ten available cases, a new window will appear where
 You can edit the png image files to your liking (just for aesthetics, the calculations will not be affected), they are in the subdirectory __/models__. The ideal size of the png files is 150x100 pixels.
 
 #### Elements ####
-The [elements](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/circuit.PNG) used are rather common: Resistor, Capacitor, Inductor, CPE, Zarc, simple Randles circuit, Randles with kinetic and diffusion, Warburg (semi-infinite linear diffusion), Warburg short, Warburg Long, Gerischer, Havriliak-Negami and several compositions of these.
+The elements used are rather common: Resistor, Capacitor, Inductor, CPE, Zarc, simple Randles circuit, Randles with kinetic and diffusion, Warburg (semi-infinite linear diffusion), Warburg short, Warburg Long, Gerischer, Havriliak-Negami and several compositions of these.
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/circuit.PNG)
 
@@ -134,7 +134,7 @@ Calculations of impedances are made whenever the parameter values are changed...
 
 Each parameter listed on the right side of the page, is labeled with a decimal, which indicates which element it belongs to. For example, the first element of the circuit will have parameters labeled as 0.x, the second element as 1.x, and so on. For this circuit composed of two zarcs :
 
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/valid_circuit.PNG)
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/parameters.PNG)
 
 we need to close the circuit and make "electrical contacts" in other elements (elements 0 and 6) for the circuit to be valid. The parameters that will be listed for this circuit will be 4something and 5something (since the two elements are located on posution 4 and 5). 
 
