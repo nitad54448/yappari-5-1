@@ -63,7 +63,7 @@ After installing the program in a directory of your choice, some other directori
 
 ## Panels ##
 The program has several graphic and a parameter list with several commands grouped on the right side of the window.
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/panels.PNG
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/panels.PNG)
 
 ### Zr, -Zi ###
 This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you can disable the Auto-axis feature by right clicking on the graph, or directly changing the scale in the legend. Some other standard graph functions are available in the top left "palette" such as zoom in, out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
