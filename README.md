@@ -153,7 +153,7 @@ The fit termination parameters can be adjusted here : by default they are set to
 
 __Developer commands__
 
-Can be used for manual control of program, useful mostly for testing. Some commands are not available elsewhere. Some commands might be useful for users but I do not want to make too many options on the menu. For instance, the following commands might be useful : to make a Savitzky-Golay smooth to the active datasets :
+Can be used for manual control of program, useful mostly for testing. Some commands are not available elsewhere. For instance, the following commands might be useful : to make a Savitzky-Golay smooth to the active datasets :
 
     smooth_active
 
