@@ -155,30 +155,30 @@ __Developer commands__
 
 Can be used for manual control of program, useful mostly for testing. Some commands are not available elsewhere, some examples. To make a Savitzky smooth the active datasets :
 
-    _smooth_active_
+    smooth_active
 
 To add white noise to the selected impedance datasets in the range Z-1% to Z+1%   
     
-    _rndz>>1_ 
+    rndz>>1 
 
 or
   
-    _rndzr_>>0.5_ 
+    rndzr_>>0.5
     
 will add white noise to the real part of the impedance in the range Z-0.5% to Z+0.5%
 Other accepted parameters are _rndzi>>u_ for Zi white noise and _rndf>>u_ for frequency.
 
-     _average_ 
+     average
      
 will calculate the mean of Zr and Zi for the selected datasets. This function has a sense if it is applied to datasets measured at the same frequencies.
 You can also search the best Tikhonov parameter, the command :
 
-    _search_lambda>>0.0002&0.1_ 
+   search_lambda>>0.0002&0.1 
     
 will calculate 1024 DRTs in the range 0.0002 and 0.1 and reconstruct all the 1024 Z sets, then select best lambda parameter based on the minim squared error between the calculated and experimental sets. Obviously you can replace 0.0002 and 0.1 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2_ is accepted). 1024 values is a fixed value, the interval of lambda will be scaled in log spacing over the interval specified with _start_value&stop_value
 Another command you may try is
 
-    _calculate_drt_fisk
+    calculate_drt_fisk
 
 if you want to test another non-negative Least-squares (NNLS) procedure. It is based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345) and implemented in versions of Yappari prior to 14th of aug 2023. 
 
