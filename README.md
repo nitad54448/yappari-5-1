@@ -153,7 +153,7 @@ The fit termination parameters can be adjusted here : by default they are set to
 
 __Developer commands__
 
-Can be used for manual control of program, useful mostly for testing. Some commands are not available elsewhere. Some commands might be useful for users but I do not want to make too many options on the menu. For instance, the follwoing commands might be useful. To make a Savitzky smooth the active datasets :
+Can be used for manual control of program, useful mostly for testing. Some commands are not available elsewhere. Some commands might be useful for users but I do not want to make too many options on the menu. For instance, the following commands might be useful : to make a Savitzky-Golay smooth to the active datasets :
 
     smooth_active
 
@@ -161,7 +161,7 @@ To add white noise to the selected impedance datasets in the range Z-1% to Z+1%
     
     rndz>>1 
 
-or
+while
   
     rndzr_>>0.5
     
@@ -175,7 +175,7 @@ You can also search the best Tikhonov parameter, the command :
 
    search_lambda>>0.0002&0.1 
     
-will calculate 1024 DRTs in the range 0.0002 and 0.1 and reconstruct all the 1024 Z sets, then select best lambda parameter based on the minim squared error between the calculated and experimental sets. Obviously you can replace 0.0002 and 0.1 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2_ is accepted). 1024 values is a fixed value, the interval of lambda will be scaled in log spacing over the interval specified with _start_value&stop_value
+will calculate 1024 DRTs in the range 0.0002 and 0.1 and reconstruct all the 1024 Z sets, then select the best lambda parameter based on the minim squared error between the calculated and experimental sets. Obviously you can replace 0.0002 and 0.1 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2_ is accepted). 1024 values is a fixed value, the interval of lambda will be scaled in log spacing over the interval specified with _start_value&stop_value
 Another command you may try is
 
     calculate_drt_fisk
