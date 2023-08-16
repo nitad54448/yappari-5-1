@@ -82,6 +82,9 @@ This panel will show a 3D plot of selected datasets, either in Nyquist, Zr or Zi
 ### Model ###
 In this panel a model can be created by the user, by selecting element circuits. 
 Up to ten elements can be added in the circuit (obviously it is not realistic to fit such a circuit, unless you want to fit a crocodile). Only the first 18 parameters will be shown in the right side of the program.
+
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/page_model.PNG)
+
 When you click on one of the ten available cases, a new window will appear where you can select the element you want to add. Simply click on the picture of the element you want to add to the model. The available circuit elements include resistors, capacitors, inductors, and more complex elements such as constant phase elements or Warburg elements (see below).
 
 You can edit the png image files to your liking (just for aesthetics, the calculations will not be affected), they are in the subdirectory __/models__. The ideal size of the png files is 150x100 pixels.
@@ -316,7 +319,7 @@ You can delete experimental points from datasets visible in the Nyquist, Zr, Zi 
 Copy the listed parameters to all datasets. Useful for bulk fitting in order to set proper starting point for all the sets.
 
 #### Clone the parameters to active ####
-Copy the listed parameters to selected datasets. 
+Copy the listed parameters to selected datasets. Copy the listed parameters to all selected sets. Note that the listed parameters are those of the first selected dataset.
 
 #### Save active exp datasets ####
 This command allows you to save the *active* experimental data, that means the selected ones, to a single file in a specific format. The format is three columns, separated by the string you selected in the Parameters page, with frequency in Hz, Zr, and Zi. This is useful for simulating impedance spectra for a given model. All the datasets will be saved in a single file, each data susequenntly added, with its name, to the same file.
