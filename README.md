@@ -14,10 +14,12 @@ __Second note__ : there is no warrantee whatsoever for using this program. Use i
 # yappari-v5-2023 #
 version 17-08-2023
 
+- [やっぱり](#----)
+- [yappari-v5-2023](#yappari-v5-2023)
   * [How to install](#how-to-install)
   * [Panels](#panels)
-    + [Zr, -Zi](#zr--zi)
-    + [Zr, Zi, ln R, theta](#zr-zi-ln-r-theta)
+    + [Zr, -Zi](#zr---zi)
+    + [Zr, Zi, ln R, theta](#zr--zi--ln-r--theta)
     + [3D plot](#3d-plot)
     + [Model](#model)
       - [Elements](#elements)
@@ -35,12 +37,12 @@ version 17-08-2023
       - [Custom](#custom)
     + [Action](#action)
       - [Delete points from graph](#delete-points-from-graph)
-      - [Erase active datasets](#erase-active-datasets)
       - [Clone the parameters to all](#clone-the-parameters-to-all)
       - [Clone the parameters to active](#clone-the-parameters-to-active)
       - [Save active exp datasets](#save-active-exp-datasets)
       - [Save active calc datasets](#save-active-calc-datasets)
       - [Save active exp and calc datasets](#save-active-exp-and-calc-datasets)
+      - [Erase active datasets](#erase-active-datasets)
       - [Report active](#report-active)
       - [Z-Hit active datasets](#z-hit-active-datasets)
       - [DRT active datasets](#drt-active-datasets)
@@ -50,7 +52,6 @@ version 17-08-2023
     + [Exit](#exit)
     + [Author](#author)
     + [Changes](#changes)
-
 
 
 ## How to install ##
