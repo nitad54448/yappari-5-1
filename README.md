@@ -162,8 +162,8 @@ __Developer commands__
 
 Can be used for manual control of program, useful mostly for testing. Some commands are not available elsewhere. For instance, the following commands might be useful : to make a Savitzky-Golay smooth to the active datasets :
 
-    smooth_active
-
+    smooth
+This will create new datasets with the same name and the prefix sm_.
 You can also interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try if you don't have spurious points. the command is :
 
     spline>>128
