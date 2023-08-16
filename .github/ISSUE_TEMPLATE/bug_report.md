@@ -18,13 +18,14 @@ Steps to reproduce the behavior:
 4. See error
 
 **Expected behavior**
-A clear and concise description of what you expected to happen. Screen capture of images and datafile can help identifiying the problem.
+A clear and concise description of what you expected to happen. Screen captures of images and datafile used can help identifiying the problem.
 
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
 **Desktop (please complete the following information):**
  - OS: [e.g. win 11]
+ - PC: [e.g. Dell laptop, i7-3000, 8Gb RAM]
 
 **Additional context**
 Add any other context about the problem here. 
