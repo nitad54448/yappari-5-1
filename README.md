@@ -2,17 +2,17 @@
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
-This program can perform fits for one or multiple datasets (by multiple I mean hunderths or even thousands datasets, this may be slow but you'll get all the results in a run, the results can be saved in a datafile). For a single dataset you may want to use a simpler program called [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2), available also as a Windows 10 installer. This single dataset program will not be developed further so it might be better to take a leap of faith and move to this version.
+This program can perform fits for one or multiple datasets (by multiple I mean hunderths or even thousands of datasets, this may be slow but you'll get all the results in a run, the results can be saved in a datafile). For a single dataset you may want to use a simpler program called [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2), available also as a Windows 10 installer. This single dataset program will not be developed further so it might be better to take a leap of faith and move to this version.
 
 You are encouraged to contribute to this help file, either you can send it to me or fork it on Github. As much as I like programming, writing documentation is boring. A short tutorial is included in the help pdf file which is installed with the exe file. Otherwise, the most updated description of the program is always here on this page.
 It is generally a good idea to read a help file before using a program.
 
-__Note__ : if you want I can setup an automatic email reminder when there is an update, if this is the case leave a note (just be warned that I am fidgeting a lot with it these days, so you will get 10 mails per day).
+__Note__ : if you want I can setup an automatic email reminder when there is an update, if this is the case leave a note (just be warned that I am fidgeting a lot with it these days, so you may get 10 mails per day).
 
-__Second note__ : there is no warrantee whatsoever for using this program. Use it if you want : you will not receive much help from me, everything is in this documentation file. If you don't want, don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. 
+__Second note__ : there is no warrantee whatsoever for using this program. Use it if you want, see licence, but you will not receive much help from me, everything is in this documentation file. If you don't want, don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. 
 
 # yappari-v5-2023 #
-version 14-08-2023
+version 17-08-2023
 
   * [How to install](#how-to-install)
   * [Panels](#panels)
@@ -163,6 +163,12 @@ __Developer commands__
 Can be used for manual control of program, useful mostly for testing. Some commands are not available elsewhere. For instance, the following commands might be useful : to make a Savitzky-Golay smooth to the active datasets :
 
     smooth_active
+
+You can also interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try if you don't have spurious points. the command is :
+
+    spline>>128
+
+where 128 is the number of frequency points you will get from your data, in a log scale setup. It might not be good to increase too much the number of points, nor to use this function on noisy data. This command will create new datasets for every selected dataset, so you can play around to see how it is working. The log scale is important for DRT and Z-hit.
 
 To add white noise to the selected impedance datasets in the range Z-1% to Z+1%   
     
@@ -383,6 +389,7 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
+  -  August 17, 2023 : Added a spline interpolation function in "Developer commands".
   -  August 16, 2023 : Added a "Max plots" parameter on the Parameters panel.
   -  August 15, 2023 : DRT : calculate and plot only the first active dataset. 
   -  August 14, 2023 : The method of NNLS for DRT was changed to that of Altenbach.
