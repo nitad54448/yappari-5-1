@@ -70,6 +70,7 @@ The program has several graphic and a parameter list with several commands group
 This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you can disable the Auto-axis feature by right clicking on the graph, or directly changing the scale in the legend. Some other standard graph functions are available in the top left "palette" such as zoom in, out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
 You can change the plot colors, style, etc.... by clicking on the label; the changes in this graph will affect all the graphs. You can remove some outlier points by zooming in and use the command _Action_/_Delete points from Nyquist_.
 If you use a large number of datasets (more than 200 sets), plotting can give some errors, they are inoffensive and can be ignored.
+The nummber of plots can be selected by the user, see Max Plots on [Parameters](https://github.com/nitad54448/yappari-5-1#parameters) page.
 
 ### Zr, Zi, ln R, theta ###
 These panels will show the dependency of impedances (real, imaginary, modulus or phase) as a function of frequency and the differences between the calculated and experimental values, something like this
@@ -77,7 +78,7 @@ These panels will show the dependency of impedances (real, imaginary, modulus or
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/fit_graph.PNG)
 
 ### 3D plot ###
-This panel will show a 3D plot of selected datasets, either in Nyquist, Zr or Zi or their difference, as selected by the user. This is useful for many datasets, more than 20 I guess, it will allow the user to see tendencies or check systematic errors in the fits. You can right click on the graph to adjust plotting properties to your liking (3D Plot Properties) or change the size of the graph. If you have many datasets (a thousand or more) be patient, it will take some time to plot all data.
+This panel will show a 3D plot of selected datasets, either in Nyquist, Zr or Zi or their difference, as selected by the user. This is useful for many datasets, more than 20 I guess, it will allow the user to see tendencies or check systematic errors in the fits. You can right click on the graph to adjust plotting properties to your liking (3D Plot Properties) or change the size of the graph. If you have many datasets (a thousand or more) be patient, it will take some time to plot all data. The number of plots is defined by the selected datasets and by the "Max plots" value, see [Parameters](https://github.com/nitad54448/yappari-5-1#parameters).
 
 ### Model ###
 In this panel a model can be created by the user, by selecting element circuits. 
@@ -153,6 +154,9 @@ On this page you can adjust some parameters of the program. In particular the da
 The fitting algorithm (TRDL is the default) and the parameters bounds, if any, can be constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-14, and so on. You may need to adjust these parameters limits. The fitting results may depend on the starting parameters since this is a non-linear system. You should probably start with TRDL to approach some values close to the solution then proceed with a LM fit. Note that esd's of the fitted parameters are correct only for u constrained LM fit.
 
 The fit termination parameters can be adjusted here : by default they are set to 1000 iterations and a stop limit at 10E-8.
+
+__Max plots__
+This is the maximum number of plots to show on the graphs (excluding DRT which will show only the first selected dataset). It should be small if you are dealing with many datasets (more than 100 or so). The number of plots is determined by the number of selected datasets or this number, whichever is smaller. 
 
 __Developer commands__
 
@@ -379,7 +383,8 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
-  -  August 15, 2023 : I limited the DRT gaph to the first active dataset. 
+  -  August 16, 2023 : Added a "Max plots" parameter on the Parameters panel.
+  -  August 15, 2023 : DRT : calculate and plot only the first active dataset. 
   -  August 14, 2023 : The method of NNLS for DRT was changed to that of Altenbach.
   -  August 12, 2023 : Implemented a full DRT calculation for ore or more datasets (with a Tikhonov-type constrained non-negative parameters least-squares procedure, see the documentation for reference to the method used). Added the possibility to change the X-scale in DRT graph (sometimes is convenient to check the time constants). Added a debug/developper command to test things.
   -  August 10, 2023 : Cosmetics; DRT graph changed as a function of 1/&omega;
