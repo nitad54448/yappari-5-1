@@ -51,7 +51,7 @@ version 17-08-2023
     + [Fit selected](#fit-selected)
     + [Exit](#exit)
     + [Author](#author)
-    + [Changes](#changes)
+    + [History of changes](#changes)
 
 
 ## How to install ##
