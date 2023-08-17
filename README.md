@@ -163,12 +163,13 @@ __Developer commands__
 Can be used for manual control of program, useful mostly for testing. Some commands are not available elsewhere. For instance, the following commands might be useful : to make a Savitzky-Golay smooth to the active datasets :
 
     smooth
-This will create new datasets with the same name and the prefix sm_.
-You can also interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try if you don't have spurious points. the command is :
+    
+This will create new smoothed datasets with the same name and the prefix sm_.
+You can also interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try it, if you don't have spurious points. the command is :
 
     spline>>128
 
-where 128 is the number of frequency points you will get from your data, in a log scale setup. It might not be good to increase too much the number of points, nor to use this function on noisy data. This command will create new datasets for every selected dataset, so you can play around to see how it is working. The log scale is important for DRT and Z-hit.
+where 128 is the number of frequency points you will get from your data, in a log scale setup. It might not be good to increase too much the number of points from he original ones, nor to use this function on noisy data. This command will create new datasets for every selected dataset, so you can play around to see how it is working. The log scale is important for DRT and Z-hit.
 
 To add white noise to the selected impedance datasets in the range Z-1% to Z+1%   
     
@@ -184,11 +185,16 @@ Other accepted parameters are _rndzi>>u_ for Zi white noise and _rndf>>u_ for fr
      average
      
 will calculate the mean of Zr and Zi for the selected datasets. This function has a sense if it is applied to datasets measured at the same frequencies.
-You can also search the best Tikhonov parameter, the command :
-
+You can also search the best Tikhonov parameter, with a command :
+ 
    search_lambda>>0.0002&0.1 
     
-will calculate 1024 DRTs in the range 0.0002 and 0.1 and reconstruct all the 1024 Z sets, then select the best lambda parameter based on the minim squared error between the calculated and experimental sets. Obviously you can replace 0.0002 and 0.1 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2_ is accepted). 1024 values is a fixed value, the interval of lambda will be scaled in log spacing over the interval specified with _start_value&stop_value
+will calculate 1024 DRTs in the range 0.0002 and 0.1 and reconstruct all the 1024 Z sets. The best lambda parameter based on the minim squared error between the calculated and experimental sets will be shown. Obviously you can replace 0.0002 and 0.1 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2_ is accepted). 1024 values is a fixed value, the interval of lambda will be scaled in log spacing over the interval specified with _start_value&stop_value
+
+For a default range search (10E-4 to 10E-1) you can use
+
+    search_lambda
+
 Another command you may try is
 
     calculate_drt_fisk
