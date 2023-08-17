@@ -21,11 +21,12 @@ Steps to reproduce the behavior:
 A clear and concise description of what you expected to happen. Screen captures of images and datafile used can help identifiying the problem.
 
 **Screenshots**
-If applicable, add screenshots to help explain your problem.
+Add screenshots to help explain your problem.
 
-**Desktop (please complete the following information):**
+**System (please complete the following information):**
  - OS: [e.g. win 11]
  - PC: [e.g. Dell laptop, i7-3000, 8Gb RAM]
+ - version [e.g. 5.1.63]
 
 **Additional context**
 Add any other context about the problem here. 
