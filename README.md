@@ -13,8 +13,6 @@ __Second note__ : there is no warrantee whatsoever for using this program. Use i
 
 
 # Index #
-(#yappari-v5-2023)
-
 version 17-08-2023
 
 - [yappari-v5-2023](#yappari-v5-2023)
