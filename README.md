@@ -165,6 +165,7 @@ Can be used for manual control of program, useful mostly for testing. Some comma
     smooth
     
 This will create new smoothed datasets with the same name and the prefix sm_.
+
 You can also interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try it, if you don't have spurious points. the command is :
 
     spline>>128
