@@ -331,7 +331,7 @@ In the /data folder you will find some files, experimental or simulated with oth
 This button can trigger several commands:
 
 #### Delete points from graph ####
-You can delete experimental points from datasets visible in the Nyquist, Zr, Zi or lnR plots: just zoom in the region to show only the points you want to delete then select this action command. This is irreversible and it applies to the shown graph. Calculated points angle will not be erased (this action is not performed to differences plots nor to phase angle).
+You can delete experimental points from datasets visible in the Nyquist, Zr, Zi or lnR plots: just zoom in the region to show only the points you want to delete then select this command. This is irreversible and it applies to the shown graph. 
 
 #### Clone the parameters to all ####
 Copy the listed parameters to all datasets. Useful for bulk fitting in order to set proper starting point for all the sets.
@@ -369,6 +369,8 @@ An example of a DRT fit is shown below :
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/drt_calc_RCRC_1k_3_5microF_80_20p_simulated.PNG)
 Red dots are experimental Zr and the red line is calculated Zr based on the distribution function as RC (blue dots and line are experimental and calculated Zi values). The green spikes are calculated relaxation times. The fit is very good and corresponds well with the simulated values. Note that full impedance is calculated only from the "experimental" imaginary impedance, this should be correct for experimental spectra that respect the KK relation. This might not be the case if the data is noisy or inadequate. 
+
+Note that this procedure might be slow, particularly for large datasets.
 
 #### Help ####
 This will open this website, hopefully the address will not change; while the program file may have some pdf help files, the most recent help is always on this github page.
