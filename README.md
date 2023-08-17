@@ -9,7 +9,7 @@ It is generally a good idea to read a help file before using a program.
 
 __Note__ : if you want I can setup an automatic email reminder when there is an update, if this is the case leave a note (just be warned that I am fidgeting a lot with it these days, so you may get 10 mails per day).
 
-__Second note__ : there is no warrantee whatsoever for using this program. Use it if you want, see licence, but you will not receive much help from me, everything is in this documentation file. If you don't want, don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. 
+__Second note__ : there is no warrantee whatsoever for using this program. Use it if you want, see [licence](https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me, everything is in this documentation file. If you don't want to use it, don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. 
 
 # yappari-v5-2023 #
 version 17-08-2023
@@ -56,21 +56,21 @@ version 17-08-2023
 ## How to install ##
 Yappari 5.1 is compiled with Labview 2023 for Windows 10.
 It is supposed to work with win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
-This application requires Labview 2023 runtime engine or a subsequent LV 64 bits runtime engine. You may have this "engine" if you have previously installed Yappari or other programs written in LV2023 or you can download it freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336). 
 The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the yappari_installer.zip file and not what is labelled as source file archive. The source is not included in this distribution. 
 
-After installing the program in a directory of your choice, some other directories will be created : /data, /drt, /files, /help and /models. The _models_ directory contains png files with images for creating circuits. The _data_ directory contains and some dll required by the program and in the /files you can see some example of data files and custom definitions.
+Alernatively, you can simply download the ini and exe files here but this application requires Labview 2023 runtime engine or a subsequent LV 64 bits runtime engine. You may have this "engine" if you have previously installed Yappari or other programs written in LV2023 or you can download it freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336). 
+
+After installing the program in a directory of your choice, some other directories will be created : /data, /drt, /files, /help and /models. The _models_ directory contains png files with images for creating circuits. The _data_ directory contains some dll required by the program and in the /files you can see some examplse of data files and custom definitions. The /help directory holds some images for this document and some help files. You can safely remove it if you want.
 
 ## Panels ##
-The program has several graphic and a parameter list with several commands grouped on the right side of the window. When you start the program, if everything is normal, you should see something like this
+The program has several panels and a parameter list with several commands grouped on the right side of the window. When you start the program, if everything is normal, you should see something like this
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/panels.PNG)
 
 ### Zr, -Zi ###
 This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you can disable the Auto-axis feature by right clicking on the graph, or directly changing the scale in the legend. Some other standard graph functions are available in the top left "palette" such as zoom in, out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
 You can change the plot colors, style, etc.... by clicking on the label; the changes in this graph will affect all the graphs. You can remove some outlier points by zooming in and use the command _Action_/_Delete points from Nyquist_.
-If you use a large number of datasets (more than 200 sets), plotting can give some errors, they are inoffensive and can be ignored.
-The nummber of plots can be selected by the user, see Max Plots on [Parameters](https://github.com/nitad54448/yappari-5-1#parameters) page.
+The nummber of plots can be selected by the user, see Max Plots on [Parameters](https://github.com/nitad54448/yappari-5-1#parameters) page. Note that, because of space limitations, only the first 24 plots will have legends. But you can plot as many datasets as you want (I tried 12000 datasets, it is possible but slow). 
 
 ### Zr, Zi, ln R, theta ###
 These panels will show the dependency of impedances (real, imaginary, modulus or phase) as a function of frequency and the differences between the calculated and experimental values, something like this
@@ -163,12 +163,14 @@ __Developer commands__
 Can be used for manual control of program, useful mostly for testing. Some commands are not available elsewhere. For instance, the following commands might be useful : to make a Savitzky-Golay smooth to the active datasets :
 
     smooth
-This will create new datasets with the same name and the prefix sm_.
-You can also interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try if you don't have spurious points. the command is :
+    
+This will create new smoothed datasets with the same name and the prefix sm_.
+
+You can also interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try it, if you don't have spurious points. the command is :
 
     spline>>128
 
-where 128 is the number of frequency points you will get from your data, in a log scale setup. It might not be good to increase too much the number of points, nor to use this function on noisy data. This command will create new datasets for every selected dataset, so you can play around to see how it is working. The log scale is important for DRT and Z-hit.
+where 128 is the number of frequency points you will get from your data, in a log scale setup. It might not be good to increase too much the number of points from he original ones, nor to use this function on noisy data. This command will create new datasets for every selected dataset, so you can play around to see how it is working. The log scale is important for DRT and Z-hit.
 
 To add white noise to the selected impedance datasets in the range Z-1% to Z+1%   
     
@@ -184,11 +186,16 @@ Other accepted parameters are _rndzi>>u_ for Zi white noise and _rndf>>u_ for fr
      average
      
 will calculate the mean of Zr and Zi for the selected datasets. This function has a sense if it is applied to datasets measured at the same frequencies.
-You can also search the best Tikhonov parameter, the command :
-
+You can also search the best Tikhonov parameter, with a command :
+ 
    search_lambda>>0.0002&0.1 
     
-will calculate 1024 DRTs in the range 0.0002 and 0.1 and reconstruct all the 1024 Z sets, then select the best lambda parameter based on the minim squared error between the calculated and experimental sets. Obviously you can replace 0.0002 and 0.1 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2_ is accepted). 1024 values is a fixed value, the interval of lambda will be scaled in log spacing over the interval specified with _start_value&stop_value
+will calculate 1024 DRTs in the range 0.0002 and 0.1 and reconstruct all the 1024 Z sets. The best lambda parameter based on the minim squared error between the calculated and experimental sets will be shown. Obviously you can replace 0.0002 and 0.1 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2_ is accepted). 1024 values is a fixed value, the interval of lambda will be scaled in log spacing over the interval specified with _start_value&stop_value
+
+For a default range search (10E-4 to 10E-1) you can use
+
+    search_lambda
+
 Another command you may try is
 
     calculate_drt_fisk
