@@ -1,4 +1,4 @@
-# やっぱり #
+# YAPPARI #
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
