@@ -55,13 +55,15 @@ version 17-08-2023
 
 
 ## How to install ##
-Yappari 5.1 is compiled with Labview 2023 for Windows 10.
-It is supposed to work with win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
-The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the yappari_installer.zip file and not what is labelled as source file archive. The source is not included in this distribution. 
 
-Alernatively, you can simply download the ini and exe files here but this application requires Labview 2023 runtime engine or a subsequent LV 64 bits runtime engine. You may have this "engine" if you have previously installed Yappari or other programs written in LV2023 or you can download it freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336). 
+Yappari 5.1 is compiled with Labview 2023 for Windows 10. 
+The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the yappari_install.zip file and not what is labelled as source file archives. The source is not included in this distribution. 
+
+Alternatively, you can download all the files from __Code__ as a zip file and install the Labview 2023 64bits runtime engine. You may already have this "engine" if you have previously installed Yappari or other programs written in LV2023 or you can download it freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336). 
 
 After installing the program in a directory of your choice, some other directories will be created : /data, /drt, /files, /help and /models. The _models_ directory contains png files with images for creating circuits. The _data_ directory contains some dll required by the program and in the /files you can see some examplse of data files and custom definitions. The /help directory holds some images for this document and some help files. You can safely remove it if you want.
+
+This program is supposed to work with win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
 
 ## Panels ##
 The program has several panels and a parameter list with several commands grouped on the right side of the window. When you start the program, if everything is normal, you should see something like this
