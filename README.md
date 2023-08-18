@@ -51,7 +51,6 @@ version 18-08-2023
     + [Exit](#exit)
     + [Author](#author)
     + [Changes](#changes)
-  * [[# やっぱり #]
 
 ## How to install ##
 
@@ -411,6 +410,7 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
+  -  August 18, 2023 : Updated the documentation and files.
   -  August 17, 2023 : Added a spline interpolation function in "Developer commands", can upscale in log spaced frequency. Moved to version 5-1-65 as a new release.
   -  August 16, 2023 : Added a "Max plots" parameter on the Parameters panel.
   -  August 15, 2023 : DRT : plot only the first active dataset. 
@@ -432,7 +432,7 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   -  June 12, 2023 : added a fourth term in the Z-hit calculations (the one with the pi^7/604800). It's contribution is very small though.
   -  June 10, 2023 : added the Z-hit calculation.
 
-[# やっぱり #](https://github.com/nitad54448/yappari-5-1#%E3%82%84%E3%81%A3%E3%81%B1%E3%82%8A)
+[# やっぱり #](https://github.com/nitad54448/yappari-5-1)
 --
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
