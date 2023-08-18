@@ -51,7 +51,7 @@ version 17-08-2023
     + [Fit selected](#fit-selected)
     + [Exit](#exit)
     + [Author](#author)
-    + [Changes](#changes)
+    + [History of changes](#changes)
 
 
 ## How to install ##
@@ -331,7 +331,7 @@ In the /data folder you will find some files, experimental or simulated with oth
 This button can trigger several commands:
 
 #### Delete points from graph ####
-You can delete experimental points from datasets visible in the Nyquist, Zr, Zi or lnR plots: just zoom in the region to show only the points you want to delete then select this action command. This is irreversible and it applies to the shown graph. Calculated points angle will not be erased (this action is not performed to differences plots nor to phase angle).
+You can delete experimental points from datasets visible in the Nyquist, Zr, Zi or lnR plots: just zoom in the region to show only the points you want to delete then select this command. This is irreversible and it applies to the shown graph. 
 
 #### Clone the parameters to all ####
 Copy the listed parameters to all datasets. Useful for bulk fitting in order to set proper starting point for all the sets.
@@ -364,11 +364,13 @@ Only the values of imaginary part of the impedance are taken into calculations. 
 For the fit, the optimal regularization parameter is decided by the user (there is no universal value for this, it can be estimated with a procedure known as L-curve). If the Tikhonov parameter, noted Lambda in this program, is too small some spurious peaks will appear while a parameter too large will just squash the information. 
 The procedure I use here is to provide an indication of the frequencies of the relaxations. Much more advanced free DRT programs are available, see for instance [Ciucci et al](https://github.com/ciuccislab/DP-DRT) and his papers but there are many others. The DRT procedure may help in detecting a proper electrical circuit. If you want to used it, I suggest to read first some publications describing the procedure and the limitations.
 There is no need for a circuit model for the DRT calculations. The usefulness of DRT depends much on the quality of the data and in particular the first and the last points of the data.
-On the DRT graph, the experimental Zr and Zi are plotted together with the _recalculated impedances_ from the DRT data and a probability of distribution function. Calculations are made in real time if you change the Tikhonov parameter, so if you have multiple datasets and many iterations, it may be slow. Some files to test are in the /drt folder.
+On the DRT graph, the experimental Zr and Zi are plotted together with the _recalculated impedances_ from the DRT data and a probability of distribution function. Calculations are made in real time if you change the Tikhonov parameter, so if you have multiple datasets and many iterations, it may be very slow. Some files to test are in the /drt folder.
 An example of a DRT fit is shown below :
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/drt_calc_RCRC_1k_3_5microF_80_20p_simulated.PNG)
 Red dots are experimental Zr and the red line is calculated Zr based on the distribution function as RC (blue dots and line are experimental and calculated Zi values). The green spikes are calculated relaxation times. The fit is very good and corresponds well with the simulated values. Note that full impedance is calculated only from the "experimental" imaginary impedance, this should be correct for experimental spectra that respect the KK relation. This might not be the case if the data is noisy or inadequate. 
+
+Note that this procedure might be slow, particularly for large datasets.
 
 #### Help ####
 This will open this website, hopefully the address will not change; while the program file may have some pdf help files, the most recent help is always on this github page.
@@ -397,9 +399,9 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
-  -  August 17, 2023 : Added a spline interpolation function in "Developer commands", can upscale in log spaced frequency..
+  -  August 17, 2023 : Added a spline interpolation function in "Developer commands", can upscale in log spaced frequency. Moved to version 5-1-65 as a new release.
   -  August 16, 2023 : Added a "Max plots" parameter on the Parameters panel.
-  -  August 15, 2023 : DRT : calculate and plot only the first active dataset. 
+  -  August 15, 2023 : DRT : plot only the first active dataset. 
   -  August 14, 2023 : The method of NNLS for DRT was changed to that of Altenbach. This version is much faster in DRT calculations.
   -  August 12, 2023 : Implemented a full DRT calculation for ore or more datasets (with a Tikhonov-type constrained non-negative parameters least-squares procedure, see the documentation for reference to the method used). Added the possibility to change the X-scale in DRT graph (sometimes is convenient to check the time constants). Added a debug/developper command to test things.
   -  August 10, 2023 : Cosmetics; DRT graph changed as a function of 1/&omega;
@@ -418,7 +420,7 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   -  June 12, 2023 : added a fourth term in the Z-hit calculations (the one with the pi^7/604800). It's contribution is very small though.
   -  June 10, 2023 : added the Z-hit calculation.
 
-[やっぱり](#yappari-v5-2023)
+[# やっぱり #](https://github.com/nitad54448/yappari-5-1#%E3%82%84%E3%81%A3%E3%81%B1%E3%82%8A)
 --
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
