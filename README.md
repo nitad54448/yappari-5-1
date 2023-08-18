@@ -1,21 +1,18 @@
-# やっぱり #
+# YAPPARI #
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
-This program can perform fits for one or multiple datasets (by multiple I mean hunderths or even thousands of datasets, this may be slow but you'll get all the results in a run, the results can be saved in a datafile). For a single dataset you may want to use a simpler program called [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2), available also as a Windows 10 installer. This single dataset program will not be developed further so it might be better to take a leap of faith and move to this version.
+This program can perform fits for one or multiple datasets (by multiple I mean hunderths or even thousands of datasets, this may be slow but you'll get all the results in a run, the results can be saved in a datafile). For a single dataset you can use an old and simpler program called [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2). This single dataset program will not be developed further so it might be better to start with this version.
 
-You are encouraged to contribute to this help file, either you can send it to me or fork it on Github. As much as I like programming, writing documentation is boring. A short tutorial is included in the help pdf file which is installed with the exe file. Otherwise, the most updated description of the program is always here on this page.
+You are encouraged to contribute to this help file or write tutorials. If you send them to me I will add them to this repository. As much as I like programming, writing documentation is boring. A short tutorial is included in the help pdf file which is installed with the exe file. Otherwise, the most updated description of the program is always here on this page.
 It is generally a good idea to read a help file before using a program.
 
-__Note__ : if you want I can setup an automatic email reminder when there is an update, if this is the case leave a note (just be warned that I am fidgeting a lot with it these days, so you may get 10 mails per day).
+__Note__ : there is no warrantee whatsoever for using this program. Use it if you want, see [licence](https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. 
 
-__Second note__ : there is no warrantee whatsoever for using this program. Use it if you want, see [licence](https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me, everything is in this documentation file. If you don't want to use it, don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. 
+# やっぱり #
+### Index ###
+version 18-08-2023
 
-
-# Index #
-version 17-08-2023
-
-- [yappari-v5-2023](#yappari-v5-2023)
   * [How to install](#how-to-install)
   * [Panels](#panels)
     + [Zr, -Zi](#zr---zi)
@@ -29,39 +26,42 @@ version 17-08-2023
   * [Commands](#commands)
     + [Read data](#read-data)
       - [3 columns](#3-columns)
-      - [MFLI csv](#mfli-csv)
+      - [MFLI, csv](#mfli--csv)
+      - [MFLI, hdf5](#mfli--hdf5)
+      - [MFLI, Zview txt](#mfli--zview-txt)
       - [Versa Studio par](#versa-studio-par)
-      - [Zview txt](#zview-txt)
-      - [HDF5-MFLI](#hdf5-mfli)
       - [Z-MFLI](#z-mfli)
       - [Custom](#custom)
     + [Action](#action)
       - [Delete points from graph](#delete-points-from-graph)
+      - [Delete active datasets](#delete-active-datasets)
       - [Clone the parameters to all](#clone-the-parameters-to-all)
       - [Clone the parameters to active](#clone-the-parameters-to-active)
+      - [Save active parameters](#save-active-parameters)
       - [Save active exp datasets](#save-active-exp-datasets)
       - [Save active calc datasets](#save-active-calc-datasets)
       - [Save active exp and calc datasets](#save-active-exp-and-calc-datasets)
-      - [Erase active datasets](#erase-active-datasets)
-      - [Report active](#report-active)
-      - [Z-Hit active datasets](#z-hit-active-datasets)
       - [DRT active datasets](#drt-active-datasets)
+      - [Save active DRT data](#save-active-drt-data)
+      - [Z-Hit active datasets](#z-hit-active-datasets)
+      - [Report active](#report-active)
       - [Help](#help)
     + [Datasets](#datasets)
     + [Fit selected](#fit-selected)
     + [Exit](#exit)
     + [Author](#author)
-    + [History of changes](#changes)
-
+    + [Changes](#changes)
 
 ## How to install ##
-Yappari 5.1 is compiled with Labview 2023 for Windows 10.
-It is supposed to work with win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
-The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the yappari_installer.zip file and not what is labelled as source file archive. The source is not included in this distribution. 
 
-Alernatively, you can simply download the ini and exe files here but this application requires Labview 2023 runtime engine or a subsequent LV 64 bits runtime engine. You may have this "engine" if you have previously installed Yappari or other programs written in LV2023 or you can download it freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336). 
+Yappari 5.1 is compiled with Labview 2023 for Windows 10. 
+The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the yappari_install.zip file and not what is labelled as source file archives. The source is not included in this distribution. 
+
+Alternatively, you can download all the files from __Code__ as a zip file and install the Labview 2023 64bits runtime engine. You may already have this "engine" if you have previously installed Yappari or other programs written in LV2023 or you can download it freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336). 
 
 After installing the program in a directory of your choice, some other directories will be created : /data, /drt, /files, /help and /models. The _models_ directory contains png files with images for creating circuits. The _data_ directory contains some dll required by the program and in the /files you can see some examplse of data files and custom definitions. The /help directory holds some images for this document and some help files. You can safely remove it if you want.
+
+This program is supposed to work with win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
 
 ## Panels ##
 The program has several panels and a parameter list with several commands grouped on the right side of the window. When you start the program, if everything is normal, you should see something like this
@@ -208,30 +208,34 @@ Brief help listing the version of the program.
 
 ## Commands ##
 ### Read data ###
-This command opens a menu with several options as of now, designing which type of file to read. Note that reading a new file will just add more data wihtout losing the previous ones. You can remove some of the datasets with the command __Erase selected datasets__. You will need to select one or more datasets in order to plot them. 
+This command opens a menu with several options designing which type of file to read. Reading a new file will just add more data wihtout losing the previous ones. You can remove some of the datasets with the command __Erase selected datasets__. You will need to select one or more datasets in order to perform operations like fit, save, plot.. etc. A selected dataset is coloured differently, it is named in this document as _active_.
 
 #### 3 columns ####
-This option reads a three-column ASCII file, which should be separated by the character selected in the Parameters page, and it should contain frequency in Hz, Zr, and Zi. Is important to note that for French users (and some others), the separator value for a number should be a dot “.” and not a comma “,” (you may need to adjust this in the Windws parameters). I did not check if the program works when a number is represented as 1,256 instead of usual 1.256, but obviously one can not use ',' for separating both the digits in a number representation and separating values in a text file. 
-If the reading is successful, the dataset will be inserted in the first position with a name taken from the filename open. This name can be changed by the user. Only one dataset can be read with this command. 
-The first line of these files can be a text (the program will try to detect and discard a comment in the first line; if it fails, just remove all comments from the file and try again), or use the Custom format.
+This option reads a three-column ASCII file, which should be separated by the character selected in the [Parameters](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#parameters) page, and it should contain frequency in Hz, Zr, and Zi. It is important to note that for French users (and some others), the separator value for a number should be a dot “.” and not a comma “,” (you may need to adjust this in the Windows parameters). I did not check if the program works when a number is represented as 1,256 instead of usual 1.256, but obviously one can not use ',' for separating both the digits in a number representation and separating values in a text file. 
+The file may contain a description line (like parameters or type of the sample), if the description does not contain only numbers which might be interpreted as data values by the program. The best option is to have only 3 columns and no text or empty lines in the file. If you want to keep one or more description lines in the file, you should use the "Custom" format and prepare a "description file", see below.
 
-#### MFLI csv ####
-This is a ';' or ',' separated values file as obtained from MFLI/MFIA, a Zurich Instruments impedance analyzer. As in the Zview text file, multiple data sets can be saved or read from this file. In the data folder that is provided with this installer you can find such a file containing 34 measurements of the same sample. It would be boring and useless to fit all these 34 datasets one by one. Yappari-5 can handle such multiple data sets (you also have a file with 1700 datasets if you want to test the limits of your computer). You should select the proper separator string in the Parameters page.
+If the reading is successful, the dataset will be inserted in the first position with a name taken from the filename open. This name can be changed by the user. Only one dataset can be read with this command. 
+_Note : You should select the proper separator string in the Parameters page prior to use this function._
+
+#### MFLI, csv ####
+This is a ';' or ',' separated values file as obtained from MFLI/MFIA, a Zurich Instruments impedance analyzer. As in the __MFLI, Zview text__, multiple data sets can be read from this file. In the /files folder that is provided with the installer you can find such a file containing 34 measurements of the same sample. It would be boring and useless to fit all these 34 datasets one by one. Yappari-5 can handle such multiple data sets. The dataseset are labeled with a name taken from the file name and a suffix indicating the position in the file : the first datasets in the file will have __0__, then __1__, .. and so on.
+_Note : You should select the proper separator string in the Parameters page prior to use this function._
+
+#### MFLI, hdf5 ####
+This is a [HDF5](https://portal.hdfgroup.org/display/HDF5/HDF5) file, a binary file, that can hold multiple data sets. The datafile must be saved by MFIA or MFLI with impedance options. It must hold an _imps_ group. An exemple of such file is given in the /data directory, it has a _h5_ extension. An error will appear if the file does not hold _imps_ groups. See the MFLI documentation for saving in this kind of files.
+
+#### MFLI, Zview txt ####
+This is a MFLI text file, also an ASCII type, that can hold multiple data sets. Yappari will read all datasets it finds in this file and insert them in the datasets listing, with a name taken from the file name and a suffix indicating the position in the file : the first datasets will have __0__, then __1__,  and so on.
 
 #### Versa Studio par ####
-This type of file contains data delimited by <Segments> and >/Segments>. I did not extenisively checked this type of file as I don't have access to this type of instrument, an example is given in the /data folder. If you encounter errors, feel free to drop me a line.
-
-#### Zview txt ####
-This is a Zview file, also an ASCII type, that can hold multiple data sets. Yappari will read all datasets it finds in this file and insert them in the datasets listing, with a name taken from the file name and a suffix indicating the position in the file : the first datasets will have __0__, then __1__, .. and so on.
-
-#### HDF5-MFLI ####
-This is a HDF5 file, a binary file, that can hold multiple data sets. The datafile must be saved by MFIA or MFLI with impedance options. It must hold an _imps_ group. An exemple of such file is given in the /data directory, it has a _h5_ extension. An error will appear if the file does not hold _imps_ groups.
+This type of file contains data delimited by <Segments> and >/Segments>. I did not extenisively checked this type of file, an example is given in the /data folder. If you encounter errors, feel free to drop me a line.
 
 #### Z-MFLI ####
-This is a text file, that can hold multiple data sets, which is obtained by programs I wrote in my lab. An exemple of such file is given in the /data directory but it has probably little interest for other users.
+This is a custom text file, that can hold multiple data sets, which is obtained by programs I wrote in my lab. An exemple of such file is given in the /data directory but it has probably little interest for other users.
 
 #### Custom ####
-If your data file has a format that is not usual you may define the format in a configuration file. Several exemples of such files are given in the /data directory. The accepted keywords are :
+If your data file is of textt type and has a format that is not usual you may define a _Custom_ format in a configuration file. In this case the program will ask the user to select two files. First the datafile then the file that describes the format used.
+Several exemples of such files are given in the /data directory. The accepted keywords are :
 
      [header]=
      [label_length]=
@@ -279,13 +283,13 @@ In order to read this file we can observe that the datasets are separated by a s
     #ignore_line
     #data_columns=1,2,3
 
-The command header will split the datafile (an exemple is /data/custom_file_ZMFLI.txt) in as many datasets it can find in the file, to each data set it will add a label consisting of the first 5 characters found after the header text which in this case is the temperature of the measurement.  The program will find all the measurements (446 for this case !), then label each data set with the text following the header (which is, in this case, the temperature), ignore the following 4 lines then read the data found in the three columns separated by the delimiter specified by the user in the Parameters case (here, it should be TAB). Yappari can fit in batch all these 446 measurements and save the results to a file.
+The command header will split the datafile (an example of this file is /files/ZMFLI_exemple_file_.txt) in as many datasets it can find, will add to each dataset a label consisting of the first 5 characters found after the header text which in this case is the temperature of the measurement.  The program will find all the measurements (446 measurements for this case), then label each data set with the text following the header, ignore the following 4 lines then read the data found in the three columns separated by the delimiter specified by the user in the Parameters case (here, it should be TAB). Yappari can fit in batch all these 446 measurements.
 
 Note that even if you don't use a label, the dataset will have an index indicating the position of the data in the file : 0 is for the first dataset, 1 the second, and so on.
-An exemple of configuration file for a three columns separated by tab is also given in the /data directory. 
-The custom file allows to read other columns from the data file. 
+An exemple of configuration file for a three columns separated by tab is also given in the /files directory. 
+The custom file allows to read other columns from a data file. 
 
-For instance, the file _exemple_custom_5_columns.txt_ was saved with yappari and contains 4 data sets with experimental and fitted data. It has a form like this :
+For instance, the file _example_custom_5_columns.txt_ was saved with yappari and contains 4 datasets with experimental and fitted data. It has a form like this :
  
     dev3221_imps_34, freq /Hz, Zr , Zi, Zr calc, Zi calc
     5.000000E+6;2.308040E+3;-4.358320E+3;2.656137E+3;-6.062695E+3
@@ -311,51 +315,50 @@ If we want to read this data we can use a a definition file like
 
 This instructs the program to read the fourth columns as Zr and the fifth as Zi (which are the calculated values saved in this file). Make sure you have the separator set as ";" which is the one used in this file.
 
-In the /data folder you will find some files, experimental or simulated with other impedance programs and exemples of configurations for custom files.
-  * definition_file_3_columns.ini
-  * definition_file_5_columns.ini
-  * definition_file_ZMFLI.ini
-  * dev3221_imps_0_sample_0000.csv is a measurement of a sample (including more than 20 datasets) as obtained with a MFLI/MFIA from Zurich Instruments; separator for this file is ';'
-  * exemple_custom_3_columns_datafile.txt, to be used with the custom read function
-  * exemple_custom_5_columns_datafile.txt, to be used with the custom read function
-  * exemple_custom_file_ZMFLI_datafile.txt, to be used with the custom read function or with Read ZMFLI and practice batch fitting for more than 400 measurements
-  * mod_dev3221_imps_0_sample_0000 is a Zview txt file, as obtained with MFLI instrument (one dataset)
-  * R(CR)(CR)W.txt is a simulated dataset with a Warburg element in a three columns separated by tabs
-  * R(CR)O.txt is a simulated dataset with a Warburg "short" element (three columns separated by tabs)
-  * R(CR)T.txt is a simulated dataset with a Warburg "open" element (three columns separated by tabs)
+In the /files folder you will find some other files, experimental or simulated with other impedance programs and exemples of configurations for custom files (the configuration files can have any names or extenstions, I just use .ini to remember that it is not a datafile):
+  * _definition_file_3_columns.ini
+  * _definition_file_5_columns.ini
+  * _definition_file_ZMFLI.ini
+  * _GAMRY_definition_custom.ini
+  * custom_multiple_datasets.dat
+  * definition_custom_multiple_datasets.ini
+  * dev3221_imps_0_sample_0000.csv, is a measurement of a sample as obtained with a MFLI/MFIA from Zurich Instruments; separator for this file is ';'
+  * exampleDataGamry.dta
+  * example_custom_3_columns_datafile.txt, to be used with the custom read function
+  * example_custom_5_columns_datafile.txt, to be used with the custom read function
+  * example_custom_file_ZMFLI_datafile.txt, to be used with the custom read function or with Read ZMFLI
+  * mod_dev3221_imps_0_sample_0000 is a MFLI-txt file, as obtained with MFLI instrument (one dataset)
+  * MW17_autosave_00000.h5, a binary hdf5 file
   * type_VersaStudio.par
-  * ZMFLI_exemple_file_.txt
+  * ZMFLI_exemple_file_.txt, a datafile obtained in other software packages in my lab. This file can be read directly or by using the Custom function, with the definition file _definition_file_ZMFLI.ini
 
 
 ### Action ###
 This button can trigger several commands:
 
 #### Delete points from graph ####
-You can delete experimental points from datasets visible in the Nyquist, Zr, Zi or lnR plots: just zoom in the region to show only the points you want to delete then select this command. This is irreversible and it applies to the shown graph. 
+You can delete experimental points from datasets visible in the Nyquist, Zr, Zi or lnR plots: just zoom in the region to show only the points you want to delete then select this command (this is irreversible). 
+
+#### Delete active datasets ####
+Irreversible action removing one or more datasets and all related parameters from memory (by active one should understand “selected”)
 
 #### Clone the parameters to all ####
 Copy the listed parameters to all datasets. Useful for bulk fitting in order to set proper starting point for all the sets.
 
 #### Clone the parameters to active ####
-Copy the listed parameters to selected datasets. Copy the listed parameters to all selected sets. Note that the listed parameters are those of the first selected dataset.
+Copy the listed parameters to selected datasets. Note that the listed parameters are those of the first selected dataset.
+
+#### Save active parameters ####
+Saves a file with the parameters for all selected datasets. Useful for multiple datasets, see also __Report__ below. 
 
 #### Save active exp datasets ####
-This command allows you to save the *active* experimental data, that means the selected ones, to a single file in a specific format. The format is three columns, separated by the string you selected in the Parameters page, with frequency in Hz, Zr, and Zi. This is useful for simulating impedance spectra for a given model. All the datasets will be saved in a single file, each data susequenntly added, with its name, to the same file.
+This command allows you to save the *active* experimental data, that means the selected ones, to a single file in a specific format. The format is three columns, separated by the string you selected in the Parameters page, with frequency in Hz, Zr, and Zi. All the datasets will be saved in a single file, each data subsequently added, with its name, to the same file.
 
 #### Save active calc datasets ####
 This command allows you to save the *active* calculated data to a file in a three columns format, separated by the string you selected in the Parameters page.
 
 #### Save active exp and calc datasets ####
 This command allows you to save the *active* experimental data and calculated data, in a 5 columns ASCII file. Note that all datasets are saved in a single file, each dataset will be separated by the label of the set. This might be used to plot nicer graphs.
-
-#### Erase active datasets ####
-Irreversible action removing one or more datasets and all related parameters from memory (by active one should understand “selected”)
-
-#### Report active ####
-This command generates an HTML report containing information about the model used, the parameters used, the fitted parameters, and their standard deviation. It also includes images of the fit as well as all experimental and calculated data. The report is saved in your temporary directory and automatically opened in a browser. You can use the data in the report to create your own graphs or to check for any discrepancies. If you find any errors in the calculations, please report them so they can be corrected.
-
-#### Z-Hit active datasets ####
-This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given previously. This is a procedure similar to the better known Kramers-Kronig test.
 
 #### DRT active datasets ####
 This performs a calculation of Distribution of Relaxation Times for one or more datasets. The method used is constrained non-negative linear regression with a Tikhonov parameter. The procedure used was implemented by [Christian Altenbach](https://sites.google.com/site/altenbach/Home) for EPR spectrocopy. This [method](https://sites.google.com/site/altenbach/labview-programs/epr-programs/long-distances/ld-algorithms) is very fast and therefore it is possible to search an optimal regularization parameter, see below and the description of [Parameters](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#parameters) page.
@@ -369,8 +372,16 @@ An example of a DRT fit is shown below :
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/drt_calc_RCRC_1k_3_5microF_80_20p_simulated.PNG)
 Red dots are experimental Zr and the red line is calculated Zr based on the distribution function as RC (blue dots and line are experimental and calculated Zi values). The green spikes are calculated relaxation times. The fit is very good and corresponds well with the simulated values. Note that full impedance is calculated only from the "experimental" imaginary impedance, this should be correct for experimental spectra that respect the KK relation. This might not be the case if the data is noisy or inadequate. 
+Only the first selected datasets will be plotted on the DRT graph.
 
-Note that this procedure might be slow, particularly for large datasets.
+#### Save active DRT data ####
+Save the results of DRT calculations: note that if DRT is not calculated for one of the selected datasets, the file will be empty.
+
+#### Z-Hit active datasets ####
+This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given previously. This is a procedure similar to the better known Kramers-Kronig test.
+
+#### Report active ####
+This command generates an HTML report containing information about the model used, the parameters used, the fitted parameters, and their standard deviation. It also includes images of the fit as well as all experimental and calculated data. The report is saved in your temporary directory and automatically opened in a browser. You can use the data in the report to create your own graphs or to check for any discrepancies. If you find any errors in the calculations, please report them so they can be corrected.
 
 #### Help ####
 This will open this website, hopefully the address will not change; while the program file may have some pdf help files, the most recent help is always on this github page.
@@ -399,6 +410,7 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
+  -  August 18, 2023 : Updated the documentation and files.
   -  August 17, 2023 : Added a spline interpolation function in "Developer commands", can upscale in log spaced frequency. Moved to version 5-1-65 as a new release.
   -  August 16, 2023 : Added a "Max plots" parameter on the Parameters panel.
   -  August 15, 2023 : DRT : plot only the first active dataset. 
@@ -420,7 +432,7 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   -  June 12, 2023 : added a fourth term in the Z-hit calculations (the one with the pi^7/604800). It's contribution is very small though.
   -  June 10, 2023 : added the Z-hit calculation.
 
-[# やっぱり #](https://github.com/nitad54448/yappari-5-1#%E3%82%84%E3%81%A3%E3%81%B1%E3%82%8A)
+[# やっぱり #](https://github.com/nitad54448/yappari-5-1)
 --
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
