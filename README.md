@@ -11,7 +11,7 @@ __Note__ : there is no warrantee whatsoever for using this program. Use it if yo
 
 # やっぱり #
 ### Index ###
-version 18-08-2023
+version 19-08-2023 -> a beta version was released
 
   * [How to install](#how-to-install)
   * [Panels](#panels)
