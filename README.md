@@ -192,21 +192,24 @@ You can also search the best Tikhonov parameter, with a command :
  
    search_lambda>>0.0002&0.1 
     
-will calculate 1024 DRTs in the range 0.0002 and 0.1 and reconstruct all the 1024 Z sets. The best lambda parameter based on the minim squared error between the calculated and experimental sets will be shown. Obviously you can replace 0.0002 and 0.1 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2_ is accepted). 1024 values is a fixed value, the interval of lambda will be scaled in log spacing over the interval specified with _start_value&stop_value
+will calculate 1024 [DRTs](https://github.com/nitad54448/yappari-5-1#drt-active-datasets) in the range 0.0002 and 0.1 and reconstruct all the 1024 Z sets. The best lambda parameter based on the minim squared error between the calculated and experimental sets will be shown. Obviously you can replace 0.0002 and 0.1 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2_ is accepted). 1024 values is a fixed value, the interval of lambda will be scaled in log spacing over the interval specified with _start_value&stop_value
 
 For a default range search (10E-4 to 10E-1) you can use
 
     search_lambda
 
-A window with an indication of the optimal Tikhonov parameter will appear. The plots show the mean squared error between the experimental Zr and Zr calculated from DRT data as well as the variance (this is based on the method proposed [here](https://chemistry-europe.onlinelibrary.wiley.com/doi/full/10.1002/celc.201901863)).
+A window with an indication of the optimal Tikhonov parameter will appear. The plots show the mean squared error (MSE) between the experimental Zr and Zr calculated from DRT data as well as the variance (this is based on the method proposed [here](https://chemistry-europe.onlinelibrary.wiley.com/doi/full/10.1002/celc.201901863)).
 It should look like this
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/params drt alten.PNG)
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/params_drt_alten.PNG)
 
-Another command is
+The optimal regularization parameter is the minimum of the MSE (or just at the change of the variance). You can edit the scales of this image. the program takes the optimum as the value of lambda where there is a minimum in MSE.
+
+Other accepted command
 
     calculate_drt_fisk
+    search_lambda_fisk
 
-if you want to test another non-negative Least-squares (NNLS) procedure. It is based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345) and implemented in versions of Yappari prior to 14th of aug 2023. 
+if you want to test another non-negative Least-squares (NNLS) procedure based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345) and implemented in versions of Yappari prior to 14th of aug 2023. In recent versions I am using Altenbach's algorithm, it is much faster and gave basically the same results. 
 
 
 ### About ###
