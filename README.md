@@ -199,6 +199,8 @@ For a default range search (10E-4 to 10E-1) you can use
     search_lambda
 
 A window with an indication of the optimal Tikhonov parameter will appear. The plots show the mean squared error between the experimental Zr and Zr calculated from DRT data as well as the variance (this is based on the method proposed [here](https://chemistry-europe.onlinelibrary.wiley.com/doi/full/10.1002/celc.201901863)).
+It should look like this
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/params drt alten.PNG)
 
 Another command is
 
