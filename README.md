@@ -42,7 +42,7 @@ version 20-08-2023
       - [Simulate spectrum](#simulate-spectrum)
       - [Report active](#report-active)
       - [Save active parameters](#save-active-parameters)
-      - [Save data](#save-data)      - 
+      - [Save data](#save-data) 
       - [Help](#help)
     + [Datasets](#datasets)
     + [Fit selected](#fit-selected)
