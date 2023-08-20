@@ -37,10 +37,12 @@ version 20-08-2023
       - [Delete active datasets](#delete-active-datasets)
       - [Clone the parameters to all](#clone-the-parameters-to-all)
       - [Clone the parameters to active](#clone-the-parameters-to-active)
-      - [Save data](#save-active-parameters)
       - [DRT active datasets](#drt-active-datasets)
       - [Z-Hit active datasets](#z-hit-active-datasets)
+      - [Simulate spectrum](#simulate-spectrum)
       - [Report active](#report-active)
+      - [Save active parameters](#save-active-parameters)
+      - [Save data](#save-data)      - 
       - [Help](#help)
     + [Datasets](#datasets)
     + [Fit selected](#fit-selected)
