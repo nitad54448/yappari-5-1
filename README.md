@@ -11,7 +11,7 @@ __Note__ : there is no warrantee whatsoever for using this program. Use it if yo
 
 # やっぱり #
 ### Index ###
-version 19-08-2023 -> a beta version was released
+version 20-08-2023
 
   * [How to install](#how-to-install)
   * [Panels](#panels)
@@ -37,12 +37,8 @@ version 19-08-2023 -> a beta version was released
       - [Delete active datasets](#delete-active-datasets)
       - [Clone the parameters to all](#clone-the-parameters-to-all)
       - [Clone the parameters to active](#clone-the-parameters-to-active)
-      - [Save active parameters](#save-active-parameters)
-      - [Save active exp datasets](#save-active-exp-datasets)
-      - [Save active calc datasets](#save-active-calc-datasets)
-      - [Save active exp and calc datasets](#save-active-exp-and-calc-datasets)
+      - [Save data](#save-active-parameters)
       - [DRT active datasets](#drt-active-datasets)
-      - [Save active DRT data](#save-active-drt-data)
       - [Z-Hit active datasets](#z-hit-active-datasets)
       - [Report active](#report-active)
       - [Help](#help)
@@ -159,9 +155,12 @@ The fit termination parameters can be adjusted here : by default they are set to
 __Max plots__
 This is the maximum number of plots to show on the graphs (excluding DRT which will show only the first selected dataset). It should be small if you are dealing with many datasets (more than 100 or so). The number of plots is determined by the number of selected datasets or this number, whichever is smaller. 
 
-__Developer commands__
+__Simulation limits__
+This is used only for "Simulate" function.
 
-Can be used for manual control of program, useful mostly for testing. Some commands are not available elsewhere. For instance, the following commands might be useful : to make a Savitzky-Golay smooth to the active datasets :
+__Advanced commands__
+
+Can be used for manual control of program, useful mostly for testing. Some commands are not available elsewhere : searching for optimal regularizaton parameter or interpolation, see more details below. For instance, the following commands might be useful : to make a Savitzky-Golay smooth to the active datasets :
 
     smooth
     
@@ -197,11 +196,14 @@ For a default range search (10E-4 to 10E-1) you can use
 
     search_lambda
 
-Another command you may try is
+A window with an indication of the optimal Tikhonov parameter will appear. The plots show the mean squared error between the experimental Zr and Zr calculated from DRT data as well as the variance (this is based on the method proposed [here](https://chemistry-europe.onlinelibrary.wiley.com/doi/full/10.1002/celc.201901863)).
+
+Another command is
 
     calculate_drt_fisk
 
 if you want to test another non-negative Least-squares (NNLS) procedure. It is based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345) and implemented in versions of Yappari prior to 14th of aug 2023. 
+
 
 ### About ###
 Brief help listing the version of the program. 
@@ -348,20 +350,8 @@ Copy the listed parameters to all datasets. Useful for bulk fitting in order to 
 #### Clone the parameters to active ####
 Copy the listed parameters to selected datasets. Note that the listed parameters are those of the first selected dataset.
 
-#### Save active parameters ####
-Saves a file with the parameters for all selected datasets. Useful for multiple datasets, see also __Report__ below. 
-
-#### Save active exp datasets ####
-This command allows you to save the *active* experimental data, that means the selected ones, to a single file in a specific format. The format is three columns, separated by the string you selected in the Parameters page, with frequency in Hz, Zr, and Zi. All the datasets will be saved in a single file, each data subsequently added, with its name, to the same file.
-
-#### Save active calc datasets ####
-This command allows you to save the *active* calculated data to a file in a three columns format, separated by the string you selected in the Parameters page.
-
-#### Save active exp and calc datasets ####
-This command allows you to save the *active* experimental data and calculated data, in a 5 columns ASCII file. Note that all datasets are saved in a single file, each dataset will be separated by the label of the set. This might be used to plot nicer graphs.
-
 #### DRT active datasets ####
-This performs a calculation of Distribution of Relaxation Times for one or more datasets. The method used is constrained non-negative linear regression with a Tikhonov parameter. The procedure used was implemented by [Christian Altenbach](https://sites.google.com/site/altenbach/Home) for EPR spectrocopy. This [method](https://sites.google.com/site/altenbach/labview-programs/epr-programs/long-distances/ld-algorithms) is very fast and therefore it is possible to search an optimal regularization parameter, see below and the description of [Parameters](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#parameters) page.
+This performs a calculation of Distribution of Relaxation Times for one or more datasets. The method used is constrained non-negative linear regression with a Tikhonov parameter. The procedure used was implemented by [Christian Altenbach](https://sites.google.com/site/altenbach/Home) for EPR spectrocopy. This [method](https://sites.google.com/site/altenbach/labview-programs/epr-programs/long-distances/ld-algorithms) is very fast and therefore it is possible to search an optimal regularization parameter, see "Advanced commands" in the description of [Parameters](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#parameters) page.
 
 Only the values of imaginary part of the impedance are taken into calculations. Data should be acquired with log spacing.
 For the fit, the optimal regularization parameter is decided by the user (there is no universal value for this, it can be estimated with a procedure known as L-curve). If the Tikhonov parameter, noted Lambda in this program, is too small some spurious peaks will appear while a parameter too large will just squash the information. 
@@ -372,16 +362,22 @@ An example of a DRT fit is shown below :
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/drt_calc_RCRC_1k_3_5microF_80_20p_simulated.PNG)
 Red dots are experimental Zr and the red line is calculated Zr based on the distribution function as RC (blue dots and line are experimental and calculated Zi values). The green spikes are calculated relaxation times. The fit is very good and corresponds well with the simulated values. Note that full impedance is calculated only from the "experimental" imaginary impedance, this should be correct for experimental spectra that respect the KK relation. This might not be the case if the data is noisy or inadequate. 
-Only the first selected datasets will be plotted on the DRT graph.
-
-#### Save active DRT data ####
-Save the results of DRT calculations: note that if DRT is not calculated for one of the selected datasets, the file will be empty.
+Only the first selected dataset will be plotted on the DRT graph.
 
 #### Z-Hit active datasets ####
 This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given previously. This is a procedure similar to the better known Kramers-Kronig test.
 
-#### Report active ####
-This command generates an HTML report containing information about the model used, the parameters used, the fitted parameters, and their standard deviation. It also includes images of the fit as well as all experimental and calculated data. The report is saved in your temporary directory and automatically opened in a browser. You can use the data in the report to create your own graphs or to check for any discrepancies. If you find any errors in the calculations, please report them so they can be corrected.
+#### Simulate spectrum ####
+This option will calculate an impedance spectrum based on the model and the values of the parameters of the model, in the frequency range that are on Parameters page. It will create a new dataset (called "simulated_" but you can change its name). 
+
+#### Report active datasets ####
+This command generates an HTML report containing information about the model used, the parameters used, the fitted parameters, and their standard deviation (if an LM fit was done, otherwise esd will appear as 0). It also includes images of the fit. The report is saved in your temporary directory and automatically opened in a browser. 
+
+#### Save active parameters ####
+Saves a file with the parameters for all selected datasets. Useful for multiple datasets, see also __Report__. 
+
+#### Save data ####
+This option saves the active datasets, as selected by the user, to a single file with data separated by the character you have on the Parameters page, in multiple columns format. All active datasets will be saved in a single file, each data subsequently added, with its name, to the same file.
 
 #### Help ####
 This will open this website, hopefully the address will not change; while the program file may have some pdf help files, the most recent help is always on this github page.
@@ -410,6 +406,8 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
+  -  August 20, 2023 : Show the criteria used in "Search lambda" procedure in a graph. Changed the way the data are saved. 
+  -  August 19, 2023 : Changed the Report procedure. Added a simulate spectrum function.
   -  August 18, 2023 : Updated the documentation and files.
   -  August 17, 2023 : Added a spline interpolation function in "Developer commands", can upscale in log spaced frequency. Moved to version 5-1-65 as a new release.
   -  August 16, 2023 : Added a "Max plots" parameter on the Parameters panel.
