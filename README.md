@@ -202,7 +202,7 @@ A window with an indication of the optimal Tikhonov parameter will appear. The p
 It should look like this
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/params_drt_alten.PNG)
 
-The optimal regularization parameter is the minimum of the MSE (or just at the change of the variance). You can edit the scales of this image. the program takes the optimum as the value of lambda where there is a minimum in MSE.
+The optimal regularization parameter is the minimum of the MSE (or just at the change of the variance). You can edit the scales of this image. The program proposes the optimum as the value of lambda where there is a minimum in MSE and show a red cursor position. You can drag this cusor to another position to impose another value for lambda.
 
 Other accepted command
 
