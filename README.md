@@ -1,18 +1,23 @@
 # YAPPARI #
+version 21-08-2023
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
+<details>
+  <summary>About</summary>
 This program can perform fits for one or multiple datasets (by multiple I mean hunderths or even thousands of datasets, this may be slow but you'll get all the results in a run, the results can be saved in a datafile). For a single dataset you can use an old and simpler program called [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2). This single dataset program will not be developed further so it might be better to start with this version.
 
 You are encouraged to contribute to this help file or write tutorials. If you send them to me I will add them to this repository. As much as I like programming, writing documentation is boring. A short tutorial is included in the help pdf file which is installed with the exe file. Otherwise, the most updated description of the program is always here on this page.
 It is generally a good idea to read a help file before using a program.
+ </details>
 
-__Note__ : there is no warrantee whatsoever for using this program. Use it if you want, see [licence](https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. 
+<details>
+  <summary>Note</summary>
+There is no warrantee whatsoever for using this program. Use it if you want, see [licence](https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. 
+</details>
 
-# やっぱり #
-### Index ###
-version 20-08-2023
-
+<details>
+  <summary>Index</summary>
   * [How to install](#how-to-install)
   * [Panels](#panels)
     + [Zr, -Zi](#zr---zi)
@@ -49,6 +54,9 @@ version 20-08-2023
     + [Exit](#exit)
     + [Author](#author)
     + [Changes](#changes)
+</details>
+
+# やっぱり #
 
 ## How to install ##
 
@@ -57,7 +65,7 @@ The recommended way to install this program is to use the full package which can
 
 Alternatively, you can download all the files from __Code__ as a zip file and install the Labview 2023 64bits runtime engine. You may already have this "engine" if you have previously installed Yappari or other programs written in LV2023 or you can download it freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336). 
 
-After installing the program in a directory of your choice, some other directories will be created : /data, /drt, /files, /help and /models. The _models_ directory contains png files with images for creating circuits. The _data_ directory contains some dll required by the program and in the /files you can see some examplse of data files and custom definitions. The /help directory holds some images for this document and some help files. You can safely remove it if you want.
+After installing the program in a directory of your choice, some other directories will be created : /data, /drt, /files, /help and /models. The _models_ directory contains png files with images for creating circuits. The _data_ directory contains some dll required by the program and in the /files you can see some examples of data files and custom definitions. The /help directory holds some images for this document and some help files. You can safely remove it if you want.
 
 This program is supposed to work with win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
 
@@ -413,6 +421,7 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   
 ### Changes ###
+  -  August 21, 2023 : Added a cursor on the lambda graph, it can be dragged to modify the value proposed by the program (see search_lambda in Advanced commands).
   -  August 20, 2023 : Show the criteria used in "Search lambda" procedure in a graph. Changed the way the data are saved. 
   -  August 19, 2023 : Changed the Report procedure. Added a simulate spectrum function.
   -  August 18, 2023 : Updated the documentation and files.
