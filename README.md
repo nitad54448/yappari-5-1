@@ -7,7 +7,7 @@ __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedanc
   <summary>About</summary>
 This program can perform fits for one or multiple datasets (by multiple I mean hunderths or even thousands of datasets, this may be slow but you'll get all the results in a run, the results can be saved in a datafile). For a single dataset you can use an old and simpler program called [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2). This single dataset program will not be developed further so it might be better to start with this version.
 
-You are encouraged to contribute to this help file or write tutorials. If you send them to me I will add them to this repository. As much as I like programming, writing documentation is boring. A short tutorial is included in the help pdf file which is installed with the exe file. Otherwise, the most updated description of the program is always here on this page.
+You are encouraged to contribute to this help file or write tutorials. I wrote one [tutorial](https://github.com/nitad54448/yappari-5-1/blob/main/help/fit_multiple.pdf) showing how to fit multiple datasets and get used to program style. If you send them to me I will add them to this repository. As much as I like programming, writing documentation is boring. A short tutorial is included in the help pdf file which is installed with the exe file. Otherwise, the most updated description of the program is always here on this page.
 It is generally a good idea to read a help file before using a program.
  </details>
 
