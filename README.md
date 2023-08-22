@@ -132,7 +132,7 @@ These panels will show the dependency of impedances (real, imaginary, modulus or
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/fit_graph.PNG)
 
 ### 3D plot ###
-This panel will show a 3D plot of selected datasets, either in Nyquist, Zr or Zi or their difference, as selected by the user. This is useful for many datasets, more than 20 I guess, it will allow the user to see tendencies or check systematic errors in the fits. You can right click on the graph to adjust plotting properties to your liking (3D Plot Properties) or change the size of the graph. If you have many datasets (a thousand or more) be patient, it will take some time to plot all data. The number of plots is defined by the selected datasets and by the "Max plots" value, see [Parameters](https://github.com/nitad54448/yappari-5-1#parameters).
+This panel will show a 3D plot of selected datasets, either in Nyquist, Zr or Zi or their difference, as selected by the user. This is useful for many datasets, more than 20 I guess, it will allow the user to see tendencies or check systematic errors in the fits. You can right click on the graph to adjust plotting properties to your liking (3D Plot Properties) or change the size of the graph. If you have many datasets, it will take some time to plot all data so to limit the waiting time, I show only up to 500 datasets on the 3D graph, by "decimating" the plot). The number of plots is defined by the selected datasets and by the "Max plots" value, see [Parameters](https://github.com/nitad54448/yappari-5-1#parameters).
 
 ### Model ###
 In this panel a model can be created by the user, by selecting element circuits. 
