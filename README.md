@@ -43,6 +43,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
       - [Clone the parameters to all](#clone-the-parameters-to-all)
       - [Clone the parameters to active](#clone-the-parameters-to-active)
       - [DRT active datasets](#drt-active-datasets)
+      - [DRT search lambda](#drt-search-lambda)
       - [Z-Hit active datasets](#z-hit-active-datasets)
       - [Simulate spectrum](#simulate-spectrum)
       - [Report active](#report-active)
@@ -205,12 +206,6 @@ will calculate 1024 [DRTs](https://github.com/nitad54448/yappari-5-1#drt-active-
 For a default range search (10E-4 to 10E-1) you can use
 
     search_lambda
-
-A window with an indication of the optimal Tikhonov parameter will appear. The plots show the mean squared error (MSE) between the experimental Zr and Zr calculated from DRT data as well as the variance (this is based on the method proposed [here](https://chemistry-europe.onlinelibrary.wiley.com/doi/full/10.1002/celc.201901863)).
-It should look like this
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/params_drt_alten.PNG)
-
-The optimal regularization parameter is the minimum of the MSE (or just at the change of the variance). You can edit the scales of this image. The program proposes the optimum as the value of lambda where there is a minimum in MSE and show a red cursor position. You can drag this cusor to another position to impose another value for lambda.
 
 Other accepted command
 
@@ -378,6 +373,14 @@ An example of a DRT fit is shown below :
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/drt_calc_RCRC_1k_3_5microF_80_20p_simulated.PNG)
 Red dots are experimental Zr and the red line is calculated Zr based on the distribution function as RC (blue dots and line are experimental and calculated Zi values). The green spikes are calculated relaxation times. The fit is very good and corresponds well with the simulated values. Note that full impedance is calculated only from the "experimental" imaginary impedance, this should be correct for experimental spectra that respect the KK relation. This might not be the case if the data is noisy or inadequate. 
 Only the first selected dataset will be plotted on the DRT graph.
+
+#### DRT search lambda ####
+This command performs a search of optimal Tikhonov regularization parameter for the first active (aka selected) dataset.
+A window with an indication of the optimal Tikhonov parameter will appear. The plots show the mean squared error (MSE) between the experimental Zr and Zr calculated from DRT data as well as the variance (this is based on the method proposed [here](https://chemistry-europe.onlinelibrary.wiley.com/doi/full/10.1002/celc.201901863)).
+It should look like this
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/params_drt_alten.PNG)
+
+The optimal regularization parameter is the minimum of the MSE (or just at the change of the variance). You can zoom this image to check the selection made. The program proposes the optimum as the value of lambda where there is a minimum in MSE and show a red cursor position. You can drag this cusor to another position to impose another value for lambda.
 
 #### Z-Hit active datasets ####
 This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given previously. This is a procedure similar to the better known Kramers-Kronig test.
