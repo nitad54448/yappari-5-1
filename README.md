@@ -49,6 +49,19 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
 </details>
 
 
+<details>
+  <summary>Author</summary>
+
+
+### Author ###
+This program can be used freely and distributed according to CC-BY-NC-SA.
+It was written in Labview 2023, National Instruments and it includes the JKI toolkits for Labview, © 2023, JKI. All rights reserved.
+
+For questions or comments:
+
+__Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
+
+</details>
 
 <details>
   <summary>Links</summary>
@@ -88,7 +101,6 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
       - [Help](#help)
     + [Datasets](#datasets)
     + [Fit selected](#fit-selected)
-    + [Author](#author)
 </details>
 
 
@@ -446,16 +458,8 @@ For many datasets, the data are described by the same model circuit, I suggest t
 The fitting can be performed using different methods, which are discussed before, although there is not much difference in the output of these methods (except for the esd, see below). The fitting process involves a number of cycles, by default 5000 for a dataset, and it will stop a limit is reached. These termination parameters can be adjusted on the _Parameters_ page. Multiple iterations may be necessary, particularly if the initial values are far from the actual values.
 
 The quality of the fit is evaluated using the R<sup>2</sup> statistical parameter and the chi<sup>2</sup> value. However, the use of the chi<sup>2</sup> value as a statistical parameter is debatable, as discussed in the paper "Dos and don'ts of reduced chi-squared" by Andrae et al. (https://arxiv.org/abs/1012.3754). The chi<sup>2</sup> value reported here is calculated as (Sum ((Z<sub>obs</sub>-Z<sub>calc</sub>)<sup>2</sup>/Z<sub>calc</sub>))/DOF. The degree of freedom (DOF) is considered as Nr_of_points - nr_of_fitted_params. 
-The standard deviation is properly estimated (assumming independent errors) only for unconstrained Levenberg-Marquardt fit.
+The standard deviation is estimated assumming independent errors only for unconstrained Levenberg-Marquardt fit.
 
-
-### Author ###
-This program can be used freely and distributed according to CC-BY-NC-SA.
-It was written in Labview 2023, National Instruments and it includes the JKI toolkits for Labview, © 2023, JKI. All rights reserved.
-
-For questions or comments:
-
-__Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 
 
 [# やっぱり #](https://github.com/nitad54448/yappari-5-1)
