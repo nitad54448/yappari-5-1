@@ -54,7 +54,6 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
       - [Help](#help)
     + [Datasets](#datasets)
     + [Fit selected](#fit-selected)
-    + [Exit](#exit)
     + [Author](#author)
     + [Changes](#changes)
 
@@ -417,8 +416,6 @@ The fitting can be performed using different methods, which are discussed before
 The quality of the fit is evaluated using the R<sup>2</sup> statistical parameter and the chi<sup>2</sup> value. However, the use of the chi<sup>2</sup> value as a statistical parameter is debatable, as discussed in the paper "Dos and don'ts of reduced chi-squared" by Andrae et al. (https://arxiv.org/abs/1012.3754). The chi<sup>2</sup> value reported here is calculated as (Sum ((Z<sub>obs</sub>-Z<sub>calc</sub>)<sup>2</sup>/Z<sub>calc</sub>))/DOF. The degree of freedom (DOF) is considered as Nr_of_points - nr_of_fitted_params. 
 The standard deviation is properly estimated (assumming independent errors) only for unconstrained Levenberg-Marquardt fit.
 
-### Exit ###
-No need for explications on what this command does.
 
 ### Author ###
 This program can be used freely and distributed according to CC-BY-NC-SA.
@@ -427,6 +424,9 @@ It was written in Labview 2023, National Instruments and it includes the JKI too
 For questions or comments:
 
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
+
+<details>
+  <summary>Changes</summary>
 
 ### Changes ### 
   -  August 22, 2023 : Added the function DRT search lambda in the main Action menu.
@@ -454,6 +454,11 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   -  July 14, 2023 : added user selected boundaries for TRDL and constrained LM fit.
   -  June 12, 2023 : added a fourth term in the Z-hit calculations (the one with the pi^7/604800). It's contribution is very small though.
   -  June 10, 2023 : added the Z-hit calculation.
+
+
+</details>
+
+
 
 [# やっぱり #](https://github.com/nitad54448/yappari-5-1)
 --
