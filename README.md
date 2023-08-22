@@ -52,7 +52,6 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
 <details>
   <summary>Author</summary>
 
-
 ### Author ###
 This program can be used freely and distributed according to CC-BY-NC-SA.
 It was written in Labview 2023, National Instruments and it includes the JKI toolkits for Labview, © 2023, JKI. All rights reserved.
@@ -60,11 +59,10 @@ It was written in Labview 2023, National Instruments and it includes the JKI too
 For questions or comments:
 
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
-
 </details>
 
 <details>
-  <summary>Links</summary>
+  <summary>Index</summary>
 
 ## Index ##
   * [How to install](#how-to-install)
