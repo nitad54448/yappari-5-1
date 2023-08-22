@@ -22,12 +22,6 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
 ## Index ##
   * [How to install](#how-to-install)
   * [Panels](#panels)
-
-</details>
-
-## Index ##
-  * [How to install](#how-to-install)
-  * [Panels](#panels)
     + [Zr, -Zi](#zr---zi)
     + [Zr, Zi, ln R, theta](#zr--zi--ln-r--theta)
     + [3D plot](#3d-plot)
@@ -63,6 +57,9 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
     + [Exit](#exit)
     + [Author](#author)
     + [Changes](#changes)
+
+</details>
+
 
 
 # やっぱり #
