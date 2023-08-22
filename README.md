@@ -16,6 +16,15 @@ It is generally a good idea to read a help file before using a program.
 There is no warrantee whatsoever for using this program. Use it if you want, see [licence](https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. 
 </details>
 
+<details>
+  <summary>Links</summary>
+
+## Index ##
+  * [How to install](#how-to-install)
+  * [Panels](#panels)
+
+</details>
+
 ## Index ##
   * [How to install](#how-to-install)
   * [Panels](#panels)
