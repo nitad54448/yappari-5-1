@@ -16,6 +16,40 @@ It is generally a good idea to read a help file before using a program.
 There is no warrantee whatsoever for using this program. Use it if you want, see [licence](https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. 
 </details>
 
+
+<details>
+  <summary>Changes</summary>
+
+### Changes ### 
+  -  August 22, 2023 : Added the function DRT search lambda in the main Action menu.
+  -  August 21, 2023 : Added a cursor on the lambda graph, it can be dragged to modify the value proposed by the program (see search_lambda in Advanced commands).
+  -  August 20, 2023 : Show the criteria used in "Search lambda" procedure in a graph. Changed the way the data are saved. 
+  -  August 19, 2023 : Changed the Report procedure. Added a simulate spectrum function.
+  -  August 18, 2023 : Updated the documentation and files.
+  -  August 17, 2023 : Added a spline interpolation function in "Developer commands", can upscale in log spaced frequency. Moved to version 5-1-65 as a new release.
+  -  August 16, 2023 : Added a "Max plots" parameter on the Parameters panel.
+  -  August 15, 2023 : DRT : plot only the first active dataset. 
+  -  August 14, 2023 : The method of NNLS for DRT was changed to that of Altenbach. This version is much faster in DRT calculations.
+  -  August 12, 2023 : Implemented a full DRT calculation for ore or more datasets (with a Tikhonov-type constrained non-negative parameters least-squares procedure, see the documentation for reference to the method used). Added the possibility to change the X-scale in DRT graph (sometimes is convenient to check the time constants). Added a debug/developper command to test things.
+  -  August 10, 2023 : Cosmetics; DRT graph changed as a function of 1/&omega;
+  -  August 9, 2023 : A rather simple calculation of DRT (Distribution of Relaxation Times) with unconstrained Tikhonov parametrisation has been added. The help command directs now to this page. In addition, an error in naming Z-Hit transformed files has been found and corrected. __This is a major upgrade, please use this version or later.__
+  -  August 7, 2023 : Change in the error management in the fit process.
+  -  August 6, 2023 : Small cosmetic changes, main font is the user system 15pt. Experimental points can now be removed from Nyquist, Zr, Zi and lnR plots.
+  -  August 4, 2023 : Can copy parameters (aka clone) to active datasets. The number of iterations and stop limit are now adjustable parameters.
+  -  August 2, 2023 : read impedance data from HDF5 data files. Some points can now be deleted from the Nyquist plot (see the Action menu).
+  -  August 1st, 2023 : added an indication of the fitting progress.
+  -  July 31, 2023 : increased he number of iterations to 10000 and decreased the limit step, erased an error that appeared when plotting more than 20 datasets
+  -  July 29, 2023 : added the possibility to select which column to read if the data files have more columns or if the frequency is not in the first column
+  -  July 28, 2023 : added the possibility to read custom definition files.
+  -  July 16, 2023 : after loading a datafile, the first dataset is selected automatically.
+  -  July 15, 2023 : the user can select the separator used for MFLI CSV and 3 columns file. The same separator (space, comma or TAB) will be used for saving files.
+  -  July 14, 2023 : added user selected boundaries for TRDL and constrained LM fit.
+  -  June 12, 2023 : added a fourth term in the Z-hit calculations (the one with the pi^7/604800). It's contribution is very small though.
+  -  June 10, 2023 : added the Z-hit calculation.
+</details>
+
+
+
 <details>
   <summary>Links</summary>
 
@@ -55,8 +89,6 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
     + [Datasets](#datasets)
     + [Fit selected](#fit-selected)
     + [Author](#author)
-    + [Changes](#changes)
-
 </details>
 
 
@@ -424,40 +456,6 @@ It was written in Labview 2023, National Instruments and it includes the JKI too
 For questions or comments:
 
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
-
-<details>
-  <summary>Changes</summary>
-
-### Changes ### 
-  -  August 22, 2023 : Added the function DRT search lambda in the main Action menu.
-  -  August 21, 2023 : Added a cursor on the lambda graph, it can be dragged to modify the value proposed by the program (see search_lambda in Advanced commands).
-  -  August 20, 2023 : Show the criteria used in "Search lambda" procedure in a graph. Changed the way the data are saved. 
-  -  August 19, 2023 : Changed the Report procedure. Added a simulate spectrum function.
-  -  August 18, 2023 : Updated the documentation and files.
-  -  August 17, 2023 : Added a spline interpolation function in "Developer commands", can upscale in log spaced frequency. Moved to version 5-1-65 as a new release.
-  -  August 16, 2023 : Added a "Max plots" parameter on the Parameters panel.
-  -  August 15, 2023 : DRT : plot only the first active dataset. 
-  -  August 14, 2023 : The method of NNLS for DRT was changed to that of Altenbach. This version is much faster in DRT calculations.
-  -  August 12, 2023 : Implemented a full DRT calculation for ore or more datasets (with a Tikhonov-type constrained non-negative parameters least-squares procedure, see the documentation for reference to the method used). Added the possibility to change the X-scale in DRT graph (sometimes is convenient to check the time constants). Added a debug/developper command to test things.
-  -  August 10, 2023 : Cosmetics; DRT graph changed as a function of 1/&omega;
-  -  August 9, 2023 : A rather simple calculation of DRT (Distribution of Relaxation Times) with unconstrained Tikhonov parametrisation has been added. The help command directs now to this page. In addition, an error in naming Z-Hit transformed files has been found and corrected. __This is a major upgrade, please use this version or later.__
-  -  August 7, 2023 : Change in the error management in the fit process.
-  -  August 6, 2023 : Small cosmetic changes, main font is the user system 15pt. Experimental points can now be removed from Nyquist, Zr, Zi and lnR plots.
-  -  August 4, 2023 : Can copy parameters (aka clone) to active datasets. The number of iterations and stop limit are now adjustable parameters.
-  -  August 2, 2023 : read impedance data from HDF5 data files. Some points can now be deleted from the Nyquist plot (see the Action menu).
-  -  August 1st, 2023 : added an indication of the fitting progress.
-  -  July 31, 2023 : increased he number of iterations to 10000 and decreased the limit step, erased an error that appeared when plotting more than 20 datasets
-  -  July 29, 2023 : added the possibility to select which column to read if the data files have more columns or if the frequency is not in the first column
-  -  July 28, 2023 : added the possibility to read custom definition files.
-  -  July 16, 2023 : after loading a datafile, the first dataset is selected automatically.
-  -  July 15, 2023 : the user can select the separator used for MFLI CSV and 3 columns file. The same separator (space, comma or TAB) will be used for saving files.
-  -  July 14, 2023 : added user selected boundaries for TRDL and constrained LM fit.
-  -  June 12, 2023 : added a fourth term in the Z-hit calculations (the one with the pi^7/604800). It's contribution is very small though.
-  -  June 10, 2023 : added the Z-hit calculation.
-
-
-</details>
-
 
 
 [# やっぱり #](https://github.com/nitad54448/yappari-5-1)
