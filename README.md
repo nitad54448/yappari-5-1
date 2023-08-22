@@ -16,8 +16,7 @@ It is generally a good idea to read a help file before using a program.
 There is no warrantee whatsoever for using this program. Use it if you want, see [licence](https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. 
 </details>
 
-<details>
-  <summary>Index</summary>
+## Index ##
   * [How to install](#how-to-install)
   * [Panels](#panels)
     + [Zr, -Zi](#zr---zi)
@@ -43,6 +42,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
       - [Clone the parameters to all](#clone-the-parameters-to-all)
       - [Clone the parameters to active](#clone-the-parameters-to-active)
       - [DRT active datasets](#drt-active-datasets)
+      - [DRT search lambda](#drt-search-lambda)
       - [Z-Hit active datasets](#z-hit-active-datasets)
       - [Simulate spectrum](#simulate-spectrum)
       - [Report active](#report-active)
@@ -54,7 +54,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
     + [Exit](#exit)
     + [Author](#author)
     + [Changes](#changes)
-</details>
+
 
 # やっぱり #
 
@@ -205,12 +205,6 @@ will calculate 1024 [DRTs](https://github.com/nitad54448/yappari-5-1#drt-active-
 For a default range search (10E-4 to 10E-1) you can use
 
     search_lambda
-
-A window with an indication of the optimal Tikhonov parameter will appear. The plots show the mean squared error (MSE) between the experimental Zr and Zr calculated from DRT data as well as the variance (this is based on the method proposed [here](https://chemistry-europe.onlinelibrary.wiley.com/doi/full/10.1002/celc.201901863)).
-It should look like this
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/params_drt_alten.PNG)
-
-The optimal regularization parameter is the minimum of the MSE (or just at the change of the variance). You can edit the scales of this image. The program proposes the optimum as the value of lambda where there is a minimum in MSE and show a red cursor position. You can drag this cusor to another position to impose another value for lambda.
 
 Other accepted command
 
@@ -366,7 +360,7 @@ Copy the listed parameters to all datasets. Useful for bulk fitting in order to 
 Copy the listed parameters to selected datasets. Note that the listed parameters are those of the first selected dataset.
 
 #### DRT active datasets ####
-This performs a calculation of Distribution of Relaxation Times for one or more datasets. The method used is constrained non-negative linear regression with a Tikhonov parameter. The procedure used was implemented by [Christian Altenbach](https://sites.google.com/site/altenbach/Home) for EPR spectrocopy. This [method](https://sites.google.com/site/altenbach/labview-programs/epr-programs/long-distances/ld-algorithms) is very fast and therefore it is possible to search an optimal regularization parameter, see "Advanced commands" in the description of [Parameters](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#parameters) page.
+This performs a calculation of Distribution of Relaxation Times for one or more datasets. The method used is constrained non-negative linear regression with a Tikhonov parameter. The procedure used was implemented by [Christian Altenbach](https://sites.google.com/site/altenbach/Home) for EPR spectrocopy. This [method](https://sites.google.com/site/altenbach/labview-programs/epr-programs/long-distances/ld-algorithms) is very fast and therefore it is possible to search an optimal regularization parameter, see "Advanced commands" in the description of [Parameters](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#parameters) or [DRT search lambda](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#drt-search-lambda) command.
 
 Only the values of imaginary part of the impedance are taken into calculations. Data should be acquired with log spacing.
 For the fit, the optimal regularization parameter is decided by the user (there is no universal value for this, it can be estimated with a procedure known as L-curve). If the Tikhonov parameter, noted Lambda in this program, is too small some spurious peaks will appear while a parameter too large will just squash the information. 
@@ -378,6 +372,14 @@ An example of a DRT fit is shown below :
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/drt_calc_RCRC_1k_3_5microF_80_20p_simulated.PNG)
 Red dots are experimental Zr and the red line is calculated Zr based on the distribution function as RC (blue dots and line are experimental and calculated Zi values). The green spikes are calculated relaxation times. The fit is very good and corresponds well with the simulated values. Note that full impedance is calculated only from the "experimental" imaginary impedance, this should be correct for experimental spectra that respect the KK relation. This might not be the case if the data is noisy or inadequate. 
 Only the first selected dataset will be plotted on the DRT graph.
+
+#### DRT search lambda ####
+This command performs a search of optimal Tikhonov regularization parameter for the first active (aka selected) dataset.
+A window with an indication of the optimal Tikhonov parameter will appear. The plots show the mean squared error (MSE) between the experimental Zr and Zr calculated from DRT data as well as the variance (this is based on the method proposed [here](https://chemistry-europe.onlinelibrary.wiley.com/doi/full/10.1002/celc.201901863)).
+It should look like this
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/params_drt_alten.PNG)
+
+The optimal regularization parameter is the minimum of the MSE (or just at the change of the variance). You can zoom this image to check the selection made. The program proposes the optimum as the value of lambda where there is a minimum in MSE and show a red cursor position. You can drag this cusor to another position to impose another value for lambda.
 
 #### Z-Hit active datasets ####
 This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given previously. This is a procedure similar to the better known Kramers-Kronig test.
@@ -419,8 +421,8 @@ It was written in Labview 2023, National Instruments and it includes the JKI too
 For questions or comments:
 
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
-  
-### Changes ###
+
+### Changes ### 
   -  August 22, 2023 : Added the function DRT search lambda in the main Action menu.
   -  August 21, 2023 : Added a cursor on the lambda graph, it can be dragged to modify the value proposed by the program (see search_lambda in Advanced commands).
   -  August 20, 2023 : Show the criteria used in "Search lambda" procedure in a graph. Changed the way the data are saved. 
