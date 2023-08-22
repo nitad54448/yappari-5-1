@@ -421,8 +421,9 @@ It was written in Labview 2023, National Instruments and it includes the JKI too
 For questions or comments:
 
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
-  
-### Changes ###
+
+<details>
+  <summary>Changes</summary> 
   -  August 22, 2023 : Added the function DRT search lambda in the main Action menu.
   -  August 21, 2023 : Added a cursor on the lambda graph, it can be dragged to modify the value proposed by the program (see search_lambda in Advanced commands).
   -  August 20, 2023 : Show the criteria used in "Search lambda" procedure in a graph. Changed the way the data are saved. 
@@ -448,6 +449,7 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   -  July 14, 2023 : added user selected boundaries for TRDL and constrained LM fit.
   -  June 12, 2023 : added a fourth term in the Z-hit calculations (the one with the pi^7/604800). It's contribution is very small though.
   -  June 10, 2023 : added the Z-hit calculation.
+</details>
 
 [# やっぱり #](https://github.com/nitad54448/yappari-5-1)
 --
