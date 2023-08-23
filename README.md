@@ -438,7 +438,7 @@ This option will calculate an impedance spectrum based on the model and the valu
 This command generates an HTML report containing information about the model used, the parameters used, the fitted parameters, and their standard deviation (if an LM fit was done, otherwise esd will appear as 0). It also includes images of the fit. The report is saved in your temporary directory and automatically opened in a browser. 
 
 #### Save active parameters ####
-Saves a file with the parameters for all selected datasets. Useful for multiple datasets, see also __Report__. 
+Saves a file with the parameters for all selected datasets. Useful for multiple datasets, see also __Report__. Note that if the dataset was not fitted the parameter line corresponding to that dataset will be empty.
 
 #### Save data ####
 This option saves the active datasets, as selected by the user, to a single file with data separated by the character you have on the Parameters page, in multiple columns format. All active datasets will be saved in a single file, each data subsequently added, with its name, to the same file.
