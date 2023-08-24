@@ -378,14 +378,14 @@ In the /files folder you will find some other files, experimental or simulated w
     _GAMRY_definition_custom.ini
     custom_multiple_datasets.dat
     definition_custom_multiple_datasets.ini
-    dev3221_imps_0_sample_0000.csv, is a measurement of a sample as obtained with a MFLI/MFIA from Zurich Instruments; separator for this file is ';'
-   exampleDataGamry.dta
-   example_custom_3_columns_datafile.txt, to be used with the custom read function
-   example_custom_5_columns_datafile.txt, to be used with the custom read function
-   example_custom_file_ZMFLI_datafile.txt, to be used with the custom read function or with Read ZMFLI
-   mod_dev3221_imps_0_sample_0000 is a MFLI-txt file, as obtained with MFLI instrument (one dataset)
-   MW17_autosave_00000.h5, a binary hdf5 file
-   ZMFLI_exemple_file_.txt, a datafile obtained in other software packages in my lab. This file can be read directly or by using the Custom function, with the definition file _definition_file_ZMFLI.ini
+    dev3221_imps_0_sample_0000.csv, is a csv file obtaines with a MFLI/MFIA, the separator for this file is ';'
+    exampleDataGamry.dta
+    example_custom_3_columns_datafile.txt, to be used with the custom read function
+    example_custom_5_columns_datafile.txt, to be used with the custom read function
+    example_custom_file_ZMFLI_datafile.txt, to be used with the custom read function or with Read ZMFLI
+    mod_dev3221_imps_0_sample_0000 is a MFLI-txt file, as obtained with MFLI instrument (one dataset)
+    MW17_autosave_00000.h5, a binary hdf5 file
+    ZMFLI_exemple_file_.txt, a datafile obtained in other software packages in my lab. This file can be read directly or by using the Custom function, with the definition file _definition_file_ZMFLI.ini
 
 
 ### Action ###
