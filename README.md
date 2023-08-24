@@ -218,7 +218,7 @@ This is used only for "Simulate" function.
 
 __Advanced commands__
 
-Can be used for manual control of program, useful mostly for testing. Some commands are not available elsewhere : searching for optimal regularizaton parameter or interpolation, see more details below. For instance, the following commands might be useful : to make a Savitzky-Golay smooth to the active datasets :
+Can be used for manual control of program, useful mostly for testing. Some commands are not available elsewhere, see more details below. For instance, the following commands might be useful : to make a Savitzky-Golay smooth to the active datasets :
 
     smooth
     
@@ -246,9 +246,9 @@ Other accepted parameters are _rndzi>>u_ for Zi white noise and _rndf>>u_ for fr
 will calculate the mean of Zr and Zi for the selected datasets. This function has a sense if it is applied to datasets measured at the same frequencies.
 You can also search the best Tikhonov parameter, with a command :
  
-   search_lambda>>0.0002&0.1 
+   search_lambda>>0.0002&0.1&256 
     
-will calculate 1024 [DRTs](https://github.com/nitad54448/yappari-5-1#drt-active-datasets) in the range 0.0002 and 0.1 and reconstruct all the 1024 Z sets. The best lambda parameter based on the minim squared error between the calculated and experimental sets will be shown. Obviously you can replace 0.0002 and 0.1 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2_ is accepted). 1024 values is a fixed value, the interval of lambda will be scaled in log spacing over the interval specified with _start_value&stop_value
+will calculate 256 [DRTs](https://github.com/nitad54448/yappari-5-1#drt-active-datasets) in the range 0.0002 and 0.1 and reconstruct all the 256 Z sets. The best lambda parameter based on the minim squared error between the calculated and experimental sets will be shown. Obviously you can replace 0.0002 , 0.1 and 256 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2&200_ is accepted). The interval of lambda will be scaned in log spacing over the interval specified with _start_value&stop_value&steps_
 
 For a default range search (10E-4 to 10E-1) you can use
 
@@ -258,8 +258,9 @@ Other accepted command
 
     calculate_drt_fisk
     search_lambda_fisk
-
-if you want to test another non-negative Least-squares (NNLS) procedure based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345) and implemented in versions of Yappari prior to 14th of aug 2023. In recent versions I am using Altenbach's algorithm, it is much faster and gave basically the same results. 
+    search_lambda_fisk>>0.0001&0.01&256 etc
+    
+Fisk is another non-negative Least-squares (NNLS) procedure based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345) and implemented in versions of Yappari prior to 14th of aug 2023. In recent versions I am using Altenbach's algorithm, it is much faster and gave basically the same results. 
 
 
 ### About ###
