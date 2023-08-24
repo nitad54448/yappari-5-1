@@ -183,19 +183,17 @@ A very good introduction to all these parameters can be found [here](https://pub
 #### Create a model ####
 
 When you create a model using the  editor, the circuit is not valid unless a flow of current can be calculated (but not a short-circuit). Once the circuit is valid, a LED labeled __valid__ will light up on the model panel, indicating that the circuit is ready for use and you can see a list of all the parameters for each element of the circuit. 
-_Note : the parameters will be listed only if you have loaded experimental data!_ If you forgot to load data and already built a model, you can read data then modify the model to check for its validity (for instance, replace one element with the same one, this will trigger a validity check in the program). However, in doing so, the paramaters of the model will be initialized to some dummy values. To see the experimental data and the simulaion you need to select one or several datasets.
+_Note : the parameters will be listed only if you the model is valid. To see the experimental data and the simulaion you need to select one or several datasets and the calculations will be made based on the model and the values of parameters for each dataset. If you select several datasets, the parameters of the first dataset are shown. If you modify a parameter while several datasets are selected, that parameters will be changed for all selected datasets.
 
-Calculations of impedances are made whenever the parameter values are changed... _if the model is valid_ and if you have some data loaded. You can use the wheel of the mouse to evaluate the change in the output impedance with the change in the value of a parameter.
+Calculations of impedances are made whenever the parameter values are changed... _if the model is valid_ and if you have some data loaded. If you don't have data, you can generate a spectrum with the command "Simulate spectrum". You can use the wheel of the mouse to evaluate the change in the output impedance with the change in the value of a parameter.
 
-Each parameter listed on the right side of the page, is labeled with a decimal, which indicates which element it belongs to. For example, the first element of the circuit will have parameters labeled as 0.x, the second element as 1.x, and so on. For this circuit composed of two zarcs we need to close the circuit and make "electrical contacts" in other elements (elements 0 and 6) for the circuit to be valid. The parameters that will be listed for this circuit will be 4something and 5something (since the two elements are located on posutions 4 and 5). 
+Each parameter listed on the right side of the page, is labeled with a decimal, which indicates which element it belongs to. For example, the first element of the circuit will have parameters labeled as 0.x, the second element as 1.x, and so on. For this circuit composed of two zarcs we need to close the circuit and make "electrical contacts" in other elements (elements 0 and 6) for the circuit to be valid. The parameters that will be listed for this circuit will be 4something and 5something (since the two elements are located on positions 4 and 5). 
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/param_values.PNG)
 
 As the circuit is valid, with a Zarc in element 4 position, three parameters will appear in the tab of the right side of the panel: 4ZARR, 4ZARQ and 4ZARN; the names are rather self-explaining for the parameters describing a Zarc located in the position 4 of the circuit, with the three parameters describing a parallel RQ. You can use a RQ element and fix the N to 1 to obtain the equivalent RC circuit. The equivalent capacitance for a RQ circuit is C=((RQ)<sup>1/n</sup>)/R.
 
-For a more complex circuit, you can find on the right side of the screen names such as 2MR1D, 2MQ2D, 2MN2D, 2MR3D, 2MR4D, 2MR5D, and 2MW6D. The first number, "2", indicates which element case the device is in. The letters "M" and "D" are internal notations that are used by the program to identify the device type, but they are not important for the user. The type of device is listed after the "M" notation, such as "R" for resistor or "W" for Warburg. 
-
-The numbering of the devices goes from left to right and top to bottom. For example, the first device is a resistor and can be described by the parameter "2MR1D". The second device in the circuit is a Zarc, which is a combination of a constant phase element (CPE, or Q) in parallel with a resistor. This device is described by the parameters "Q2" and "N2". 
+For a more complex circuit, you can find on the right side of the screen names such as 2MR1D, 2MQ2D, 2MN2D, 2MR3D, 2MR4D, 2MR5D, and 2MW6D. The first number, "2", indicates which element case the device is in. The letters "M" and "D" are internal notations that are used by the program to identify the device type, but they are not important for the user. The type of device is listed after the "M" notation, such as "R" for resistor or "W" for Warburg. The numbering of the devices goes from left to right and top to bottom.
 
 Overall, the notation is quite straightforward once you become familiar with the conventions used.
 
@@ -205,19 +203,18 @@ On this page you can adjust some parameters of the program. In particular the da
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/parameters.PNG)
 
-The fitting algorithm (TRDL is the default) and the parameters bounds, if any, can be constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-14, and so on. You may need to adjust these parameters limits. The fitting results may depend on the starting parameters since this is a non-linear system. You should probably start with TRDL to approach some values close to the solution then proceed with a LM fit. Note that esd's of the fitted parameters are calculated only for unconstrained LM fit.
+The fitting algorithm (TRDL is the default) and the parameters bounds, if any, can be constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 MOhm, capacitors are between 10^-4 and 10^-14, and so on. You may need to adjust these parameters limits. The fitting results may depend on the starting parameters since this is a non-linear system. You should probably start with TRDL to approach some values close to the solution then proceed with a LM fit. Note that esd's of the fitted parameters are calculated only for unconstrained LM fit.
 
 The fit termination parameters can be adjusted here : by default they are set to 1000 iterations and a stop limit at 10E-8.
 
 __Max plots__
-This is the maximum number of plots to show on the graphs (excluding DRT which will show only the first selected dataset). It should be small if you are dealing with many datasets (more than 100 or so). The number of plots is determined by the number of selected datasets or this number, whichever is smaller. Note that I "decimate" the available data for plots, 3D plot is very slow. Suppose you have 500 datasets selected (you can perform any calculations on all of them), for plotting them it may be better to show only a part, let's say 100. The program will "decimate" the 500 datasets and show only 100, so 4 datasets out of 5 will be skipped for graph. The tendencies will still be visible on the graphs, no need to plot all of them. If you want, you can, but for more than 500 datasets it will be very slow.
+This is the maximum number of plots to show on the graphs (excluding DRT which will show only the first selected dataset). It should be small (up to about 200-300) if you are dealing with many datasets. The number of plots is determined by the number of selected datasets or this number, whichever is smaller. Note that I "decimate" the available data for plots, 3D plot is very slow. Suppose you have 500 datasets selected (you can perform any calculations on all of them), for plotting them it may be better to show only a part, let's say 200. The program will "decimate" the 500 datasets and show only 200, some datasets will be skipped for graph. The tendencies will still be visible on the graphs, no need to plot all of them. If you want, you can, but for more than 500 datasets it will be very slow (slow means seconds for 500 datasets plotted on 3D graph, and minutes for 5000 sets on 3D graph, on my desktop computer).
 
 __Simulation limits__
-This is used only for "Simulate" function.
+This is used only for "Simulate" function, it will calculate a spectrum in this range of frequencies having a number of points defined here. Useful for testing and simulation.
 
 __Advanced commands__
-
-Can be used for manual control of program, useful mostly for testing. Some commands are not available elsewhere, see more details below. For instance, the following commands might be useful : to make a Savitzky-Golay smooth to the active datasets :
+Can be used for manual control of program, useful mostly for testing. Some commands are not available elsewhere, see more details below. For instance: to make a Savitzky-Golay smooth of the active datasets :
 
     smooth
     
@@ -227,7 +224,7 @@ You can also interpolate to log scale or upscale by spline interpolation (i.e. g
 
     spline>>128
 
-where 128 is the number of frequency points you will get from your data, in a log scale setup. It might not be good to increase too much the number of points from he original ones, nor to use this function on noisy data. This command will create new datasets for every selected dataset, so you can play around to see how it is working. The log scale is important for DRT and Z-hit.
+where 128 is the number of frequency points you will get from your data, in a log scale. It might not be good to increase too much the number of points from he original ones, nor to use this function on noisy data. This command will create new datasets for every selected dataset, so you can play around to see how it is working. The log scale is important for DRT and Z-hit.
 
 To add white noise to the selected impedance datasets in the range Z-1% to Z+1%   
     
@@ -243,13 +240,13 @@ Other accepted parameters are _rndzi>>u_ for Zi white noise and _rndf>>u_ for fr
      average
      
 will calculate the mean of Zr and Zi for the selected datasets. This function has a sense if it is applied to datasets measured at the same frequencies.
-You can also search the best Tikhonov parameter, with a command :
+You can also search the best Tikhonov parameter for DRT calculations. The command :
  
    search_lambda>>0.0002&0.1&256 
     
-will calculate 256 [DRTs](https://github.com/nitad54448/yappari-5-1#drt-active-datasets) in the range 0.0002 and 0.1 and reconstruct all the 256 Z sets. The best lambda parameter based on the minim squared error between the calculated and experimental sets will be shown. Obviously you can replace 0.0002 , 0.1 and 256 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2&200_ is accepted). The interval of lambda will be scaned in log spacing over the interval specified with _start_value&stop_value&steps_
+will calculate 256 [DRTs](https://github.com/nitad54448/yappari-5-1#drt-active-datasets) in the range 0.0002 and 0.1 and reconstruct all the 256 impedance sets. The best lambda parameter based on the minim squared error between the calculated and experimental sets will be shown. Obviously you can replace 0.0002, 0.1 and 256 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2&200_ is accepted). The interval of lambda will be scaned in log spacing over the interval specified with _start_value&stop_value&steps_
 
-For a default range search (10E-4 to 10E-1) you can use
+For a default range search (10E-4 to 10E-1) you can use the Action/DRT search lambda or 
 
     search_lambda
 
@@ -259,7 +256,7 @@ Other accepted command
     search_lambda_fisk
     search_lambda_fisk>>0.0001&0.01&256 etc
     
-Fisk is another non-negative Least-squares (NNLS) procedure based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345) and implemented in versions of Yappari prior to 14th of aug 2023. In recent versions I am using Altenbach's algorithm, it is much faster and gave basically the same results. 
+Fisk is another non-negative Least-squares (NNLS) procedure based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345) that I implemented in versions of Yappari prior to 14th of aug 2023. In recent versions I am using Altenbach's algorithm, it is much faster and gave basically the same results. 
 
 
 ### About ###
@@ -270,7 +267,7 @@ Brief help listing the version of the program.
 This command opens a menu with several options designing which type of file to read. Reading a new file will just add more data wihtout losing the previous ones. You can remove some of the datasets with the command __Erase selected datasets__. You will need to select one or more datasets in order to perform operations like fit, save, plot.. etc. A selected dataset is coloured differently, it is named in this document as _active_.
 
 #### 3 columns ####
-This option reads a three-column ASCII file, which should be separated by the character selected in the [Parameters](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#parameters) page, and it should contain frequency in Hz, Zr, and Zi. It is important to note that for French users (and some others), the separator value for a number should be a dot “.” and not a comma “,” (you may need to adjust this in the Windows parameters). I did not check if the program works when a number is represented as 1,256 instead of usual 1.256, but obviously one can not use ',' for separating both the digits in a number representation and separating values in a text file. 
+This option reads a three-column ASCII file, which should be separated by the character selected in the [Parameters](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#parameters) page, and it should contain frequency in Hz, Zr, and Zi. It is important to note that for French users (and some others), ideally the separator value for a number should be a dot “.” and not a comma “,” (you may need to adjust this in the Windows parameters). I did not check if the program works when a number is represented as 1,256 instead of usual 1.256, but obviously one can not use ',' for separating both the digits in a number representation and separating values in a text file. 
 The file may contain a description line (like parameters or type of the sample), if the description does not contain only numbers which might be interpreted as data values by the program. The best option is to have only 3 columns and no text or empty lines in the file. If you want to keep one or more description lines in the file, you should use the "Custom" format and prepare a "description file", see below.
 
 If the reading is successful, the dataset will be inserted in the first position with a name taken from the filename open. This name can be changed by the user. Only one dataset can be read with this command. 
@@ -284,16 +281,16 @@ _Note : You should select the proper separator string in the Parameters page pri
 This is a [HDF5](https://portal.hdfgroup.org/display/HDF5/HDF5) file, a binary file, that can hold multiple data sets. The datafile must be saved by MFIA or MFLI with impedance options. It must hold an _imps_ group. An exemple of such file is given in the /data directory, it has a _h5_ extension. An error will appear if the file does not hold _imps_ groups. See the MFLI documentation for saving in this kind of files.
 
 #### MFLI, Zview txt ####
-This is a MFLI text file, also an ASCII type, that can hold multiple data sets. Yappari will read all datasets it finds in this file and insert them in the datasets listing, with a name taken from the file name and a suffix indicating the position in the file : the first datasets will have __0__, then __1__,  and so on.
+This is a MFLI text file, an ASCII type, that can hold multiple data sets. Yappari will read all datasets it finds in this file and insert them in the datasets listing, with a name taken from the file name and a suffix indicating the position in the file : the first datasets will have __0__, then __1__,  and so on.
 
 #### Versa Studio par ####
 This type of file contains data delimited by <Segments> and >/Segments>. I did not extenisively checked this type of file, an example is given in the /data folder. If you encounter errors, feel free to drop me a line.
 
 #### Z-MFLI ####
-This is a custom text file, that can hold multiple data sets, which is obtained by programs I wrote in my lab. An exemple of such file is given in the /data directory but it has probably little interest for other users.
+This is a custom text file, that can hold multiple data sets, which is obtained by programs I wrote in my lab. An exemple of such file is given in the /data directory but it has probably little interest for other users except that a Custom definition file is provided for this file, so the users may understand how to define such a file for reading custom formats.
 
 #### Custom ####
-If your data file is of textt type and has a format that is not usual you may define a _Custom_ format in a configuration file. In this case the program will ask the user to select two files. First the datafile then the file that describes the format used.
+If your data file is of text type and has a format that is not usual you may define a _Custom_ format in a configuration file. In this case the program will ask the user to select two files. First the datafile then the file that describes the format used.
 Several exemples of such files are given in the /data directory. The accepted keywords are :
 
      [header]=
@@ -301,7 +298,6 @@ Several exemples of such files are given in the /data directory. The accepted ke
      #label
      #ignore_line
      #data_columns=
-
 
 For example, the Z-MFLI program saves a file like this:
 
@@ -388,7 +384,6 @@ In the /files folder you will find some other files, experimental or simulated w
   * example_custom_file_ZMFLI_datafile.txt, to be used with the custom read function or with Read ZMFLI
   * mod_dev3221_imps_0_sample_0000 is a MFLI-txt file, as obtained with MFLI instrument (one dataset)
   * MW17_autosave_00000.h5, a binary hdf5 file
-  * type_VersaStudio.par
   * ZMFLI_exemple_file_.txt, a datafile obtained in other software packages in my lab. This file can be read directly or by using the Custom function, with the definition file _definition_file_ZMFLI.ini
 
 
@@ -410,11 +405,11 @@ Copy the listed parameters to selected datasets. Note that the listed parameters
 #### DRT active datasets ####
 This performs a calculation of Distribution of Relaxation Times for one or more datasets. The method used is constrained non-negative linear regression with a Tikhonov parameter. The procedure used was implemented by [Christian Altenbach](https://sites.google.com/site/altenbach/Home) for EPR spectrocopy. This [method](https://sites.google.com/site/altenbach/labview-programs/epr-programs/long-distances/ld-algorithms) is very fast and therefore it is possible to search an optimal regularization parameter, see "Advanced commands" in the description of [Parameters](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#parameters) or [DRT search lambda](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#drt-search-lambda) command.
 
-Only the values of imaginary part of the impedance are taken into calculations. Data should be acquired with log spacing.
+Only the values of imaginary part of the impedance are taken into calculations. Data should be acquired with log spacing and with a decent number of points per decade (otherwise you may try to rearrange data with the command _spline>>100_ if you want 100 interpolated datapoints scaled in log space).
 For the fit, the optimal regularization parameter is decided by the user (there is no universal value for this, it can be estimated with a procedure known as L-curve). If the Tikhonov parameter, noted Lambda in this program, is too small some spurious peaks will appear while a parameter too large will just squash the information. 
-The procedure I use here is to provide an indication of the frequencies of the relaxations. Much more advanced free DRT programs are available, see for instance [Ciucci et al](https://github.com/ciuccislab/DP-DRT) and his papers but there are many others. The DRT procedure may help in detecting a proper electrical circuit. If you want to used it, I suggest to read first some publications describing the procedure and the limitations.
+The procedure I use here is to provide an indication of the frequencies of the relaxations. Much more advanced free DRT programs are available, see for instance [Ciucci et al](https://github.com/ciuccislab/DP-DRT) and his papers but there are many others. The DRT procedure may help in detecting a proper electrical circuit. If you want to use it, I suggest to read first some publications describing the procedure and the limitations.
 There is no need for a circuit model for the DRT calculations. The usefulness of DRT depends much on the quality of the data and in particular the first and the last points of the data.
-On the DRT graph, the experimental Zr and Zi are plotted together with the _recalculated impedances_ from the DRT data and a probability of distribution function. Calculations are made in real time if you change the Tikhonov parameter, so if you have multiple datasets and many iterations, it may be very slow. Some files to test are in the /drt folder.
+On the DRT graph, the experimental Zr and Zi are plotted together with the _recalculated impedances_ from the DRT data and a probability of distribution function. Calculations are made in real time if you change the Tikhonov parameter, so if you have multiple datasets and many iterations, it may be slow. Some files to test are in the /drt folder.
 An example of a DRT fit is shown below :
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/drt_calc_RCRC_1k_3_5microF_80_20p_simulated.PNG)
@@ -433,13 +428,13 @@ The optimal regularization parameter is the minimum of the MSE (or just at the c
 This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given previously. This is a procedure similar to the better known Kramers-Kronig test.
 
 #### Simulate spectrum ####
-This option will calculate an impedance spectrum based on the model and the values of the parameters of the model, in the frequency range that are on Parameters page. It will create a new dataset (called "simulated_" but you can change its name). 
+This option will calculate an impedance spectrum based on the model and the values of the parameters of the model, in the frequency range that are on Parameters page. It will create a new dataset (called "sim_" but you can change its name). 
 
 #### Report active datasets ####
-This command generates an HTML report containing information about the model used, the parameters used, the fitted parameters, and their standard deviation (if an LM fit was done, otherwise esd will appear as 0). It also includes images of the fit. The report is saved in your temporary directory and automatically opened in a browser. 
+This command generates an HTML report containing information about the model used, the parameters used, the fitted parameters, and their standard deviation (if an LM fit was done, otherwise esd will appear as 0). It also includes images of the fit. The report is saved in your temporary directory and automatically opened in a browser. Beware that for each datasets you'll get 5 images and texts with the results.. so if you fit 3700 datasets don't use __Report__ unless you want to have a 10000 pages pdf file. 
 
 #### Save active parameters ####
-Saves a file with the parameters for all selected datasets. Useful for multiple datasets, see also __Report__. Note that if the dataset was not fitted the parameter line corresponding to that dataset will be empty.
+Saves a file with the parameters for all selected datasets. Useful for multiple datasets, for a small number of datasets you may use also __Report__. Note that if the dataset was not fitted the parameter line corresponding to that dataset will be empty.
 
 #### Save data ####
 This option saves the active datasets, as selected by the user, to a single file with data separated by the character you have on the Parameters page, in multiple columns format. All active datasets will be saved in a single file, each data subsequently added, with its name, to the same file.
@@ -454,10 +449,10 @@ This list box shows all the datasets in memory. You can select one or more datas
 This command is used to fit the set of parameters that describes the circuit, if the circuit is valid (i.e., there are parameters to fit on the right side of the window). The user can select which parameters to fit and it is recommended to start with a few parameters first, ensuring that the initial values are close to the expected values. The simulated spectrum will be updated with every change in the parameters, and the user can perform manual adjustments as necessary. The data can be selected by standard Ctrl+Click, or if you want you can select all by using Ctrl+A.
 For many datasets, the data are described by the same model circuit, I suggest to select one measurement, adjust the parameters manually to be close to solution, then fit. After fit you can “Clone” these parameters to all other datasets and select all datasets, then Fit all selected in a go.
 
-The fitting can be performed using different methods, which are discussed before, although there is not much difference in the output of these methods (except for the esd, see below). The fitting process involves a number of cycles, by default 5000 for a dataset, and it will stop a limit is reached. These termination parameters can be adjusted on the _Parameters_ page. Multiple iterations may be necessary, particularly if the initial values are far from the actual values.
+The fitting can be performed using different methods, which are discussed before, although there is not much difference in the output of these methods (except for the esd, see below). The fitting process involves a number of cycles, by default 1000 for a dataset, and it will stop a limit is reached. These termination parameters can be adjusted on the _Parameters_ page. Multiple iterations may be necessary, particularly if the initial values are far from the actual values.
 
 The quality of the fit is evaluated using the R<sup>2</sup> statistical parameter and the chi<sup>2</sup> value. However, the use of the chi<sup>2</sup> value as a statistical parameter is debatable, as discussed in the paper "Dos and don'ts of reduced chi-squared" by Andrae et al. (https://arxiv.org/abs/1012.3754). The chi<sup>2</sup> value reported here is calculated as (Sum ((Z<sub>obs</sub>-Z<sub>calc</sub>)<sup>2</sup>/Z<sub>calc</sub>))/DOF. The degree of freedom (DOF) is considered as Nr_of_points - nr_of_fitted_params. 
-The standard deviation is estimated assumming independent errors only for unconstrained Levenberg-Marquardt fit.
+The standard deviation is estimated, assumming independent errors, only for unconstrained Levenberg-Marquardt fit.
 
 
 
