@@ -1,5 +1,5 @@
 # YAPPARI #
-version 22-08-2023
+version 23-08-2023
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
@@ -21,6 +21,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
   <summary>Changes</summary>
 
 ### Changes ### 
+  -  August 23, 2023 : Changed the way _Max plots_ is used. In the past, the first _max_plots_ datasets were plotted; now the active datasets are decimated to the number _max_plots_.
   -  August 22, 2023 : Added the function DRT search lambda in the main Action menu.
   -  August 21, 2023 : Added a cursor on the lambda graph, it can be dragged to modify the value proposed by the program (see search_lambda in Advanced commands).
   -  August 20, 2023 : Show the criteria used in "Search lambda" procedure in a graph. Changed the way the data are saved. 
@@ -108,7 +109,7 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 ## How to install ##
 
 Yappari 5.1 is compiled with Labview 2023 for Windows 10. 
-The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the yappari_install.zip file and not what is labelled as source file archives. The source is not included in this distribution. 
+The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the Volume.zip file and not what is labelled as source file archives. The source is not included in this distribution. 
 
 Alternatively, you can download all the files from __Code__ as a zip file and install the Labview 2023 64bits runtime engine. You may already have this "engine" if you have previously installed Yappari or other programs written in LV2023 or you can download it freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336). 
 
@@ -124,7 +125,7 @@ The program has several panels and a parameter list with several commands groupe
 ### Zr, -Zi ###
 This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you can disable the Auto-axis feature by right clicking on the graph, or directly changing the scale in the legend. Some other standard graph functions are available in the top left "palette" such as zoom in, out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
 You can change the plot colors, style, etc.... by clicking on the label; the changes in this graph will affect all the graphs. You can remove some outlier points by zooming in and use the command _Action_/_Delete points from Nyquist_.
-The nummber of plots can be selected by the user, see Max Plots on [Parameters](https://github.com/nitad54448/yappari-5-1#parameters) page. Note that, because of space limitations, only the first 24 plots will have legends. But you can plot as many datasets as you want (I tried 12000 datasets, it is possible but slow). 
+The nummber of plots can be selected by the user, see Max Plots on [Parameters](https://github.com/nitad54448/yappari-5-1#parameters) page. Note that, because of space limitations, only the first 24 plots will have legends. But you can plot as many datasets as you want (I tried 3700 datasets, see the tutorial, it is possible but very slow to plot them.. and I wonder why you'd want to plot that many). 
 
 ### Zr, Zi, ln R, theta ###
 These panels will show the dependency of impedances (real, imaginary, modulus or phase) as a function of frequency and the differences between the calculated and experimental values, something like this
@@ -132,7 +133,7 @@ These panels will show the dependency of impedances (real, imaginary, modulus or
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/fit_graph.PNG)
 
 ### 3D plot ###
-This panel will show a 3D plot of selected datasets, either in Nyquist, Zr or Zi or their difference, as selected by the user. This is useful for many datasets, more than 20 I guess, it will allow the user to see tendencies or check systematic errors in the fits. You can right click on the graph to adjust plotting properties to your liking (3D Plot Properties) or change the size of the graph. If you have many datasets, it will take some time to plot all data so to limit the waiting time, I show only up to 500 datasets on the 3D graph, by "decimating" the plot). The number of plots is defined by the selected datasets and by the "Max plots" value, see [Parameters](https://github.com/nitad54448/yappari-5-1#parameters).
+This panel will show a 3D plot of selected datasets, either in Nyquist, Zr or Zi or their difference, as selected by the user. This is useful for many datasets, more than 20 I guess, it will allow the user to see tendencies or check systematic errors in the fits. You can right click on the graph to adjust plotting properties to your liking (3D Plot Properties) or change the size of the graph. If you have many datasets, it will take some time to plot all data so to limit the waiting time, you may want to "decimate" the data for plotting). The number of plots shown is defined by the smallest value between the selected datasets and by the "Max plots" value, see [Parameters](https://github.com/nitad54448/yappari-5-1#parameters).
 
 ### Model ###
 In this panel a model can be created by the user, by selecting element circuits. 
@@ -210,7 +211,7 @@ The fitting algorithm (TRDL is the default) and the parameters bounds, if any, c
 The fit termination parameters can be adjusted here : by default they are set to 1000 iterations and a stop limit at 10E-8.
 
 __Max plots__
-This is the maximum number of plots to show on the graphs (excluding DRT which will show only the first selected dataset). It should be small if you are dealing with many datasets (more than 100 or so). The number of plots is determined by the number of selected datasets or this number, whichever is smaller. 
+This is the maximum number of plots to show on the graphs (excluding DRT which will show only the first selected dataset). It should be small if you are dealing with many datasets (more than 100 or so). The number of plots is determined by the number of selected datasets or this number, whichever is smaller. Note that I "decimate" the available data for plots, 3D plot is very slow. Suppose you have 500 datasets selected (you can perform any calculations on all of them), for plotting them it may be better to show only a part, let's say 100. The program will "decimate" the 500 datasets and show only 100, so 4 datasets out of 5 will be skipped for graph. The tendencies will still be visible on the graphs, no need to plot all of them. If you want, you can, but for more than 500 datasets it will be very slow.
 
 __Simulation limits__
 This is used only for "Simulate" function.
@@ -438,7 +439,7 @@ This option will calculate an impedance spectrum based on the model and the valu
 This command generates an HTML report containing information about the model used, the parameters used, the fitted parameters, and their standard deviation (if an LM fit was done, otherwise esd will appear as 0). It also includes images of the fit. The report is saved in your temporary directory and automatically opened in a browser. 
 
 #### Save active parameters ####
-Saves a file with the parameters for all selected datasets. Useful for multiple datasets, see also __Report__. 
+Saves a file with the parameters for all selected datasets. Useful for multiple datasets, see also __Report__. Note that if the dataset was not fitted the parameter line corresponding to that dataset will be empty.
 
 #### Save data ####
 This option saves the active datasets, as selected by the user, to a single file with data separated by the character you have on the Parameters page, in multiple columns format. All active datasets will be saved in a single file, each data subsequently added, with its name, to the same file.
