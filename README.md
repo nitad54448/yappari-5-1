@@ -109,9 +109,9 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 ## How to install ##
 
 Yappari 5.1 is compiled with Labview 2023 for Windows 10. 
-The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the Volume.zip file and not what is labelled as source file archives. The source is not included in this distribution. 
+The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the Volume.zip file and not what is labelled as source file archives. The source is not included in this distribution. Several versions are available in [Releases](https://github.com/nitad54448/yappari-5-1/releases) in general the last one is the best choice. In case of bugs, please report them, and go to an earlier version.
 
-Alternatively, you can download all the files from __Code__ as a zip file and install the Labview 2023 64bits runtime engine. You may already have this "engine" if you have previously installed Yappari or other programs written in LV2023 or you can download it freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336). 
+Alternatively, you can download all the files from __Code__ as a zip file and install the Labview 2023 64bits runtime engine. You may already have this "engine" if you have previously installed Yappari or other programs written in LV2023 or you can download it freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336). The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
 
 After installing the program in a directory of your choice, some other directories will be created : /data, /drt, /files, /help and /models. The _models_ directory contains png files with images for creating circuits. The _data_ directory contains some dll required by the program and in the /files you can see some examples of data files and custom definitions. The /help directory holds some images for this document and some help files. You can safely remove it if you want.
 
