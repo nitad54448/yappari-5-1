@@ -1,5 +1,5 @@
 # YAPPARI #
-version 23-08-2023
+version 25-08-2023
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
@@ -7,7 +7,7 @@ __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedanc
   <summary>About</summary>
 This program can perform fits for one or multiple datasets (by multiple I mean hunderths or even thousands of datasets, this may be slow but you'll get all the results in a run). For a single dataset you can use an old and simpler program called [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2). This single dataset program will not be developed further so it might be better to start with this version.
 
-You are encouraged to contribute to this help file or write tutorials. I wrote one [tutorial](https://github.com/nitad54448/yappari-5-1/blob/main/help/fit_multiple.pdf) showing how to fit multiple datasets and get used to program style. If you send them to me I will add them to this repository. As much as I like programming, writing documentation is boring. A short tutorial is included in the help pdf file which is installed with the exe file. Otherwise, the most updated description of the program is always here on this page.
+You are encouraged to contribute to this help file or write tutorials. I wrote two tutorials : one showing how to fit multiple datasets and another for simulation of a spectrum and some DRT. If you want to contribute to the help file or tutorials send them to me I will add them to this repository. As much as I like programming, writing documentation is boring. A short tutorial is included in the help pdf file which is installed with the exe file. Otherwise, the most updated description of the program is always here on this page.
  </details>
 
 <details>
@@ -20,6 +20,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
   <summary>Changes</summary>
 
 ### Changes ### 
+  -  August 25, 2023 : For cases of simple CR circuits, their values are estimated directly from the DRT plots (see Tips and Documentation in the DRT graph).
   -  August 23, 2023 : Changed the way _Max plots_ is used. In the past, the first _max_plots_ datasets were plotted; now the active datasets are decimated to the number _max_plots_.
   -  August 22, 2023 : Added the function DRT search lambda in the main Action menu.
   -  August 21, 2023 : Added a cursor on the lambda graph, it can be dragged to modify the value proposed by the program (see search_lambda in Advanced commands).
@@ -424,7 +425,7 @@ An example of a DRT fit is shown below :
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/drt_calc_RCRC_1k_3_5microF_80_20p_simulated.PNG)
 Red dots are experimental Zr and the red line is calculated Zr based on the distribution function as RC (blue dots and line are experimental and calculated Zi values). The green spikes are calculated relaxation times. The fit is very good and corresponds well with the simulated values. Note that full impedance is calculated only from the "experimental" imaginary impedance, this should be correct for experimental spectra that respect the KK relation. This might not be the case if the data is noisy or inadequate. 
-Only the first selected dataset will be plotted on the DRT graph.
+Only the first selected dataset will be shown on the DRT graph, if the DRT calculation was performed for that dataset.
 
 #### DRT search lambda ####
 This command performs a search of optimal Tikhonov regularization parameter for the first active (aka selected) dataset.
