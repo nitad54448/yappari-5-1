@@ -20,7 +20,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
   <summary>Changes</summary>
 
 ### Changes ### 
-  -  August 25, 2023 : For cases of simple CR circuits, their values are estimated directly from the DRT plots (see Tips and Documentation in the DRT graph). Added a 2-Zarcs element. This release is names 5.1.68.
+  -  August 25, 2023 : For cases of simple CR circuits, their values are estimated directly from the DRT plots (see Tips and Documentation in the DRT graph). Added a 2-Zarcs element. This release is named 5.1.68.
   -  August 23, 2023 : Changed the way _Max plots_ is used. In the past, the first _max_plots_ datasets were plotted; now the active datasets are decimated to the number _max_plots_.
   -  August 22, 2023 : Added the function DRT search lambda in the main Action menu.
   -  August 21, 2023 : Added a cursor on the lambda graph, it can be dragged to modify the value proposed by the program (see search_lambda in Advanced commands).
