@@ -110,7 +110,7 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 
 ## How to install ##
 
-Yappari 5.1 is compiled with Labview 2023 for Windows 10. As such it will require a "run-time" engine. The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the Volume.zip file and not what is labelled as source file archives. Several versions are available in [Releases](https://github.com/nitad54448/yappari-5-1/releases) in general the last one is the best choice. In case of bugs, please report them, and grab an earlier version.
+Yappari 5.1 is compiled with Labview 2023 for Windows 10. As such it will require a "run-time" engine. The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the Volume.zip file and not what is labelled as source file archives. Several versions are available, in general the last one is the best choice. In case of bugs, please report them, and grab an earlier version.
 
 Alternatively, if you already have the run-time engine (either because you already installed Yappari or another program) you can just download all the files from the green button __Code__ as a zip file. Or if you want you can download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336). The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
 
