@@ -20,12 +20,12 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
   <summary>Changes</summary>
 
 ### Changes ### 
-  -  August 25, 2023 : For cases of simple CR circuits, their values are estimated directly from the DRT plots (see Tips and Documentation in the DRT graph). Added a 2-Zarcs element.
+  -  August 25, 2023 : For cases of simple CR circuits, their values are estimated directly from the DRT plots (see Tips and Documentation in the DRT graph). Added a 2-Zarcs element. This release is named 5.1.68.
   -  August 23, 2023 : Changed the way _Max plots_ is used. In the past, the first _max_plots_ datasets were plotted; now the active datasets are decimated to the number _max_plots_.
   -  August 22, 2023 : Added the function DRT search lambda in the main Action menu.
   -  August 21, 2023 : Added a cursor on the lambda graph, it can be dragged to modify the value proposed by the program (see search_lambda in Advanced commands).
   -  August 20, 2023 : Show the criteria used in "Search lambda" procedure in a graph. Changed the way the data are saved. 
-  -  August 19, 2023 : Changed the Report procedure. Added a simulate spectrum function.
+  -  August 19, 2023 : Changed the Report procedure. Added a simulate spectrum function. Release 5.1.67.4
   -  August 18, 2023 : Updated the documentation and files.
   -  August 17, 2023 : Added a spline interpolation function in "Developer commands", can upscale in log spaced frequency. Moved to version 5-1-65 as a new release.
   -  August 16, 2023 : Added a "Max plots" parameter on the Parameters panel.
@@ -108,14 +108,13 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 
 ## How to install ##
 
-Yappari 5.1 is compiled with Labview 2023 for Windows 10. 
-The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the Volume.zip file and not what is labelled as source file archives. The source is not included in this distribution. Several versions are available in [Releases](https://github.com/nitad54448/yappari-5-1/releases) in general the last one is the best choice. In case of bugs, please report them, and go to an earlier version.
+Yappari 5.1 is compiled with Labview 2023 for Windows 10. As such it will require a "run-time" engine. The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the Volume.zip file and not what is labelled as source file archives. Several versions are available in [Releases](https://github.com/nitad54448/yappari-5-1/releases) in general the last one is the best choice. In case of bugs, please report them, and grab an earlier version.
 
-Alternatively, you can download all the files from __Code__ as a zip file and install the Labview 2023 64bits runtime engine. You may already have this "engine" if you have previously installed Yappari or you can download it freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336). The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
+Alternatively, if you already have the run-time engine (either because you already installed Yappari or another program) you can just download all the files from the green button __Code__ as a zip file. Or if you want you can download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336). The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
 
-After installing the program in a directory of your choice, some other directories will be created : /data, /drt, /files, /help and /models. The _models_ directory contains png files with images for creating circuits. The _data_ directory contains some dll required by the program and in the /files you can see some examples of data files and custom definitions. The /help directory holds some images for this document and some help files. You can safely remove it if you want.
+After installing the program in a directory of your choice, some other subdirectories will be created : /data, /drt, /files, /help and /models. The _models_ directory contains png files with images for showing circuits. The _data_ directory contains some dll required by the program and in the /files you can see some examples of data files and custom definitions. The /help directory holds some images for this document and some help files. You can safely remove it if you want.
 
-This program is supposed to work with win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
+This program is supposed to work with win 10 64, and on my PC and many others it works fine; also it should work on win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
 
 ## Panels ##
 The program has several panels and a parameter list with several commands grouped on the right side of the window. When you start the program, if everything is normal, you should see something like this
