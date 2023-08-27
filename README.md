@@ -246,7 +246,7 @@ Other accepted parameters are _rndzi>>u_ for Zi white noise and _rndf>>u_ for fr
 will calculate the mean of Zr and Zi for the selected datasets. This function has a sense if it is applied to datasets measured at the same frequencies.
 You can also search the best Tikhonov parameter for DRT calculations. The command :
  
-   search_lambda>>0.0002&0.1&256 
+    search_lambda>>0.0002&0.1&256 
     
 will calculate 256 [DRTs](https://github.com/nitad54448/yappari-5-1#drt-active-datasets) in the range 0.0002 and 0.1 and reconstruct all the 256 impedance sets. The best lambda parameter based on the minim squared error between the calculated and experimental sets will be shown. Obviously you can replace 0.0002, 0.1 and 256 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2&200_ is accepted). The interval of lambda will be scaned in log spacing over the interval specified with _start_value&stop_value&steps_
 
