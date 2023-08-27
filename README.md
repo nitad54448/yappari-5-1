@@ -135,6 +135,8 @@ These panels will show the dependency of impedances (real, imaginary, modulus or
 
 ### 3D plot ###
 This panel will show a 3D plot of selected datasets, either in Nyquist, Zr or Zi or their differences, as selected by the user. This is useful for many datasets, more than 20 I guess, it will allow the user to see tendencies or check systematic errors in the fits. You can right click on the graph to adjust plotting properties to your liking (3D Plot Properties) or change the size of the graph. If you have many datasets, it will take some time to plot all data so to limit the waiting time, you may want to "decimate" the data for plotting). The number of plots shown is defined by the smallest value between the selected datasets and by the "Max plots" value, see [Parameters](https://github.com/nitad54448/yappari-5-1#parameters).
+The 3D plot might be useful to look for tendencies, a plot looks like this :
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/Zidiff_3D.PNG)
 
 ### Model ###
 In this panel a model can be created by the user, by selecting element circuits. 
@@ -210,7 +212,7 @@ The fitting algorithm (TRDL is the default) and the parameters bounds, if any, c
 The fit termination parameters can be adjusted here : by default they are set to 1000 iterations and a stop limit at 10E-8.
 
 __Max plots__
-This is the maximum number of plots to show on the graphs (excluding DRT which will show only the first selected dataset). It should be small (up to about 200-300) if you are dealing with many datasets. The number of plots is determined by the number of selected datasets or this number, whichever is smaller. Note that I "decimate" the available data for plots, 3D plot is very slow. Suppose you have 500 datasets selected (you can perform any calculations on all of them), for plotting them it may be better to show only a part, let's say 200. The program will "decimate" the 500 datasets and show only 200, some datasets will be skipped for graph. The tendencies will still be visible on the graphs, no need to plot all of them. If you want, you can, but for more than 500 datasets it will be very slow (slow means seconds for 500 datasets plotted on 3D graph, and minutes for 5000 sets on 3D graph, on my desktop computer).
+This is the maximum number of plots to show on the graphs (excluding DRT which will show only the first selected dataset). It should be small (up to about 200-300) if you are dealing with many datasets. The number of plots is determined by the number of selected datasets or this number, whichever is smaller. Note that I "decimate" the available data for plots, 3D plot is very slow if myou have more than 200-300 datasets. Suppose you have 500 datasets selected (you can perform any calculations on all of them), for plotting them it may be better to show only a part, let's say 200. The program will "decimate" the 500 datasets and show only 200, some datasets will be skipped for graph. The tendencies will still be visible on the graphs, no need to plot all of them. If you want, you can, but for more than 500 datasets it will be very slow (slow means a few seconds for 500 datasets plotted on 3D graph, and minutes for 5000 sets on 3D graph, on my desktop computer).
 
 __Simulation limits__
 This is used only for "Simulate" function, it will calculate a spectrum in this range of frequencies having a number of points defined here. Useful for testing and simulation.
@@ -266,7 +268,7 @@ Brief help listing the version of the program.
 
 ## Commands ##
 ### Read data ###
-This command opens a menu with several options designing which type of file to read. Reading a new file will just add more data wihtout losing the previous ones. You can remove some of the datasets with the command __Erase selected datasets__. You will need to select one or more datasets in order to perform operations like fit, save, plot.. etc. A selected dataset is coloured differently, it is named in this document as _active_.
+This command opens a menu with several options designing which type of file to read. Reading a new file will just add more data wihtout losing the previous ones. You can remove some of the datasets with the command __Delete selected datasets__. You will need to select one or more datasets in order to perform operations like fit, save, plot.. etc. A selected dataset is coloured differently, it is named in this document as _active_.
 
 #### 3 columns ####
 This option reads a three-column ASCII file, which should be separated by the character selected in the [Parameters](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#parameters) page, and it should contain frequency in Hz, Zr, and Zi. It is important to note that for French users (and some others), ideally the separator value for a number should be a dot “.” and not a comma “,” (you may need to adjust this in the Windows parameters). I did not check if the program works when a number is represented as 1,256 instead of usual 1.256, but obviously one can not use ',' for separating both the digits in a number representation and separating values in a text file. 
@@ -406,7 +408,7 @@ This button can trigger several commands:
 You can delete experimental points from datasets visible in the Nyquist, Zr, Zi or lnR plots: just zoom in the region to show only the points you want to delete then select this command (this is irreversible). 
 
 #### Delete active datasets ####
-Irreversible action removing one or more datasets and all related parameters from memory (by active one should understand “selected”)
+Irreversible action removing one or more datasets and all related parameters from memory (by active one should understand “selected”). Datasets can be deleted also with the Key "Delete" (no warning so be careful...).
 
 #### Clone the parameters to all ####
 Copy the listed parameters to all datasets. Useful for bulk fitting in order to set proper starting point for all the sets.
