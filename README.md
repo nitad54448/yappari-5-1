@@ -5,7 +5,7 @@ __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedanc
 
 <details>
   <summary>About</summary>
-This program can perform fits for one or multiple datasets (by multiple I mean hunderths or even thousands of datasets, this may be slow but you'll get all the results in a run). For a single dataset you can use an old and simpler program called [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2).
+This program can perform fits for one or multiple datasets (by multiple I mean hunderths or even thousands of datasets, this may be slow but you'll get all the results in a run). For a single dataset you can use an old and simpler program (https://github.com/nitad54448/win10-installer-yappari-4.2).
 This single dataset program will not be developed further so it might be better to start with this version.
 
 You are encouraged to contribute to this help file or write tutorials. I wrote two tutorials : one showing how to [fit multiple datasets](https://github.com/nitad54448/yappari-5-1/blob/main/help/fit_multiple.pdf) and another for [simulation](https://github.com/nitad54448/yappari-5-1/blob/main/help/Simulate_and_drt.pdf) of a spectrum and some DRT. If you want to contribute to the help file or tutorials send them to me I will add them to this repository. As much as I like programming, writing documentation is boring. A short tutorial is included in the help pdf file which is installed with the exe file. Otherwise, the most updated description of the program is always here on this page.
@@ -110,7 +110,7 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 
 ## How to install ##
 
-Yappari 5.1 is compiled with Labview 2023 for Windows 10. As such it will require a "run-time" engine. The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the Volume.zip file and not what is labelled as source file archives. Several versions are available in [Releases](https://github.com/nitad54448/yappari-5-1/releases) in general the last one is the best choice. In case of bugs, please report them, and grab an earlier version.
+Yappari 5.1 is compiled with Labview 2023 for Windows 10. As such it will require a "run-time" engine. The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the Volume.zip file and not what is labelled as source file archives. Several versions are available, in general the last one is the best choice. In case of bugs, please report them, and grab an earlier version.
 
 Alternatively, if you already have the run-time engine (either because you already installed Yappari or another program) you can just download all the files from the green button __Code__ as a zip file. Or if you want you can download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336). The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
 
