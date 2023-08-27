@@ -288,7 +288,7 @@ This is a [HDF5](https://portal.hdfgroup.org/display/HDF5/HDF5) file, a binary f
 This is a MFLI text file, an ASCII type, that can hold multiple data sets. Yappari will read all datasets it finds in this file and insert them in the datasets listing, with a name taken from the file name and a suffix indicating the position in the file : the first datasets will have __0__, then __1__,  and so on.
 
 #### Versa Studio par ####
-This type of file contains data delimited by <Segments> and >/Segments>. I did not extenisively checked this type of file, an example is given in the /data folder. If you encounter errors, feel free to drop me a line.
+This type of file contains data delimited by <Segments> and >/Segments>. I did not extensively checked this type of file, an example is given in the /data folder. If you encounter errors, feel free to drop me a line.
 
 #### Z-MFLI ####
 This is a custom text file, that can hold multiple data sets, which is obtained by programs I wrote in my lab. An exemple of such file is given in the /data directory but it has probably little interest for other users except that a Custom definition file is provided for this file, so the users may understand how to define such a file for reading custom formats.
