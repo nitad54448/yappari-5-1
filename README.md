@@ -224,7 +224,7 @@ Can be used for manual control of program, useful mostly for testing. Some comma
     smooth
     
 This will create new smoothed datasets with the same name and the prefix sm_.
-To transform a Zi in -Zi after reading a file that has -Zi
+To change the sign of Zi after reading a file that has -Zi (I always wondered why some softwares request -Zi in the datafile):
 
     negate_zi
 
