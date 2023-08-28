@@ -1,5 +1,5 @@
 # YAPPARI #
-version 26-08-2023
+version 28-08-2023
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
@@ -21,6 +21,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
   <summary>Changes</summary>
 
 ### Changes ### 
+  -  August 28, 2023 : More efficient 3D Plots. Active datasets can be removed with "Delete" key. Corrected an error in labelling Z-Hit datasets. Release tag 5.1.68.2
   -  August 26, 2023 : Changed the editing of parameters. Release tag 5.1.68.1
   -  August 25, 2023 : For cases of simple RC circuits, their values are estimated directly from the DRT plots (see Tips and Documentation in the DRT graph). Added a 2-Zarcs element. This release is named 5.1.68.
   -  August 23, 2023 : Changed the way _Max plots_ is used. In the past, the first _max_plots_ datasets were plotted; now the active datasets are decimated to the number _max_plots_.
