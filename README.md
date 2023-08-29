@@ -21,6 +21,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
   <summary>Changes</summary>
 
 ### Changes ### 
+  -  August 29, 2023 : The existing parameters are copied to the new datasets for Smooth and Spline functions.
   -  August 28, 2023 : More efficient 3D Plots. Active datasets can be removed with "Delete" key. Corrected an error in labelling Z-Hit datasets. Release tag 5.1.68.2
   -  August 26, 2023 : Changed the editing of parameters. Release tag 5.1.68.1
   -  August 25, 2023 : For cases of simple RC circuits, their values are estimated directly from the DRT plots (see Tips and Documentation in the DRT graph). Added a 2-Zarcs element. This release is named 5.1.68.
