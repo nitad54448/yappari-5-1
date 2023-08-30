@@ -230,6 +230,10 @@ To change the sign of Zi after reading a file that has -Zi (I always wondered wh
 
     negate_zi
 
+To save the actual parameters as default 
+
+    save_config
+    
 You can also interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try it, if you don't have spurious points. the command is :
 
     spline>>128
@@ -288,6 +292,7 @@ This is a ';' or ',' separated values file as obtained from MFLI/MFIA, a Zurich 
 _Note : You should select the proper separator string in the Parameters page prior to use this function._
 
 #### MFLI, hdf5 ####
+__This function is now  (as of release 5.1.68.3) disabled, until I find a better way to implement it. Conflicts with python hdf5.dll on some systems__
 This is a [HDF5](https://portal.hdfgroup.org/display/HDF5/HDF5) file, a binary file, that can hold multiple data sets. The datafile must be saved by MFIA or MFLI with impedance options. It must hold an _imps_ group. An exemple of such file is given in the /data directory, it has a _h5_ extension. An error will appear if the file does not hold _imps_ groups. See the MFLI documentation for saving in this kind of files.
 
 #### MFLI, Zview txt ####
