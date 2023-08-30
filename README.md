@@ -117,9 +117,9 @@ Yappari 5.1 is compiled with Labview 2023 for Windows 10. As such it will requir
 
 Alternatively, if you already have the run-time engine (either because you already installed Yappari or another program) you can just download all the files from the green button __Code__ as a zip file. Or if you want you can download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336). The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
 
-After installing the program in a directory of your choice, some other subdirectories will be created : /data, /drt, /files, /help and /models. The _models_ directory contains png files with images for showing circuits. The _data_ directory contains some dll required by the program and in the /files you can see some examples of data files and custom definitions. The /help directory holds some images for this document and some help files. You can safely remove it if you want.
+After installing the program in a directory of your choice, some other subdirectories will be created : /drt, /files, /help and /models. The _models_ directory contains png files with images for showing circuits. The /files directory contains some examples of data files and custom definitions. The /help directory holds some images for this document and some help files. You can safely remove it if you want.
 
-This program is supposed to work with win 10 64, and on my PC and many others it works fine; also it should work on win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
+This program is supposed to work with Windows 10 64 bits and on my PC and many others it works fine; also it should work on win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
 
 ## Panels ##
 The program has several panels and a parameter list with several commands grouped on the right side of the window. When you start the program, if everything is normal, you should see something like this
