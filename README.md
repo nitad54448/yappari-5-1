@@ -7,12 +7,13 @@ __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedanc
   <summary>About this program</summary>
 This program can perform fits for one or multiple datasets (by multiple I mean hunderths or even thousands of datasets, this may be slow but you'll get all the results in a run). For a single dataset you can use an old and simpler program (https://github.com/nitad54448/win10-installer-yappari-4.2).
 This single dataset program is not developed further so it might be better to start with this version.
-You are encouraged to contribute to this help file or write tutorials. If you want to contribute to the help file or tutorials, send them to me I will add them to this repository. As much as I like programming, writing documentation is boring. The most updated description of the program is always here on this page.
+
+  You are encouraged to contribute to this help file or write tutorials. If you want to contribute to the help file or tutorials, send them to me I will add them to this repository. As much as I like programming, writing documentation is boring. The most updated description of the program is always here on this page.
  </details>
 
 <details>
   <summary>Note to users</summary>
-There is no warrantee whatsoever for using this program. Use it if you want, see [licence](https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. 
+There is no warrantee whatsoever for using this program. Use it if you want, [see CC-BY-NC-ND licence](https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. 
 </details>
 
 <details>
