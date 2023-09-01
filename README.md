@@ -13,7 +13,7 @@ This single dataset program is not developed further so it might be better to st
 
 <details>
   <summary>Note to users</summary>
-There is no warrantee whatsoever for using this program. Use it if you want, [see CC-BY-NC-ND licence](https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. 
+There is no warrantee whatsoever for using this program. Use it if you want, [see CC-BY-NC-ND licence](https://creativecommons.org/licenses/by-nc-nd/4.0/) , but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. 
 </details>
 
 <details>
