@@ -21,6 +21,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
   <summary>Changes</summary>
 
 ### Changes ### 
+   - September 1st, 2023 : Added the command explore_lambda (will plot all DRT calculations for a range of lambda and the user can save all these data).
   -  August 30, 2023 : Added a config file; you can edit it to start with your own defaults. Removed hdf5 reading file, some errors appeared, probably problems with DLL linking (conflicts with python hdf5 dll's). Release 5.1.68.3 
   -  August 29, 2023 : The existing parameters are copied to the new datasets for Smooth and Spline functions. Release 5.1.68.3
   -  August 28, 2023 : More efficient 3D Plots. Active datasets can be removed with "Delete" key. Corrected an error in labelling Z-Hit datasets. Release tag 5.1.68.2
@@ -71,41 +72,43 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   <summary>Index</summary>
 
 ## Index ##
+- [How to install](#how-to-install)
+- [Panels](#panels)
+  * [Zr, -Zi](#zr---zi)
+  * [Zr, Zi, ln R, theta](#zr--zi--ln-r--theta)
+  * [3D plot](#3d-plot)
+  * [Model](#model)
+    + [Elements](#elements)
+    + [Create a model](#create-a-model)
+  * [Parameters](#parameters)
+  * [About](#about)
+- [Commands](#commands)
+  * [Read data](#read-data)
+    + [3 columns](#3-columns)
+    + [MFLI, csv](#mfli--csv)
+    + [MFLI, hdf5](#mfli--hdf5)
+    + [MFLI, Zview txt](#mfli--zview-txt)
+    + [Versa Studio par](#versa-studio-par)
+    + [Z-MFLI](#z-mfli)
+    + [Custom](#custom)
+  * [Action](#action)
+    + [Delete points from graph](#delete-points-from-graph)
+    + [Delete active datasets](#delete-active-datasets)
+    + [Clone the parameters to all](#clone-the-parameters-to-all)
+    + [Clone the parameters to active](#clone-the-parameters-to-active)
+    + [DRT active datasets](#drt-active-datasets)
+    + [DRT search lambda](#drt-search-lambda)
+    + [Z-Hit active datasets](#z-hit-active-datasets)
+    + [Simulate spectrum](#simulate-spectrum)
+    + [Report active datasets](#report-active-datasets)
+    + [Save active parameters](#save-active-parameters)
+    + [Save data](#save-data)
+    + [Help](#help)
+  * [Datasets](#datasets)
+  * [Fit selected](#fit-selected)
 
-- [How to install ##](#how-to-install-)
-- [Panels ##](#panels-)
-  * [Zr, -Zi ###](#zr-zi-)
-  * [Zr, Zi, ln R, theta ###](#zr-zi-ln-r-theta-)
-  * [3D plot ###](#3d-plot-)
-  * [Model ###](#model-)
-    + [Elements ####](#elements-)
-    + [Create a model ####](#create-a-model-)
-  * [Parameters ###](#parameters-)
-  * [About ###](#about-)
-- [Commands ##](#commands-)
-  * [Read data ###](#read-data-)
-    + [3 columns ####](#3-columns-)
-    + [MFLI, csv ####](#mfli-csv-)
-    + [MFLI, hdf5 ####](#mfli-hdf5-)
-    + [MFLI, Zview txt ####](#mfli-zview-txt-)
-    + [Versa Studio par ####](#versa-studio-par-)
-    + [Z-MFLI ####](#z-mfli-)
-    + [Custom ####](#custom-)
-  * [Action ###](#action-)
-    + [Delete points from graph ####](#delete-points-from-graph-)
-    + [Delete active datasets ####](#delete-active-datasets-)
-    + [Clone the parameters to all ####](#clone-the-parameters-to-all-)
-    + [Clone the parameters to active ####](#clone-the-parameters-to-active-)
-    + [DRT active datasets ####](#drt-active-datasets-)
-    + [DRT search lambda ####](#drt-search-lambda-)
-    + [Z-Hit active datasets ####](#z-hit-active-datasets-)
-    + [Simulate spectrum ####](#simulate-spectrum-)
-    + [Report active datasets ####](#report-active-datasets-)
-    + [Save active parameters ####](#save-active-parameters-)
-    + [Save data ####](#save-data-)
-    + [Help ####](#help-)
-  * [Datasets ###](#datasets-)
-  * [Fit selected ###](#fit-selected-)
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 </details>
 
 # やっぱり #
@@ -263,6 +266,13 @@ For a default range search (10E-4 to 10E-1) you can use the Action/DRT search la
 
     search_lambda
 
+If you want to see all DRT data and save them, you can use
+
+    explore_lambda
+
+This will plot a 3D graph with all DRTs as a function of lambda, like this graph.
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/explore_lambda.PNG)
+
 Other accepted command
 
     calculate_drt_fisk
@@ -404,8 +414,6 @@ In the /files folder you will find some other files, experimental or simulated w
         -to be used with the custom read function or with Read ZMFLI
     mod_dev3221_imps_0_sample_0000 
         -a MFLI-txt file, as obtained with MFLI instrument (one dataset)
-    MW17_autosave_00000.h5
-        -a binary hdf5 file
     ZMFLI_exemple_file_.txt
         -datafile obtained in other software packages in my lab. 
     
