@@ -4,18 +4,25 @@ version 01-09-2023
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
 <details>
-  <summary>About</summary>
+  <summary>About this program</summary>
 This program can perform fits for one or multiple datasets (by multiple I mean hunderths or even thousands of datasets, this may be slow but you'll get all the results in a run). For a single dataset you can use an old and simpler program (https://github.com/nitad54448/win10-installer-yappari-4.2).
-This single dataset program will not be developed further so it might be better to start with this version.
+This single dataset program is not developed further so it might be better to start with this version.
 
-You are encouraged to contribute to this help file or write tutorials. I wrote two tutorials : one showing how to [fit multiple datasets](https://github.com/nitad54448/yappari-5-1/blob/main/help/fit_multiple.pdf) and another for [simulation](https://github.com/nitad54448/yappari-5-1/blob/main/help/Simulate_and_drt.pdf) of a spectrum and some DRT. If you want to contribute to the help file or tutorials send them to me I will add them to this repository. As much as I like programming, writing documentation is boring. A short tutorial is included in the help pdf file which is installed with the exe file. Otherwise, the most updated description of the program is always here on this page.
+  You are encouraged to contribute to this help file or write tutorials. If you want to contribute to the help file or tutorials, send them to me I will add them to this repository. As much as I like programming, writing documentation is boring. The most updated description of the program is always here on this page.
  </details>
 
 <details>
-  <summary>Note</summary>
-There is no warrantee whatsoever for using this program. Use it if you want, see [licence](https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. 
+  <summary>Note to users</summary>
+There is no warrantee whatsoever for using this program. Use it if you want, see CC-BY-NC-ND [licence].(https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. 
 </details>
 
+<details>
+  <summary>Tutorials</summary>
+  
+[Fit multiple datasets](https://github.com/nitad54448/yappari-5-1/blob/main/help/fit_multiple.pdf).
+  
+[Simulate a spectrum and use DRT](https://github.com/nitad54448/yappari-5-1/blob/main/help/Simulate_and_drt.pdf).
+</details>
 
 <details>
   <summary>Changes</summary>
@@ -284,7 +291,7 @@ Brief help listing the version of the program.
 
 ## Commands ##
 ### Read data ###
-This command opens a menu with several options designing which type of file to read. Reading a new file will just add more data wihtout losing the previous ones. You can remove some of the datasets with the command __Delete selected datasets__. You will need to select one or more datasets in order to perform operations like fit, save, plot.. etc. A selected dataset is coloured differently, it is named in this document as _active_. 
+This command opens a menu with several options designing which type of file to read. Reading a new file will just add more data wihtout losing the previous ones. You can remove some of the datasets with the command [Delete selected datasets](https://github.com/nitad54448/yappari-5-1#delete-active-datasets). You will need to select one or more datasets in order to perform operations like fit, save, plot.. etc. A selected dataset is coloured differently, it is named in this document as _active_. 
 _Note : the files given as examples in the /files directory have a decimal separator . (a dot). You cannot read them if the decimal separator of your system is ',' _
 
 #### 3 columns ####
