@@ -67,6 +67,8 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 </details>
 
+<details>
+  <summary>Index</summary>
 
 ## Index ##
   * [How to install](#how-to-install)
@@ -103,7 +105,7 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
       - [Help](#help)
     + [Datasets](#datasets)
     + [Fit selected](#fit-selected)
-
+</details>
 
 # やっぱり #
 
