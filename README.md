@@ -69,11 +69,6 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 </details>
 
 ## Index ##
-- [YAPPARI](#yappari)
-    + [Changes](#changes)
-    + [Author](#author)
-  * [Index](#index)
-- [やっぱり](#----)
   * [How to install](#how-to-install)
   * [Panels](#panels)
     + [Zr, -Zi](#zr---zi)
