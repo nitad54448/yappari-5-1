@@ -111,7 +111,7 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 
 ## How to install ##
 
-The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the Volume.zip file and not what is labelled as source file archives. Several versions are available, in general the last one is the best choice. In case of bugs, please report them, and grab an earlier version.
+The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the Volume.zip file and not what is labelled as source file archives. Several versions are available, in general the last one is the best choice. In case of bugs please report them and grab an earlier version.
 
 Yappari 5.1 is compiled with Labview 2023 for Windows 10. As such it will require a "run-time" engine which is installed, if needed, by the full installer. So, if you already have the run-time engine (either because you already installed Yappari or another program compiled with Labview 2023) you can just download all the files from the green button __Code__ as a zip file. Another possibility is to download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336). The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
 
@@ -192,7 +192,7 @@ _Note : the parameters will be listed only if your model is valid. To see the ex
 
 Calculations of impedances are made whenever the parameter values are changed... _if the model is valid_ and if you have some data loaded or simulated. You can use the wheel of the mouse to evaluate the change in the output impedance with the change in the value of a parameter.
 
-Each parameter listed on the right side of the page, is labeled with a decimal, which indicates which element it belongs to. For example, the first element of the circuit will have parameters labeled as 0.x, the second element as 1.x, and so on. For this circuit composed of two zarcs we need to close the circuit and make "electrical contacts" in other elements (elements 0 and 6) for the circuit to be valid. The parameters that will be listed for this circuit will be 4something and 5something (since the two elements are located on positions 4 and 5). 
+Each parameter listed on the right side of the page, is labeled with a decimal, which indicates which element it belongs to. For example, the first element of the circuit will have parameters labeled as 0.x, the second element as 1.x, and so on. For [this circuit](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/page_model.PNG) composed of two zarcs we need to close the circuit and make "electrical contacts" in other elements (elements 0 and 6) for the circuit to be valid. The parameters that will be listed for this circuit will be 4something and 5something (since the two elements are located on positions 4 and 5). 
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/param_values.PNG)
 
