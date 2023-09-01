@@ -268,7 +268,7 @@ If you want to see all DRT data and save them, you can use
     explore_lambda
 
 This will plot a 3D graph with all DRTs as a function of lambda, like this graph.
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/explore_lambda.PNG)
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/explore_lambda.png)
 
 Other accepted command
 
