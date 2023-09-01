@@ -68,47 +68,50 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 </details>
 
-<details>
-  <summary>Index</summary>
-
 ## Index ##
-- [How to install](#how-to-install)
-- [Panels](#panels)
-  * [Zr, -Zi](#zr---zi)
-  * [Zr, Zi, ln R, theta](#zr--zi--ln-r--theta)
-  * [3D plot](#3d-plot)
-  * [Model](#model)
-    + [Elements](#elements)
-    + [Create a model](#create-a-model)
-  * [Parameters](#parameters)
-  * [About](#about)
-- [Commands](#commands)
-  * [Read data](#read-data)
-    + [3 columns](#3-columns)
-    + [MFLI, csv](#mfli--csv)
-    + [MFLI, hdf5](#mfli--hdf5)
-    + [MFLI, Zview txt](#mfli--zview-txt)
-    + [Versa Studio par](#versa-studio-par)
-    + [Z-MFLI](#z-mfli)
-    + [Custom](#custom)
-  * [Action](#action)
-    + [Delete points from graph](#delete-points-from-graph)
-    + [Delete active datasets](#delete-active-datasets)
-    + [Clone the parameters to all](#clone-the-parameters-to-all)
-    + [Clone the parameters to active](#clone-the-parameters-to-active)
-    + [DRT active datasets](#drt-active-datasets)
-    + [DRT search lambda](#drt-search-lambda)
-    + [Z-Hit active datasets](#z-hit-active-datasets)
-    + [Simulate spectrum](#simulate-spectrum)
-    + [Report active datasets](#report-active-datasets)
-    + [Save active parameters](#save-active-parameters)
-    + [Save data](#save-data)
-    + [Help](#help)
-  * [Datasets](#datasets)
-  * [Fit selected](#fit-selected)
-  * [Advanced Commands](#advanced-commands)
+- [YAPPARI](#yappari)
+    + [Changes](#changes)
+    + [Author](#author)
+  * [Index](#index)
+- [やっぱり](#----)
+  * [How to install](#how-to-install)
+  * [Panels](#panels)
+    + [Zr, -Zi](#zr---zi)
+    + [Zr, Zi, ln R, theta](#zr--zi--ln-r--theta)
+    + [3D plot](#3d-plot)
+    + [Model](#model)
+      - [Elements](#elements)
+      - [Create a model](#create-a-model)
+    + [Parameters](#parameters)
+      - [Max plots](#max-plots)
+      - [Simulation limits](#simulation-limits)
+      - [Advanced commands](#advanced-commands)
+    + [About](#about)
+  * [Commands](#commands)
+    + [Read data](#read-data)
+      - [3 columns](#3-columns)
+      - [MFLI, csv](#mfli--csv)
+      - [MFLI, hdf5](#mfli--hdf5)
+      - [MFLI, Zview txt](#mfli--zview-txt)
+      - [Versa Studio par](#versa-studio-par)
+      - [Z-MFLI](#z-mfli)
+      - [Custom](#custom)
+    + [Action](#action)
+      - [Delete points from graph](#delete-points-from-graph)
+      - [Delete active datasets](#delete-active-datasets)
+      - [Clone the parameters to all](#clone-the-parameters-to-all)
+      - [Clone the parameters to active](#clone-the-parameters-to-active)
+      - [DRT active datasets](#drt-active-datasets)
+      - [DRT search lambda](#drt-search-lambda)
+      - [Z-Hit active datasets](#z-hit-active-datasets)
+      - [Simulate spectrum](#simulate-spectrum)
+      - [Report active datasets](#report-active-datasets)
+      - [Save active parameters](#save-active-parameters)
+      - [Save data](#save-data)
+      - [Help](#help)
+    + [Datasets](#datasets)
+    + [Fit selected](#fit-selected)
 
-</details>
 
 # やっぱり #
 
@@ -215,13 +218,13 @@ The fitting algorithm (TRDL is the default) and the parameters bounds, if any, c
 
 The fit termination parameters can be adjusted here : by default they are set to 1000 iterations and a stop limit at 10E-8.
 
-__Max plots__
+#### Max plots ####
 This is the maximum number of plots to show on the graphs (excluding DRT which will show only the first selected dataset). It should be small (up to about 200-300) if you are dealing with many datasets. The number of plots is determined by the number of selected datasets or this number, whichever is smaller. Note that I "decimate" the available data for plots, 3D plot is very slow if myou have more than 200-300 datasets. Suppose you have 500 datasets selected (you can perform any calculations on all of them), for plotting them it may be better to show only a part, let's say 200. The program will "decimate" the 500 datasets and show only 200, some datasets will be skipped for graph. The tendencies will still be visible on the graphs, no need to plot all of them. If you want, you can, but for more than 500 datasets it will be very slow (slow means a few seconds for 500 datasets plotted on 3D graph, and minutes for 5000 sets on 3D graph, on my desktop computer).
 
-__Simulation limits__
+#### Simulation limits ####
 This is used only for "Simulate" function, it will calculate a spectrum in this range of frequencies having a number of points defined here. Useful for testing and simulation.
 
-__Advanced commands__
+#### Advanced commands ####
 Can be used for manual control of program, useful mostly for testing. Some commands are not available elsewhere, see more details below. For instance: to make a Savitzky-Golay smooth of the active datasets :
 
     smooth
