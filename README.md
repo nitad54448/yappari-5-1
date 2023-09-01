@@ -106,8 +106,7 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
     + [Help](#help)
   * [Datasets](#datasets)
   * [Fit selected](#fit-selected)
-
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+  * [Advanced Commands](#advanced-commands)
 
 </details>
 
