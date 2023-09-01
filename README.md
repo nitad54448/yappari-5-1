@@ -5,22 +5,22 @@ __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedanc
 
 <details>
   <summary>About this program</summary>
-This program can perform fits for one or multiple datasets (by multiple I mean hunderths or even thousands of datasets, this may be slow but you'll get all the results in a run). For a single dataset you can use an old and simpler program (https://github.com/nitad54448/win10-installer-yappari-4.2).
-This single dataset program is not developed further so it might be better to start with this version.
+This program can perform several mathematical operations of interest in impedance spectroscopy: non-linear parametric fits for one or multiple datasets, DRT, Hilbert transform, spectra simulations etc. For a single dataset and non-linear optimization you can use an old and simpler program (https://github.com/nitad54448/win10-installer-yappari-4.2).
+This single dataset program is not developed further and it has limited features so it might be better to start with this version.
 
   You are encouraged to contribute to this help file or write tutorials. If you want to contribute to the help file or tutorials, send them to me I will add them to this repository. As much as I like programming, writing documentation is boring. The most updated description of the program is always here on this page.
  </details>
 
 <details>
   <summary>Note to users</summary>
-There is no warrantee whatsoever for using this program. Use it if you want, see CC-BY-NC-ND [licence].(https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. 
+There is no warrantee whatsoever for using this program. Use it if you want, see CC-BY-NC-ND 
+[licence](https://github.com/nitad54448/yappari-5-1/blob/main/help/fit_multiple.pdf). [licence].(https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. 
 </details>
 
 <details>
   <summary>Tutorials</summary>
   
 [Fit multiple datasets](https://github.com/nitad54448/yappari-5-1/blob/main/help/fit_multiple.pdf).
-  
 [Simulate a spectrum and use DRT](https://github.com/nitad54448/yappari-5-1/blob/main/help/Simulate_and_drt.pdf).
 </details>
 
