@@ -18,8 +18,9 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
 
 <details>
   <summary>Tutorials</summary>
-[Fit multiple datasets](https://github.com/nitad54448/yappari-5-1/blob/main/help/fit_multiple.pdf)
-[Simulate a spectrum and use DRT](https://github.com/nitad54448/yappari-5-1/blob/main/help/Simulate_and_drt.pdf)
+[Fit multiple datasets](https://github.com/nitad54448/yappari-5-1/blob/main/help/fit_multiple.pdf).
+  
+[Simulate a spectrum and use DRT](https://github.com/nitad54448/yappari-5-1/blob/main/help/Simulate_and_drt.pdf).
 </details>
 
 <details>
