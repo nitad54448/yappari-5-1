@@ -1,5 +1,5 @@
 # YAPPARI #
-version 30-08-2023
+version 01-09-2023
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
@@ -21,6 +21,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
   <summary>Changes</summary>
 
 ### Changes ### 
+   - September 1st, 2023 : Added the command explore_lambda (will plot all DRT calculations for a range of lambda and the user can save all these data).
   -  August 30, 2023 : Added a config file; you can edit it to start with your own defaults. Removed hdf5 reading file, some errors appeared, probably problems with DLL linking (conflicts with python hdf5 dll's). Release 5.1.68.3 
   -  August 29, 2023 : The existing parameters are copied to the new datasets for Smooth and Spline functions. Release 5.1.68.3
   -  August 28, 2023 : More efficient 3D Plots. Active datasets can be removed with "Delete" key. Corrected an error in labelling Z-Hit datasets. Release tag 5.1.68.2
@@ -67,56 +68,54 @@ For questions or comments:
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 </details>
 
-<details>
-  <summary>Index</summary>
-
 ## Index ##
+  * [How to install](#how-to-install)
+  * [Panels](#panels)
+    + [Zr, -Zi](#zr--zi)
+    + [Zr, Zi, ln R, theta](#zr-zi-ln-r-theta)
+    + [3D plot](#3d-plot)
+    + [Model](#model)
+      - [Elements](#elements)
+      - [Create a model](#create-a-model)
+    + [Parameters](#parameters)
+      - [Max plots](#max-plots)
+      - [Simulation limits](#simulation-limits)
+      - [Advanced commands](#advanced-commands)
+    + [About](#about)
+  * [Commands](#commands)
+    + [Read data](#read-data)
+      - [3 columns](#3-columns)
+      - [MFLI, csv](#mfli-csv)
+      - [MFLI, Zview txt](#mfli-zview-txt)
+      - [Versa Studio par](#versa-studio-par)
+      - [Z-MFLI](#z-mfli)
+      - [Custom](#custom)
+    + [Action](#action)
+      - [Delete points from graph](#delete-points-from-graph)
+      - [Delete active datasets](#delete-active-datasets)
+      - [Clone the parameters to all](#clone-the-parameters-to-all)
+      - [Clone the parameters to active](#clone-the-parameters-to-active)
+      - [DRT active datasets](#drt-active-datasets)
+      - [DRT search lambda](#drt-search-lambda)
+      - [Z-Hit active datasets](#z-hit-active-datasets)
+      - [Simulate spectrum](#simulate-spectrum)
+      - [Report active datasets](#report-active-datasets)
+      - [Save active parameters](#save-active-parameters)
+      - [Save data](#save-data)
+      - [Help](#help)
+    + [Datasets](#datasets)
+    + [Fit selected](#fit-selected)
 
-- [How to install ##](#how-to-install-)
-- [Panels ##](#panels-)
-  * [Zr, -Zi ###](#zr-zi-)
-  * [Zr, Zi, ln R, theta ###](#zr-zi-ln-r-theta-)
-  * [3D plot ###](#3d-plot-)
-  * [Model ###](#model-)
-    + [Elements ####](#elements-)
-    + [Create a model ####](#create-a-model-)
-  * [Parameters ###](#parameters-)
-  * [About ###](#about-)
-- [Commands ##](#commands-)
-  * [Read data ###](#read-data-)
-    + [3 columns ####](#3-columns-)
-    + [MFLI, csv ####](#mfli-csv-)
-    + [MFLI, hdf5 ####](#mfli-hdf5-)
-    + [MFLI, Zview txt ####](#mfli-zview-txt-)
-    + [Versa Studio par ####](#versa-studio-par-)
-    + [Z-MFLI ####](#z-mfli-)
-    + [Custom ####](#custom-)
-  * [Action ###](#action-)
-    + [Delete points from graph ####](#delete-points-from-graph-)
-    + [Delete active datasets ####](#delete-active-datasets-)
-    + [Clone the parameters to all ####](#clone-the-parameters-to-all-)
-    + [Clone the parameters to active ####](#clone-the-parameters-to-active-)
-    + [DRT active datasets ####](#drt-active-datasets-)
-    + [DRT search lambda ####](#drt-search-lambda-)
-    + [Z-Hit active datasets ####](#z-hit-active-datasets-)
-    + [Simulate spectrum ####](#simulate-spectrum-)
-    + [Report active datasets ####](#report-active-datasets-)
-    + [Save active parameters ####](#save-active-parameters-)
-    + [Save data ####](#save-data-)
-    + [Help ####](#help-)
-  * [Datasets ###](#datasets-)
-  * [Fit selected ###](#fit-selected-)
-</details>
 
 # やっぱり #
 
 ## How to install ##
 
-Yappari 5.1 is compiled with Labview 2023 for Windows 10. As such it will require a "run-time" engine. The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the Volume.zip file and not what is labelled as source file archives. Several versions are available, in general the last one is the best choice. In case of bugs, please report them, and grab an earlier version.
+The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the Volume.zip file and not what is labelled as source file archives. Several versions are available, in general the last one is the best choice. In case of bugs, please report them, and grab an earlier version.
 
-Alternatively, if you already have the run-time engine (either because you already installed Yappari or another program) you can just download all the files from the green button __Code__ as a zip file. Or if you want you can download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336). The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
+Yappari 5.1 is compiled with Labview 2023 for Windows 10. As such it will require a "run-time" engine which is installed, if needed, by the full installer. So, if you already have the run-time engine (either because you already installed Yappari or another program compiled with Labview 2023) you can just download all the files from the green button __Code__ as a zip file. Another possibility is to download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336). The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
 
-After installing the program in a directory of your choice, some other subdirectories will be created : /drt, /files, /help and /models. The _models_ directory contains png files with images for showing circuits. The /files directory contains some examples of data files and custom definitions. The /help directory holds some images for this document and some help files. You can safely remove it if you want.
+After installing the program in a directory of your choice, some other subdirectories will be created : /drt, /files, /help and /models. The _models_ directory contains png files with images for showing circuits. The /files directory contains some examples of data files and custom definitions. The /help directory holds some images for this document and some help files. You can safely remove /drt, /files and /help if you want but you should keep the /models files.
 
 This program is supposed to work with Windows 10 64 bits and on my PC and many others it works fine; also it should work on win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
 
@@ -126,7 +125,7 @@ The program has several panels and a parameter list with several commands groupe
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/panels.PNG)
 
 ### Zr, -Zi ###
-This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you can disable the Auto-axis feature by right clicking on the graph, or directly changing the scale in the legend. Some other standard graph functions are available in the top left "palette" such as zoom in, out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
+This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you need to disable the Auto-axis feature by right clicking on the graph and directly change the ranges. Some other standard graph functions are available in the top left "palette" such as zoom in, out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
 You can change the plot colors, style, etc.... by clicking on the label; the changes in this graph will affect all the graphs. You can remove some outlier points by zooming in and use the command _Action_/_Delete points from Nyquist_.
 The number of plots can be selected by the user, see Max Plots on [Parameters](https://github.com/nitad54448/yappari-5-1#parameters) page. Note that, because of space limitations, only the first 24 plots will have legends. But you can plot as many datasets as you want (I tried 3700 datasets, see the tutorial, it is possible but very slow to plot them and I wonder why you'd want to plot that many). 
 
@@ -136,7 +135,7 @@ These panels will show the dependency of impedances (real, imaginary, modulus or
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/fit_graph.PNG)
 
 ### 3D plot ###
-This panel will show a 3D plot of selected datasets, either in Nyquist, Zr or Zi or their differences, as selected by the user. This is useful for many datasets, more than 20 I guess, it will allow the user to see tendencies or check systematic errors in the fits. You can right click on the graph to adjust plotting properties to your liking (3D Plot Properties) or change the size of the graph. If you have many datasets, it will take some time to plot all data so to limit the waiting time, you may want to "decimate" the data for plotting). The number of plots shown is defined by the smallest value between the selected datasets and by the "Max plots" value, see [Parameters](https://github.com/nitad54448/yappari-5-1#parameters).
+This panel will show a 3D plot of selected datasets, either in Nyquist, Zr or Zi or their differences, as selected by the user. This is useful for many datasets, more than 20 I guess, it will allow the user to see tendencies or check systematic errors in the fits. You can right click on the graph to adjust plotting properties to your liking (3D Plot Properties) or change the size of the graph. If you have many datasets, it will take some time to plot all data so to limit the waiting time, you may want to "decimate" the data for plotting). The number of plots shown is defined by the smallest value between the number of selected datasets and by the "Max plots" value, see [Parameters](https://github.com/nitad54448/yappari-5-1#parameters). Depending on your computer, a few hunderth datasets can be plotted easily. If you try more than 1000 you'll have to wait, the program will appear irresponsive for 30 seconds or so
 The 3D plot might be useful to look for tendencies, a plot looks like this :
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/Zidiff_3D.PNG)
 
@@ -181,7 +180,7 @@ Z<sub>s</sub>=(A<sub>w</sub>/ $\sqrt{jω})$ tanh(B $\sqrt{jω})$
 
 Aw is the standard Warburg coefficient and B=d/ $\sqrt{D}$ as defined above. Note that some other impedance programs use Y0 (with units Siemens sec^1/2) instead of Aw for the Warburg parameters.
 
-Fitting the Warburg short and Warburg-open parameters will be $very$ slow in this program as checks on the validity of the calculations are required, particularly for high frequencies where the values are very small and may be translated as NANs (so, be patient with Warburgs open and short, or adjust manually the parameters before a final fit, starting from a good position in the solutions' space).
+Fitting the Warburg short and Warburg-open parameters will be $very$ slow in this program as checks on the validity of the calculations are required, particularly for high frequencies where the calculated values are very small and may be translated as NANs (so, be patient with Warburgs open and short, or adjust manually the parameters before a final fit, starting from a good position in the solutions' space).
 
 A very good introduction to all these parameters can be found [here](https://pubs.acs.org/doi/10.1021/acsmeasuresciau.2c00070).
 
@@ -191,7 +190,7 @@ A very good introduction to all these parameters can be found [here](https://pub
 When you create a model using the  editor, the circuit is not valid unless a flow of current can be calculated (but not a short-circuit). Once the circuit is valid, a LED labeled __valid__ will light up on the model panel, indicating that the circuit is ready for use and you can see a list of all the parameters for each element of the circuit. 
 _Note : the parameters will be listed only if you the model is valid. To see the experimental data and the simulaion you need to select one or several datasets and the calculations will be made based on the model and the values of parameters for each dataset. If you select several datasets, the parameters of the first dataset are shown. If you modify a parameter while several datasets are selected, that parameters will be changed for all selected datasets.
 
-Calculations of impedances are made whenever the parameter values are changed... _if the model is valid_ and if you have some data loaded. If you don't have data, you can generate a spectrum with the command "Simulate spectrum". You can use the wheel of the mouse to evaluate the change in the output impedance with the change in the value of a parameter.
+Calculations of impedances are made whenever the parameter values are changed... _if the model is valid_ and if you have some data loaded or simulated. If you don't have data, you can generate a spectrum with the command "Simulate spectrum". You can use the wheel of the mouse to evaluate the change in the output impedance with the change in the value of a parameter.
 
 Each parameter listed on the right side of the page, is labeled with a decimal, which indicates which element it belongs to. For example, the first element of the circuit will have parameters labeled as 0.x, the second element as 1.x, and so on. For this circuit composed of two zarcs we need to close the circuit and make "electrical contacts" in other elements (elements 0 and 6) for the circuit to be valid. The parameters that will be listed for this circuit will be 4something and 5something (since the two elements are located on positions 4 and 5). 
 
@@ -212,14 +211,15 @@ On this page you can adjust some parameters of the program. In particular the da
 The fitting algorithm (TRDL is the default) and the parameters bounds, if any, can be constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 MOhm, capacitors are between 10^-4 and 10^-14, and so on. You may need to adjust these parameters limits. The fitting results may depend on the starting parameters since this is a non-linear system. You should probably start with TRDL to approach some values close to the solution then proceed with a LM fit. Note that esd's of the fitted parameters are calculated only for unconstrained LM fit.
 
 The fit termination parameters can be adjusted here : by default they are set to 1000 iterations and a stop limit at 10E-8.
+The parameters by default are loaded from a configuration file named _yappari_configuration.ini that is located in Documents/Labview data, after a first run of the program. You can edit or save a default configuration file, see [Advanced commands](https://github.com/nitad54448/yappari-5-1#advanced-commands) section.
 
-__Max plots__
-This is the maximum number of plots to show on the graphs (excluding DRT which will show only the first selected dataset). It should be small (up to about 200-300) if you are dealing with many datasets. The number of plots is determined by the number of selected datasets or this number, whichever is smaller. Note that I "decimate" the available data for plots, 3D plot is very slow if myou have more than 200-300 datasets. Suppose you have 500 datasets selected (you can perform any calculations on all of them), for plotting them it may be better to show only a part, let's say 200. The program will "decimate" the 500 datasets and show only 200, some datasets will be skipped for graph. The tendencies will still be visible on the graphs, no need to plot all of them. If you want, you can, but for more than 500 datasets it will be very slow (slow means a few seconds for 500 datasets plotted on 3D graph, and minutes for 5000 sets on 3D graph, on my desktop computer).
+#### Max plots ####
+This is the maximum number of plots to show on the graphs (excluding DRT which will show only the first selected dataset). It should be small (up to about 200-300) if you are dealing with many datasets. The number of plots is determined by the number of selected datasets or this number, whichever is smaller. Note that I "decimate" the available data for plots, 3D plot is very slow if you have more than 200-300 datasets. Suppose you have 500 datasets selected (you can perform any calculations on all of them), for plotting them it may be better to show only a part, let's say 200. The program will "decimate" the 500 datasets and show only 200, some datasets will be skipped for graph. The tendencies will still be visible on the graphs, no need to plot all of them. If you want, you can, but for more than 500 datasets it will be very slow (slow means a few seconds for 500 datasets plotted on 3D graph, and minutes for 5000 sets on 3D graph, on my desktop computer).
 
-__Simulation limits__
+#### Simulation limits ####
 This is used only for "Simulate" function, it will calculate a spectrum in this range of frequencies having a number of points defined here. Useful for testing and simulation.
 
-__Advanced commands__
+#### Advanced commands ####
 Can be used for manual control of program, useful mostly for testing. Some commands are not available elsewhere, see more details below. For instance: to make a Savitzky-Golay smooth of the active datasets :
 
     smooth
@@ -263,11 +263,18 @@ For a default range search (10E-4 to 10E-1) you can use the Action/DRT search la
 
     search_lambda
 
+If you want to see all DRT data and save them, you can use
+
+    explore_lambda
+
+This will plot a 3D graph with all DRTs as a function of lambda, like this graph.
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/explore_lambda.png)
+
 Other accepted command
 
     calculate_drt_fisk
     search_lambda_fisk
-    search_lambda_fisk>>0.0001&0.01&256 etc
+    search_lambda_fisk>>0.0001&0.01&256
     
 Fisk is another non-negative Least-squares (NNLS) procedure based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345) that I implemented in versions of Yappari prior to 14th of aug 2023. In recent versions I am using Altenbach's algorithm, it is much faster and gave basically the same results. 
 
@@ -290,10 +297,6 @@ _Note : You should select the proper separator string in the Parameters page pri
 #### MFLI, csv ####
 This is a ';' or ',' separated values file as obtained from MFLI/MFIA, a Zurich Instruments impedance analyzer. As in the __MFLI, Zview text__, multiple data sets can be read from this file. In the /files folder that is provided with the installer you can find such a file containing 34 measurements of the same sample. It would be boring and useless to fit all these 34 datasets one by one. Yappari-5 can handle such multiple data sets. The dataseset are labeled with a name taken from the file name and a suffix indicating the position in the file : the first datasets in the file will have __0__, then __1__, .. and so on.
 _Note : You should select the proper separator string in the Parameters page prior to use this function._
-
-#### MFLI, hdf5 ####
-__This function is now  (as of release 5.1.68.3) disabled, until I find a better way to implement it. Conflicts with python hdf5.dll on some systems__
-This is a [HDF5](https://portal.hdfgroup.org/display/HDF5/HDF5) file, a binary file, that can hold multiple data sets. The datafile must be saved by MFIA or MFLI with impedance options. It must hold an _imps_ group. An exemple of such file is given in the /data directory, it has a _h5_ extension. An error will appear if the file does not hold _imps_ groups. See the MFLI documentation for saving in this kind of files.
 
 #### MFLI, Zview txt ####
 This is a MFLI text file, an ASCII type, that can hold multiple data sets. Yappari will read all datasets it finds in this file and insert them in the datasets listing, with a name taken from the file name and a suffix indicating the position in the file : the first datasets will have __0__, then __1__,  and so on.
@@ -404,8 +407,6 @@ In the /files folder you will find some other files, experimental or simulated w
         -to be used with the custom read function or with Read ZMFLI
     mod_dev3221_imps_0_sample_0000 
         -a MFLI-txt file, as obtained with MFLI instrument (one dataset)
-    MW17_autosave_00000.h5
-        -a binary hdf5 file
     ZMFLI_exemple_file_.txt
         -datafile obtained in other software packages in my lab. 
     
