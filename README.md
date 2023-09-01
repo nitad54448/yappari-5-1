@@ -71,8 +71,8 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 ## Index ##
   * [How to install](#how-to-install)
   * [Panels](#panels)
-    + [Zr, -Zi](#zr---zi)
-    + [Zr, Zi, ln R, theta](#zr--zi--ln-r--theta)
+    + [Zr, -Zi](#zr--zi)
+    + [Zr, Zi, ln R, theta](#zr-zi-ln-r-theta)
     + [3D plot](#3d-plot)
     + [Model](#model)
       - [Elements](#elements)
