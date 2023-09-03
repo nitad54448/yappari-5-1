@@ -447,6 +447,8 @@ Copy the listed parameters to selected datasets. Note that the listed parameters
 ### DRT active datasets ###
 This performs a calculation of Distribution of Relaxation Times for one or more datasets for the case of serial RC circuits. The method used is constrained non-negative linear regression (NNLS) with a Tikhonov regularization parameter. 
 
+
+
 DRT calculations are based on the following expressions :
 
 $$
@@ -455,7 +457,7 @@ $$
 
 where $G(\tau)=\tau \gamma(\tau)$.
 
-In a log-scale grid we obtain a linear system of equations of the form $\mathbf{A} \vec{G}=\vec{Z}^{\prime}$
+In a log-scale grid we obtain a linear system of equations of the form $\mathbf{A} \vec{b}=\vec{Z}$
 
 The components of matrix $A_{m, n}$ are given by, for the real part of the impedance :
 
@@ -469,7 +471,16 @@ $$
 A_{m, n}=-R_{\mathrm{pol}} \frac{\omega_{m} \tau_{n} \delta \ln \left(\tau_{n}\right)}{1+\omega_{m}{ }^{2} \tau_{n}{ }^{2}}, \quad \delta \ln \left(\tau_{n}\right)=\ln \left(\tau_{n+1}\right)-\ln \left(\tau_{n}\right)
 $$
  
+An approximate solution is 
+
+$$
+\boldsymbol{b}=\left(\boldsymbol{A}^{T} \boldsymbol{A}+\lambda^{2} \boldsymbol{I}\right)^{-1} \boldsymbol{A}^{T} \boldsymbol{Z}
+$$
+
+where $\boldsymbol{I}$ is the identity matrix and $\lambda$ is the Tikhonov regularization parameter.
+
 This system can be solved for either real or imaginary part of impedance, or for both. Yappari can use either one of the three possibilities (I believe the best choice is to use both Zr and Zi, since they are related by Kramers-Kronig equations).
+
 
 The procedure used now in Yappari is a NNLS method implemented by [Christian Altenbach](https://sites.google.com/site/altenbach/Home) for EPR spectrocopy. This [method](https://sites.google.com/site/altenbach/labview-programs/epr-programs/long-distances/ld-algorithms) is very fast and therefore it is possible to search an optimal regularization parameter. 
  
