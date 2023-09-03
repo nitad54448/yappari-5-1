@@ -469,7 +469,7 @@ $$
 A_{m, n}=-R_{\mathrm{pol}} \frac{\omega_{m} \tau_{n} \delta \ln \left(\tau_{n}\right)}{1+\omega_{m}{ }^{2} \tau_{n}{ }^{2}}, \quad \delta \ln \left(\tau_{n}\right)=\ln \left(\tau_{n+1}\right)-\ln \left(\tau_{n}\right)
 $$
  
-This system can be solved for either real or imaginary part of impedance, or for both. Yappari can use either one of the three possibilities (I belive the best choice is to use both Zr and Zi, since they are related by Kramers-Kronig equations).
+This system can be solved for either real or imaginary part of impedance, or for both. Yappari can use either one of the three possibilities (I believe the best choice is to use both Zr and Zi, since they are related by Kramers-Kronig equations).
 
 The procedure used now in Yappari is a NNLS method implemented by [Christian Altenbach](https://sites.google.com/site/altenbach/Home) for EPR spectrocopy. This [method](https://sites.google.com/site/altenbach/labview-programs/epr-programs/long-distances/ld-algorithms) is very fast and therefore it is possible to search an optimal regularization parameter. 
  
