@@ -445,18 +445,43 @@ Copy the listed parameters to all datasets. Useful for bulk fitting in order to 
 Copy the listed parameters to selected datasets. Note that the listed parameters are those of the first selected dataset.
 
 ### DRT active datasets ###
-This performs a calculation of Distribution of Relaxation Times for one or more datasets. The method used is constrained non-negative linear regression with a Tikhonov parameter. The procedure used was implemented by [Christian Altenbach](https://sites.google.com/site/altenbach/Home) for EPR spectrocopy. This [method](https://sites.google.com/site/altenbach/labview-programs/epr-programs/long-distances/ld-algorithms) is very fast and therefore it is possible to search an optimal regularization parameter. You can either use [DRT search lambda](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#drt-search-lambda) command or manually in "Advanced commands" see [Parameters](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#parameters) by using search_lambda or explore_lambda if you want to save all data.
+This performs a calculation of Distribution of Relaxation Times for one or more datasets for the case of serial RC circuits. The method used is constrained non-negative linear regression (NNLS) with a Tikhonov regularization parameter. 
 
+DRT calculations are based on the following expressions :
+
+$$
+Z(\omega)-R_{\infty}=R_{\mathrm{pol}} \int_{-\infty}^{+\infty} \frac{G(\tau) \mathrm{d} \ln (\tau)}{1+\mathrm{i} \omega \tau}
+$$
+
+where $G(\tau)=\tau \gamma(\tau)$.
+
+In a log-scale grid we obtain a linear system of equations of the form $\mathbf{A} \vec{G}=\vec{Z}^{\prime}$
+
+The components of matrix $A_{m, n}$ are given by, for the real part of the impedance :
+
+$$
+A_{m, n}=\frac{R_{p o l} \delta \ln \left(\tau_{n}\right)}{1+\omega_{m}^{2} \tau_{n}^{2}}, \quad \delta \ln \left(\tau_{n}\right)=\ln \left(\tau_{n+1}\right)-\ln \left(\tau_{n}\right), \quad \tau_{n}=1 / \omega_{n}
+$$
+
+and the components of the matrix for the imaginary part are
+
+$$
+A_{m, n}=-R_{\mathrm{pol}} \frac{\omega_{m} \tau_{n} \delta \ln \left(\tau_{n}\right)}{1+\omega_{m}{ }^{2} \tau_{n}{ }^{2}}, \quad \delta \ln \left(\tau_{n}\right)=\ln \left(\tau_{n+1}\right)-\ln \left(\tau_{n}\right)
+$$
+ 
+This system can be solved for either real or imaginary part of impedance, or for both. Yappari can use either one of the three possibilities (I belive the best choice is to use both Zr and Zi, since they are related by Kramers-Kronig equations).
+
+The procedure used now in Yappari is a NNLS method implemented by [Christian Altenbach](https://sites.google.com/site/altenbach/Home) for EPR spectrocopy. This [method](https://sites.google.com/site/altenbach/labview-programs/epr-programs/long-distances/ld-algorithms) is very fast and therefore it is possible to search an optimal regularization parameter. 
  
 Data should be acquired with log spacing and with a decent number of points per decade (otherwise you may try to rearrange data with the command _spline>>number_ if you want a total _number_ interpolated datapoints scaled in log space).
-For the fit, the optimal regularization parameter is decided by the user (there is no universal value for this, it can be estimated with a procedure known as L-curve). If the Tikhonov parameter, noted Lambda in this program, is too small some spurious peaks will appear while a parameter too large will just squash the information. Criteria for selecting the optimal value are included in this program, see [Advanced commands](https://github.com/nitad54448/yappari-5-1#advanced-commands).
+For the fit, the optimal regularization parameter is decided by the user (there is no universal value for this, it can be estimated with a procedure known as L-curve). If the Tikhonov parameter, noted Lambda in this program, is too small some spurious peaks will appear while a parameter too large will just squash the information. Criteria for selecting the optimal value are included in this program. You can either use [DRT search lambda](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#drt-search-lambda) command or use "Advanced commands" see [Parameters](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#parameters) by using search_lambda or explore_lambda commands if you want to save all data.
 The procedure I use here is to provide an indication of the frequencies of the relaxations. Much more advanced free DRT programs are available, see for instance [Ciucci et al](https://github.com/ciuccislab/DP-DRT) and his papers but there are many others. The DRT procedure may help in detecting a proper electrical circuit. If you want to use it, I suggest to read first some publications describing the procedure and the limitations.
 There is no need for a circuit model for the DRT calculations. The usefulness of DRT depends much on the quality of the data and in particular the first and the last points of the data.
 On the DRT graph, the experimental Zr and Zi are plotted together with the _recalculated impedances_ from the DRT data and a probability of distribution function. Calculations are made in real time if you change the Tikhonov parameter, so if you have multiple datasets and many iterations, it may be slow. Some files to test are in the /drt folder.
 An example of a DRT fit is shown below :
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/drt_calc_RCRC_1k_3_5microF_80_20p_simulated.PNG)
-Red dots are experimental Zr and the red line is calculated Zr based on the distribution function as RC (blue dots and line are experimental and calculated Zi values). The green spikes are calculated relaxation times. The fit is very good and corresponds well with the simulated values. Note that full impedance is calculated only from the "experimental" imaginary impedance, this should be correct for experimental spectra that respect the KK relation. This might not be the case if the data is noisy or inadequate. 
+Red dots are experimental Zr and the red line is calculated Zr based on the distribution function as RC (blue dots and line are experimental and calculated Zi values). The green spikes are calculated relaxation times. The fit is very good and corresponds well with the simulated values calculated only from the "experimental" imaginary impedance. 
 Only the first selected dataset will be shown on the DRT graph, if the DRT calculation was performed for that dataset.
 
 ### DRT search lambda ###
