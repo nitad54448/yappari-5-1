@@ -3,9 +3,7 @@
 DRT calculations are based on the following expressions :
 
 $$
-Z(\omega)-R_{\infty}=R_{\mathrm{pol}} \int_{-\infty}^{+\infty} \frac{G(\tau) \mathrm{d} \ln (\tau)}{1+\mathrm{i} \omega \tau}
-$$
-
+Z(\omega)-R_{\infty}= \int_{-\infty}^{+\infty} \{g(\tau) \mathrm{d} (\tau)}
 where $G(\tau)=\tau \gamma(\tau)$.
 
 In a log-scale grid we obtain a linear system of equations of the form $\mathbf{A} \vec{b}=\vec{Z}$
