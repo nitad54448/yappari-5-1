@@ -455,7 +455,11 @@ $$
 Z(\omega)-R_{\infty}=R_{\mathrm{pol}} \int_{-\infty}^{+\infty} \frac{g(\tau) \mathrm{d} \ln (\tau)}{1+\mathrm{i} \omega \tau}
 $$
 
-with \int_{-\infty}^{+\infty} \{g(\tau) {d(\tau) = 1
+with
+
+$$
+\int_{-\infty}^{+\infty} \{g(\tau) \mathrm{d} (\tau)} = 1
+$$
 
 In a log-scale grid we obtain a linear system of equations of the form $\mathbf{A} \vec{b}=\vec{Z}$
 
