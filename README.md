@@ -452,10 +452,10 @@ This performs a calculation of Distribution of Relaxation Times for one or more 
 DRT calculations are based on the following expressions :
 
 $$
-Z(\omega)-R_{\infty}=R_{\mathrm{pol}} \int_{-\infty}^{+\infty} \frac{G(\tau) \mathrm{d} \ln (\tau)}{1+\mathrm{i} \omega \tau}
+Z(\omega)-R_{\infty}=R_{\mathrm{pol}} \int_{-\infty}^{+\infty} \frac{g(\tau) \mathrm{d} \ln (\tau)}{1+\mathrm{i} \omega \tau}
 $$
 
-where $G(\tau)=\tau \gamma(\tau)$.
+with \int_{-\infty}^{+\infty} \{g(\tau) {d(\tau) = 1
 
 In a log-scale grid we obtain a linear system of equations of the form $\mathbf{A} \vec{b}=\vec{Z}$
 
