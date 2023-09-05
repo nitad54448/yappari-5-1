@@ -116,9 +116,6 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
     + [Help](#help)
   * [Datasets](#datasets)
   * [Fit selected](#fit-selected)
-  * [[# やっぱり #](https://github.com/nitad54448/yappari-5-1)](#-----------https---githubcom-nitad54448-yappari-5-1-)
-
-
  
 # やっぱり #
 
