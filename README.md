@@ -444,8 +444,6 @@ Copy the listed parameters to selected datasets. Note that the listed parameters
 ### DRT active datasets ###
 This performs a calculation of Distribution of Relaxation Times for one or more datasets for the case of serial RC circuits. The method used is constrained non-negative linear regression (NNLS) with a Tikhonov regularization parameter. 
 
-
-
 DRT calculations are based on the following expressions :
 
 $$
