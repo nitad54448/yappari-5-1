@@ -31,8 +31,9 @@ This single dataset program is not developed further and it has limited features
   <summary>Changes</summary>
 
 ## Changes ## 
+   - September 111, 2023 : Memory optimizations for large arrays. Release 5.1.69
    - September 1st, 2023 : Added the command explore_lambda (will plot all DRT calculations for a range of lambda and the user can save all these data).
-  -  August 30, 2023 : Added a config file; you can edit it to start with your own defaults. Removed hdf5 reading file, some errors appeared, probably problems with DLL linking (conflicts with python hdf5 dll's). Release 5.1.68.3 
+  -  August 30, 2023 : Added a config file; you can edit it to start with your own defaults. Removed hdf5 reading file, some errors appeared, problems with DLL linking (conflicts with python hdf5 dll's on some systems). Release 5.1.68.3 
   -  August 29, 2023 : The existing parameters are copied to the new datasets for Smooth and Spline functions. Release 5.1.68.3
   -  August 28, 2023 : More efficient 3D Plots. Active datasets can be removed with "Delete" key. Corrected an error in labelling Z-Hit datasets. Release tag 5.1.68.2
   -  August 26, 2023 : Changed the editing of parameters. Release tag 5.1.68.1
