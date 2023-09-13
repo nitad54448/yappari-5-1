@@ -296,7 +296,7 @@ Other functions that can be of interest :
     search_lambda_fisk>>0.0001&0.01&256
     save_config
     
-Fisk is another non-negative Least-squares (NNLS) procedure based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345) that I implemented in versions of Yappari prior to 14th of aug 2023. In recent versions I am using Altenbach's algorithm, it is much faster and gave basically the same results. Fisk's algorithm is only available through "Advanced commands". In releases posterior to 5.1.69.2 there is also an iterative algorithm named Gold, based on this [paper.](https://www.sciencedirect.com/science/article/pii/S0924271616304968?via%3Dihub) It does not require a fitting parameter like Tikhonov but a max number of iterations is requested. In my tests I had to use 10^5 iterations or so, it is quite slow (or maybe I am doing something wrong...).
+Fisk is another non-negative Least-squares (NNLS) procedure based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345) that I implemented in versions of Yappari prior to 14th of aug 2023. In recent versions I am using Altenbach's algorithm, it is much faster and gave basically the same results. Fisk's algorithm is only available through "Advanced commands". In releases posterior to 5.1.69.2 there is also an iterative algorithm named Gold, based on this [paper](https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cphc.202200012). It does not require a fitting parameter like Tikhonov but a max number of iterations is requested. In my tests I had to use 10^5 iterations or so, it is quite slow (or maybe I am doing something wrong...).
 
 
 ## About ##
