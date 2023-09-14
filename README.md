@@ -31,7 +31,9 @@ This single dataset program is not developed further and it has limited features
   <summary>Changes</summary>
 
 ## Changes ## 
-   - September 111, 2023 : Memory optimizations for large arrays. Release 5.1.69
+   - September 13, 2023 : Added a Gold optimisation algorithm for DRT calculations. Tikhonov regularization parameter can be optimized based on the mean square error between experimental and reconstructed impedance. Release 5.1.69.2
+   - September 12, 2023 : Calculating re-im cross-validation parameters. Release 5.1.69.1
+   - September 11, 2023 : Memory optimizations for large arrays. Release 5.1.69
    - September 1st, 2023 : Added the command explore_lambda (will plot all DRT calculations for a range of lambda and the user can save all these data).
   -  August 30, 2023 : Added a config file; you can edit it to start with your own defaults. Removed hdf5 reading file, some errors appeared, problems with DLL linking (conflicts with python hdf5 dll's on some systems). Release 5.1.68.3 
   -  August 29, 2023 : The existing parameters are copied to the new datasets for Smooth and Spline functions. Release 5.1.68.3
@@ -62,7 +64,7 @@ This single dataset program is not developed further and it has limited features
   -  July 16, 2023 : after loading a datafile, the first dataset is selected automatically.
   -  July 15, 2023 : the user can select the separator used for MFLI CSV and 3 columns file. The same separator (space, comma or TAB) will be used for saving files.
   -  July 14, 2023 : added user selected boundaries for TRDL and constrained LM fit.
-  -  June 12, 2023 : added a fourth term in the Z-hit calculations (the one with the pi^7/604800). It's contribution is very small though.
+  -  June 12, 2023 : added a fourth term in the Z-hit calculations (the one with the pi^7/604800).
   -  June 10, 2023 : added the Z-hit calculation.
 </details>
 
@@ -226,6 +228,7 @@ For reading data the important point to remeber is that the datafile separator _
 The fitting algorithm (TRDL is the default) and the parameters bounds, if any, can be constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-15, and so on. You may need to adjust these parameters limits. The fitting results may depend on the starting parameters since this is a non-linear system. You should probably start with TRDL to approach some values close to the solution then proceed with a LM fit. Note that esd's of the fitted parameters are calculated only for unconstrained LM fit.
 
 The fit termination parameters can be adjusted here : by default they are set to 1000 iterations and a stop limit at 10E-15 or if you want them, the default values are in the program configuration file which can be edited or saved.
+The same value listed as the maximum iteration number in this panel is used for DRT calculated with Gold or Fisk algorithms.
 
 ### Max plots ###
 This is the maximum number of plots to show on the graphs (excluding DRT which will show only the first selected dataset). It should be small (up to about 200-300) if you are dealing with many datasets. The number of plots is determined by the number of selected datasets or this number, whichever is smaller. Note that I "decimate" the available data for plots, 3D plot is very slow if you have more than 200-300 datasets. Suppose you have 500 datasets selected (you can perform any calculations on all of them), for plotting them it may be better to show only a part, let's say 200. The program will "decimate" the 500 datasets and show only 200, equally distributed among the 500. The tendencies will still be visible on the graphs, no need to plot all of them. If you want, you can, but for more than 500 datasets it will be very slow (slow means a few seconds for 500 datasets plotted on 3D graph, and minutes for 3000 datasets on 3D graph, on my desktop computer).
@@ -284,13 +287,16 @@ If you want to see all DRT data and save them, you can use
 This will plot a 3D graph with all DRTs as a function of lambda, like this graph.
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/explore_lambda.png)
 
-Other accepted command
+Other functions that can be of interest :
 
-    calculate_drt_fisk
+    drt_fisk
+    drt_gold
+    search_lambda_ricv
     search_lambda_fisk
     search_lambda_fisk>>0.0001&0.01&256
+    save_config
     
-Fisk is another non-negative Least-squares (NNLS) procedure based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345) that I implemented in versions of Yappari prior to 14th of aug 2023. In recent versions I am using Altenbach's algorithm, it is much faster and gave basically the same results. Fisk's algorithm is only available through "Advanced commands".
+Fisk is another non-negative Least-squares (NNLS) procedure based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345) that I implemented in versions of Yappari prior to 14th of aug 2023. In recent versions I am using Altenbach's algorithm, it is much faster and gave basically the same results. Fisk's algorithm is only available through "Advanced commands". In releases posterior to 5.1.69.2 there is also an iterative algorithm named Gold, based on this [paper](https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cphc.202200012). It does not require a fitting parameter like Tikhonov but a max number of iterations is requested. In my tests I had to use 10^5 iterations or so, it is quite slow (or maybe I am doing something wrong...).
 
 
 ## About ##
@@ -487,9 +493,10 @@ The procedure used now in Yappari is a NNLS method implemented by [Christian Alt
 Data should be acquired with log spacing and with a decent number of points per decade (otherwise you may try to rearrange data with the command _spline>>number_ if you want a total _number_ interpolated datapoints scaled in log space).
 For the fit, the optimal regularization parameter is decided by the user (there is no universal value for this, it can be estimated with a procedure known as L-curve). If the Tikhonov parameter, noted Lambda in this program, is too small some spurious peaks will appear while a parameter too large will just squash the information. 
 
-Criteria for selecting the optimal value are included in this program. You can either use [DRT search lambda](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#drt-search-lambda) command or use __Advanced commands__ by using _search_lambda_, search_lambda_fisk or _explore_lambda_ command if you want to save all data.
+Criteria for selecting the optimal value are included in this program. You can either use [DRT search lambda](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#drt-search-lambda) command or see other options in __Advanced commands__. The function _explore_lambda_ allows you to see and save all data.
 The procedure I use here is to provide an indication of the frequencies of the relaxations. Much more advanced free DRT programs are available, see for instance [Ciucci et al](https://github.com/ciuccislab/DP-DRT) and his papers but there are many others. The DRT procedure may help in detecting a proper electrical circuit for serial RC circuits and to some extent to serial RQ cirrcuits. If you want to use it, I suggest to read first some publications describing the procedure and the limitations.
 There is no need for a circuit model for the DRT calculations. The usefulness of DRT depends much on the quality of the data and in particular the first and the last points of the data.
+Three different algorithm are now used : Tikhonov regularization (the default one used today), an iterative variant of Tikhonov proposed by Fisk and the Gold decomposition. The latter seems more useful for RQ circuits but the number of iterations is large and it is up to the user to select this.
 On the DRT graph, the experimental Zr and Zi are plotted together with the _recalculated impedances_ from the DRT data and a probability of distribution function. Calculations are made in real time if you change the Tikhonov parameter, so if you have multiple datasets and many iterations, it may be slow. Some files to test are in the /drt folder.
 An example of a DRT fit is shown below :
 
@@ -501,12 +508,12 @@ If you hold the mouse on the graph a Tip with an estimation of RC values will be
 
 ### DRT search lambda ###
 This command performs a search of optimal Tikhonov regularization parameter for the first active (aka selected) dataset.
-A window with an indication of the optimal Tikhonov parameter will appear. The plot sho the mean squared error (MSE) between the experimental Zr and Zr calculated from DRT data as well as the variance (this is based on the method proposed [here](https://chemistry-europe.onlinelibrary.wiley.com/doi/full/10.1002/celc.201901863)).
+A window with an indication of the optimal Tikhonov parameter will appear. The plot shows the mean squared error (MSE) between the experimental Zr and Zr calculated from DRT data as well as the variance (this is based on the method proposed [here](https://chemistry-europe.onlinelibrary.wiley.com/doi/full/10.1002/celc.201901863)).
 It should look like this
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/params_drt_alten.PNG)
 
 The optimal regularization parameter is the minimum of the MSE (or just at the change of the variance). You can zoom this image to check the selection made. The program proposes the optimum as the value of lambda where there is a minimum in MSE and show a red cursor position. You can drag this cusor to another position to impose another value for lambda.
-Similar to this function there is a function _explore_lambda_ which can be accesed in [Advanced commands](https://github.com/nitad54448/yappari-5-1#advanced-commands).
+Similar to this function there are others like _explore_lambda_ , _search_lambda_fisk_ and _search_lambda_ricv_ which can be accesed in [Advanced commands](https://github.com/nitad54448/yappari-5-1#advanced-commands).
 
 ### Z-Hit active datasets ###
 This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given previously. This is a procedure similar to the better known Kramers-Kronig test.
