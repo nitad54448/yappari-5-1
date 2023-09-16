@@ -1,172 +1,20 @@
 # YAPPARI #
 version 14-09-2023
 
-__YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
+__YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance.
 
-<details>
-  <summary>About this program</summary>
-  
-This program can perform several mathematical operations of interest in impedance spectroscopy: non-linear parametric fits for one or multiple datasets, DRT, Hilbert transform, spectra simulations etc. For a single dataset and non-linear optimization you can use an old and simpler program [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2). 
-This single dataset program is not developed further and it has limited features so it might be better to start with this version.
-
-  You are encouraged to contribute to this help file or write tutorials. If you want to contribute to the help file or tutorials, send them to me and I will add them to this repository. As much as I like programming, writing documentation is boring. The most updated description of the program is always here on this page.
-  
- </details>
+This is a brief description of theorethical basis used in this program.
 
 <details>
   <summary>Note to users</summary>
 
-  There is no warrantee whatsoever for using this program. Use it if you want, see CC-BY-NC-ND [licence](https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. 
+  There is no warrantee whatsoever for using this program. Use it if you want, see CC-BY-NC-ND [licence](https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in the documentation files. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. 
 </details>
 
-<details>
-  <summary>Tutorials</summary>
-  
-- [Fit multiple datasets](https://github.com/nitad54448/yappari-5-1/blob/main/help/fit_multiple.pdf).
-- [Simulate a spectrum and use DRT](https://github.com/nitad54448/yappari-5-1/blob/main/help/Simulate_and_drt.pdf).
-
-</details>
-
-<details>
-  <summary>Changes</summary>
-
-## Changes ## 
-   - September 14, 2023 : Minor changes in Advanced commands. Release 5.1.69.3 
-   - September 13, 2023 : Added a Gold optimisation algorithm for DRT calculations. Tikhonov regularization parameter can be optimized based on the mean square error between experimental and reconstructed impedance. Release 5.1.69.2
-   - September 12, 2023 : Calculating re-im cross-validation parameters. Release 5.1.69.1
-   - September 11, 2023 : Memory optimizations for large arrays. Release 5.1.69
-   - September 1st, 2023 : Added the command explore_lambda (will plot all DRT calculations for a range of lambda and the user can save all these data).
-  -  August 30, 2023 : Added a config file; you can edit it to start with your own defaults. Removed hdf5 reading file, some errors appeared, problems with DLL linking (conflicts with python hdf5 dll's on some systems). Release 5.1.68.3 
-  -  August 29, 2023 : The existing parameters are copied to the new datasets for Smooth and Spline functions. Release 5.1.68.3
-  -  August 28, 2023 : More efficient 3D Plots. Active datasets can be removed with "Delete" key. Corrected an error in labelling Z-Hit datasets. Release tag 5.1.68.2
-  -  August 26, 2023 : Changed the editing of parameters. Release tag 5.1.68.1
-  -  August 25, 2023 : For cases of simple RC circuits, their values are estimated directly from the DRT plots (see Tips and Documentation in the DRT graph). Added a 2-Zarcs element. This release is named 5.1.68.
-  -  August 23, 2023 : Changed the way _Max plots_ is used. In the past, the first _max_plots_ datasets were plotted; now the active datasets are decimated to the number _max_plots_.
-  -  August 22, 2023 : Added the function DRT search lambda in the main Action menu.
-  -  August 21, 2023 : Added a cursor on the lambda graph, it can be dragged to modify the value proposed by the program (see search_lambda in Advanced commands).
-  -  August 20, 2023 : Show the criteria used in "Search lambda" procedure in a graph. Changed the way the data are saved. 
-  -  August 19, 2023 : Changed the Report procedure. Added a simulate spectrum function. Release 5.1.67.4
-  -  August 18, 2023 : Updated the documentation and files.
-  -  August 17, 2023 : Added a spline interpolation function in "Developer commands", can upscale in log spaced frequency. Moved to version 5-1-65 as a new release.
-  -  August 16, 2023 : Added a "Max plots" parameter on the Parameters panel.
-  -  August 15, 2023 : DRT : plot only the first active dataset. 
-  -  August 14, 2023 : The method of NNLS for DRT was changed to that of Altenbach. This version is much faster in DRT calculations.
-  -  August 12, 2023 : Implemented a full DRT calculation for ore or more datasets (with a Tikhonov-type constrained non-negative parameters least-squares procedure, see the documentation for reference to the method used). Added the possibility to change the X-scale in DRT graph (sometimes is convenient to check the time constants). Added a debug/developper command to test things.
-  -  August 10, 2023 : Cosmetics; DRT graph changed as a function of 1/&omega;
-  -  August 9, 2023 : A rather simple calculation of DRT (Distribution of Relaxation Times) with unconstrained Tikhonov parametrisation has been added. The help command directs now to this page. In addition, an error in naming Z-Hit transformed files has been found and corrected. __This is a major upgrade, please use this version or later.__
-  -  August 7, 2023 : Change in the error management in the fit process.
-  -  August 6, 2023 : Small cosmetic changes, main font is the user system 15pt. Experimental points can now be removed from Nyquist, Zr, Zi and lnR plots.
-  -  August 4, 2023 : Can copy parameters (aka clone) to active datasets. The number of iterations and stop limit are now adjustable parameters.
-  -  August 2, 2023 : read impedance data from HDF5 data files. Some points can now be deleted from the Nyquist plot (see the Action menu).
-  -  August 1st, 2023 : added an indication of the fitting progress.
-  -  July 31, 2023 : increased he number of iterations to 10000 and decreased the limit step, erased an error that appeared when plotting more than 20 datasets
-  -  July 29, 2023 : added the possibility to select which column to read if the data files have more columns or if the frequency is not in the first column
-  -  July 28, 2023 : added the possibility to read custom definition files.
-  -  July 16, 2023 : after loading a datafile, the first dataset is selected automatically.
-  -  July 15, 2023 : the user can select the separator used for MFLI CSV and 3 columns file. The same separator (space, comma or TAB) will be used for saving files.
-  -  July 14, 2023 : added user selected boundaries for TRDL and constrained LM fit.
-  -  June 12, 2023 : added a fourth term in the Z-hit calculations (the one with the pi^7/604800).
-  -  June 10, 2023 : added the Z-hit calculation.
-</details>
-
-
-<details>
-  <summary>Author</summary>
-
-## Author ##
-This program can be used freely and distributed according to CC-BY-NC-ND 4.0.
-It was written in Labview 2023, National Instruments and it includes the JKI toolkits for Labview, © 2023, JKI and NI. All rights reserved.
-
-For questions or comments:
-
-__Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
-</details>
-
-## Index ##
-
-  * [How to install](#how-to-install)
-  * [Panels](#panels)
-    + [Zr, -Zi](#zr--zi)
-    + [Zr, Zi, ln R, theta](#zr-zi-ln-r-theta)
-    + [3D plot](#3d-plot)
-    + [Model](#model)
-    + [Elements](#elements)
-    + [Create a model](#create-a-model)
-  * [Parameters](#parameters)
-    + [Max plots](#max-plots)
-    + [Simulation limits](#simulation-limits)
-    + [Advanced commands](#advanced-commands)
-  * [About](#about)
-  * [Commands](#commands)
-    + [Read data](#read-data)
-      - [3 columns](#3-columns)
-      - [MFLI, csv](#mfli-csv)
-      - [MFLI, Zview txt](#mfli-zview-txt)
-      - [Versa Studio par](#versa-studio-par)
-      - [Z-MFLI](#z-mfli)
-      - [Custom](#custom)
-  * [Action](#action)
-    + [Delete points from graph](#delete-points-from-graph)
-    + [Delete active datasets](#delete-active-datasets)
-    + [Clone the parameters to all](#clone-the-parameters-to-all)
-    + [Clone the parameters to active](#clone-the-parameters-to-active)
-    + [DRT active datasets](#drt-active-datasets)
-    + [DRT search lambda](#drt-search-lambda)
-    + [Z-Hit active datasets](#z-hit-active-datasets)
-    + [Simulate spectrum](#simulate-spectrum)
-    + [Report active datasets](#report-active-datasets)
-    + [Save active parameters](#save-active-parameters)
-    + [Save data](#save-data)
-    + [Help](#help)
-  * [Datasets](#datasets)
-  * [Fit selected](#fit-selected)
- 
 # やっぱり #
 
-## How to install ##
-
-The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the Volume.zip file and not what is labelled as source file archives. Several versions are available, in general the last one is the best choice. In case of bugs please report them and grab an earlier version.
-
-There is another way to install it, if you want. Yappari 5.1 is compiled with Labview 2023 for Windows 10. As such it will require a _Labview run-time engine_ which is installed, if needed, by the full installer. So, if you already have the run-time engine (either because you have installed Yappari previously or you installed another program compiled with Labview 2023) you can just download all the files from the green button __Code__ as a zip file. If you do not have the run-time engine but still want to go the hard way, you can download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336) then get the zip file from __Code__. The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
-
-After installing the program in a directory of your choice, some other subdirectories will be created : /drt, /files, /help and /models. The _models_ directory contains png files with images for showing circuits. The /files directory contains some examples of data files and custom definitions. The /help directory holds some images for this document and some help files. You can safely remove /drt, /files and /help if you want but you must keep the /models files.
-
-This program is supposed to work with Windows 10 64 bits and on my PC and many others it works fine; also it should work on win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
-
-## Panels ##
-The program has several panels and a parameter list with several commands grouped on the right side of the window. When you start the program, if everything is normal, you should see something like this
-
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/panels.PNG)
-
-### Zr, -Zi ###
-This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you need to disable the Auto-axis feature by right clicking on the graph and directly change the ranges. Some other standard graphic functions are available in the top left "palette" such as zoom in, zoom out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
-You can change the plot colors, style, etc.... by clicking on the label; the changes in this graph will affect all the other graphs, except for DRT. You can remove some outlier points by zooming in and use the command _Action_/_Delete points from Nyquist_. Points that are in that range are removed from all active datasets (equivalent with a mask, except that the removal of points is irreversible)
-The number of plots can be selected by the user, see Max Plots on [Parameters](https://github.com/nitad54448/yappari-5-1#parameters) page. Note that, because of space limitations, only the first 24 plots will have legends. But you can plot as many datasets as you want (I tried 3700 datasets, see the tutorials, it is possible but slow to plot them and I wonder why you'd want to plot that many). 
-
-### Zr, Zi, ln R, theta ###
-These panels will show the dependency of impedances (real, imaginary, modulus or phase) as a function of frequency and the differences between the calculated and experimental values, something like this
-
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/fit_graph.PNG)
-
-### 3D plot ###
-This panel will show a 3D plot of selected datasets or a part of them, either in Nyquist, Zr or Zi or their differences, as selected by the user. This is useful for many datasets, more than 20 I guess, it will allow the user to see tendencies or check systematic errors in the fits. You can right click on the graph to adjust plotting properties to your liking (3D Plot Properties) or change the size of the graph. If you have many datasets, it will take some time to plot all data so to limit the waiting time, you may want to "decimate" the data for plotting). The number of plots shown is defined by the smallest value between the number of selected datasets and by the "Max plots" value, see [Parameters](https://github.com/nitad54448/yappari-5-1#parameters). Depending on your computer, a few hunderth datasets can be plotted easily. If you try more than 1000 you'll have to wait, the program will appear irresponsive.
-The 3D plot might be useful to look for tendencies, a plot looks like this :
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/Zidiff_3D.PNG)
-
-### Model ###
-In this panel a model can be created by the user, by selecting element circuits. 
-Up to ten elements can be added in the circuit (obviously it is not realistic to fit such a circuit, unless you want to fit a crocodile). Only the first 18 parameters will be shown in the right side of the program.
-
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/page_model.PNG)
-
-When you click on one of the ten available cases, a new window will appear where you can select the element you want to add. Simply click on the picture of the element you want to add to the model. The available circuit elements include resistors, capacitors, inductors, and more complex elements such as constant phase elements or Warburg elements (see below).
-
-You can edit the png image files to your liking (just for aesthetics, the calculations will not be affected), they are in the subdirectory __/models__. The ideal size of the png files is 150x100 pixels.
-
-### Elements ###
-The elements used are rather common: Resistor, Capacitor, Inductor, CPE, Zarc, simple Randles circuit, Randles with kinetic and diffusion, Warburg (semi-infinite linear diffusion), Warburg short, Warburg Long, Gerischer, Havriliak-Negami and several compositions of these.
-
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/circuit.PNG)
+## Elements ##
+The elements used are rather standard, equations used in Yappari are described here.
 
 Warburg element represents semi-infinite diffusion to or from a flat electrode, expressed in this program as:
 
