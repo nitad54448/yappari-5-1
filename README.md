@@ -168,36 +168,7 @@ The elements used are rather common: Resistor, Capacitor, Inductor, CPE, Zarc, s
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/circuit.PNG)
 
-Warburg element represents semi-infinite diffusion to or from a flat electrode, expressed in this program as:
-
-Z(ω)= A<sub>w</sub>/($\sqrt{ω})$ -jA<sub>w</sub>/($\sqrt{ω})$
-
-This element contributes equally to Zr and Zi so it appears as a straight line in a Nyquist plot, at 45 degrees or a straight line in Bode plot (log |Z| vs. log ω) with a slope of value –1/2. The A<sub>w</sub> term is expressed in Ohm sec<Sup>-1/2</sup> and is called Warburg coefficient. It is expressed as
-
-<img src="https://latex.codecogs.com/svg.image?Aw&space;=&space;\frac{RT}{{n^2&space;F^2&space;A&space;\sqrt{2}}}&space;\left(\frac{1}{{\sqrt{Do}&space;\cdot&space;Cb_o}}&space;-&space;\frac{1}{{\sqrt{Dr}&space;\cdot&space;Cb_r}}\right)" title="https://latex.codecogs.com/svg.image?Aw = \frac{RT}{{n^2 F^2 A \sqrt{2}}} \left(\frac{1}{{\sqrt{Do} \cdot Cb_o}} - \frac{1}{{\sqrt{Dr} \cdot Cb_r}}\right)" />
-
-with n - number of electrons, A - electrode surface area, D - diffusion coefficient of the electroactive species, Cb,o and Cb,r - bulk concentrations of oxidized and reduced species.
-
-The parameters for Warburg in other programs are typically obtained by fitting a CPE with n=0.5, you will get the same result but the Q parameter obtained in this case is
-
-A<sub>w</sub>=1/(Q $\sqrt{2})$
-
-For a finite space (or time) diffusion and if the thickness of the diffusion layer is known, two other models can be applied. The Warburg "open" describes the impedance of diffusion with __reflective boundary__. The formula used here is
-
-Z<sub>o</sub>=(A<sub>w</sub>/ $\sqrt{jω})$ coth(B $\sqrt{jω})$
-
-Here A<sub>w</sub> is the standard Warburg coefficient and B is B=d/ $\sqrt{D}$ , where d is the diffusion layer thickness and D is the diffusion coefficient.
-
-The Warburg "short" describes the impedance of a finite-length diffusion with __transmissible boundary__, with the expression:
-
-Z<sub>s</sub>=(A<sub>w</sub>/ $\sqrt{jω})$ tanh(B $\sqrt{jω})$
-
-Aw is the standard Warburg coefficient and B=d/ $\sqrt{D}$ as defined above. Note that some other impedance programs use Y0 (with units Siemens sec^1/2) instead of Aw for the Warburg parameters.
-
-Fitting the Warburg short and Warburg-open parameters will be $very$ slow in this program as checks on the validity of the calculations are required, particularly for high frequencies where the calculated values are very small and may be translated as NANs (so, be patient with Warburgs open and short, or adjust manually the parameters before a final fit, starting from a good position in the solutions' space).
-
-A very good introduction to all these parameters can be found [here](https://pubs.acs.org/doi/10.1021/acsmeasuresciau.2c00070).
-
+Equations are described in the [theory](https://github.com/nitad54448/yappari-5-1/blob/main/theory.md) file. 
 
 ### Create a model ###
 
@@ -273,35 +244,28 @@ Other accepted parameters are _rndzi>>u_ for Zi white noise and _rndf>>u_ for fr
 will calculate the mean of Zr and Zi for the selected datasets. This function has a sense if it is applied to datasets measured at the same frequencies.
 You can also search the best Tikhonov parameter for DRT calculations. The command :
  
-    search_lambda>>0.0002&0.1&256 
+    drt_search>>0.0002&0.1&256 
     
 will calculate 256 [DRTs](https://github.com/nitad54448/yappari-5-1#drt-active-datasets) in the range 0.0002 and 0.1 and reconstruct all the 256 impedance sets. The best lambda parameter based on the minim squared error between the calculated and experimental sets will be shown. Obviously you can replace 0.0002, 0.1 and 256 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2&200_ is accepted). The interval of lambda will be scaned in log spacing over the interval specified with _start_value&stop_value&steps_
 
-For a default range search (10E-4 to 10E-1) you can use the Action/DRT search lambda or 
+For a default range search (10E-4 to 10E-1) you can use the Action/DRT search or 
 
-    search_lambda
+    drt_search
 
 If you want to see all DRT data and save them, you can use
 
-    explore_lambda
+    drt_explore
 
 This will plot a 3D graph with all DRTs as a function of lambda, like this graph.
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/explore_lambda.png)
 
-Other functions that can be of interest :
+Another functions that can be of interest :
 
-    drt_fisk
-    drt_gold
-    search_lambda_ricv
-    search_lambda_fisk
     save_config
 
-For the commands explore_lambda, search_lambda_fisk, search_lambda_ricv user defined values for the range to search can be set by values separated with & such as
+For the commands drt_explore and drt_search user defined values for the range to search can be set by values separated with & such as
     
-    search_lambda_fisk>>0.0001&0.01&256
-    
-Fisk is another non-negative Least-squares (NNLS) procedure based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345) that I implemented in versions of Yappari prior to 14th of aug 2023. In recent versions I am using Altenbach's algorithm, it is much faster and gave basically the same results. Fisk's algorithm is only available through "Advanced commands". In releases posterior to 5.1.69.2 there is also an iterative algorithm named Gold, based on this [paper](https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cphc.202200012). It does not require a fitting parameter like Tikhonov but a max number of iterations is requested. In my tests I had to use 10^5 iterations or more, it is quite slow (or maybe I am doing something wrong...). It works better for Zi data.
-
+    drt_search>>0.0001&0.01&256
 
 ## About ##
 Brief help listing the version of the program. 
