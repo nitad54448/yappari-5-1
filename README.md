@@ -7,7 +7,7 @@ __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedanc
   <summary>About this program</summary>
   
 This program can perform several mathematical operations of interest in impedance spectroscopy: non-linear parametric fits for one or multiple datasets, DRT, Hilbert transform, spectra simulations etc. For a single dataset and non-linear optimization you can use an old and simpler program [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2). 
-This single dataset program is not developed further and it has limited features so it might be better to start with this version.
+This single dataset program is not developed further and it has limited features so it might be better to start with this version. Some theoretical notions used are given in the [theory.md file](https://github.com/nitad54448/yappari-5-1/blob/main/theory.md) in this repository.
 
   You are encouraged to contribute to this help file or write tutorials. If you want to contribute to the help file or tutorials, send them to me and I will add them to this repository. As much as I like programming, writing documentation is boring. The most updated description of the program is always here on this page.
   
