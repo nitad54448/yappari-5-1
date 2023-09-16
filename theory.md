@@ -14,7 +14,7 @@ This is a brief description of theorethical basis used in this program.
 # やっぱり #
 
 ## Elements ##
-The elements used are rather standard, equations used in Yappari are described here.
+The elements used are rather standard, the equations used in Yappari are described here.
 
 ### Warburg ###
 Warburg element represents semi-infinite diffusion to or from a flat electrode, expressed in this program as:
@@ -56,6 +56,62 @@ For many datasets, the data are described by the same model circuit, I suggest t
 The fitting can be performed using three different methods, although there is not much difference in the output of these methods (except for the esd, see below). 
 The quality of the fit is evaluated using the R<sup>2</sup> statistical parameter and the chi<sup>2</sup> value. However, the use of the chi<sup>2</sup> value as a statistical parameter is debatable, as discussed in the paper "Dos and don'ts of reduced chi-squared" by Andrae et al. (https://arxiv.org/abs/1012.3754). The chi<sup>2</sup> value reported here is calculated as (Sum ((Z<sub>obs</sub>-Z<sub>calc</sub>)<sup>2</sup>/Z<sub>calc</sub>))/DOF. The degree of freedom (DOF) is considered as Nr_of_points - nr_of_fitted_params. 
 The standard deviation is estimated, assumming independent errors, only for unconstrained Levenberg-Marquardt fit.
+
+### DRT ###
+This performs a calculation of Distribution of Relaxation Times for one or more datasets for the case of serial RC circuits. The methods used are constrained non-negative linear regression (NNLS) with a Tikhonov regularization parameter, a variant prorposed by Fisk and finally a Gold optimization method. 
+
+DRT calculations are based on the following expressions :
+
+$$
+Z(\omega)-R_{\infty}=R_{\mathrm{pol}} \int_{-\infty}^{+\infty} \frac{g(\tau) \mathrm{d} \ln (\tau)}{1+\mathrm{i} \omega \tau}
+$$
+
+with
+
+$$
+\int_{-\infty}^{+\infty} \{g(\tau) \mathrm{d} (\tau)} = 1
+$$
+
+In a log-scale grid we obtain a linear system of equations of the form $\mathbf{A} \vec{b}=\vec{Z}$
+
+The components of matrix $A_{m, n}$ are given by, for the real part of the impedance :
+
+$$
+A_{m, n}=\frac{R_{p o l} \delta \ln \left(\tau_{n}\right)}{1+\omega_{m}^{2} \tau_{n}^{2}}, \quad \delta \ln \left(\tau_{n}\right)=\ln \left(\tau_{n+1}\right)-\ln \left(\tau_{n}\right), \quad \tau_{n}=1 / \omega_{n}
+$$
+
+and the components of the matrix for the imaginary part are
+
+$$
+A_{m, n}=-R_{\mathrm{pol}} \frac{\omega_{m} \tau_{n} \delta \ln \left(\tau_{n}\right)}{1+\omega_{m}{ }^{2} \tau_{n}{ }^{2}}, \quad \delta \ln \left(\tau_{n}\right)=\ln \left(\tau_{n+1}\right)-\ln \left(\tau_{n}\right)
+$$
+ 
+An approximate solution is 
+
+$$
+\boldsymbol{b}=\left(\boldsymbol{A}^{T} \boldsymbol{A}+\lambda^{2} \boldsymbol{I}\right)^{-1} \boldsymbol{A}^{T} \boldsymbol{Z}
+$$
+
+where $\boldsymbol{I}$ is the identity matrix and $\lambda$ is the Tikhonov regularization parameter.
+
+This system can be solved for either real or imaginary part of impedance, or for both. Yappari can use either one of the three possibilities.
+
+The Tikhonov procedure used now in Yappari is a NNLS method implemented by [Christian Altenbach](https://sites.google.com/site/altenbach/Home) for EPR spectrocopy. This [method](https://sites.google.com/site/altenbach/labview-programs/epr-programs/long-distances/ld-algorithms) is very fast and therefore it is possible to search an optimal regularization parameter. A variant proposed by Fisk and Gold methods can also be used.
+ 
+Data should be acquired with log spacing and with a decent number of points per decade (otherwise you may try to rearrange data with the command _spline>>number_ if you want a total _number_ interpolated datapoints scaled in log space).
+
+Criteria for selecting the optimal value are included in this program. You can either use _DRT search_ command or see other options in __Advanced commands__. The function _drt_explore_ allows you to see and save all data.
+The procedure I use here is to provide an indication of the frequencies of the relaxations. Much more advanced free DRT programs are available, see for instance [Ciucci et al](https://github.com/ciuccislab/DP-DRT) and his papers but there are many others. The DRT procedure may help in detecting a proper electrical circuit for serial RC circuits and to some extent to serial RQ circuits. If you want to use it, I suggest to read first some publications describing the procedure and the limitations.
+The usefulness of DRT depends much on the quality of the data and in particular the first and the last points of the data.
+
+On the DRT graph, the experimental Zr and Zi are plotted together with the _recalculated impedances_ from the DRT data and a probability of distribution function. Calculations are made in real time if you change the Tikhonov parameter, so if you have multiple datasets and many iterations, it may be slow. Some files to test are in the /drt folder.
+An example of a DRT fit is shown below :
+
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/drt_calc_RCRC_1k_3_5microF_80_20p_simulated.PNG)
+Red dots are experimental Zr and the red line is calculated Zr based on the distribution function as RC (blue dots and line are experimental and calculated Zi values). The green spikes are calculated relaxation times. The fit is very good and corresponds well with the simulated values calculated only from the "experimental" imaginary impedance. 
+Only the first selected dataset will be shown on the DRT graph, if the DRT calculation was performed for that dataset.
+
+If you hold the mouse on the graph a Tip with an estimation of RC values will be shown (or you can right click on the graph and look for Description and Tips). These parameters are calculated based on the Rpol and the surface of the peaks and can be used as starting points for fitting a model. 
 
 
 ## Advanced commands ##
@@ -120,82 +176,10 @@ You can modify the range for explore with similar commands, for 100 points in th
 
     drt_explore>>1&10&100
 
-
-    
 Fisk is another non-negative Least-squares (NNLS) procedure based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345) that I implemented in versions of Yappari prior to 14th of aug 2023. In recent versions I am using Altenbach's algorithm, it is much faster and gave basically the same results. Fisk's algorithm is only available through "Advanced commands". In releases posterior to 5.1.69.2 there is also an iterative algorithm named Gold, based on this [paper](https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cphc.202200012). It does not require a fitting parameter like Tikhonov but a max number of iterations is requested. In my tests I had to use 10^5 iterations or more, it is quite slow (or maybe I am doing something wrong...). It works better for Zi data.
-
-
-
-
-### DRT ###
-This performs a calculation of Distribution of Relaxation Times for one or more datasets for the case of serial RC circuits. The methods used are constrained non-negative linear regression (NNLS) with a Tikhonov regularization parameter, a variant prorposed by Fisk and finally a Gold optimization method. 
-
-DRT calculations are based on the following expressions :
-
-$$
-Z(\omega)-R_{\infty}=R_{\mathrm{pol}} \int_{-\infty}^{+\infty} \frac{g(\tau) \mathrm{d} \ln (\tau)}{1+\mathrm{i} \omega \tau}
-$$
-
-with
-
-$$
-\int_{-\infty}^{+\infty} \{g(\tau) \mathrm{d} (\tau)} = 1
-$$
-
-In a log-scale grid we obtain a linear system of equations of the form $\mathbf{A} \vec{b}=\vec{Z}$
-
-The components of matrix $A_{m, n}$ are given by, for the real part of the impedance :
-
-$$
-A_{m, n}=\frac{R_{p o l} \delta \ln \left(\tau_{n}\right)}{1+\omega_{m}^{2} \tau_{n}^{2}}, \quad \delta \ln \left(\tau_{n}\right)=\ln \left(\tau_{n+1}\right)-\ln \left(\tau_{n}\right), \quad \tau_{n}=1 / \omega_{n}
-$$
-
-and the components of the matrix for the imaginary part are
-
-$$
-A_{m, n}=-R_{\mathrm{pol}} \frac{\omega_{m} \tau_{n} \delta \ln \left(\tau_{n}\right)}{1+\omega_{m}{ }^{2} \tau_{n}{ }^{2}}, \quad \delta \ln \left(\tau_{n}\right)=\ln \left(\tau_{n+1}\right)-\ln \left(\tau_{n}\right)
-$$
- 
-An approximate solution is 
-
-$$
-\boldsymbol{b}=\left(\boldsymbol{A}^{T} \boldsymbol{A}+\lambda^{2} \boldsymbol{I}\right)^{-1} \boldsymbol{A}^{T} \boldsymbol{Z}
-$$
-
-where $\boldsymbol{I}$ is the identity matrix and $\lambda$ is the Tikhonov regularization parameter.
-
-This system can be solved for either real or imaginary part of impedance, or for both. Yappari can use either one of the three possibilities.
-
-The Tikhonov procedure used now in Yappari is a NNLS method implemented by [Christian Altenbach](https://sites.google.com/site/altenbach/Home) for EPR spectrocopy. This [method](https://sites.google.com/site/altenbach/labview-programs/epr-programs/long-distances/ld-algorithms) is very fast and therefore it is possible to search an optimal regularization parameter. A variant proposed by Fisk and Gold methods can also be used.
- 
-Data should be acquired with log spacing and with a decent number of points per decade (otherwise you may try to rearrange data with the command _spline>>number_ if you want a total _number_ interpolated datapoints scaled in log space).
-For the fit, the optimal regularization parameter is decided by the user (there is no universal value for this, it can be estimated with a procedure known as L-curve). If the Tikhonov parameter, noted Lambda in this program, is too small some spurious peaks will appear while a parameter too large will just squash the information. 
-
-Criteria for selecting the optimal value are included in this program. You can either use _DRT search_ command or see other options in __Advanced commands__. The function _drt_explore_ allows you to see and save all data.
-The procedure I use here is to provide an indication of the frequencies of the relaxations. Much more advanced free DRT programs are available, see for instance [Ciucci et al](https://github.com/ciuccislab/DP-DRT) and his papers but there are many others. The DRT procedure may help in detecting a proper electrical circuit for serial RC circuits and to some extent to serial RQ circuits. If you want to use it, I suggest to read first some publications describing the procedure and the limitations.
-The usefulness of DRT depends much on the quality of the data and in particular the first and the last points of the data.
-
-On the DRT graph, the experimental Zr and Zi are plotted together with the _recalculated impedances_ from the DRT data and a probability of distribution function. Calculations are made in real time if you change the Tikhonov parameter, so if you have multiple datasets and many iterations, it may be slow. Some files to test are in the /drt folder.
-An example of a DRT fit is shown below :
-
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/drt_calc_RCRC_1k_3_5microF_80_20p_simulated.PNG)
-Red dots are experimental Zr and the red line is calculated Zr based on the distribution function as RC (blue dots and line are experimental and calculated Zi values). The green spikes are calculated relaxation times. The fit is very good and corresponds well with the simulated values calculated only from the "experimental" imaginary impedance. 
-Only the first selected dataset will be shown on the DRT graph, if the DRT calculation was performed for that dataset.
-
-If you hold the mouse on the graph a Tip with an estimation of RC values will be shown (or you can right click on the graph and look for Description and Tips). These parameters are calculated based on the Rpol and the surface of the peaks and can be used as starting points for fitting a model. 
-
-### DRT search  ###
-This command performs a search of optimal regularization parameter for the first active (aka selected) dataset.
-A window with an indication of the optimal parameter will appear (either Lambda for Tikhonov or Fisk, or the number of iterations for Gold method). The plot shows the mean squared error (MSE) between the experimental Zr and Zr calculated from DRT data as well as the variance (this is based on the method proposed [here](https://chemistry-europe.onlinelibrary.wiley.com/doi/full/10.1002/celc.201901863)).
-It should look like this
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/params_drt_alten.PNG)
-
-The optimal regularization parameter is the minimum of the MSE (or just at the change of the variance). You can zoom this image to check the selection made. The program proposes the optimum as the value of parameter where there is a minimum in MSE and show a red cursor position. You can drag this cusor to another position to impose another optimal value.
-Similar to this function there is _drt_explore_ which can be used in _Advanced commands_.
 
 ### Z-Hit active datasets ###
 This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given previously. This is a procedure similar to the better known Kramers-Kronig test.
-
 
 --
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
