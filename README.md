@@ -259,13 +259,10 @@ If you want to see all DRT data and save them, you can use
 This will plot a 3D graph with all DRTs as a function of lambda, like this graph.
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/explore_lambda.png)
 
-Another functions that can be of interest :
-
-    save_config
 
 For the commands drt_explore and drt_search user defined values for the range to search can be set by values separated with & such as
     
-    drt_search>>0.0001&0.01&256
+    drt_explore>>0.0001&0.01&256
 
 ## About ##
 Brief help listing the version of the program. 
