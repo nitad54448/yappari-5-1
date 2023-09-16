@@ -65,6 +65,8 @@ The standard deviation is estimated, assumming independent errors, only for unco
 ### DRT ###
 This performs a calculation of Distribution of Relaxation Times for one or more datasets for the case of serial RC circuits. The methods used are constrained non-negative linear regression (NNLS) with a Tikhonov regularization parameter, a variant prorposed by Fisk and finally a Gold optimization method. 
 
+Fisk is a non-negative Least-squares (NNLS) procedure based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345). For standard Tikhonov method I am using Altenbach's algorithm, it is much faster and gave basically the same results. In releases posterior to 5.1.69.2 there is also an iterative algorithm named Gold, based on this [paper](https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cphc.202200012). It does not require a fitting parameter like Tikhonov but a max number of iterations is requested. In my tests I had to use 10^4 iterations or more, it is quite slow so be patient (or maybe I am doing something wrong...). It works better for Zi data.
+
 DRT calculations are based on the following expressions :
 
 $$
