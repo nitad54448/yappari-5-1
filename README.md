@@ -417,46 +417,7 @@ Copy the listed parameters to all datasets. Useful for bulk fitting in order to 
 Copy the listed parameters to selected datasets. Note that the listed parameters are those of the first selected dataset.
 
 ### DRT active datasets ###
-This performs a calculation of Distribution of Relaxation Times for one or more datasets for the case of serial RC circuits. The method used is constrained non-negative linear regression (NNLS) with a Tikhonov regularization parameter. 
-
-DRT calculations are based on the following expressions :
-
-$$
-Z(\omega)-R_{\infty}=R_{\mathrm{pol}} \int_{-\infty}^{+\infty} \frac{g(\tau) \mathrm{d} \ln (\tau)}{1+\mathrm{i} \omega \tau}
-$$
-
-with
-
-$$
-\int_{-\infty}^{+\infty} \{g(\tau) \mathrm{d} (\tau)} = 1
-$$
-
-In a log-scale grid we obtain a linear system of equations of the form $\mathbf{A} \vec{b}=\vec{Z}$
-
-The components of matrix $A_{m, n}$ are given by, for the real part of the impedance :
-
-$$
-A_{m, n}=\frac{R_{p o l} \delta \ln \left(\tau_{n}\right)}{1+\omega_{m}^{2} \tau_{n}^{2}}, \quad \delta \ln \left(\tau_{n}\right)=\ln \left(\tau_{n+1}\right)-\ln \left(\tau_{n}\right), \quad \tau_{n}=1 / \omega_{n}
-$$
-
-and the components of the matrix for the imaginary part are
-
-$$
-A_{m, n}=-R_{\mathrm{pol}} \frac{\omega_{m} \tau_{n} \delta \ln \left(\tau_{n}\right)}{1+\omega_{m}{ }^{2} \tau_{n}{ }^{2}}, \quad \delta \ln \left(\tau_{n}\right)=\ln \left(\tau_{n+1}\right)-\ln \left(\tau_{n}\right)
-$$
- 
-An approximate solution is 
-
-$$
-\boldsymbol{b}=\left(\boldsymbol{A}^{T} \boldsymbol{A}+\lambda^{2} \boldsymbol{I}\right)^{-1} \boldsymbol{A}^{T} \boldsymbol{Z}
-$$
-
-where $\boldsymbol{I}$ is the identity matrix and $\lambda$ is the Tikhonov regularization parameter.
-
-This system can be solved for either real or imaginary part of impedance, or for both. Yappari can use either one of the three possibilities (I believe the best choice is to use both Zr and Zi, since they are related by Kramers-Kronig equations).
-
-
-The procedure used now in Yappari is a NNLS method implemented by [Christian Altenbach](https://sites.google.com/site/altenbach/Home) for EPR spectrocopy. This [method](https://sites.google.com/site/altenbach/labview-programs/epr-programs/long-distances/ld-algorithms) is very fast and therefore it is possible to search an optimal regularization parameter. 
+This performs a calculation of Distribution of Relaxation Times for one or more datasets for the case of serial RC circuits. The methods used and theory is detailed [here](https://github.com/nitad54448/yappari-5-1/blob/main/theory.md).  
  
 Data should be acquired with log spacing and with a decent number of points per decade (otherwise you may try to rearrange data with the command _spline>>number_ if you want a total _number_ interpolated datapoints scaled in log space).
 For the fit, the optimal regularization parameter is decided by the user (there is no universal value for this, it can be estimated with a procedure known as L-curve). If the Tikhonov parameter, noted Lambda in this program, is too small some spurious peaks will appear while a parameter too large will just squash the information. 
