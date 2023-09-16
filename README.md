@@ -422,8 +422,9 @@ This performs a calculation of Distribution of Relaxation Times for one or more 
 Data should be acquired with log spacing and with a decent number of points per decade (otherwise you may try to rearrange data with the command _spline>>number_ if you want a total _number_ interpolated datapoints scaled in log space).
 For the fit, the optimal regularization parameter is decided by the user (there is no universal value for this, it can be estimated with a procedure known as L-curve). If the Tikhonov parameter, noted Lambda in this program, is too small some spurious peaks will appear while a parameter too large will just squash the information. 
 
-Criteria for selecting the optimal value are included in this program. You can either use [DRT search lambda](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#drt-search-lambda) command or see other options in __Advanced commands__. The function _explore_lambda_ allows you to see and save all data.
-The procedure I use here is to provide an indication of the frequencies of the relaxations. Much more advanced free DRT programs are available, see for instance [Ciucci et al](https://github.com/ciuccislab/DP-DRT) and his papers but there are many others. The DRT procedure may help in detecting a proper electrical circuit for serial RC circuits and to some extent to serial RQ cirrcuits. If you want to use it, I suggest to read first some publications describing the procedure and the limitations.
+Criteria for selecting the optimal value are included in this program. You can either use [DRT search lambda](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#drt-search-lambda) command or see other options in _Advanced commands_. 
+The function _drt_explore_ allows you to see and save all data.
+The procedure I use here is to provide an indication of the frequencies of the relaxations. More advanced free DRT programs are available, see for instance [Ciucci et al](https://github.com/ciuccislab/DP-DRT) and his papers and there are some others. The DRT procedure may help in detecting a proper electrical circuit for serial RC circuits and to some extent to serial RQ cirrcuits. If you want to use it, I suggest to read first some publications describing the procedure and the limitations.
 There is no need for a circuit model for the DRT calculations. The usefulness of DRT depends much on the quality of the data and in particular the first and the last points of the data.
 Three different algorithm are now used : Tikhonov regularization (the default one used today), an iterative variant of Tikhonov proposed by Fisk and the Gold decomposition. The latter seems more useful for RQ circuits but the number of iterations is large and it is up to the user to select this.
 On the DRT graph, the experimental Zr and Zi are plotted together with the _recalculated impedances_ from the DRT data and a probability of distribution function. Calculations are made in real time if you change the Tikhonov parameter, so if you have multiple datasets and many iterations, it may be slow. Some files to test are in the /drt folder.
@@ -435,14 +436,14 @@ Only the first selected dataset will be shown on the DRT graph, if the DRT calcu
 
 If you hold the mouse on the graph a Tip with an estimation of RC values will be shown (or you can right click on the graph and look for Description and Tips). These parameters are calculated based on the Rpol and the surface of the peaks and can be used as starting points for fitting a model. 
 
-### DRT search lambda ###
-This command performs a search of optimal Tikhonov regularization parameter for the first active (aka selected) dataset.
-A window with an indication of the optimal Tikhonov parameter will appear. The plot shows the mean squared error (MSE) between the experimental Zr and Zr calculated from DRT data as well as the variance (this is based on the method proposed [here](https://chemistry-europe.onlinelibrary.wiley.com/doi/full/10.1002/celc.201901863)).
+### DRT search ###
+This command performs a search of optimal regularization parameter for the first active (aka selected) dataset.
+A window with an indication of the optimal parameter will appear. The plot shows the mean squared error (MSE) between the experimental Zr and Zr calculated from DRT data as well as the variance (this is based on the method proposed [here](https://chemistry-europe.onlinelibrary.wiley.com/doi/full/10.1002/celc.201901863)).
 It should look like this
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/params_drt_alten.PNG)
 
 The optimal regularization parameter is the minimum of the MSE (or just at the change of the variance). You can zoom this image to check the selection made. The program proposes the optimum as the value of lambda where there is a minimum in MSE and show a red cursor position. You can drag this cusor to another position to impose another value for lambda.
-Similar to this function there are others like _explore_lambda_ , _search_lambda_fisk_ and _search_lambda_ricv_ which can be accesed in [Advanced commands](https://github.com/nitad54448/yappari-5-1#advanced-commands).
+Similar to this function there is drt_explore which can be accesed in [Advanced commands](https://github.com/nitad54448/yappari-5-1#advanced-commands).
 
 ### Z-Hit active datasets ###
 This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given previously. This is a procedure similar to the better known Kramers-Kronig test.
