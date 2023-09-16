@@ -16,6 +16,9 @@ This is a brief description of theorethical basis used in this program.
 ## Elements ##
 The elements used are rather standard, the equations used in Yappari are described here.
 
+### Zarc ###
+A Zarc is a resistor R in parallel with a Constant Phase Element (or Q). If you fix the N value to 1, you'll get a capacitor instead of Q. The equivalent capacitance for a RQ circuit is C=((RQ)1/n)/R. 
+
 ### Warburg ###
 Warburg element represents semi-infinite diffusion to or from a flat electrode, expressed in this program as:
 
@@ -23,7 +26,9 @@ Z(ω)= A<sub>w</sub>/($\sqrt{ω})$ -jA<sub>w</sub>/($\sqrt{ω})$
 
 This element contributes equally to Zr and Zi so it appears as a straight line in a Nyquist plot, at 45 degrees or a straight line in Bode plot (log |Z| vs. log ω) with a slope of value –1/2. The A<sub>w</sub> term is expressed in Ohm sec<Sup>-1/2</sup> and is called Warburg coefficient. It is expressed as
 
-<img src="https://latex.codecogs.com/svg.image?Aw&space;=&space;\frac{RT}{{n^2&space;F^2&space;A&space;\sqrt{2}}}&space;\left(\frac{1}{{\sqrt{Do}&space;\cdot&space;Cb_o}}&space;-&space;\frac{1}{{\sqrt{Dr}&space;\cdot&space;Cb_r}}\right)" title="https://latex.codecogs.com/svg.image?Aw = \frac{RT}{{n^2 F^2 A \sqrt{2}}} \left(\frac{1}{{\sqrt{Do} \cdot Cb_o}} - \frac{1}{{\sqrt{Dr} \cdot Cb_r}}\right)" />
+$$
+A w=\frac{R T}{n^2 F^2 A \sqrt{2}}\left(\frac{1}{\sqrt{D o} \cdot C b_o}-\frac{1}{\sqrt{D r} \cdot C b_r}\right)
+$$
 
 with n - number of electrons, A - electrode surface area, D - diffusion coefficient of the electroactive species, Cb,o and Cb,r - bulk concentrations of oxidized and reduced species.
 
