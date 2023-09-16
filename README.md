@@ -31,6 +31,7 @@ This single dataset program is not developed further and it has limited features
   <summary>Changes</summary>
 
 ## Changes ## 
+   - September 14, 2023 : Minor changes in Advanced commands. Release 5.1.69.3 
    - September 13, 2023 : Added a Gold optimisation algorithm for DRT calculations. Tikhonov regularization parameter can be optimized based on the mean square error between experimental and reconstructed impedance. Release 5.1.69.2
    - September 12, 2023 : Calculating re-im cross-validation parameters. Release 5.1.69.1
    - September 11, 2023 : Memory optimizations for large arrays. Release 5.1.69
@@ -148,7 +149,7 @@ These panels will show the dependency of impedances (real, imaginary, modulus or
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/fit_graph.PNG)
 
 ### 3D plot ###
-This panel will show a 3D plot of selected datasets, either in Nyquist, Zr or Zi or their differences, as selected by the user. This is useful for many datasets, more than 20 I guess, it will allow the user to see tendencies or check systematic errors in the fits. You can right click on the graph to adjust plotting properties to your liking (3D Plot Properties) or change the size of the graph. If you have many datasets, it will take some time to plot all data so to limit the waiting time, you may want to "decimate" the data for plotting). The number of plots shown is defined by the smallest value between the number of selected datasets and by the "Max plots" value, see [Parameters](https://github.com/nitad54448/yappari-5-1#parameters). Depending on your computer, a few hunderth datasets can be plotted easily. If you try more than 1000 you'll have to wait, the program will appear irresponsive for 30 seconds or so
+This panel will show a 3D plot of selected datasets or a part of them, either in Nyquist, Zr or Zi or their differences, as selected by the user. This is useful for many datasets, more than 20 I guess, it will allow the user to see tendencies or check systematic errors in the fits. You can right click on the graph to adjust plotting properties to your liking (3D Plot Properties) or change the size of the graph. If you have many datasets, it will take some time to plot all data so to limit the waiting time, you may want to "decimate" the data for plotting). The number of plots shown is defined by the smallest value between the number of selected datasets and by the "Max plots" value, see [Parameters](https://github.com/nitad54448/yappari-5-1#parameters). Depending on your computer, a few hunderth datasets can be plotted easily. If you try more than 1000 you'll have to wait, the program will appear irresponsive.
 The 3D plot might be useful to look for tendencies, a plot looks like this :
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/Zidiff_3D.PNG)
 
@@ -293,10 +294,13 @@ Other functions that can be of interest :
     drt_gold
     search_lambda_ricv
     search_lambda_fisk
-    search_lambda_fisk>>0.0001&0.01&256
     save_config
+
+For the commands explore_lambda, search_lambda_fisk, search_lambda_ricv user defined values for the range to search can be set by values separated with & such as
     
-Fisk is another non-negative Least-squares (NNLS) procedure based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345) that I implemented in versions of Yappari prior to 14th of aug 2023. In recent versions I am using Altenbach's algorithm, it is much faster and gave basically the same results. Fisk's algorithm is only available through "Advanced commands". In releases posterior to 5.1.69.2 there is also an iterative algorithm named Gold, based on this [paper](https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cphc.202200012). It does not require a fitting parameter like Tikhonov but a max number of iterations is requested. In my tests I had to use 10^5 iterations or so, it is quite slow (or maybe I am doing something wrong...).
+    search_lambda_fisk>>0.0001&0.01&256
+    
+Fisk is another non-negative Least-squares (NNLS) procedure based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345) that I implemented in versions of Yappari prior to 14th of aug 2023. In recent versions I am using Altenbach's algorithm, it is much faster and gave basically the same results. Fisk's algorithm is only available through "Advanced commands". In releases posterior to 5.1.69.2 there is also an iterative algorithm named Gold, based on this [paper](https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cphc.202200012). It does not require a fitting parameter like Tikhonov but a max number of iterations is requested. In my tests I had to use 10^5 iterations or more, it is quite slow (or maybe I am doing something wrong...). It works better for Zi data.
 
 
 ## About ##
