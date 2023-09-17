@@ -222,11 +222,12 @@ To save the actual parameters as default
 
     save_config
     
-You can also interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try it, if you don't have spurious points. The command is :
+You can also interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try it, if you don't have spurious points. The commands :
 
-    spline>>128
+    spline
+    spline>>99
 
-where 128 is the number of frequency points you will get from your data, in a log scale. It might not be good to increase too much the number of points from he original ones, nor to use this function on noisy data. This command will create new datasets for every selected dataset, so you can play around to see how it is working. The log scale is important for DRT and Z-hit.
+will get 128 points interpolated from your data for the first command, in a log scale. You can sepcify the number of points wby adding >>99, for instance, which gives 99 points. It might not be good to increase too much the number of points from he original ones, nor to use this function on noisy data. This command will create new datasets for every selected dataset, so you can play around to see how it is working. The log scale is important for DRT and Z-hit.
 
 To add white noise to the selected impedance datasets in the range Z-1% to Z+1%   
     
@@ -439,7 +440,7 @@ A window with an indication of the optimal parameter will appear. The plot shows
 It should look like this
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/params_drt_alten.PNG)
 
-The optimal regularization parameter is the minimum of the MSE (or just at the change of the variance). You can zoom this image to check the selection made. The program proposes the optimum as the value of lambda where there is a minimum in MSE and show a red cursor position. You can drag this cusor to another position to impose another value for lambda.
+The optimal regularization parameter is the minimum of the MSE (or just at the change of the variance). You can zoom this image to check the selection made. The program proposes the optimum as the value of lambda where there is a minimum in MSE and show a red cursor position. You can drag this cusor to another position to impose another value for lambda. By default for Gold the program will calculate 50 points and for Tikhonov and Fisk 100 points. You can modify these values, see Advanced commands.
 Similar to this function there is drt_explore which can be accesed in [Advanced commands](https://github.com/nitad54448/yappari-5-1#advanced-commands).
 
 ### Z-Hit active datasets ###
