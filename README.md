@@ -227,7 +227,7 @@ You can also interpolate to log scale or upscale by spline interpolation (i.e. g
     spline
     spline>>99
 
-will get 128 points interpolated from your data for the first command, in a log scale. You can sepcify the number of points wby adding >>99, for instance, which gives 99 points. It might not be good to increase too much the number of points from he original ones, nor to use this function on noisy data. This command will create new datasets for every selected dataset, so you can play around to see how it is working. The log scale is important for DRT and Z-hit.
+will get 128 points interpolated from your data for the first command, in a log scale. You can specify the number of points by adding the number of points like >>99 (a parameter is passed with >>). It might not be good to increase too much the number of points from he original ones, nor to use this function on noisy data. This command will create new datasets for every selected dataset, so you can play around to see how it is working. The log scale is important for DRT and Z-hit.
 
 To add white noise to the selected impedance datasets in the range Z-1% to Z+1%   
     
@@ -261,9 +261,13 @@ This will plot a 3D graph with all DRTs as a function of lambda, like this graph
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/explore_lambda.png)
 
 
-For the commands drt_explore and drt_search user defined values for the range to search can be set by values separated with & such as
+For drt_explore you can specify the defined values separated with & such as
     
-    drt_explore>>0.0001&0.01&256
+    drt_explore>>0.0001&0.01&99
+
+This will calculate 99 DRT datasets in the interval 0.001 and 0.01. For Gold optimization you need to specify the number of iterations, for instance this command will calculate 80 datasets in the 500 to 5000 iterations interval:
+
+    drt_search>>500&5000&80
 
 ## About ##
 Brief help listing the version of the program. 
@@ -457,6 +461,9 @@ Saves a file with the parameters for all selected datasets. Useful for multiple 
 
 ### Save data ###
 This option saves the active datasets, as selected by the user, to a single file with data separated by the character you have on the Parameters page, in multiple columns format. All active datasets will be saved in a single file, each dataset subsequently added, with its name, to the same file.
+
+### Save config ###
+Parameters used will be saved as default in Labview data directory. A file ___configuration_yappari.ini__ which can be edited by the user.
 
 ### Help ###
 This will open this website, hopefully the address will not change; while the program file may have some tutorial help files, the most recent help is always on this github page.
