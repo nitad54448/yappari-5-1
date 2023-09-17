@@ -63,7 +63,7 @@ The quality of the fit is evaluated using the R<sup>2</sup> statistical paramete
 The standard deviation is estimated, assumming independent errors, only for unconstrained Levenberg-Marquardt fit.
 
 ### DRT ###
-This performs a calculation of Distribution of Relaxation Times for one or more datasets for the case of serial RC circuits. The methods used are constrained non-negative linear regression (NNLS) with a Tikhonov regularization parameter, a variant prorposed by Fisk and finally a Gold optimization method. 
+This performs a calculation of Distribution of Relaxation Times for one or more datasets for the case of serial RC circuits. Thre are three methods used now in Yappari : constrained non-negative linear regression (NNLS) with a Tikhonov regularization parameter, a variant proposed by Fisk and finally a Gold optimization method. 
 
 The Tikhonov procedure used now in Yappari is a NNLS method implemented by [Christian Altenbach](https://sites.google.com/site/altenbach/Home) for EPR spectrocopy. This [method](https://sites.google.com/site/altenbach/labview-programs/epr-programs/long-distances/ld-algorithms) is very fast and therefore it is possible to search an optimal regularization parameter.
  
