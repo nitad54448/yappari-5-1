@@ -67,7 +67,7 @@ This performs a calculation of Distribution of Relaxation Times for one or more 
 
 The Tikhonov procedure used now in Yappari is a NNLS method implemented by [Christian Altenbach](https://sites.google.com/site/altenbach/Home) for EPR spectrocopy. This [method](https://sites.google.com/site/altenbach/labview-programs/epr-programs/long-distances/ld-algorithms) is very fast and therefore it is possible to search an optimal regularization parameter.
  
-Fisk is a non-negative Least-squares (NNLS) procedure based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345). 
+Fisk is a non-negative Least-squares (NNLS) procedure based on the Tikhonov algorithm and described in this [paper](https://arxiv.org/abs/1307.7345). 
 
 In releases posterior to 5.1.69.2 there is also an iterative algorithm named Gold, based on this [paper](https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cphc.202200012). It does not require a fitting parameter like Tikhonov but a max number of iterations is requested. In my tests I had to use 10^4 iterations or more. In my tests on simulated data it works better for Zi data.
 
