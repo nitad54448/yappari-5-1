@@ -111,7 +111,7 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
     + [Clone the parameters to all](#clone-the-parameters-to-all)
     + [Clone the parameters to active](#clone-the-parameters-to-active)
     + [DRT active datasets](#drt-active-datasets)
-    + [DRT search lambda](#drt-search-lambda)
+    + [DRT search](#drt-search-lambda)
     + [Z-Hit active datasets](#z-hit-active-datasets)
     + [Simulate spectrum](#simulate-spectrum)
     + [Report active datasets](#report-active-datasets)
