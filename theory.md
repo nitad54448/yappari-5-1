@@ -63,9 +63,13 @@ The quality of the fit is evaluated using the R<sup>2</sup> statistical paramete
 The standard deviation is estimated, assumming independent errors, only for unconstrained Levenberg-Marquardt fit.
 
 ### DRT ###
-This performs a calculation of Distribution of Relaxation Times for one or more datasets for the case of serial RC circuits. The methods used are constrained non-negative linear regression (NNLS) with a Tikhonov regularization parameter, a variant prorposed by Fisk and finally a Gold optimization method. 
+This performs a calculation of Distribution of Relaxation Times for one or more datasets for the case of serial RC circuits. Thre are three methods used now in Yappari : constrained non-negative linear regression (NNLS) with a Tikhonov regularization parameter, a variant proposed by Fisk and finally a Gold optimization method. 
 
-Fisk is a non-negative Least-squares (NNLS) procedure based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345). For standard Tikhonov method I am using Altenbach's algorithm, it is much faster and gave basically the same results. In releases posterior to 5.1.69.2 there is also an iterative algorithm named Gold, based on this [paper](https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cphc.202200012). It does not require a fitting parameter like Tikhonov but a max number of iterations is requested. In my tests I had to use 10^4 iterations or more, it is quite slow so be patient (or maybe I am doing something wrong...). It works better for Zi data.
+The Tikhonov procedure used now in Yappari is a NNLS method implemented by [Christian Altenbach](https://sites.google.com/site/altenbach/Home) for EPR spectrocopy. This [method](https://sites.google.com/site/altenbach/labview-programs/epr-programs/long-distances/ld-algorithms) is very fast and therefore it is possible to search an optimal regularization parameter.
+ 
+Fisk is a non-negative Least-squares (NNLS) procedure based on the Tikhonov algorithm and described in this [paper](https://arxiv.org/abs/1307.7345). 
+
+In releases posterior to 5.1.69.2 there is also an iterative algorithm named Gold, based on this [paper](https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cphc.202200012). It does not require a fitting parameter like Tikhonov but a max number of iterations is requested. In my tests I had to use 10^4 iterations or more. In my tests on simulated data it works better for Zi data.
 
 DRT calculations are based on the following expressions :
 
@@ -103,8 +107,6 @@ where $\boldsymbol{I}$ is the identity matrix and $\lambda$ is the Tikhonov regu
 
 This system can be solved for either real or imaginary part of impedance, or for both. Yappari can use either one of the three possibilities.
 
-The Tikhonov procedure used now in Yappari is a NNLS method implemented by [Christian Altenbach](https://sites.google.com/site/altenbach/Home) for EPR spectrocopy. This [method](https://sites.google.com/site/altenbach/labview-programs/epr-programs/long-distances/ld-algorithms) is very fast and therefore it is possible to search an optimal regularization parameter. A variant proposed by Fisk and Gold methods can also be used.
- 
 Data should be acquired with log spacing and with a decent number of points per decade (otherwise you may try to rearrange data with the command _spline>>number_ if you want a total _number_ interpolated datapoints scaled in log space).
 
 Criteria for selecting the optimal value are included in this program. You can either use _DRT search_ command or see other options in __Advanced commands__. The function _drt_explore_ allows you to see and save all data.

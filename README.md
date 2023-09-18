@@ -7,7 +7,7 @@ __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedanc
   <summary>About this program</summary>
   
 This program can perform several mathematical operations of interest in impedance spectroscopy: non-linear parametric fits for one or multiple datasets, DRT, Hilbert transform, spectra simulations etc. For a single dataset and non-linear optimization you can use an old and simpler program [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2). 
-This single dataset program is not developed further and it has limited features so it might be better to start with this version. Some theoretical notions used are given in the [theory.md file](https://github.com/nitad54448/yappari-5-1/blob/main/theory.md) in this repository.
+This single dataset program is not developed further and it has limited features so it might be better to start with this version. Some theoretical notions are given in the [theory.md file](https://github.com/nitad54448/yappari-5-1/blob/main/theory.md) in this repository.
 
   You are encouraged to contribute to this help file or write tutorials. If you want to contribute to the help file or tutorials, send them to me and I will add them to this repository. As much as I like programming, writing documentation is boring. The most updated description of the program is always here on this page.
   
@@ -66,7 +66,7 @@ This single dataset program is not developed further and it has limited features
   -  July 15, 2023 : the user can select the separator used for MFLI CSV and 3 columns file. The same separator (space, comma or TAB) will be used for saving files.
   -  July 14, 2023 : added user selected boundaries for TRDL and constrained LM fit.
   -  June 12, 2023 : added a fourth term in the Z-hit calculations (the one with the pi^7/604800).
-  -  June 10, 2023 : added the Z-hit calculation.
+  -  June 10, 2023 : added Z-hit calculation.
 </details>
 
 
@@ -77,7 +77,7 @@ This single dataset program is not developed further and it has limited features
 This program can be used freely and distributed according to CC-BY-NC-ND 4.0.
 It was written in Labview 2023, National Instruments and it includes the JKI toolkits for Labview, © 2023, JKI and NI. All rights reserved.
 
-For questions or comments:
+For (hopefully few) questions or comments:
 
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 </details>
@@ -111,7 +111,7 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
     + [Clone the parameters to all](#clone-the-parameters-to-all)
     + [Clone the parameters to active](#clone-the-parameters-to-active)
     + [DRT active datasets](#drt-active-datasets)
-    + [DRT search lambda](#drt-search-lambda)
+    + [DRT search](#drt-search)
     + [Z-Hit active datasets](#z-hit-active-datasets)
     + [Simulate spectrum](#simulate-spectrum)
     + [Report active datasets](#report-active-datasets)
@@ -125,13 +125,13 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 
 ## How to install ##
 
-The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the Volume.zip file and not what is labelled as source file archives. Several versions are available, in general the last one is the best choice. In case of bugs please report them and grab an earlier version.
+The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the _Volume.zip_ file and not what is labelled as source file archives. Several versions are available, in general the last one is the best choice. In case of bugs please report them and grab an earlier version.
 
-There is another way to install it, if you want. Yappari 5.1 is compiled with Labview 2023 for Windows 10. As such it will require a _Labview run-time engine_ which is installed, if needed, by the full installer. So, if you already have the run-time engine (either because you have installed Yappari previously or you installed another program compiled with Labview 2023) you can just download all the files from the green button __Code__ as a zip file. If you do not have the run-time engine but still want to go the hard way, you can download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336) then get the zip file from __Code__. The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
+There is another way to install it, if you want to complicate things. Yappari 5.1 is compiled with Labview 2023 for Windows 10. As such it will require a _Labview run-time engine_ which is installed, if needed, by the full installer. So, if you already have the run-time engine (either because you have peviously installed Yappari or you have installed another program compiled with Labview 2023) you can just download all the files from the green button __Code__ as a zip file. If you do not have the run-time engine but still want to go the hard way, you can download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336) then get the zip file from __Code__. The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
 
 After installing the program in a directory of your choice, some other subdirectories will be created : /drt, /files, /help and /models. The _models_ directory contains png files with images for showing circuits. The /files directory contains some examples of data files and custom definitions. The /help directory holds some images for this document and some help files. You can safely remove /drt, /files and /help if you want but you must keep the /models files.
 
-This program is supposed to work with Windows 10 64 bits and on my PC and many others it works fine; also it should work on win7 64bits, Win8 or Win8.1, as well as windows 11, but I am unable to test it on these systems.
+This program is supposed to work with Windows 10 64 bits or Win 11 and on my PC and many others it works fine; also it should work on win7 64bits, Win8 or Win8.1 as well but I am unable to test it on these systems.
 
 ## Panels ##
 The program has several panels and a parameter list with several commands grouped on the right side of the window. When you start the program, if everything is normal, you should see something like this
@@ -222,11 +222,12 @@ To save the actual parameters as default
 
     save_config
     
-You can also interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try it, if you don't have spurious points. The command is :
+You can also interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try it, if you don't have spurious points. The commands :
 
-    spline>>128
+    spline
+    spline>>99
 
-where 128 is the number of frequency points you will get from your data, in a log scale. It might not be good to increase too much the number of points from he original ones, nor to use this function on noisy data. This command will create new datasets for every selected dataset, so you can play around to see how it is working. The log scale is important for DRT and Z-hit.
+will get 128 points interpolated from your data for the first command, in a log scale. You can specify the number of points by adding the number of points like >>99 (a parameter is passed with >>). It might not be good to increase too much the number of points from he original ones, nor to use this function on noisy data. This command will create new datasets for every selected dataset, so you can play around to see how it is working. The log scale is important for DRT and Z-hit.
 
 To add white noise to the selected impedance datasets in the range Z-1% to Z+1%   
     
@@ -260,9 +261,13 @@ This will plot a 3D graph with all DRTs as a function of lambda, like this graph
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/explore_lambda.png)
 
 
-For the commands drt_explore and drt_search user defined values for the range to search can be set by values separated with & such as
+For drt_explore you can specify the defined values separated with & such as
     
-    drt_explore>>0.0001&0.01&256
+    drt_explore>>0.0001&0.01&99
+
+This will calculate 99 DRT datasets in the interval 0.001 and 0.01. For Gold optimization you need to specify the number of iterations, for instance this command will calculate 80 datasets in the 500 to 5000 iterations interval:
+
+    drt_search>>500&5000&80
 
 ## About ##
 Brief help listing the version of the program. 
@@ -439,7 +444,7 @@ A window with an indication of the optimal parameter will appear. The plot shows
 It should look like this
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/params_drt_alten.PNG)
 
-The optimal regularization parameter is the minimum of the MSE (or just at the change of the variance). You can zoom this image to check the selection made. The program proposes the optimum as the value of lambda where there is a minimum in MSE and show a red cursor position. You can drag this cusor to another position to impose another value for lambda.
+The optimal regularization parameter is the minimum of the MSE (or just at the change of the variance). You can zoom this image to check the selection made. The program proposes the optimum as the value of lambda where there is a minimum in MSE and show a red cursor position. You can drag this cusor to another position to impose another value for lambda. By default for Gold the program will calculate 50 points and for Tikhonov and Fisk 100 points. You can modify these values, see Advanced commands.
 Similar to this function there is drt_explore which can be accesed in [Advanced commands](https://github.com/nitad54448/yappari-5-1#advanced-commands).
 
 ### Z-Hit active datasets ###
@@ -456,6 +461,9 @@ Saves a file with the parameters for all selected datasets. Useful for multiple 
 
 ### Save data ###
 This option saves the active datasets, as selected by the user, to a single file with data separated by the character you have on the Parameters page, in multiple columns format. All active datasets will be saved in a single file, each dataset subsequently added, with its name, to the same file.
+
+### Save config ###
+Parameters used will be saved as default in Labview data directory. A file ___configuration_yappari.ini__ which can be edited by the user.
 
 ### Help ###
 This will open this website, hopefully the address will not change; while the program file may have some tutorial help files, the most recent help is always on this github page.
