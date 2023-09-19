@@ -65,18 +65,6 @@ The standard deviation is estimated, assumming independent errors, only for unco
 ### DRT ###
 This performs a calculation of Distribution of Relaxation Times for one or more datasets for the case of serial RC circuits. Thre are three methods used now in Yappari : constrained non-negative linear regression (NNLS) with a Tikhonov regularization parameter, a variant proposed by Fisk and finally a Gold optimization method. 
 
-The Tikhonov procedure used now in Yappari is a NNLS method implemented by [Christian Altenbach](https://sites.google.com/site/altenbach/Home) for EPR spectrocopy. This [method](https://sites.google.com/site/altenbach/labview-programs/epr-programs/long-distances/ld-algorithms) is very fast and therefore it is possible to search an optimal regularization parameter.
- 
-Fisk is a non-negative Least-squares (NNLS) procedure based on the Tikhonov algorithm and described in this [paper](https://arxiv.org/abs/1307.7345). This is an iterative method, with solution vector = u^2, and u is obtained with
-
-$$
-u_\alpha^{(k+1)}=\omega u_\alpha^{(k)}+(1-\omega)\left(D\left(u_\alpha^{(k)}\right) A^T A D\left(u_\alpha^{(k)}\right)+\lambda I\right)^{-1} D\left(u_\alpha^{(k)}\right) A^T p
-$$
-
-where $\omega$ is a relaxation parameter, fixed at 0.1 in this program and $\lambda$ is the regularization parameter. 
-
-In releases posterior to 5.1.69.2 there is also an iterative algorithm named Gold, based on this [paper](https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cphc.202200012). It does not require a fitting parameter like Tikhonov but a given number of iterations is requested. In my tests I had to use 10^4 iterations or more. In my tests on simulated data it works better for Zi data.
-
 DRT calculations are based on the following expressions :
 
 $$
@@ -115,11 +103,24 @@ This system can be solved for either real or imaginary part of impedance, or for
 
 Data should be acquired with log spacing and with a decent number of points per decade (otherwise you may try to rearrange data with the command _spline>>number_ if you want a total _number_ interpolated datapoints scaled in log space).
 
-Criteria for selecting the optimal value are included in this program. You can either use _DRT search_ command or see other options in __Advanced commands__. The function _drt_explore_ allows you to see and save all data.
-The procedure I use here is to provide an indication of the frequencies of the relaxations. Much more advanced free DRT programs are available, see for instance [Ciucci et al](https://github.com/ciuccislab/DP-DRT) and his papers but there are many others. The DRT procedure may help in detecting a proper electrical circuit for serial RC circuits and to some extent to serial RQ circuits. If you want to use it, I suggest to read first some publications describing the procedure and the limitations.
-The usefulness of DRT depends much on the quality of the data and in particular the first and the last points of the data.
+The Tikhonov procedure used now in Yappari is a NNLS method implemented by [Christian Altenbach](https://sites.google.com/site/altenbach/Home) for EPR spectrocopy. This [method](https://sites.google.com/site/altenbach/labview-programs/epr-programs/long-distances/ld-algorithms) is very fast and therefore it is possible to search an optimal regularization parameter.
+ 
+Fisk is a non-negative Least-squares (NNLS) procedure based on the Tikhonov algorithm and described in this [paper](https://arxiv.org/abs/1307.7345). This is an iterative method, with solution vector v= u^{2}, and u is obtained with
 
-On the DRT graph, the experimental Zr and Zi are plotted together with the _recalculated impedances_ from the DRT data and a probability of distribution function. Calculations are made in real time if you change the Tikhonov parameter, so if you have multiple datasets and many iterations, it may be slow. Some files to test are in the /drt folder.
+$$
+u_\alpha^{(k+1)}=\omega u_\alpha^{(k)}+(1-\omega)\left(D\left(u_\alpha^{(k)}\right) A^T A D\left(u_\alpha^{(k)}\right)+\lambda I\right)^{-1} D\left(u_\alpha^{(k)}\right) A^T p
+$$
+
+where $\omega$ is a relaxation parameter, fixed at 0.1 in this program and $\lambda$ is the regularization parameter. 
+
+In releases posterior to 5.1.69.2 there is also an iterative algorithm named Gold, based on this [paper](https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cphc.202200012). It does not require a fitting parameter like Tikhonov but a given number of iterations is requested. In my tests I had to use 10^4 iterations or more. In my tests on simulated data it works better for Zi data.
+
+Criteria for selecting the optimal regularization parameters are included in this program. You can either use _DRT search_ command in "Action" menu or in __Advanced commands__ the command _drt_search_. Similarly, in  __Advanced commands__ you can use _drt_explore_ which allows you to obtain and save all drt data. _DRT_search_ and _drt_explore_ are CPU intensive and will be performed only on the first selected dataset.
+
+The procedure I use here is to provide an indication of the frequencies of the relaxations. More advanced free DRT programs are available, see for instance [Ciucci et al](https://github.com/ciuccislab/DP-DRT) and his papers but there are some others. The DRT procedure may help in detecting a proper electrical circuit for serial RC circuits and to some extent to serial RQ circuits. If you want to use it, I suggest to read first some publications describing the procedure and the limitations.
+The usefulness of DRT depends much on the quality of the data.
+
+On the DRT graph, the experimental Zr and Zi are plotted together with the _recalculated impedances_ from the DRT data and a probability of distribution function. Calculations are made in real time if you change the regularization parameter, so if you have multiple datasets and many iterations, it may be slow. Some files to test are in the /drt folder.
 An example of a DRT fit is shown below :
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/drt_calc_RCRC_1k_3_5microF_80_20p_simulated.PNG)
@@ -191,7 +192,6 @@ You can modify the range for explore with similar commands, for 100 points in th
 
     drt_explore>>1&10&100
 
-Fisk is another non-negative Least-squares (NNLS) procedure based on the algorithm proposed by [Fisk](https://arxiv.org/abs/1307.7345) that I implemented in versions of Yappari prior to 14th of aug 2023. In recent versions I am using Altenbach's algorithm, it is much faster and gave basically the same results. Fisk's algorithm is only available through "Advanced commands". In releases posterior to 5.1.69.2 there is also an iterative algorithm named Gold, based on this [paper](https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cphc.202200012). It does not require a fitting parameter like Tikhonov but a max number of iterations is requested. In my tests I had to use 10^5 iterations or more, it is quite slow (or maybe I am doing something wrong...). It works better for Zi data.
 
 ### Z-Hit active datasets ###
 This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given previously. This is a procedure similar to the better known Kramers-Kronig test.

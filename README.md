@@ -1,5 +1,5 @@
 # YAPPARI #
-version 18-09-2023
+version 19-09-2023
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
@@ -33,7 +33,7 @@ This single dataset program is not developed further and it has limited features
   <summary>Changes</summary>
 
 ## Changes ## 
-   - September 18, 2023 : Changes in the Advanced commands (drt_search, drt_explore). Gold and Fisk DRT calculations are now included in the Action menu. Release 5.1.70.
+   - September 19, 2023 : Changes in the Advanced commands (drt_search, drt_explore). Gold and Fisk DRT calculations are now included in the Action menu. Release 5.1.70.
    - September 14, 2023 : Minor changes in Advanced commands. Release 5.1.69.3.
    - September 13, 2023 : Added a Gold optimisation algorithm for DRT calculations. Tikhonov regularization parameter can be optimized based on the mean square error between experimental and reconstructed impedance. Release 5.1.69.2
    - September 12, 2023 : Calculating re-im cross-validation parameters. Release 5.1.69.1
