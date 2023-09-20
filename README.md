@@ -33,6 +33,7 @@ This single dataset program is not developed further and it has limited features
   <summary>Changes</summary>
 
 ## Changes ## 
+   - September 20, 2023 : Fisk algorithm improvement; stop fitting if the changes in the solution are less than 0.25% than the norm of the vector u(k). Release 5.1.70.1.
    - September 19, 2023 : Changes in the Advanced commands (drt_search, drt_explore). Gold and Fisk DRT calculations are now included in the Action menu. Release 5.1.70.
    - September 14, 2023 : Minor changes in Advanced commands. Release 5.1.69.3.
    - September 13, 2023 : Added a Gold optimisation algorithm for DRT calculations. Tikhonov regularization parameter can be optimized based on the mean square error between experimental and reconstructed impedance. Release 5.1.69.2
