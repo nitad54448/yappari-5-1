@@ -17,7 +17,7 @@ This is a brief description of theorethical basis used in this program.
 The elements used are rather standard, the equations used in Yappari are described here.
 
 ### Zarc ###
-A Zarc is a resistor R in parallel with a Constant Phase Element (or Q). If you fix the N value to 1, you'll get a capacitor instead of Q. The equivalent capacitance for a RQ circuit is C=((RQ)1/n)/R. 
+A Zarc is a resistor R in parallel with a Constant Phase Element (or Q). If you fix the N value to 1, you'll get a capacitor instead of Q. The equivalent capacitance for a RQ circuit is C=((RQ)^1/n)/R. 
 
 ### Warburg ###
 Warburg element represents semi-infinite diffusion to or from a flat electrode, expressed in this program as:
