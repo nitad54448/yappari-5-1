@@ -33,6 +33,7 @@ This single dataset program is not developed further and it has limited features
   <summary>Changes</summary>
 
 ## Changes ## 
+   - December 21, 2023 : Added a multiplication factor for conversitng Ohm in Ohm cm or Ohm cm^2. Release 5.1.70.2.
    - September 20, 2023 : Fisk algorithm improvement; stop fitting if the changes in the solution are less than 0.25% than the norm of the vector u(k). Release 5.1.70.1.
    - September 19, 2023 : Changes in the Advanced commands (drt_search, drt_explore). Gold and Fisk DRT calculations are now included in the Action menu. Release 5.1.70.
    - September 14, 2023 : Minor changes in Advanced commands. Release 5.1.69.3.
