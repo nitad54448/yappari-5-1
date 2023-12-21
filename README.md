@@ -111,6 +111,7 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
       - [Z-MFLI](#z-mfli)
       - [Custom](#custom)
   * [Action](#action)
+    + [Apply correction to active](#apply-correction-to-active)
     + [Delete points from graph](#delete-points-from-graph)
     + [Delete active datasets](#delete-active-datasets)
     + [Clone the parameters to all](#clone-the-parameters-to-all)
@@ -410,6 +411,9 @@ This last file can be read directly or by using the Custom function, with the de
 
 ## Action ##
 This button can trigger several commands, some other are in [Advanced commands](https://github.com/nitad54448/yappari-5-1#advanced-commands) :
+
+### Apply correction to active ###
+Apply a correction factor to the experimental Zr and Zi for all selected datasets.  The impedance values will be multiplied with the factor you input here.  Be careful: this may change the units. For ionic conductivity multiply with S/L will give resistivity (in Ohm cm or Ohm m) instead of Ohm. For reactions at electrode surface you need to multiply with the electrode surface to get Ohm cm^2 or Ohm m^2. The calculated impedance will not be affected by this command.
 
 ### Delete points from graph ###
 You can delete experimental points from selected datasets in the Nyquist, Zr, Zi or lnR plots: just zoom in the region to show only the points you want to delete then select this command (this is irreversible). Be aware that the points having values in the range shown on the plots are removed from _all selected datasets_ irrespective if they are actually seen on the plots or not. The datasets visible on the graph depends on the [Max plots](https://github.com/nitad54448/yappari-5-1#max-plots) value.
