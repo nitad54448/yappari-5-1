@@ -1,5 +1,5 @@
 # YAPPARI #
-version 02-02-2024
+version 04-02-2024
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
@@ -33,7 +33,7 @@ This single dataset program is not developed further and it has limited features
   <summary>Changes</summary>
 
 ## Changes ## 
-   - February 2, 2024 : Changed then name of a function to drt_explore. Added a windows 11 version.
+   - February 4, 2024 : Changed then name of a function to drt_explore. Added a confirmation windows to prevent accidental erase of dataset. Compiled on a Windwos 11 version (it should also work on Windows 10).
    - December 21, 2023 : Added a multiplication factor for conversitng Ohm in Ohm cm or Ohm cm^2. Release 5.1.70.2.
    - September 20, 2023 : Fisk algorithm improvement; stop fitting if the changes in the solution are less than 0.25% than the norm of the vector u(k). Release 5.1.70.1.
    - September 19, 2023 : Changes in the Advanced commands (drt_search, drt_explore). Gold and Fisk DRT calculations are now included in the Action menu. Release 5.1.70.
