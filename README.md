@@ -410,14 +410,15 @@ In the /files folder and in /drt you will find some other files, experimental or
     
 This last file can be read directly or by using the Custom function, with the definition file _definition_file_ZMFLI.ini
 
-Be aware that the separator character is not defined in the definition file but in your parameters in Yappari. For instance, in the /files directory there is a datafile named 58a_bias. This file has some headers and the datapoints separated by ;
-So, if you want to read this file you must put as data separator ; and define a custom file, which in this case is _definition_t58a.txt
+Be aware that the separator character is not defined in the definition file but in your parameters in Yappari. 
+For instance, in the /files directory there is a datafile named 58a_bias. This file has some headers and the datapoints separated by ;
+So, if you want to read this file you must select as data separator ; in Yappari and define a custom file, which in this case is _definition_t58a.txt.
 In the definition file there are these instructions
 
-[header]=Freq /Hz, Zr , Zi ; Name: 
-[label_length]=8
-#label
-#data_columns=1,2,3
+    [header]=Freq /Hz, Zr , Zi ; Name: 
+    [label_length]=8
+    #label
+    #data_columns=1,2,3
 
 Look at the data file and will understand these instructions.
 
