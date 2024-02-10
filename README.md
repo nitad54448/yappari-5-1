@@ -1,5 +1,5 @@
 # YAPPARI #
-version 07-02-2024
+version 10-02-2024
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
@@ -33,6 +33,7 @@ This single dataset program is not developed further and it has limited features
   <summary>Changes</summary>
 
 ## Changes ## 
+   - February 10, 2024 : Order of datasets can be changed by drag and drop. Release 5.1.70.6.
    - February 7, 2024 : Corrected an error in the "Report" function. Release 5.1.70.5.
    - February 4, 2024 : Changed the name of a function to drt_explore. Added a confirmation window to prevent accidental erase of datasets. Compiled on a Windwos 11 version (it should also work on Windows 10). 5.1.70.4.
    - December 21, 2023 : Added a multiplication factor for conversitng Ohm in Ohm cm or Ohm cm^2. Release 5.1.70.2.
