@@ -1,5 +1,5 @@
 # YAPPARI #
-version 14-09-2023
+version 14-02-2024
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance.
 
@@ -17,7 +17,69 @@ This is a brief description of theorethical basis used in this program.
 The elements used are rather standard, the equations used in Yappari are described here.
 
 ### Zarc ###
-A Zarc is a resistor R in parallel with a Constant Phase Element (or Q). If you fix the N value to 1, you'll get a capacitor instead of Q. The equivalent capacitance for a RQ circuit is C=((RQ)^1/n)/R. 
+A Zarc is a resistor $R_{p}$ in parallel with a Constant Phase Element (CPE). The CPE is defined as
+
+$$
+\begin{equation*}
+Z_{CPE}=\frac{1}{Q_{0}(i \omega)^{n}} 
+\end{equation*}
+$$
+
+where $\omega$ is angular frequency, $Q_{0}$ and $n$ are the characteristic parameters of the CPE (some authors use $Y_{0}$ instead of $Q_{0}$). If you fix the $n$ value to 1, you'll get a simple capacitor instead of CPE.
+
+A Zarc can also be described by distribution of time constants and has the electrical impedance expressed as
+
+$$
+\begin{equation*}
+Z=\frac{R_{p}}{\left[1+(i \omega T)^{n}\right]}
+\end{equation*}
+$$
+
+with the time constant  
+
+$$
+\begin{equation*}
+T=C_{eff} \cdot R_{eff} 
+\end{equation*}
+$$
+
+and 
+
+$$
+\begin{equation*}
+Z=\frac{R_{p}}{\left[1+(i \omega)^{n} Q_{0} R_{p}\right]}
+\end{equation*}
+$$
+
+
+$$
+\begin{equation*}
+T=\left(Q_{0} R_{p}\right)^{1 / n}=C_{e f f} \cdot R_{eff}
+\end{equation*}
+$$
+
+It follows (see [ref](https://jecst.org/journal/view.php?doi=10.33961/jecst.2020.00815)) that 
+
+$$
+\begin{equation*}
+R_{eff}=R_{p} / \sin \left(\frac{n \pi}{2}\right) 
+\end{equation*}
+$$
+
+$$
+\begin{equation*}
+C_{eff}=\frac{\left(Q_{0} R_{p}\right)^{1 / n}}{R_{p}} \sin \left(\frac{n \pi}{2}\right)
+\end{equation*}
+$$
+
+For $n$ close to 1, the equations can be approximated as $R_{eff}$ = $R_{p}$ and 
+
+$$
+\begin{equation*}
+C=\frac{\left(Q_{0} R_{p}\right)^{1 / n}}{R_{p}}
+\end{equation*}
+$$
+
 
 ### Warburg ###
 Warburg element represents semi-infinite diffusion to or from a flat electrode, expressed in this program as:
