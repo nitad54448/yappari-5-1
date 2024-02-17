@@ -1,9 +1,9 @@
 # YAPPARI
-version 14-02-2024
+version 19-02-2024
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
-This document applies to version 5.1.70 or after. For prior releases see this [Documentation](https://github.com/nitad54448/yappari-5-1/blob/main/Documentation_release_5.1.69.md).
+This document applies to version 5.1.71.1 or after. For prior releases see this [Documentation](https://github.com/nitad54448/yappari-5-1/blob/main/Documentation_release_5.1.69.md).
 
 <details>
   <summary>About this program</summary>
@@ -33,6 +33,7 @@ This single dataset program is not developed further and it has limited features
   <summary>Changes</summary>
 
 ## Changes 
+   - February 19, 2024 : Custom data format are now defined with xml files. Release 5.1.71.1
    - February 14, 2024 : Project files (all data, parameters, models) can be saved to or read from xml file. Release 5.1.71.
    - February 10, 2024 : Order of datasets can be changed by drag and drop. Release 5.1.70.6.
    - February 7, 2024 : Corrected an error in the "Report" function. Release 5.1.70.5.
@@ -284,18 +285,18 @@ Brief help listing the version of the program, this is also the landing page of 
 
 ## Read data
 This command opens a menu with several options indicating the type of file to read. Reading a new file will just add more data at the beginning of the list wihtout losing the previous ones. You can remove some of the datasets with the command [Delete selected datasets](https://github.com/nitad54448/yappari-5-1#delete-active-datasets). You will need to select one or more datasets in order to perform operations like fit, save, plot.. etc. A selected dataset is coloured differently, it is named in this document as _active_. 
-_Note : the files given as examples in the /files directory have a decimal separator . (a dot). There is a character separation between the numerical values (usually a TAB), this should be adjusted in Yappari, see the __Parameters__ page.
+_Note : the files given as examples in the /files directory have a decimal separator . (a dot). When saving data there is a character separation between the numerical values (usually a TAB), this should be adjusted in Yappari, see the __Parameters__ page.
 
 ### 3 columns
-This option reads a three-column ASCII file, which should be separated by the character selected in the [Parameters](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#parameters) page, and it should contain frequency in Hz, Zr, and Zi. The data separator can be "TAB", "space", ",", ";".
-The file may contain a description line (like parameters or type of the sample), if the description does not contain numbers which might be interpreted as data values by the program. The best option is to have only 3 columns and no text or empty lines in the file. If you want to keep one or more description lines in the file, it is better to use the "Custom" format and prepare a "description file", see below.
+This option reads a **single dataset** from a three-column ASCII file, which should be separated by the character selected in the [Parameters](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#parameters) page, and it should contain frequency in Hz, Zr, and Zi. The data separator can be "TAB", "space", ",", ";".
+The file may contain a description line (like parameters or type of the sample), if the description does not contain numbers which might be interpreted as data values by the program. The best option is to have only 3 columns and no text or empty lines in the file. If you want to keep one or more description lines in the file, it is better to use the "Custom" format and prepare an **XML template file**, see below. If you have multiple datasets in a single files they must be read with the **Custom** option.
 
 If the reading is successful, the dataset will be inserted in the first position with a name taken from the filename. This name can be changed by the user. Only one dataset can be read with this command. 
-_Note : You should select the proper separator string in the Parameters page prior to use this function._
+_Note : You should select the proper separator string in the Parameters page prior to use of this function._
 
 ### MFLI, csv
 This is a ';' or ',' separated values file as obtained from MFLI/MFIA, a Zurich Instruments impedance analyzer. As in the __MFLI, Zview text__, multiple data sets can be read from this file. In the /files folder that is provided with the installer you can find such a file containing 34 measurements of the same sample. It would be boring and useless to fit all these 34 datasets one by one. Yappari-5 can handle such multiple data sets. The dataseset are labeled with a name taken from the file name and a suffix indicating the position in the file : the first datasets in the file will have __0__, then __1__, .. and so on.
-_Note : You should select the proper separator string in the Parameters page prior to use this function._
+_Note : You should select the proper separator string in the Parameters page prior to of use this function._
 
 ### MFLI, Zview txt
 This is a MFLI text file, an ASCII type, that can hold multiple data sets. Yappari will read all datasets it finds in this file and insert them in the datasets listing, with a name taken from the file name and a suffix indicating the position in the file : the first datasets will have __0__, then __1__,  and so on.
@@ -304,18 +305,31 @@ This is a MFLI text file, an ASCII type, that can hold multiple data sets. Yappa
 This type of file contains data delimited by <Segments> and >/Segments>. I did not extensively checked this type of file, an example is given in the /data folder. If you encounter errors, feel free to drop me a line with examples of datafile saved by this system.
 
 ### Z-MFLI
-This is a custom text file, that can hold multiple data sets, which is obtained by programs I wrote in my lab. An exemple of such file is given in the /data directory but it has probably little interest for other users except that a Custom definition file is provided for this file, so the users may understand how to define such a file for reading custom formats.
+This is a custom text file, that can hold multiple data sets, which is obtained by the programs I wrote in my lab. An exemple of such file is given in the /data directory but it has probably little interest for other users except that a Custom definition file is provided for this file, so the users may understand how to define such a file for reading custom formats.
 
 ### Custom
-If your data file is of text type and has a format that is not usual you may define a _Custom_ format in a configuration file. In this case the program will ask the user to select two files. First the datafile then the file that describes the format used.
-Several exemples of such files are given in the /data directory. The accepted keywords are :
+If your data file is of text type and has a format that is not usual you may define a _Custom_ format in an XML configuration file. In this case the program will ask the user to select two files : first the datafile then the XML file that describes the format used.
+Several exemples of such files are given in the /files directory. A small program that saves this kind of file is also included (I think it is faster to use Notepad though).
+The xml files can be viewed in a browser or edited by a standard text program (like Notapad). 
+The XML parameters that are required for a definition file are 
 
-     [header]=
-     [label_length]=
-     #label
-     #ignore_line
-     #data_columns=
-
+    header
+        a text separating datasets
+    label_length
+        a numeric value indicating how many characters after the header should be kept for naming a dataset, this value can be set to 0, the label must be on the same line as the header.
+    data_separator
+        the string that separates data fields (can be "tab", ",", ";" or " " space)
+    ignore_first
+        the number of lines to ignore before the start of the data
+    column_freq_Hz
+       in which column the fequency is located 
+    column_Z_real
+       in which column Z_real is located
+    column_Z_imag
+       in which column Z_imag is located
+    ignore_last
+        the number of lines to ignore after the end of the data
+  
 For example, the Z-MFLI program saves a file like this:
 
     Temp /K before measurement : 449.810
@@ -325,11 +339,14 @@ For example, the Z-MFLI program saves a file like this:
     frequency /Hz, Real Z /Ohm, Im Z /Ohm 
     1.000000E+6	9.414706E+5	-2.383074E+5
     8.154407E+5	1.130474E+5	-6.121182E+4
-    6.649436E+5	9.185450E+4	-5.269764E+4
-    5.422221E+5	9.023882E+4	-4.824161E+4
-    4.421500E+5	9.325740E+4	-4.422129E+4
-    3.605471E+5	9.751274E+4	-3.975290E+4
+    .....
+    1.844263E-1	1.124571E+5	-5.840550E+2
+    1.503887E-1	1.129925E+5	-7.342464E+2
+    1.226330E-1	1.130371E+5	9.631194E+2
+    1.000000E-1	1.137720E+5	9.809898E+0
     
+    end of measure  : 26/07/2023  18:35:34
+    Temp /K after measurement : 449.670 K
     ----------
     Temp /K before measurement : 449.660
     measure started : 26/07/2023  18:36:07
@@ -339,29 +356,60 @@ For example, the Z-MFLI program saves a file like this:
     1.000000E+6	9.664908E+5	-2.747448E+5
     8.154407E+5	1.126409E+5	-6.080259E+4
     6.649436E+5	9.169096E+4	-5.206284E+4
-    5.422221E+5	9.002227E+4	-4.803786E+4
-    4.421500E+5	9.300340E+4	-4.387796E+4
-    3.605471E+5	9.711612E+4	-3.944369E+4
-    2.940048E+5	1.011267E+5	-3.451051E+4
+    ....
     
-In order to read this file we can observe that the datasets are separated by a string  __Temp /K before measurement :__  One can use a definition like this :
+In order to read this file we can observe that the datasets are separated by a string  __Temp /K before measurement :__  following by 4 text lines. Four additional lines are at the end of the data. One can use a definition like this :
 
-    [header]=Temp /K before measurement : 
-    [label_length]=5
-    #label
-    #ignore_line
-    #ignore_line
-    #ignore_line
-    #ignore_line
-    #data_columns=1,2,3
+```xml
+<Version>23.1f276</Version>
+<Cluster>
+<Name>cluster</Name>
+<NumElts>8</NumElts>
+<String>
+<Name>header</Name>
+<Val>Temp /K before measurement : </Val>
+</String>
+<U8>
+<Name>label length</Name>
+<Val>6</Val>
+</U8>
+<EW>
+<Name>data_separator</Name>
+<Choice>space</Choice>
+<Choice>comma</Choice>
+<Choice>semicolon</Choice>
+<Choice>tab</Choice>
+<Val>3</Val>
+</EW>
+<U8>
+<Name>ignore first</Name>
+<Val>4</Val>
+</U8>
+<U8>
+<Name>column_freq</Name>
+<Val>1</Val>
+</U8>
+<U8>
+<Name>column_Zr</Name>
+<Val>2</Val>
+</U8>
+<U8>
+<Name>column_Zi</Name>
+<Val>3</Val>
+</U8>
+<U8>
+<Name>ignore last</Name>
+<Val>4</Val>
+</U8>
+</Cluster>
+</LVData>
+```
 
-The command header will split the datafile (an example of this file is /files/ZMFLI_exemple_file_.txt) in as many datasets it can find, will add to each dataset a label consisting of the first 5 characters found after the header text which in this case is the temperature of the measurement.  The program will find all the measurements (446 measurements for this case), then label each data set with the text following the header, ignore the following 4 lines then read the data found in the three columns separated by the delimiter specified by the user in the Parameters case (here, it should be TAB). Yappari can fit in batch all these 446 measurements.
+The command header will split the datafile (an example of this file is /files/ZMFLI_datafile_example.dat) in as many datasets it can find, will add to each dataset a label consisting of the first 6 characters found after the header text which in this case is the temperature of the measurement.  The program will find all the measurements (446 measurements for this case), then label each data set with the text following the header, ignore the following 4 lines then read the data found in the three columns separated by the delimiter specified in **data_separator**  (here, it should be TAB, it is the index nr 3 of the list, the lists start as index 0). Yappari can fit in batch all these 446 measurements.
 
-Note that even if you don't use a label, the dataset will have an index indicating the position of the data in the file : 0 is for the first dataset, 1 the second, and so on.
-An exemple of configuration file for a three columns separated by tab is also given in the /files directory. 
-The custom file allows to read other columns from a data file. 
+Note that even if you don't use a label, i.e. label_length is 0, the dataset will have an index indicating the position of the data in the file : 0 is for the first dataset, 1 the second, and so on.
 
-For instance, the file _example_custom_5_columns.txt_ was saved with yappari and contains 4 datasets with experimental and fitted data. It has a form like this :
+The custom file allows to read other columns from a data file. For instance, the file _example_custom_5_columns.dat_ was saved with yappari and contains 4 datasets with experimental and fitted data. It has a form like this :
  
     dev3221_imps_34, freq /Hz, Zr , Zi, Zr calc, Zi calc
     5.000000E+6;2.308040E+3;-4.358320E+3;2.656137E+3;-6.062695E+3
@@ -378,53 +426,61 @@ For instance, the file _example_custom_5_columns.txt_ was saved with yappari and
     3.189251E+6;3.033540E+3;-6.938630E+3;4.129017E+3;-8.583845E+3
    ...
    
-If we want to read this data we can use a a definition file like
+If we want to read this data we can use a a definition file (given in _example_custom_5_columns_template.xml_) 
 
-    [header]=dev3221_imps_ 
-    [label_length]=2
-    #label
-    #data_columns=1,4,5
+```xml                
+<LVData xmlns="http://www.ni.com/LVData">
+<Version>23.1f276</Version>
+<Cluster>
+<Name>cluster</Name>
+<NumElts>8</NumElts>
+<String>
+<Name>header</Name>
+<Val>dev3221_imps_</Val>
+</String>
+<U8>
+<Name>label length</Name>
+<Val>2</Val>
+</U8>
+<EW>
+<Name>data_separator</Name>
+<Choice>space</Choice>
+<Choice>comma</Choice>
+<Choice>semicolon</Choice>
+<Choice>tab</Choice>
+<Val>2</Val>
+</EW>
+<U8>
+<Name>ignore first</Name>
+<Val>0</Val>
+</U8>
+<U8>
+<Name>column_freq</Name>
+<Val>1</Val>
+</U8>
+<U8>
+<Name>column_Zr</Name>
+<Val>4</Val>
+</U8>
+<U8>
+<Name>column_Zi</Name>
+<Val>5</Val>
+</U8>
+<U8>
+<Name>ignore last</Name>
+<Val>0</Val>
+</U8>
+</Cluster>
+</LVData>
+```
 
-This instructs the program to read the fourth columns as Zr and the fifth as Zi (which are the calculated values saved in this file). Make sure you have the separator set as ";" which is the one used in this file.
+This instructs the program to read the fourth columns as Zr and the fifth as Zi (which are the calculated values saved in this file). Make sure you have the separator set as ";" which is the one used in this file, it is index 2 in the data_separator list.
 
-In the /files folder and in /drt you will find some other files, experimental or simulated with other impedance programs and exemples of configurations for custom files (the configuration files can have any names or extenstions, I just use .ini to remember that it is not a datafile):
-
-    _definition_file_3_columns.ini
-    _definition_file_5_columns.ini
-    _definition_file_ZMFLI.ini
-    _GAMRY_definition_custom.ini
-    custom_multiple_datasets.dat
-    definition_custom_multiple_datasets.ini
-    dev3221_imps_0_sample_0000.csv, 
-        -a csv file obtaines with a MFLI/MFIA, the separator for this file is ';'
-    exampleDataGamry.dta
-    example_custom_3_columns_datafile.txt
-        -to be used with the custom read function
-    example_custom_5_columns_datafile.txt 
-        -to be used with the custom read function
-    example_custom_file_ZMFLI_datafile.txt, 
-        -to be used with the custom read function or with Read ZMFLI
-    mod_dev3221_imps_0_sample_0000 
-        -a MFLI-txt file, as obtained with MFLI instrument (one dataset)
-    ZMFLI_exemple_file_.txt
-        -datafile obtained in other software packages in my lab. 
-    
-This last file can be read directly or by using the Custom function, with the definition file _definition_file_ZMFLI.ini
-
-Be aware that the separator character is not defined in the definition file but in your parameters in Yappari. 
-For instance, in the /files directory there is a datafile named 58a_bias.dat This file has some headers and the datapoints separated by ;
-So, if you want to read this file you must select as data separator ; in Yappari and define a custom file, which in this case is _definition_t58a.txt.
-In the definition file there are these instructions
-
-    [header]=Freq /Hz, Zr , Zi ; Name: 
-    [label_length]=8
-    #label
-    #data_columns=1,2,3
-
-Look at the data file and will understand these instructions.
+In the /files folder and in /drt you will find some other files, experimental or simulated with other impedance programs and exemples of configurations for template (or definition files).
+Be aware that the separator character is defined in the definition file if you use a Custom file, otherwise the separator is defined in the **Parameters** page. 
 
 ### Read project, xml
-This command will read an xml file saved in Yappari. It can read all data, models and parameters obtained. This is an xml file so it can be seen in a browser, but reading it is slow, it requires parsing all ASCII fields.
+This command will read an xml file saved with Yappari. It can read all data, models and parameters obtained. This is an xml file so it can be seen in a browser, but reading it is slow, it requires parsing all ASCII fields.
 
 ## Action
 This button can trigger several commands, some other are in [Advanced commands](https://github.com/nitad54448/yappari-5-1#advanced-commands) :

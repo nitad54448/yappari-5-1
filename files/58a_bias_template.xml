@@ -1,0 +1,44 @@
+<?xml version='1.0' standalone='yes' ?>
+<LVData xmlns="http://www.ni.com/LVData">
+<Version>23.1f276</Version>
+<Cluster>
+<Name>cluster</Name>
+<NumElts>8</NumElts>
+<String>
+<Name>header</Name>
+<Val>Freq /Hz, Zr , Zi ; Name: </Val>
+</String>
+<U8>
+<Name>label length</Name>
+<Val>8</Val>
+</U8>
+<EW>
+<Name>data_separator</Name>
+<Choice>space</Choice>
+<Choice>comma</Choice>
+<Choice>semicolon</Choice>
+<Choice>tab</Choice>
+<Val>2</Val>
+</EW>
+<U8>
+<Name>ignore first</Name>
+<Val>0</Val>
+</U8>
+<U8>
+<Name>column_Zr</Name>
+<Val>1</Val>
+</U8>
+<U8>
+<Name>column_freq</Name>
+<Val>2</Val>
+</U8>
+<U8>
+<Name>column_Zi</Name>
+<Val>3</Val>
+</U8>
+<U8>
+<Name>ignore last</Name>
+<Val>0</Val>
+</U8>
+</Cluster>
+</LVData>

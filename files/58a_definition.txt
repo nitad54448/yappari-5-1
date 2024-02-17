@@ -1,4 +1,0 @@
-[header]=Freq /Hz, Zr , Zi ; Name: 
-[label_length]=8
-#label
-#data_columns=1,2,3
