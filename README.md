@@ -33,7 +33,7 @@ This single dataset program is not developed further and it has limited features
   <summary>Changes</summary>
 
 ## Changes 
-   - February 19, 2024 : Custom data format are now defined with xml files. Configuration file is saved and read from /config. Release 5.1.71.1
+   - February 19, 2024 : Custom data format are now defined with xml files. Configuration file is saved and read from /config. Default parameters and limits can be changed with an additional program or directly in /config/*.xml files. Release 5.1.71.1
    - February 14, 2024 : Project files (all data, parameters, models) can be saved to or read from xml file. Release 5.1.71.
    - February 10, 2024 : Order of datasets can be changed by drag and drop. Release 5.1.70.6.
    - February 7, 2024 : Corrected an error in the "Report" function. Release 5.1.70.5.
