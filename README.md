@@ -11,7 +11,8 @@ This document applies to version 5.1.71.1 or after. For prior releases see the *
 This program can perform several mathematical operations of interest in impedance spectroscopy: non-linear parametric fits for one or multiple datasets, DRT, Hilbert transform, spectra simulations etc. For a single dataset and non-linear optimization you can use an old and simpler program [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2). 
 This single dataset program is not developed further and it has limited features so it might be better to start with this version. Some theoretical notions are given in the [theory file](https://github.com/nitad54448/yappari-5-1/blob/main/docs/theory.md) in this repository.
 
-  You are encouraged to contribute to this help file or write tutorials. If you want to contribute to the help file or tutorials, send them to me and I will add them to this repository. As much as I like programming, writing documentation is boring. The most updated description of the program is always here on this page.
+Two additional programs are added with Release 5.1.71.1. They are located in the same folder as Yappari-5-1.exe and can be used to change the default startup configuration (make_xml_file.exe) or to change the default parameters and the limmits of the model (change_default_param_xml.exe).
+You are encouraged to contribute to this help file or write tutorials. If you want to contribute to the help file or tutorials, send them to me and I will add them to this repository. As much as I like programming, writing documentation is boring. The most updated description of the program is always here on this page.
   
  </details>
 
