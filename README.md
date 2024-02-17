@@ -203,15 +203,15 @@ For a more complex circuit, you can find on the right side of the screen names s
 Overall, the notation is quite straightforward once you become familiar with the conventions used.
 
 ## Parameters
-On this page you can adjust some parameters of the program. The parameters by default are loaded from a configuration file named _yappari_configuration.ini that is located in /config folder. You can edit or save a default configuration file.
+On this page you can adjust some parameters of the program. The parameters by default (but not the parameters limits) are loaded from a configuration file named _yappari_configuration.ini that is located in /config folder. You can edit or save a default configuration file. The default circuit parameters are load from **/config** xml files. You can edit those either manually or with an accompanying program.
 
 For reading data the important point to remember is that the datafile separator _should_ be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. By default the separator is set to TAB. This separator will not be used when reading files with a Custom configuration (in this case the definition file sets the separator to be used).
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/parameters.PNG)
 
-The fitting algorithm (TRDL is the default) and the parameters bounds, if any, can be constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-15, and so on. You may need to adjust these parameters limits. The fitting results may depend on the starting parameters since this is a non-linear system. You should probably start with TRDL to approach some values close to the solution then proceed with a LM fit. Note that esd's of the fitted parameters are calculated only for unconstrained LM fit.
+The fitting algorithm (TRDL is the default) and the parameters bounds, if any, can be constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-15, and so on. You may need to adjust these parameters limits either on this page or the starting values that are located in the xml files (you can use the program change_default_parameters_xml). The fitting results may depend on the starting parameters since this is a non-linear system. You should probably start with TRDL to approach some values close to the solution then proceed with a LM fit. Note that esd's of the fitted parameters are calculated only for unconstrained LM fit.
 
-The fit termination parameters can be adjusted here : by default they are set to 1000 iterations and a stop limit at 10E-15 or if you want them, the default values are in the program configuration file which can be edited or saved.
+The fit termination parameters can be adjusted here : by default they are set to 2000 iterations and a stop limit at 10E-15 or if you want them, the default values are in the program configuration file which can be edited or saved.
 The same value listed as the maximum iteration number in this panel is used for DRT calculated with Gold or Fisk algorithms.
 
 ### Max plots
