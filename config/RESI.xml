@@ -20,7 +20,7 @@
 </String>
 <DBL>
 <Name>max</Name>
-<Val>200000000.00000000000000</Val>
+<Val>400000000.00000000000000</Val>
 </DBL>
 </Cluster>
 </Array>
