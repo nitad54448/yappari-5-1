@@ -24,7 +24,7 @@ You are encouraged to contribute to this help file or write tutorials. If you wa
 <details>
   <summary>Tutorials</summary>
 
-- [Basic introduction](https://github.com/nitad54448/yappari-5-1/blob/main/help/tutorial_Yappari_5_1.pdf).
+- [Basic introduction](https://github.com/nitad54448/yappari-5-1/blob/main/help/tutorial_YAPPARI_5_1.pdf).
 - [Fit multiple datasets](https://github.com/nitad54448/yappari-5-1/blob/main/help/fit_multiple.pdf).
 - [Another general tutorial](https://github.com/nitad54448/yappari-5-1/blob/main/help/another_tutorial_yappari_24_jan_2024.pdf).
 </details>
