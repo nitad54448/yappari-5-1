@@ -1,0 +1,52 @@
+<?xml version='1.0' standalone='yes' ?>
+<LVData xmlns="http://www.ni.com/LVData">
+<Version>23.1f276</Version>
+<Cluster>
+<Name>xml config params</Name>
+<NumElts>4</NumElts>
+<Array>
+<Name>param limits</Name>
+<Dimsize>0</Dimsize>
+<Cluster>
+<Name>ParameterSelect</Name>
+<NumElts>3</NumElts>
+<DBL>
+<Name>min</Name>
+<Val></Val>
+</DBL>
+<String>
+<Name>param</Name>
+<Val></Val>
+</String>
+<DBL>
+<Name>max</Name>
+<Val></Val>
+</DBL>
+</Cluster>
+</Array>
+<Array>
+<Name>param</Name>
+<Dimsize>0</Dimsize>
+<String>
+<Name>String</Name>
+<Val></Val>
+</String>
+</Array>
+<Array>
+<Name>fit ?</Name>
+<Dimsize>0</Dimsize>
+<Boolean>
+<Name>Checkbox</Name>
+<Val></Val>
+</Boolean>
+</Array>
+<Array>
+<Name>values</Name>
+<Dimsize>0</Dimsize>
+<DBL>
+<Name>Value</Name>
+<Val></Val>
+</DBL>
+</Array>
+</Cluster>
+</LVData>
