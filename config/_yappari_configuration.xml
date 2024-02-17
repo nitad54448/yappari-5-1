@@ -1,0 +1,73 @@
+<?xml version='1.0' standalone='yes' ?>
+<LVData xmlns="http://www.ni.com/LVData">
+<Version>23.1f276</Version>
+<Cluster>
+<Name>output cluster</Name>
+<NumElts>8</NumElts>
+<EW>
+<Name>Method</Name>
+<Choice>TRDL</Choice>
+<Choice>LM with limits</Choice>
+<Choice>LM</Choice>
+<Val>0</Val>
+</EW>
+<Cluster>
+<Name>termination</Name>
+<NumElts>2</NumElts>
+<I32>
+<Name>max iteration</Name>
+<Val>2500</Val>
+</I32>
+<DBL>
+<Name>tolerance</Name>
+<Val>1.00000000000000E-18</Val>
+</DBL>
+</Cluster>
+<EW>
+<Name>Datafile separator</Name>
+<Choice>;</Choice>
+<Choice>, (comma)</Choice>
+<Choice>   (TAB)</Choice>
+<Choice> (space)</Choice>
+<Val>2</Val>
+</EW>
+<U32>
+<Name>max Plots</Name>
+<Val>60</Val>
+</U32>
+<Cluster>
+<Name>simulation limits</Name>
+<NumElts>3</NumElts>
+<DBL>
+<Name>start /Hz</Name>
+<Val>1.00000000000000E-3</Val>
+</DBL>
+<DBL>
+<Name>end /Hz</Name>
+<Val>1000000.00000000000000</Val>
+</DBL>
+<I32>
+<Name>points</Name>
+<Val>128</Val>
+</I32>
+</Cluster>
+<EW>
+<Name>DRT source</Name>
+<Choice>both Zr, Zi</Choice>
+<Choice>Zr</Choice>
+<Choice>Zi</Choice>
+<Val>0</Val>
+</EW>
+<EW>
+<Name>DRT method</Name>
+<Choice>Gold</Choice>
+<Choice>Tikhonov</Choice>
+<Choice>Fisk</Choice>
+<Val>1</Val>
+</EW>
+<DBL>
+<Name>DRT parameter</Name>
+<Val>1.00000000000000E-3</Val>
+</DBL>
+</Cluster>
+</LVData>
