@@ -11,7 +11,6 @@ This document applies to version 5.1.71.1 or after. For prior releases see the *
 This program can perform several mathematical operations of interest in impedance spectroscopy: non-linear parametric fits for one or multiple datasets, DRT, Hilbert transform, spectra simulations etc. For a single dataset and non-linear optimization you can use an old and simpler program [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2). 
 This single dataset program is not developed further and it has limited features so it might be better to start with this version. Some theoretical notions are given in the [theory file](https://github.com/nitad54448/yappari-5-1/blob/main/docs/theory.md) in this repository.
 
-Two additional programs are added with Release 5.1.71.1. They are located in the same folder as Yappari-5-1.exe and can be used to change the default startup configuration (make_xml_file.exe) or to change the default parameters and the limmits of the model (change_default_param_xml.exe).
 You are encouraged to contribute to this help file or write tutorials. If you want to contribute to the help file or tutorials, send them to me and I will add them to this repository. As much as I like programming, writing documentation is boring. The most updated description of the program is always here on this page.
   
  </details>
@@ -34,7 +33,7 @@ You are encouraged to contribute to this help file or write tutorials. If you wa
   <summary>Changes</summary>
 
 ## Changes 
-   - February 19, 2024 : Custom data format are now defined with xml files. Configuration file is saved and read from /config. Default parameters and limits can be changed with an additional program or directly in /config/*.xml files. Release 5.1.71.1
+   - February 19, 2024 : Custom data format are now defined with xml files. Configuration file is saved and read from /config. Default parameters and limits can be changed with by editing the /config/*.xml files. Release 5.1.71.1
    - February 14, 2024 : Project files (all data, parameters, models) can be saved to or read from xml file. Release 5.1.71.
    - February 10, 2024 : Order of datasets can be changed by drag and drop. Release 5.1.70.6.
    - February 7, 2024 : Corrected an error in the "Report" function. Release 5.1.70.5.
@@ -141,7 +140,7 @@ The recommended way to install this program is to use the full package which can
 
 There is another way to install it, if you want to complicate things. Yappari 5.1 is compiled with Labview 2023 for Windows 10. As such it will require a _Labview run-time engine_ which is installed, if needed, by the full installer. So, if you already have the run-time engine (either because you have peviously installed Yappari or you have installed another program compiled with Labview 2023) you can just download all the files from the green button __Code__ as a zip file. If you do not have the run-time engine but still want to go the hard way, you can download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336) then get the zip file from __Code__. The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
 
-After installing the program in a directory of your choice, some other subdirectories will be created : **/config**, **/docs**, **/drt**, **/file**s, **/help** and **/models**. The **/models** directory contains png files with images for showing circuits. The **/config** holds an xml configuration file, **/files** directory contains some examples of data files and custom definitions and **/models** some image files for models.  The **/help** directory holds some images for this document and some help files. You can remove **/docs**, **/drt**, **/files** and **/help** if you want but you must keep the **/models** and **/config** folders.
+After installing the program in a directory of your choice, some other subdirectories will be created : **/config**, **/docs**, **/drt**, **/file**s, **/help** and **/models**. The **/models** directory contains png files with images for showing circuits. The **/config** holds xml configuration files, **/files** directory contains some examples of data files and custom definitions and **/models** some image files for models.  The **/help** directory holds some images for this document and some help files. You can remove **/docs**, **/drt**, **/files** and **/help** if you want but you must keep the **/models** and **/config** folders.
 
 This program is supposed to work with Windows 10 64 bits or Win 11 and on my PC and many others it works fine; also it should work on win7 64bits, Win8 or Win8.1 as well but I am unable to test it on these systems.
 
@@ -203,9 +202,9 @@ For a more complex circuit, you can find on the right side of the screen names s
 Overall, the notation is quite straightforward once you become familiar with the conventions used.
 
 ## Parameters
-On this page you can adjust some parameters of the program. The parameters by default (but not the parameters limits) are loaded from a configuration file named _yappari_configuration.ini that is located in /config folder. You can edit or save a default configuration file. The default circuit parameters are load from **/config** xml files. You can edit those either manually or with an accompanying program.
+On this page you can adjust some parameters of the program. The parameters by default (but not the parameters limits) are loaded from a configuration file named _yappari_configuration.ini that is located in /config folder. You can edit or save a default configuration file. The default circuit parameters are load from **/config** xml files. You can edit all these xml to adapt the default values to your liking.
 
-For reading data the important point to remember is that the datafile separator _should_ be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. By default the separator is set to TAB. This separator will not be used when reading files with a Custom configuration (in this case the definition file sets the separator to be used).
+For reading data the important point to remember is that the datafile separator _should_ be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. This data separator **will not be used** when reading files with a Custom configuration (in this case the definition file sets the separator to be used).
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/parameters.PNG)
 
@@ -230,7 +229,7 @@ To change the sign of Zi after reading a file that has -Zi (I always wondered wh
 
     negate_zi
 
-You can also interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try it, if you don't have spurious points. The command :
+You can also interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try it, if you don't have spurious points. The command:
 
     spline
     
