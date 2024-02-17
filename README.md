@@ -179,7 +179,7 @@ The elements used are rather common: Resistor, Capacitor, Inductor, CPE, Zarc, s
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/circuit.PNG)
 
-Equations are described in the [theory](https://github.com/nitad54448/yappari-5-1/blob/main/theory.md) file. 
+Equations are described in the [theory](https://github.com/nitad54448/yappari-5-1/blob/main/docs/theory.md) file. 
 
 ### Create a model
 
@@ -502,7 +502,7 @@ Copy the listed parameters to all datasets. Useful for bulk fitting in order to 
 Copy the listed parameters to selected datasets. Note that the listed parameters are those of the first selected dataset.
 
 ### DRT active datasets
-This performs a calculation of Distribution of Relaxation Times for one or more datasets for the case of serial RC circuits. The methods used and theory is detailed [here](https://github.com/nitad54448/yappari-5-1/blob/main/theory.md).  
+This performs a calculation of Distribution of Relaxation Times for one or more datasets for the case of serial RC circuits. The methods used and theory is detailed [here](https://github.com/nitad54448/yappari-5-1/blob/main/docs/theory.md).  
  
 Data should be acquired with log spacing and with a decent number of points per decade (otherwise you may try to rearrange data with the command _spline>>number_ if you want a total _number_ interpolated datapoints scaled in log space).
 For the fit, the optimal regularization parameter is decided by the user (there is no universal value for this, it can be estimated with a procedure known as L-curve). If the Tikhonov parameter, noted Lambda in this program, is too small some spurious peaks will appear while a parameter too large will just squash the information. 
