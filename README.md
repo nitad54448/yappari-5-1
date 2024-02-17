@@ -33,7 +33,7 @@ This single dataset program is not developed further and it has limited features
   <summary>Changes</summary>
 
 ## Changes 
-   - February 19, 2024 : Custom data format are now defined with xml files. Release 5.1.71.1
+   - February 19, 2024 : Custom data format are now defined with xml files. Configuration file is saved and read from /config. Release 5.1.71.1
    - February 14, 2024 : Project files (all data, parameters, models) can be saved to or read from xml file. Release 5.1.71.
    - February 10, 2024 : Order of datasets can be changed by drag and drop. Release 5.1.70.6.
    - February 7, 2024 : Corrected an error in the "Report" function. Release 5.1.70.5.
@@ -202,7 +202,7 @@ For a more complex circuit, you can find on the right side of the screen names s
 Overall, the notation is quite straightforward once you become familiar with the conventions used.
 
 ## Parameters
-On this page you can adjust some parameters of the program. The parameters by default are loaded from a configuration file named _yappari_configuration.ini that is located in Documents/Labview data, after a first run of the program. You can edit or save a default configuration file, see [Advanced commands](https://github.com/nitad54448/yappari-5-1#advanced-commands) section.
+On this page you can adjust some parameters of the program. The parameters by default are loaded from a configuration file named _yappari_configuration.ini that is located in /config folder. You can edit or save a default configuration file.
 
 For reading data the important point to remeber is that the datafile separator _should_ be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. By default the separator is set to TAB. 
 
@@ -549,7 +549,7 @@ This option saves the active datasets, as selected by the user, to a single file
 Save all data, model and parameters, including calculated and DRT data, if any, into an xml file. This file can be read in Yappari, starting with release 5.1.71. 
 
 ### Save config
-Save a default configuration file as ../Documents/Labview data/configuration_yappari.xml.
+Save a default configuration file as /config/configuration_yappari.xml.
 
 ### Help
 This will open this website, hopefully the address will not change; while the program file may have some tutorial help files, the most recent help is always on this github page.
