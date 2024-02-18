@@ -146,11 +146,9 @@ After installing the program in a directory of your choice, some other subdirect
 
 This program is supposed to work with Windows 10 64 bits or Win 11 and on my PC and many others it works fine; also it should work on win7 64bits, Win8 or Win8.1 as well but I am unable to test it on these systems.
 
-
-
 ## Read data
-This command opens a menu with several options indicating the type of file to read. Reading a new file will just add more data at the beginning of the list wihtout losing the previous ones. You can remove some of the datasets with the command [Delete selected datasets](https://github.com/nitad54448/yappari-5-1#delete-active-datasets). You will need to select one or more datasets in order to perform operations like fit, save, plot.. etc. A selected dataset is coloured differently, it is named in this document as _active_. 
-_Note : the files given as examples in the /files directory have a decimal separator . (a dot). When saving data there is a character separation between the numerical values (usually a TAB), this should be adjusted in Yappari, see the __Parameters__ page.
+This command opens a menu with several options indicating the type of file to read. Reading a new file will just add more data at the beginning of the list wihtout losing the previous ones. You can remove some of the datasets with the command [Delete selected datasets](https://github.com/nitad54448/yappari-5-1#delete-active-datasets). You will need to select at least a dataset in order to perform operations like fit, save, plot.. etc. A selected dataset is coloured differently, it is named in this document as _active_. 
+Note : when reading simple datafile (by simple I mean a file with no particular definition, see the term Custom below) the data separator in the file should be the same as the data separator in the __Parameters__ page. This same data separator will be used for saving the data.
 
 ### 3 columns
 This option reads a **single dataset** from a three-column ASCII file, which should be separated by the character selected in the [Parameters](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#parameters) page, and it should contain frequency in Hz, Zr, and Zi. The data separator can be "TAB", "space", ",", ";".
@@ -160,21 +158,21 @@ If the reading is successful, the dataset will be inserted in the first position
 _Note : You should select the proper separator string in the Parameters page prior to use of this function._
 
 ### MFLI, csv
-This is a ';' or ',' separated values file as obtained from MFLI/MFIA, a Zurich Instruments impedance analyzer. As in the __MFLI, Zview text__, multiple data sets can be read from this file. In the /files folder that is provided with the installer you can find such a file containing 34 measurements of the same sample. It would be boring and useless to fit all these 34 datasets one by one. Yappari-5 can handle such multiple data sets. The dataseset are labeled with a name taken from the file name and a suffix indicating the position in the file : the first datasets in the file will have __0__, then __1__, .. and so on.
+This is a ';' or ',' separated values file as obtained from MFLI/MFIA, a Zurich Instruments impedance analyzer. Multiple data sets can be read from this file. In the **/files** folder that is provided with the installer you can find such a file with **;** as separator containing 34 measurements of the same sample. It would be boring and useless to fit all these 34 datasets one by one. Yappari-5 can handle such multiple data sets. The dataseset are labeled with a part of the file name and a suffix indicating the position of the dataset in the file : the first dataset found in the file will have __0__, then __1__, .. and so on.
 _Note : You should select the proper separator string in the Parameters page prior to of use this function._
 
 ### MFLI, Zview txt
-This is a MFLI text file, an ASCII type, that can hold multiple data sets. Yappari will read all datasets it finds in this file and insert them in the datasets listing, with a name taken from the file name and a suffix indicating the position in the file : the first datasets will have __0__, then __1__,  and so on.
+This is a MFLI text file, an ASCII type, that can hold multiple data sets. Yappari will read all datasets it finds in this file and insert them in the datasets listing, as above with a name taken from the file name and a suffix indicating the position in the file : the first datasets will have __0__, then __1__,  and so on.
 
 ### Versa Studio par
-This type of file contains data delimited by <Segments> and >/Segments>. I did not extensively checked this type of file, an example is given in the /data folder. If you encounter errors, feel free to drop me a line with examples of datafile saved by this system.
+This type of file contains data delimited by <Segments> and >/Segments>. I did not extensively checked this type of file, an example is given in the **/files** folder. If you encounter errors, feel free to drop me a line with examples of files saved by this system.
 
 ### Z-MFLI
-This is a custom text file, that can hold multiple data sets, which is obtained by the programs I wrote in my lab. An exemple of such file is given in the /data directory but it has probably little interest for other users except that a Custom definition file is provided for this file, so the users may understand how to define such a file for reading custom formats.
+This is a custom text file, that can hold multiple data sets, which is obtained by the programs I wrote in my lab. An exemple of such file is given in the **/files** directory but it has probably little interest for other users except that a Custom definition file is provided for this file, so the users may understand how to define such a file for reading custom formats.
 
 ### Custom
-If your data file is of text type and has a format that is not usual you may define a _Custom_ format in an XML configuration file. In this case the program will ask the user to select two files : first the datafile then the XML file that describes the format used.
-Several exemples of such files are given in the **/files** directory. A small program that saves this kind of file is also included (I think it is faster to use Notepad and edit one of the existing files).
+If your data file is of text type and has a format that is not usual you may define a _Custom_ format in an XML configuration file. In this case the program will ask the user to select first the datafile then the XML file that describes the format used.
+Several exemples of such files are given in the **/files** directory. A small program that saves this kind of file is also included (**save_custom_xml.exe** but I think it is faster to use Notepad and edit one of the existing files).
 The xml files can be viewed in a browser or edited by a standard text program (like Notapad). 
 
 The XML parameters that are required for a definition file are 
@@ -223,7 +221,7 @@ For example, the Z-MFLI program saves a file like this:
     6.649436E+5	9.169096E+4	-5.206284E+4
     ....
     
-In order to read this file we can observe that the datasets are separated by a string  __Temp /K before measurement :__  The label I use is the temperature shown in this line, just after the header. Next, there are 4 text lines that I can ignore. Four additional lines are at the end of the data which are separated by "tab". One can use an xml definition like this :
+In order to read this file we can observe that the datasets are separated by a string  __Temp /K before measurement :__  The label I use is the temperature shown in this line, just after the header. **Label must be located on the same line and as the header.**  Next, there are 4 text lines that we can ignore. After some lines of data on three columns which are separated by "tab" we can see four additional lines are at the end of the data. One can use an xml definition like this :
 
 ```xml
 <Version>23.1f276</Version>
@@ -268,12 +266,12 @@ In order to read this file we can observe that the datasets are separated by a s
 	</U8>
 </Cluster>undefined</LVData>
 ```
-This file can be created with the make-xml.exe program or just edited with a text editor. 
-The command header will split the datafile (an example of this ZMFLI file is located in **/files/ZMFLI_datafile_example.dat**) in as many datasets it can find. The datasets are separated by the header read from the XML file (some repetitive text value). The program will find all the measurements (446 measurements for this case), then label each data set with the text following the header, ignore the following 4 lines then read the data found in the three columns separated by the delimiter specified in **data_separator**  (here, it is TAB, it is the index nr 3 of the list, the list start at index 0). After the data is read, an additional 4 lines are skipped.
+This file can be created with the **save-custom-xml.exe** program or just edited with a text editor. 
+The command header will split the datafile **/files/ZMFLI_datafile_example.dat** in as many datasets it can find. The datasets are separated by the header read from the XML file (some repetitive text value). The program will find all the measurements (446 measurements for this case), then label each data set with the text following the header, ignore the following 4 lines then read the data found in the three columns separated by the delimiter specified in **data_separator**  (here, it is TAB, it is the index nr 3 of the list, the list start at index 0). After the data is read, an additional 4 lines are skipped.
 
 Note that even if you don't use a label, i.e. label_length is 0, the dataset will have an index indicating the position of the data in the file : 0 is for the first dataset, 1 the second, and so on.
 
-The custom file allows to read other columns from a data file. For instance, the file _example_custom_5_columns.dat_ was saved with yappari and contains 4 datasets with experimental and fitted data. It has a form like this :
+The custom file allows to read other columns from a data file. For instance, the file **/files/example_custom_5_columns.dat** was saved with Yappari and contains 4 datasets with experimental and fitted data. It has a form like this :
  
     dev3221_imps_34, freq /Hz, Zr , Zi, Zr calc, Zi calc
     5.000000E+6;2.308040E+3;-4.358320E+3;2.656137E+3;-6.062695E+3
@@ -290,7 +288,7 @@ The custom file allows to read other columns from a data file. For instance, the
     3.189251E+6;3.033540E+3;-6.938630E+3;4.129017E+3;-8.583845E+3
    ...
    
-If we want to read the calculated impedances, located in the columns 4 and 5 with a definition file (given in _example_custom_5_columns_template.xml_) the definition will look like this: 
+If we want to read the calculated impedances, located in the columns 4 and 5 with a custom file (given in **example_custom_5_columns_template.xml**) the definition will look like this: 
 
 ```xml                
 <LVData
@@ -339,10 +337,10 @@ If we want to read the calculated impedances, located in the columns 4 and 5 wit
 </LVData>
 ```
 
-This instructs the program to read the fourth column as Zr and the fifth as Zi. Make sure you have the separator set as ";" which is the one used in this file, it is index 2 in the data_separator list.
+This instructs the program to read the fourth column as Zr and the fifth as Zi. The separator in the definition file should be set as ";" which is the one used in this datafile, it is index 2 in the data_separator xml definition. When using Custom file definitions the "Data separator" located in Yappari **Parameters** page is ignored. 
 
 In the **/files** folder and in **/drt** you will find some other files, experimental or simulated with other impedance programs and exemples of configurations for XML templates (or definition files).
-Be aware that the separator character is defined in the definition file only if you use a Custom file, otherwise the separator is defined in the **Parameters** page. 
+Be aware that the separator character is defined in the definition file only if you use a Custom file, otherwise the separator is defined in the **Parameters** page (this separator is used when saving data or in reading undefined datafiles).
 
 ### Read project, xml
 This command will read an xml file saved with Yappari. It can read all data, models and parameters obtained. This is an xml file so it can be seen in a browser, but reading it is slow, it requires parsing all ASCII fields.
@@ -357,10 +355,10 @@ You can delete experimental points from selected datasets in the Nyquist, Zr, Zi
 Irreversible action removing one or more datasets and all related parameters from memory (by active one should understand “selected”). Datasets can be deleted also with the Key "Delete".
 
 ### Apply correction to active
-Apply a correction factor to the experimental Zr and Zi for all selected datasets.  The impedance values will be multiplied with the factor you input here.  Be careful: this may change the units. For ionic conductivity multiply with S/L will give resistivity (in Ohm cm or Ohm m) instead of Ohm. For reactions at electrode surface you need to multiply with the electrode surface to get Ohm cm^2 or Ohm m^2. The calculated impedance will not be affected by this command.
+Apply a correction factor to the experimental Zr and Zi for all selected datasets.  The impedance values will be multiplied with the factor you input here.  Be careful: this may change the units. For conductivity multiplying with S/L will give resistivity (in Ohm cm or Ohm m) instead of Ohm. For reactions at electrode surface you need to multiply with the electrode surface to get Ohm cm^2 or Ohm m^2.
 
 ### Simulate spectrum
-This option will calculate an impedance spectrum based on the model and the values of the parameters of the model, in the frequency range that are on Parameters page. It will create a new dataset (called "sim_" but you can change its name). 
+This option will calculate an impedance spectrum based on the model and the values of the parameters of the model, in the frequency range that are on Parameters page. It will create a new dataset (called "sim_", you can change its name, as for all datasets). 
 
 ### Z-Hit active datasets
 This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given previously. This is a procedure similar to the better known Kramers-Kronig test.
@@ -412,9 +410,6 @@ This option saves the active datasets, as selected by the user, to a single file
 ### Save project, xml
 Save all data, model and parameters, including calculated and DRT data, if any, into an xml file. This file can be read in Yappari, starting with release 5.1.71. 
 
-
-
-
 ## Panels
 The program has several panels and a parameter list with several commands grouped on the right side of the window. When you start the program, if everything is normal, you should see something like this
 
@@ -453,7 +448,6 @@ The elements used are rather common: Resistor, Capacitor, Inductor, CPE, Zarc, s
 Equations are described in the [theory](https://github.com/nitad54448/yappari-5-1/blob/main/help/theory.md) file. 
 
 ### Create a model
-
 When you create a model using the  editor, the circuit is not valid unless a flow of current can be calculated (but not a short-circuit). Once the circuit is valid, a LED labeled __valid__ will light up on the model panel, indicating that the circuit is ready for use and you can see a list of parameters with some default values for each element of the circuit. You can change these default values see **Parameters** below.
 
 _Note : the associated parameters will be listed only if your model is valid_. 
@@ -568,7 +562,7 @@ Brief help listing the version of the program, this is also the landing page of 
 This will open this website, hopefully the address will not change; while the program file may have some tutorial help files, the most recent help is always on this github page.
 
 ## Datasets
-This list box shows all the datasets in memory. You can select one or more datasets and you can use common Windows shortcut like Ctrl+A, Delete.... The parameters listed are those of the dataset selected (or the first selected dataset if you have more than one selection). The datasets label can be edited.
+This list box shows all the datasets in memory. You can select one or more datasets and you can use common Windows shortcut like Ctrl+A, Delete or you can drag and drop to change their order... The parameters listed are those of the first selected dataset. The datasets labels can be edited.
 
 ## Fit selected
 This command is used to fit the set of parameters that describes the circuit, if the circuit is valid (i.e., there are parameters to fit on the right side of the window) and if you have data. The user can select which parameters to fit and it is recommended to start with a few parameters first, ensuring that the initial values are close to the expected values. The simulated spectrum will be updated with every change in the parameters, and the user can perform manual adjustments as necessary. The data can be selected by standard click, ctrl+click,.. or if you want you can select all by using Ctrl+A.
