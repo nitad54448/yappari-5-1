@@ -97,18 +97,6 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 
 # Index
    - [How to install](#how-to-install)
-   - [Panels](#panels)
-     - [Zr, -Zi](#zr--zi)
-     - [Zr, Zi, ln R, theta](#zr-zi-ln-r-theta)
-     - [3D plot](#3d-plot)
-     - [Model](#model)
-     - [Elements](#elements)
-     - [Create a model](#create-a-model)
-   - [Parameters](#parameters)
-     - [Max plots](#max-plots)
-     - [Simulation limits](#simulation-limits)
-     - [Advanced commands](#advanced-commands)
-   - [About](#about)
    - [Read data](#read-data)
      - [3 columns](#3-columns)
      - [MFLI, csv](#mfli-csv)
@@ -132,6 +120,18 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
      - [Save data](#save-data)
      - [Save project, xml](#save-project-xml)
      - [Help](#help)
+   - [Panels](#panels)
+     - [Zr, -Zi](#zr--zi)
+     - [Zr, Zi, ln R, theta](#zr-zi-ln-r-theta)
+     - [3D plot](#3d-plot)
+     - [Model](#model)
+     - [Elements](#elements)
+     - [Create a model](#create-a-model)
+   - [Parameters](#parameters)
+     - [Max plots](#max-plots)
+     - [Simulation limits](#simulation-limits)
+     - [Advanced commands](#advanced-commands)
+   - [About](#about)
    - [Datasets](#datasets)
    - [Fit selected](#fit-selected)
  
@@ -146,153 +146,7 @@ After installing the program in a directory of your choice, some other subdirect
 
 This program is supposed to work with Windows 10 64 bits or Win 11 and on my PC and many others it works fine; also it should work on win7 64bits, Win8 or Win8.1 as well but I am unable to test it on these systems.
 
-## Panels
-The program has several panels and a parameter list with several commands grouped on the right side of the window. When you start the program, if everything is normal, you should see something like this
 
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/panels.PNG)
-
-### Zr, -Zi
-This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you need to disable the Auto-axis feature by right clicking on the graph and directly change the ranges. Some other standard graphic functions are available in the top left "palette" such as zoom in, zoom out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
-You can change the plot colors, style, etc.... by clicking on the label; the changes in this graph will affect all the other graphs, except for DRT. You can remove some outlier points by zooming in and use the command _Action_/_Delete points from Nyquist_. Points that are in that range are removed from all active datasets (equivalent with a mask, except that the removal of points is irreversible).
-The number of plots can be selected by the user, see Max Plots on [Parameters](https://github.com/nitad54448/yappari-5-1#parameters) page. Note that, because of space limitations, only the first 24 plots will have legends. But you can plot as many datasets as you want (I tried 3700 datasets, see the tutorials, it is possible but slow to plot them and I wonder why you'd want to plot that many). 
-
-### Zr, Zi, ln R, theta
-These panels will show the dependency of impedances (real, imaginary, modulus or phase) as a function of frequency and the differences between the calculated and experimental values, something like this
-
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/fit_graph.PNG)
-
-### 3D plot
-This panel will show a 3D plot of selected datasets or a part of them, either in Nyquist, Zr or Zi or their differences, as selected by the user. This is useful for many datasets, more than 20 I guess, it will allow the user to see tendencies or check systematic errors in the fits. You can right click on the graph to adjust plotting properties to your liking (3D Plot Properties) or change the size of the graph. If you have many datasets, it will take some time to plot all data so to limit the waiting time, you may want to "decimate" the data for plotting). The number of plots shown is defined by the smallest value between the number of selected datasets and the "Max plots" value, see [Parameters](https://github.com/nitad54448/yappari-5-1#parameters). Depending on your computer, a few hunderth datasets can be plotted easily. If you try more than 1000 you'll have to wait, the program will appear irresponsive.
-The 3D plot might be useful to look for tendencies, a plot looks like this :
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/Zidiff_3D.PNG)
-
-### Model
-In this panel a model can be created by the user, by selecting element circuits. 
-Up to ten elements can be added in the circuit (obviously it is not realistic to fit such a circuit, unless you want to fit an [elephant](https://en.wikipedia.org/wiki/Von_Neumann%27s_elephant)). Only the first 18 parameters -more than enough- will be shown in the right side of the program.
-
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/page_model.PNG)
-
-When you click on one of the ten available cases, a new window will appear where you can select the element you want to add. Simply click on the picture of the element you want to add to the model. The available circuit elements include resistors, capacitors, inductors, and more complex elements such as constant phase elements or Warburg elements (see below).
-
-You can edit the png image files to your liking (just for aesthetics, the calculations will not be affected), they are in the subdirectory __/models__. The ideal size of the png files is 150x100 pixels.
-
-### Elements
-The elements used are rather common: Resistor, Capacitor, Inductor, CPE, Zarc, simple Randles circuit, Randles with kinetic and diffusion, Warburg (semi-infinite linear diffusion), Warburg short, Warburg Long, Gerischer, Havriliak-Negami and several compositions of these.
-
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/circuit.PNG)
-
-Equations are described in the [theory](https://github.com/nitad54448/yappari-5-1/blob/main/help/theory.md) file. 
-
-### Create a model
-
-When you create a model using the  editor, the circuit is not valid unless a flow of current can be calculated (but not a short-circuit). Once the circuit is valid, a LED labeled __valid__ will light up on the model panel, indicating that the circuit is ready for use and you can see a list of parameters with some default values for each element of the circuit. You can change these default values see **Parameters** below.
-
-_Note : the associated parameters will be listed only if your model is valid_. 
-
-To see the experimental data and the simulation you need to select one or several datasets and the calculations will be made based on the model and the values of parameters for each dataset. If you select several datasets, the parameters of the first dataset are shown. If you modify a parameter while several datasets are selected, that parameter will be changed for all selected datasets.
-
-Calculations of impedances are made whenever the parameter values are changed... _if the model is valid_ and if you have some data loaded or simulated. You can use the wheel of the mouse to evaluate the change in the output impedance with the change in the value of a parameter.
-
-Each parameter listed on the right side of the page, is labeled with a decimal, which indicates which element it belongs to. For example, the first element of the circuit will have parameters labeled as 0.x, the second element as 1.x, and so on. For [this circuit](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/page_model.PNG) composed of two zarcs we need to close the circuit and make "electrical contacts" in other elements (elements 0 and 6) for the circuit to be valid. The parameters that will be listed for this circuit will be 4something and 5something (since the two elements are located on positions 4 and 5). 
-
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/param_values.PNG)
-
-As the circuit is valid, with a Zarc in element 4 position and a Zarc in element 5 position, six parameters will appear in the tab of the right side of the panel: 4ZARR, 4ZARQ and 4ZARN and 5ZARR, 5ZARQ and 5ZARN; the names are rather self-explaining for the parameters describing a Zarc located in the position 4 of the circuit and a Zarc in the position 5. You can use a RQ element and fix the N to 1 to obtain the equivalent RC circuit. The equivalent capacitance for a RQ circuit is C=((RQ)<sup>1/n</sup>)/R.
-
-For a more complex circuit, you can find on the right side of the screen names such as 2MR1D, 2MQ2D, 2MN2D, 2MR3D, 2MR4D, 2MR5D, and 2MW6D. The first number, "2", indicates which element case the device is in. The letters "M" and "D" are internal notations that are used by the program to identify the device type, but they are not important for the user. The type of device is listed after the "M" notation, such as "R" for resistor or "W" for Warburg. The numbering of the devices goes from left to right and top to bottom.
-
-Overall, the notation is quite straightforward once you become familiar with the conventions used.
-
-## Parameters
-On this page you can adjust some parameters of the program. The basic parameters (but not the parameters related to electrical model) are loaded from a configuration file named **yappari_configuration.xml** that is located in **/config** folder. You can edit this file or save the actual values with **save_config** command in **Advanced commands**. 
-The default circuit parameters are loaded from model definitions in **/config** xml files. You can edit all these xml to adapt the default values or the limits with the **change_default_parameters_xml.exe** program or by directly editing the **/config/*.xml** files. **Do not change** the names of the parameters in the xml files but only the numerical values. Edit xml files only if you understand what are you doing. Admin credentials are needed for **change_default_parameters_xml.exe** program).
-
-For reading data the important point to remember is that the datafile separator _should_ be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. This data separator **will not be used** when reading files with a Custom configuration (in this case the definition file sets the separator to be used).
-
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/parameters.PNG)
-
-The fitting algorithm (TRDL is the default) and the parameters bounds, if any, can be constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-15, and so on. You may need to adjust these parameters limits either on this page or the starting values that are located in the xml files (you can use the program change_default_parameters_xml). The fitting results may depend on the starting parameters since this is a non-linear system. You should probably start with TRDL to approach some values close to the solution then proceed with a LM fit. Note that esd's of the fitted parameters are calculated only for unconstrained LM fit.
-
-The fit termination parameters can be adjusted here : by default they are set to 2000 iterations and a stop limit at 10E-15 or if you want them, the default values are in the program configuration file which can be edited or saved.
-The same value listed as the maximum iteration number in this panel is used for DRT calculated with Gold or Fisk algorithms.
-
-### Max plots
-This is the maximum number of plots to show on the graphs (excluding DRT which will show only the first selected dataset). It should be small (up to about 200-300) if you are dealing with many datasets. The number of plots is determined by the number of selected datasets or this number, whichever is smaller. Note that I "decimate" the available data for plots, 3D plot is very slow if you have more than 200-300 datasets. Suppose you have 500 datasets selected (you can perform calculations on all of them), for plotting them it may be better to show only a part, let's say 200. The program will "decimate" the 500 datasets and show only 200, equally distributed among the 500. The tendencies will still be visible on the graphs, no need to plot all of them. If you want, you can, but for more than 500 datasets it will be very slow (slow means a few seconds for 500 datasets plotted on 3D graph, and several minutes for 3000 datasets on 3D graph, on my desktop computer).
-
-### Simulation limits
-This is used only for "Simulate" function, it will calculate a spectrum in this range of frequencies having a number of points defined here. Useful for testing and simulation.
-
-### Advanced commands
-These can be used for more advanced control of program. Most of the commands listed here are not available in the regular menu, see more details below (some commands are not likely to be used often so I didn't want to have too many entries in the Action menu). 
-
-    save_config
-
-will save a **yappari_configuration.xml** with the actual parameters (fit method, number of plots...) in **/config** folder. This file is read at the start of the program.
-
-To make a Savitzky-Golay smooth of the active datasets :
-
-    smooth
-    
-This will create new smoothed datasets with the same name and the prefix sm_.
-
-To change the sign of Zi after reading a file that has -Zi (I always wondered why some softwares request -Zi in the datafile):
-
-    negate_zi
-
-
-You can also interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try it, if you don't have spurious points. The command:
-
-    spline
-    
-will get 128 points interpolated from your data for the first command, in a log scale. 
-You can specify the number of points by adding the number of points, for instance 99 (a parameter is passed with >>). 
-
-    spline>>99
-    
-It might not be good to increase too much the number of points from he original ones, nor to use this function on noisy data. This command will create new datasets for every selected dataset, so you can play around to see how it is working. The log scale is important for DRT and Z-hit.
-
-To add white noise to the selected impedance datasets in the range Z-1% to Z+1%   
-    
-    rndz>>1 
-
-while
-  
-    rndzr>>0.5
-    
-will add white noise to the real part of the impedance in the range Z-0.5% to Z+0.5%
-Other accepted parameters are _rndzi>>u_ for Zi white noise and _rndf>>u_ for frequency.
-
-     average
-     
-will calculate the mean of Zr and Zi for the selected datasets. This function has a sense if it is applied to datasets measured at the same frequencies.
-
-You can also search the best Tikhonov parameter for DRT calculations. The command :
- 
-    drt_search>>0.0002&0.1&256 
-    
-will calculate 256 [DRTs](https://github.com/nitad54448/yappari-5-1#drt-active-datasets) in the range 0.0002 and 0.1 and reconstruct all the 256 impedance sets. The best lambda parameter based on the minim squared error between the calculated and experimental sets will be shown. Obviously you can replace 0.0002, 0.1 and 256 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2&200_ is accepted). The interval of lambda will be scaned in log spacing over the interval specified with _start_value&stop_value&steps_
-
-For a default range search (10E-4 to 10E-1) you can use the **Action** command then **DRT search** or 
-
-    drt_search
-
-If you want to see all DRT data and save them, you can use
-
-    drt_explore
-
-This will plot a 3D graph with all DRTs as a function of lambda, like this graph. Be patient, it takes time.
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/explore_lambda.png)
-
-For drt_explore you can specify the defined values separated with & such as
-    
-    drt_explore>>0.0001&0.01&99
-
-This command will calculate 99 DRT datasets in the interval 0.001 and 0.01. For Gold optimization you need to specify the number of iterations, for instance this command will calculate 80 datasets in the 500 to 5000 iterations interval:
-
-    drt_search>>500&5000&80
-
-## About
-Brief help listing the version of the program, this is also the landing page of the program. 
 
 ## Read data
 This command opens a menu with several options indicating the type of file to read. Reading a new file will just add more data at the beginning of the list wihtout losing the previous ones. You can remove some of the datasets with the command [Delete selected datasets](https://github.com/nitad54448/yappari-5-1#delete-active-datasets). You will need to select one or more datasets in order to perform operations like fit, save, plot.. etc. A selected dataset is coloured differently, it is named in this document as _active_. 
@@ -325,22 +179,21 @@ The xml files can be viewed in a browser or edited by a standard text program (l
 
 The XML parameters that are required for a definition file are 
 
-**header**
-	-a text separating datasets, required in order to separate the data blocks
-**label_length**
-        -a numeric value indicating how many characters after the header should be kept for naming a dataset, this value can be set to 0. If the label exists it must be located on the same line and after the header.
-**data_separator**
-        -the string that separates data fields (can be "tab", ",", ";" or " " space).
-**ignore_first**
-	-the number of lines to ignore before the start of the data (it can be 0)
-**column_freq_Hz**
-       -in which column the fequency is located
-**column_Z_real**
-       -in which column Z_real is located
-**column_Z_imag**
-	-in which column Z_imag is located
-**ignore_last**
-	-the number of lines to ignore after the end of the data (it can be 0)
+**header**, a text separating datasets, required in order to separate the data blocks
+
+**label_length**; a numeric value indicating how many characters after the header should be kept for naming a dataset, this value can be set to 0. If the label exists it must be located on the same line and after the header.
+
+**data_separator**, the string that separates data fields (can be "tab", ",", ";" or " " space).
+
+**ignore_first**, the number of lines to ignore before the start of the data (it can be 0)
+
+**column_freq_Hz**, in which column the fequency is located
+
+**column_Z_real**, in which column Z_real is located
+
+**column_Z_imag**, in which column Z_imag is located
+
+**ignore_last**, the number of lines to ignore after the end of the data (it can be 0)
   
 For example, the Z-MFLI program saves a file like this:
 
@@ -558,6 +411,158 @@ This option saves the active datasets, as selected by the user, to a single file
 
 ### Save project, xml
 Save all data, model and parameters, including calculated and DRT data, if any, into an xml file. This file can be read in Yappari, starting with release 5.1.71. 
+
+
+
+
+## Panels
+The program has several panels and a parameter list with several commands grouped on the right side of the window. When you start the program, if everything is normal, you should see something like this
+
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/panels.PNG)
+
+### Zr, -Zi
+This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you need to disable the Auto-axis feature by right clicking on the graph and directly change the ranges. Some other standard graphic functions are available in the top left "palette" such as zoom in, zoom out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
+You can change the plot colors, style, etc.... by clicking on the label; the changes in this graph will affect all the other graphs, except for DRT. You can remove some outlier points by zooming in and use the command _Action_/_Delete points from Nyquist_. Points that are in that range are removed from all active datasets (equivalent with a mask, except that the removal of points is irreversible).
+The number of plots can be selected by the user, see Max Plots on [Parameters](https://github.com/nitad54448/yappari-5-1#parameters) page. Note that, because of space limitations, only the first 24 plots will have legends. But you can plot as many datasets as you want (I tried 3700 datasets, see the tutorials, it is possible but slow to plot them and I wonder why you'd want to plot that many). 
+
+### Zr, Zi, ln R, theta
+These panels will show the dependency of impedances (real, imaginary, modulus or phase) as a function of frequency and the differences between the calculated and experimental values, something like this
+
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/fit_graph.PNG)
+
+### 3D plot
+This panel will show a 3D plot of selected datasets or a part of them, either in Nyquist, Zr or Zi or their differences, as selected by the user. This is useful for many datasets, more than 20 I guess, it will allow the user to see tendencies or check systematic errors in the fits. You can right click on the graph to adjust plotting properties to your liking (3D Plot Properties) or change the size of the graph. If you have many datasets, it will take some time to plot all data so to limit the waiting time, you may want to "decimate" the data for plotting). The number of plots shown is defined by the smallest value between the number of selected datasets and the "Max plots" value, see [Parameters](https://github.com/nitad54448/yappari-5-1#parameters). Depending on your computer, a few hunderth datasets can be plotted easily. If you try more than 1000 you'll have to wait, the program will appear irresponsive.
+The 3D plot might be useful to look for tendencies, a plot looks like this :
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/Zidiff_3D.PNG)
+
+### Model
+In this panel a model can be created by the user, by selecting element circuits. 
+Up to ten elements can be added in the circuit (obviously it is not realistic to fit such a circuit, unless you want to fit an [elephant](https://en.wikipedia.org/wiki/Von_Neumann%27s_elephant)). Only the first 18 parameters -more than enough- will be shown in the right side of the program.
+
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/page_model.PNG)
+
+When you click on one of the ten available cases, a new window will appear where you can select the element you want to add. Simply click on the picture of the element you want to add to the model. The available circuit elements include resistors, capacitors, inductors, and more complex elements such as constant phase elements or Warburg elements (see below).
+
+You can edit the png image files to your liking (just for aesthetics, the calculations will not be affected), they are in the subdirectory __/models__. The ideal size of the png files is 150x100 pixels.
+
+### Elements
+The elements used are rather common: Resistor, Capacitor, Inductor, CPE, Zarc, simple Randles circuit, Randles with kinetic and diffusion, Warburg (semi-infinite linear diffusion), Warburg short, Warburg Long, Gerischer, Havriliak-Negami and several compositions of these.
+
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/circuit.PNG)
+
+Equations are described in the [theory](https://github.com/nitad54448/yappari-5-1/blob/main/help/theory.md) file. 
+
+### Create a model
+
+When you create a model using the  editor, the circuit is not valid unless a flow of current can be calculated (but not a short-circuit). Once the circuit is valid, a LED labeled __valid__ will light up on the model panel, indicating that the circuit is ready for use and you can see a list of parameters with some default values for each element of the circuit. You can change these default values see **Parameters** below.
+
+_Note : the associated parameters will be listed only if your model is valid_. 
+
+To see the experimental data and the simulation you need to select one or several datasets and the calculations will be made based on the model and the values of parameters for each dataset. If you select several datasets, the parameters of the first dataset are shown. If you modify a parameter while several datasets are selected, that parameter will be changed for all selected datasets.
+
+Calculations of impedances are made whenever the parameter values are changed... _if the model is valid_ and if you have some data loaded or simulated. You can use the wheel of the mouse to evaluate the change in the output impedance with the change in the value of a parameter.
+
+Each parameter listed on the right side of the page, is labeled with a decimal, which indicates which element it belongs to. For example, the first element of the circuit will have parameters labeled as 0.x, the second element as 1.x, and so on. For [this circuit](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/page_model.PNG) composed of two zarcs we need to close the circuit and make "electrical contacts" in other elements (elements 0 and 6) for the circuit to be valid. The parameters that will be listed for this circuit will be 4something and 5something (since the two elements are located on positions 4 and 5). 
+
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/param_values.PNG)
+
+As the circuit is valid, with a Zarc in element 4 position and a Zarc in element 5 position, six parameters will appear in the tab of the right side of the panel: 4ZARR, 4ZARQ and 4ZARN and 5ZARR, 5ZARQ and 5ZARN; the names are rather self-explaining for the parameters describing a Zarc located in the position 4 of the circuit and a Zarc in the position 5. You can use a RQ element and fix the N to 1 to obtain the equivalent RC circuit. The equivalent capacitance for a RQ circuit is C=((RQ)<sup>1/n</sup>)/R.
+
+For a more complex circuit, you can find on the right side of the screen names such as 2MR1D, 2MQ2D, 2MN2D, 2MR3D, 2MR4D, 2MR5D, and 2MW6D. The first number, "2", indicates which element case the device is in. The letters "M" and "D" are internal notations that are used by the program to identify the device type, but they are not important for the user. The type of device is listed after the "M" notation, such as "R" for resistor or "W" for Warburg. The numbering of the devices goes from left to right and top to bottom.
+
+Overall, the notation is quite straightforward once you become familiar with the conventions used.
+
+## Parameters
+On this page you can adjust some parameters of the program. The basic parameters (but not the parameters related to electrical model) are loaded from a configuration file named **yappari_configuration.xml** that is located in **/config** folder. You can edit this file or save the actual values with **save_config** command in **Advanced commands**. 
+The default circuit parameters are loaded from model definitions in **/config** xml files. You can edit all these xml to adapt the default values or the limits with the **change_default_parameters_xml.exe** program or by directly editing the **/config/*.xml** files. **Do not change** the names of the parameters in the xml files but only the numerical values. Edit xml files only if you understand what are you doing. Admin credentials are needed for **change_default_parameters_xml.exe** program).
+
+For reading data the important point to remember is that the datafile separator _should_ be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. This data separator **will not be used** when reading files with a Custom configuration (in this case the definition file sets the separator to be used).
+
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/parameters.PNG)
+
+The fitting algorithm (TRDL is the default) and the parameters bounds, if any, can be constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-15, and so on. You may need to adjust these parameters limits either on this page or the starting values that are located in the xml files (you can use the program change_default_parameters_xml). The fitting results may depend on the starting parameters since this is a non-linear system. You should probably start with TRDL to approach some values close to the solution then proceed with a LM fit. Note that esd's of the fitted parameters are calculated only for unconstrained LM fit.
+
+The fit termination parameters can be adjusted here : by default they are set to 2000 iterations and a stop limit at 10E-15 or if you want them, the default values are in the program configuration file which can be edited or saved.
+The same value listed as the maximum iteration number in this panel is used for DRT calculated with Gold or Fisk algorithms.
+
+### Max plots
+This is the maximum number of plots to show on the graphs (excluding DRT which will show only the first selected dataset). It should be small (up to about 200-300) if you are dealing with many datasets. The number of plots is determined by the number of selected datasets or this number, whichever is smaller. Note that I "decimate" the available data for plots, 3D plot is very slow if you have more than 200-300 datasets. Suppose you have 500 datasets selected (you can perform calculations on all of them), for plotting them it may be better to show only a part, let's say 200. The program will "decimate" the 500 datasets and show only 200, equally distributed among the 500. The tendencies will still be visible on the graphs, no need to plot all of them. If you want, you can, but for more than 500 datasets it will be very slow (slow means a few seconds for 500 datasets plotted on 3D graph, and several minutes for 3000 datasets on 3D graph, on my desktop computer).
+
+### Simulation limits
+This is used only for "Simulate" function, it will calculate a spectrum in this range of frequencies having a number of points defined here. Useful for testing and simulation.
+
+### Advanced commands
+These can be used for more advanced control of program. Most of the commands listed here are not available in the regular menu, see more details below (some commands are not likely to be used often so I didn't want to have too many entries in the Action menu). 
+
+    save_config
+
+will save a **yappari_configuration.xml** with the actual parameters (fit method, number of plots...) in **/config** folder. This file is read at the start of the program.
+
+To make a Savitzky-Golay smooth of the active datasets :
+
+    smooth
+    
+This will create new smoothed datasets with the same name and the prefix sm_.
+
+To change the sign of Zi after reading a file that has -Zi (I always wondered why some softwares request -Zi in the datafile):
+
+    negate_zi
+
+
+You can also interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try it, if you don't have spurious points. The command:
+
+    spline
+    
+will get 128 points interpolated from your data for the first command, in a log scale. 
+You can specify the number of points by adding the number of points, for instance 99 (a parameter is passed with >>). 
+
+    spline>>99
+    
+It might not be good to increase too much the number of points from he original ones, nor to use this function on noisy data. This command will create new datasets for every selected dataset, so you can play around to see how it is working. The log scale is important for DRT and Z-hit.
+
+To add white noise to the selected impedance datasets in the range Z-1% to Z+1%   
+    
+    rndz>>1 
+
+while
+  
+    rndzr>>0.5
+    
+will add white noise to the real part of the impedance in the range Z-0.5% to Z+0.5%
+Other accepted parameters are _rndzi>>u_ for Zi white noise and _rndf>>u_ for frequency.
+
+     average
+     
+will calculate the mean of Zr and Zi for the selected datasets. This function has a sense if it is applied to datasets measured at the same frequencies.
+
+You can also search the best Tikhonov parameter for DRT calculations. The command :
+ 
+    drt_search>>0.0002&0.1&256 
+    
+will calculate 256 [DRTs](https://github.com/nitad54448/yappari-5-1#drt-active-datasets) in the range 0.0002 and 0.1 and reconstruct all the 256 impedance sets. The best lambda parameter based on the minim squared error between the calculated and experimental sets will be shown. Obviously you can replace 0.0002, 0.1 and 256 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2&200_ is accepted). The interval of lambda will be scaned in log spacing over the interval specified with _start_value&stop_value&steps_
+
+For a default range search (10E-4 to 10E-1) you can use the **Action** command then **DRT search** or 
+
+    drt_search
+
+If you want to see all DRT data and save them, you can use
+
+    drt_explore
+
+This will plot a 3D graph with all DRTs as a function of lambda, like this graph. Be patient, it takes time.
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/explore_lambda.png)
+
+For drt_explore you can specify the defined values separated with & such as
+    
+    drt_explore>>0.0001&0.01&99
+
+This command will calculate 99 DRT datasets in the interval 0.001 and 0.01. For Gold optimization you need to specify the number of iterations, for instance this command will calculate 80 datasets in the 500 to 5000 iterations interval:
+
+    drt_search>>500&5000&80
+
+## About
+Brief help listing the version of the program, this is also the landing page of the program. 
+
 
 ### Help
 This will open this website, hopefully the address will not change; while the program file may have some tutorial help files, the most recent help is always on this github page.
