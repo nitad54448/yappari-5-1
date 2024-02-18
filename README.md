@@ -286,8 +286,7 @@ The custom file allows to read other columns from a data file. For instance, the
     4.304039E+6;2.499580E+3;-5.137940E+3;3.203636E+3;-6.927116E+3
     3.704951E+6;2.739930E+3;-5.990360E+3;3.635279E+3;-7.714612E+3
     3.189251E+6;3.033540E+3;-6.938630E+3;4.129017E+3;-8.583845E+3
-   ...
-   
+      
 If we want to read the calculated impedances, located in the columns 4 and 5 with a custom file (given in **example_custom_5_columns_template.xml**) the definition will look like this: 
 
 ```xml                
