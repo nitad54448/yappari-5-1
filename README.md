@@ -325,22 +325,22 @@ The xml files can be viewed in a browser or edited by a standard text program (l
 
 The XML parameters that are required for a definition file are 
 
-    header
-        a text separating datasets, required in order to separate the data blocks
-    label_length
-        a numeric value indicating how many characters after the header should be kept for naming a dataset, this value can be set to 0. If the label exists it must be located on the same line and after the header.
-    data_separator
-        the string that separates data fields (can be "tab", ",", ";" or " " space).
-    ignore_first
-        the number of lines to ignore before the start of the data (it can be 0)
-    column_freq_Hz
-       in which column the fequency is located
-    column_Z_real
-       in which column Z_real is located
-    column_Z_imag
-       in which column Z_imag is located
-    ignore_last
-        the number of lines to ignore after the end of the data (it can be 0)
+**header**
+	-a text separating datasets, required in order to separate the data blocks
+**label_length**
+        -a numeric value indicating how many characters after the header should be kept for naming a dataset, this value can be set to 0. If the label exists it must be located on the same line and after the header.
+**data_separator**
+        -the string that separates data fields (can be "tab", ",", ";" or " " space).
+**ignore_first**
+	-the number of lines to ignore before the start of the data (it can be 0)
+**column_freq_Hz**
+       -in which column the fequency is located
+**column_Z_real**
+       -in which column Z_real is located
+**column_Z_imag**
+	-in which column Z_imag is located
+**ignore_last**
+	-the number of lines to ignore after the end of the data (it can be 0)
   
 For example, the Z-MFLI program saves a file like this:
 
