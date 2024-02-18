@@ -24,7 +24,7 @@ You are encouraged to contribute to this help file or write tutorials. If you wa
 <details>
   <summary>Tutorials</summary>
 
-- [Basic introduction](https://github.com/nitad54448/yappari-5-1/blob/main/help/tutorial_Yappari_5_1.pdf).
+- [Basic introduction](https://github.com/nitad54448/yappari-5-1/blob/main/help/tutorial_YAPPARI_5_1.pdf).
 - [Fit multiple datasets](https://github.com/nitad54448/yappari-5-1/blob/main/help/fit_multiple.pdf).
 - [Another general tutorial](https://github.com/nitad54448/yappari-5-1/blob/main/help/another_tutorial_yappari_24_jan_2024.pdf).
 </details>
@@ -33,7 +33,7 @@ You are encouraged to contribute to this help file or write tutorials. If you wa
   <summary>Changes</summary>
 
 ## Changes 
-   - February 19, 2024 : Custom data format are now defined with xml files. Configuration file is saved and read from /config. Default parameters and limits can be changed with by editing the /config/*.xml files. Release 5.1.71.1
+   - February 19, 2024 : Custom data format is now defined with xml files. Configuration file is saved and read from /config. Default parameters and limits of the circuits can be changed with by editing the /config/*.xml files or by using an additional program. Release 5.1.71.1
    - February 14, 2024 : Project files (all data, parameters, models) can be saved to or read from xml file. Release 5.1.71.
    - February 10, 2024 : Order of datasets can be changed by drag and drop. Release 5.1.70.6.
    - February 7, 2024 : Corrected an error in the "Report" function. Release 5.1.70.5.
