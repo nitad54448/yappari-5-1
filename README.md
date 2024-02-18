@@ -3,7 +3,7 @@ version 19-02-2024
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
-This document applies to version 5.1.71.1 or after. For prior releases see the **/docs** folder.
+This document applies to version 5.1.71.1 or after. For prior releases see the **/help** folder.
 
 <details>
   <summary>About this program</summary>
@@ -34,7 +34,7 @@ You are encouraged to contribute to this help file or write tutorials. If you wa
   <summary>Changes</summary>
 
 ## Changes 
-   - February 19, 2024 : Custom data format is now defined with xml files. Configuration file is saved and read from /config. Default parameters and limits of the circuits can be changed with by editing the /config/*.xml files or by using an additional program. Release 5.1.71.1
+   - February 19, 2024 : Custom data format is now defined with xml files. Configuration file is saved and read from /config. Default parameters and limits of the circuits can be changed by editing the /config/*.xml files or by using an additional program provided here. Release 5.1.71.1
    - February 14, 2024 : Project files (all data, parameters, models) can be saved to or read from xml file. Release 5.1.71.
    - February 10, 2024 : Order of datasets can be changed by drag and drop. Release 5.1.70.6.
    - February 7, 2024 : Corrected an error in the "Report" function. Release 5.1.70.5.
@@ -88,9 +88,10 @@ You are encouraged to contribute to this help file or write tutorials. If you wa
 This program can be used freely and distributed according to CC-BY-NC-ND 4.0.
 It was written in Labview 2023, National Instruments and it includes the JKI toolkits for Labview, © 2023, JKI and NI. All rights reserved.
 
-For (hopefully few) questions or comments:
+For questions or comments (please do not ask questions unless you have carefully read this document):
 
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
+
 </details>
 
 # Index
@@ -137,11 +138,11 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 # やっぱり #
 
 ## How to install
-The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the _Volume.zip_ file and not what is labelled as source file archives. Several versions are available, in general the last one is the best choice. In case of bugs please report them and grab an earlier version.
+The recommended and simplest way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the _Volume.zip_ file and not what is labelled as source file archives. Several versions are available, in general the last one is the best choice. In case of bugs please report them and grab an earlier version.
 
-There is another way to install it, if you want to complicate things. Yappari 5.1 is compiled with Labview 2023 for Windows 10. As such it will require a _Labview run-time engine_ which is installed, if needed, by the full installer. So, if you already have the run-time engine (either because you have peviously installed Yappari or you have installed another program compiled with Labview 2023) you can just download all the files from the green button __Code__ as a zip file. If you do not have the run-time engine but still want to go the hard way, you can download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336) then get the zip file from __Code__. The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
+There is another way to install it, if you want to complicate things. Yappari 5.1 is compiled with Labview 2023. As such it will require a _Labview run-time engine_ which is installed, if needed, by the full installer. So, if you already have the run-time engine (either because you have peviously installed Yappari or you have installed another program compiled with Labview 2023) you can just download all the files from the green button __Code__ as a zip file. If you do not have the run-time engine but still want to go the hard way, you can download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336) then get the zip file from __Code__. The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
 
-After installing the program in a directory of your choice, some other subdirectories will be created : **/config**, **/docs**, **/drt**, **/file**s, **/help** and **/models**. The **/models** directory contains png files with images for showing circuits. The **/config** holds xml configuration files, **/files** directory contains some examples of data files and custom definitions and **/models** some image files for models.  The **/help** directory holds some images for this document and some help files. You can remove **/docs**, **/drt**, **/files** and **/help** if you want but you must keep the **/models** and **/config** folders.
+After installing the program in a directory of your choice, some other subdirectories will be created : **/config**, **/docs**, **/drt**, **/files**, **/help** and **/models**. The **/config** contains xml files with starting parameters for the program. The **/models** directory contains png files with images for showing circuits, **/files** and **/drt** contain some examples of data files and custom definitions.  The **/help** holds some tutorials and images for this document. You can remove **/drt**, **/files** and **/help** if you want but you must keep the **/models** and **/config** folders.
 
 This program is supposed to work with Windows 10 64 bits or Win 11 and on my PC and many others it works fine; also it should work on win7 64bits, Win8 or Win8.1 as well but I am unable to test it on these systems.
 
@@ -180,13 +181,13 @@ The elements used are rather common: Resistor, Capacitor, Inductor, CPE, Zarc, s
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/circuit.PNG)
 
-Equations are described in the [theory](https://github.com/nitad54448/yappari-5-1/blob/main/docs/theory.md) file. 
+Equations are described in the [theory](https://github.com/nitad54448/yappari-5-1/blob/main/help/theory.md) file. 
 
 ### Create a model
 
-When you create a model using the  editor, the circuit is not valid unless a flow of current can be calculated (but not a short-circuit). Once the circuit is valid, a LED labeled __valid__ will light up on the model panel, indicating that the circuit is ready for use and you can see a list of all the parameters for each element of the circuit.
+When you create a model using the  editor, the circuit is not valid unless a flow of current can be calculated (but not a short-circuit). Once the circuit is valid, a LED labeled __valid__ will light up on the model panel, indicating that the circuit is ready for use and you can see a list of parameters with some default values for each element of the circuit. You can change these default values see **Parameters** below.
 
-_Note : the parameters will be listed only if your model is valid_. 
+_Note : the associated parameters will be listed only if your model is valid_. 
 
 To see the experimental data and the simulation you need to select one or several datasets and the calculations will be made based on the model and the values of parameters for each dataset. If you select several datasets, the parameters of the first dataset are shown. If you modify a parameter while several datasets are selected, that parameter will be changed for all selected datasets.
 
@@ -203,7 +204,8 @@ For a more complex circuit, you can find on the right side of the screen names s
 Overall, the notation is quite straightforward once you become familiar with the conventions used.
 
 ## Parameters
-On this page you can adjust some parameters of the program. The basic parameters (but not the parameters related to electrical model) are loaded from a configuration file named _yappari_configuration.xml that is located in /config folder. You can edit or save a different default configuration file. The default circuit parameters are loaded from model definitions in **/config** xml files. You can edit all these xml to adapt the default values to your liking either by directly editing the xml files or by using the change_default_parameters.exe program that is installed with Yappari (be careful with these changes; you will need to be careful or break everything. Admin credentials are needed for this program).
+On this page you can adjust some parameters of the program. The basic parameters (but not the parameters related to electrical model) are loaded from a configuration file named **yappari_configuration.xml** that is located in **/config** folder. You can edit this file or save the actual values with **save_config** command in **Advanced commands**. 
+The default circuit parameters are loaded from model definitions in **/config** xml files. You can edit all these xml to adapt the default values or the limits with the **change_default_parameters_xml.exe** program or by directly editing the **/config/*.xml** files. **Do not change** the names of the parameters in the xml files but only the numerical values. Edit xml files only if you understand what are you doing. Admin credentials are needed for **change_default_parameters_xml.exe** program).
 
 For reading data the important point to remember is that the datafile separator _should_ be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. This data separator **will not be used** when reading files with a Custom configuration (in this case the definition file sets the separator to be used).
 
@@ -221,14 +223,22 @@ This is the maximum number of plots to show on the graphs (excluding DRT which w
 This is used only for "Simulate" function, it will calculate a spectrum in this range of frequencies having a number of points defined here. Useful for testing and simulation.
 
 ### Advanced commands
-These can be used for manual control of program, useful mostly for testing. Most of the commands listed here are not available in the regular menu, see more details below (some commands are not very common so I didn't want to have too many entries in the Action menu). For instance: to make a Savitzky-Golay smooth of the active datasets :
+These can be used for more advanced control of program. Most of the commands listed here are not available in the regular menu, see more details below (some commands are not likely to be used often so I didn't want to have too many entries in the Action menu). 
+
+    save_config
+
+will save a **yappari_configuration.xml** with the actual parameters (fit method, number of plots...) in **/config** folder. This file is read at the start of the program.
+
+To make a Savitzky-Golay smooth of the active datasets :
 
     smooth
     
 This will create new smoothed datasets with the same name and the prefix sm_.
+
 To change the sign of Zi after reading a file that has -Zi (I always wondered why some softwares request -Zi in the datafile):
 
     negate_zi
+
 
 You can also interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try it, if you don't have spurious points. The command:
 
@@ -255,13 +265,14 @@ Other accepted parameters are _rndzi>>u_ for Zi white noise and _rndf>>u_ for fr
      average
      
 will calculate the mean of Zr and Zi for the selected datasets. This function has a sense if it is applied to datasets measured at the same frequencies.
+
 You can also search the best Tikhonov parameter for DRT calculations. The command :
  
     drt_search>>0.0002&0.1&256 
     
 will calculate 256 [DRTs](https://github.com/nitad54448/yappari-5-1#drt-active-datasets) in the range 0.0002 and 0.1 and reconstruct all the 256 impedance sets. The best lambda parameter based on the minim squared error between the calculated and experimental sets will be shown. Obviously you can replace 0.0002, 0.1 and 256 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2&200_ is accepted). The interval of lambda will be scaned in log spacing over the interval specified with _start_value&stop_value&steps_
 
-For a default range search (10E-4 to 10E-1) you can use the Action/DRT search or 
+For a default range search (10E-4 to 10E-1) you can use the **Action** command then **DRT search** or 
 
     drt_search
 
@@ -272,12 +283,11 @@ If you want to see all DRT data and save them, you can use
 This will plot a 3D graph with all DRTs as a function of lambda, like this graph. Be patient, it takes time.
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/explore_lambda.png)
 
-
 For drt_explore you can specify the defined values separated with & such as
     
     drt_explore>>0.0001&0.01&99
 
-This will calculate 99 DRT datasets in the interval 0.001 and 0.01. For Gold optimization you need to specify the number of iterations, for instance this command will calculate 80 datasets in the 500 to 5000 iterations interval:
+This command will calculate 99 DRT datasets in the interval 0.001 and 0.01. For Gold optimization you need to specify the number of iterations, for instance this command will calculate 80 datasets in the 500 to 5000 iterations interval:
 
     drt_search>>500&5000&80
 
