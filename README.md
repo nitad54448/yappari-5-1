@@ -389,7 +389,7 @@ It should look like this
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/params_drt_alten.PNG)
 
 The optimal regularization parameter is the minimum of the MSE (or just at the change of the variance). You can zoom this image to check the selection made. The program proposes the optimum as the value of lambda where there is a minimum in MSE and show a red cursor position. You can drag this cusor to another position to impose another value for lambda. By default for Gold the program will calculate 50 points and for Tikhonov and Fisk 100 points. You can modify these values, see Advanced commands.
-Similar to this function there is drt_explore which can be accesed in [Advanced commands](https://github.com/nitad54448/yappari-5-1#advanced-commands).
+Similar to this function there is **drt_explore** which can be used in [Advanced commands](https://github.com/nitad54448/yappari-5-1#advanced-commands).
 
 ### Clone the parameters to all
 Copy the listed parameters to all datasets. Useful for bulk fitting in order to set proper starting point for all the sets.
