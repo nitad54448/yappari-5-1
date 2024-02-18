@@ -118,20 +118,19 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
      - [Custom](#custom)
      - [Read project, xml](#read-project-xml)
    - [Action](#action)
-     - [Apply correction to active](#apply-correction-to-active)
      - [Delete points from graph](#delete-points-from-graph)
      - [Delete active datasets](#delete-active-datasets)
-     - [Clone the parameters to all](#clone-the-parameters-to-all)
-     - [Clone the parameters to active](#clone-the-parameters-to-active)
+     - [Apply correction to active](#apply-correction-to-active)
+     - [Simulate spectrum](#simulate-spectrum) 
+     - [Z-Hit active datasets](#z-hit-active-datasets)
      - [DRT active datasets](#drt-active-datasets)
      - [DRT search](#drt-search)
-     - [Z-Hit active datasets](#z-hit-active-datasets)
-     - [Simulate spectrum](#simulate-spectrum)
+     - [Clone the parameters to all](#clone-the-parameters-to-all)
+     - [Clone the parameters to active](#clone-the-parameters-to-active)
      - [Report active datasets](#report-active-datasets)
      - [Save active parameters](#save-active-parameters)
      - [Save data](#save-data)
      - [Save project, xml](#save-project-xml)
-     - [Save config](#save-config)
      - [Help](#help)
    - [Datasets](#datasets)
    - [Fit selected](#fit-selected)
@@ -496,10 +495,7 @@ Be aware that the separator character is defined in the definition file only if 
 This command will read an xml file saved with Yappari. It can read all data, models and parameters obtained. This is an xml file so it can be seen in a browser, but reading it is slow, it requires parsing all ASCII fields.
 
 ## Action
-This button can trigger several commands, some other are in [Advanced commands](https://github.com/nitad54448/yappari-5-1#advanced-commands) :
-
-### Apply correction to active
-Apply a correction factor to the experimental Zr and Zi for all selected datasets.  The impedance values will be multiplied with the factor you input here.  Be careful: this may change the units. For ionic conductivity multiply with S/L will give resistivity (in Ohm cm or Ohm m) instead of Ohm. For reactions at electrode surface you need to multiply with the electrode surface to get Ohm cm^2 or Ohm m^2. The calculated impedance will not be affected by this command.
+This button can trigger several commands, some others are in [Advanced commands](https://github.com/nitad54448/yappari-5-1#advanced-commands) :
 
 ### Delete points from graph
 You can delete experimental points from selected datasets in the Nyquist, Zr, Zi or lnR plots: just zoom in the region to show only the points you want to delete then select this command (this is irreversible). Be aware that the points having values in the range shown on the plots are removed from _all selected datasets_ irrespective if they are actually seen on the plots or not. The datasets visible on the graph depends on the [Max plots](https://github.com/nitad54448/yappari-5-1#max-plots) value.
@@ -507,11 +503,14 @@ You can delete experimental points from selected datasets in the Nyquist, Zr, Zi
 ### Delete active datasets
 Irreversible action removing one or more datasets and all related parameters from memory (by active one should understand “selected”). Datasets can be deleted also with the Key "Delete".
 
-### Clone the parameters to all
-Copy the listed parameters to all datasets. Useful for bulk fitting in order to set proper starting point for all the sets.
+### Apply correction to active
+Apply a correction factor to the experimental Zr and Zi for all selected datasets.  The impedance values will be multiplied with the factor you input here.  Be careful: this may change the units. For ionic conductivity multiply with S/L will give resistivity (in Ohm cm or Ohm m) instead of Ohm. For reactions at electrode surface you need to multiply with the electrode surface to get Ohm cm^2 or Ohm m^2. The calculated impedance will not be affected by this command.
 
-### Clone the parameters to active
-Copy the listed parameters to selected datasets. Note that the listed parameters are those of the first selected dataset.
+### Simulate spectrum
+This option will calculate an impedance spectrum based on the model and the values of the parameters of the model, in the frequency range that are on Parameters page. It will create a new dataset (called "sim_" but you can change its name). 
+
+### Z-Hit active datasets
+This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given previously. This is a procedure similar to the better known Kramers-Kronig test.
 
 ### DRT active datasets
 This performs a calculation of Distribution of Relaxation Times for one or more datasets for the case of serial RC circuits. The methods used and theory is detailed [here](https://github.com/nitad54448/yappari-5-1/blob/main/docs/theory.md).  
@@ -542,11 +541,11 @@ It should look like this
 The optimal regularization parameter is the minimum of the MSE (or just at the change of the variance). You can zoom this image to check the selection made. The program proposes the optimum as the value of lambda where there is a minimum in MSE and show a red cursor position. You can drag this cusor to another position to impose another value for lambda. By default for Gold the program will calculate 50 points and for Tikhonov and Fisk 100 points. You can modify these values, see Advanced commands.
 Similar to this function there is drt_explore which can be accesed in [Advanced commands](https://github.com/nitad54448/yappari-5-1#advanced-commands).
 
-### Z-Hit active datasets
-This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given previously. This is a procedure similar to the better known Kramers-Kronig test.
+### Clone the parameters to all
+Copy the listed parameters to all datasets. Useful for bulk fitting in order to set proper starting point for all the sets.
 
-### Simulate spectrum
-This option will calculate an impedance spectrum based on the model and the values of the parameters of the model, in the frequency range that are on Parameters page. It will create a new dataset (called "sim_" but you can change its name). 
+### Clone the parameters to active
+Copy the listed parameters to selected datasets. Note that the listed parameters are those of the first selected dataset.
 
 ### Report active datasets
 This command generates an HTML report containing information about the model used, the parameters used, the fitted parameters, and their standard deviation (if an LM fit was done, otherwise esd will appear as 0). It also includes images of the fit. The report is saved in your temporary directory and automatically opened in a browser. Beware that for each datasets you'll get 5 images and text with the obtained results, therefore if you fit 3700 datasets may get a 10000 pages pdf file. A warning is issued if the report will be too large.
@@ -559,9 +558,6 @@ This option saves the active datasets, as selected by the user, to a single file
 
 ### Save project, xml
 Save all data, model and parameters, including calculated and DRT data, if any, into an xml file. This file can be read in Yappari, starting with release 5.1.71. 
-
-### Save config
-Save a default configuration file as /config/configuration_yappari.xml.
 
 ### Help
 This will open this website, hopefully the address will not change; while the program file may have some tutorial help files, the most recent help is always on this github page.
