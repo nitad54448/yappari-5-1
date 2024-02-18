@@ -430,7 +430,7 @@ The 3D plot might be useful to look for tendencies, a plot looks like this if yo
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/Zidiff_3D.PNG)
 
 Or you can see a standard 3D plot, with one or more datasets :
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/3D_scatter.PNG)
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/3D_scatter.png)
 
 ### Model
 In this panel a model can be created by the user, by selecting element circuits. 
