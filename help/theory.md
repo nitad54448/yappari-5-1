@@ -1,5 +1,4 @@
 # YAPPARI #
-version 14-02-2024
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance.
 
