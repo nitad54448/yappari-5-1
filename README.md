@@ -344,7 +344,7 @@ In the **/files** folder and in **/drt** you will find some other files, experim
 Be aware that the separator character is defined in the definition file only if you use a Custom file, otherwise the separator is defined in the **Parameters** page (this separator is used when saving data or in reading undefined datafiles).
 
 ### Read project, xml
-This command will read an xml file saved with Yappari. It can read all data, models and parameters obtained. This is an xml file so it can be seen in a browser, but reading it is slow, it requires parsing all ASCII fields.
+This command will read an xml file saved with Yappari. It can read all data, models and parameters obtained. This is an xml file so it can be seen in a browser, but reading it is slow, it requires parsing all ASCII fields. Therefore if you have many datasets be very patient !
 
 ## Action
 This button can trigger several commands, some others are in [Advanced commands](https://github.com/nitad54448/yappari-5-1#advanced-commands) :
