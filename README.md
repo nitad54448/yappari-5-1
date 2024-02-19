@@ -35,7 +35,7 @@ You are encouraged to contribute to this help file or write tutorials. If you wa
   <summary>Changes</summary>
 
 ## Changes 
-   - February 19, 2024 : Custom data format is now defined with xml files. Configuration file is saved and read from /config. Default parameters and limits of the circuits can be changed by editing the /config/*.xml files or by using an additional program provided here. Release 5.1.71.1
+   - February 19, 2024 : Custom data format is now defined with xml files from /config. Default parameters and limits of the circuits can be changed by editing the /config/*.xml files or by using an additional program provided here. Release 5.1.71.1
    - February 14, 2024 : Project files (all data, parameters, models) can be saved to or read from xml file. Release 5.1.71.
    - February 10, 2024 : Order of datasets can be changed by drag and drop. Release 5.1.70.6.
    - February 7, 2024 : Corrected an error in the "Report" function. Release 5.1.70.5.
@@ -138,23 +138,25 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 # やっぱり #
 
 ## How to install
-The recommended and simplest way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the _Volume.zip_ file and not what is labelled as source file archives. Several versions are available, in general the last one is the best choice. In case of bugs please report them and grab an earlier version.
+The recommended and simplest way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Download **Volume.zip** and unzip it by keeping the hierarchy of the file. Run the **volume/install.exe** and you'll get a warning from Windows because the install is not digitally signed. You need to click on "More info" and then "Install anyway". Administrator privilege is required for installing this program.
+Several versions are available, in general the last release is the best choice. In case of bugs please report them and grab an earlier version.
+
+After installing the program in a directory of your choice, some other subdirectories will be created : **/config**, **/drt**, **/help**, **/files** and **/models**. The **/config** contains xml files with starting parameters for the program. The **/models** directory contains png files with images for showing circuits, **/files** and **/drt** contain some examples of data files and custom definitions.  The **/help** holds some tutorials and images for this document. You can remove **/drt**, **/files** and **/help** if you want but you must keep the **/models** and **/config** folders. Two additional small programs are installed in the same folder as Yappari: **change_default_parameters.exe** to modify the default paramteters of circuits and **save_custom_xml.exe** to change the default starting parameters for Yappari.
+
+These programs should work in Windows 10 64 bits or Win 11 and on my PC and many others it works fine; also it should work on win7 64bits, Win8 or Win8.1 as well but I am unable to test it on these systems.
 
 There is another way to install it, if you want to complicate things. Yappari 5.1 is compiled with Labview 2023. As such it will require a _Labview run-time engine_ which is installed, if needed, by the full installer. So, if you already have the run-time engine (either because you have peviously installed Yappari or you have installed another program compiled with Labview 2023) you can just download all the files from the green button __Code__ as a zip file. If you do not have the run-time engine but still want to go the hard way, you can download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336) then get the zip file from __Code__. The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
 
-After installing the program in a directory of your choice, some other subdirectories will be created : **/config**, **/docs**, **/drt**, **/files**, **/help** and **/models**. The **/config** contains xml files with starting parameters for the program. The **/models** directory contains png files with images for showing circuits, **/files** and **/drt** contain some examples of data files and custom definitions.  The **/help** holds some tutorials and images for this document. You can remove **/drt**, **/files** and **/help** if you want but you must keep the **/models** and **/config** folders.
-
-This program is supposed to work with Windows 10 64 bits or Win 11 and on my PC and many others it works fine; also it should work on win7 64bits, Win8 or Win8.1 as well but I am unable to test it on these systems.
 
 ## Read data
-This command opens a menu with several options indicating the type of file to read. Reading a new file will just add more data at the beginning of the list wihtout losing the previous ones. You can remove some of the datasets with the command [Delete selected datasets](https://github.com/nitad54448/yappari-5-1#delete-active-datasets). You will need to select at least a dataset in order to perform operations like fit, save, plot.. etc. A selected dataset is coloured differently, it is named in this document as _active_. 
-Note : when reading simple datafile (by simple I mean a file with no particular definition, see the term Custom below) the data separator in the file should be the same as the data separator in the __Parameters__ page. This same data separator will be used for saving the data.
+This command opens a menu with several options indicating the type of file to read. Reading a new file will just add more data at the beginning of the list wihtout losing the previous ones. You can remove some or all datasets with the command [Delete selected datasets](https://github.com/nitad54448/yappari-5-1#delete-active-datasets). You will need to select at least a dataset in order to perform operations like fit, save, plot.. etc. A selected dataset is coloured differently, it is named in this document as _active_. 
+Note : when reading simple datafile (by simple I mean a file with no particular definition, see the term _Custom_ below) the data separator in the file should be the same as the __Data separator__ in the __Parameters__ page. This same data separator will be used for saving the data.
 
 ### 3 columns
 This option reads a **single dataset** from a three-column ASCII file, which should be separated by the character selected in the [Parameters](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#parameters) page, and it should contain frequency in Hz, Zr, and Zi. The data separator can be "TAB", "space", ",", ";".
-The file may contain a description line (like parameters or type of the sample), if the description does not contain numbers which might be interpreted as data values by the program. The best option is to have only 3 columns and no text or empty lines in the file. If you want to keep one or more description lines in the file, it is better to use the "Custom" format and prepare an **XML template file**, see below. If you have multiple datasets in a single files they must be read with the **Custom** option.
+The file may contain a description line (like parameters or type of the sample), if the description does not contain numbers which might be interpreted as data values by the program. The best option is to have only 3 columns and no text or empty lines in the file. If you want to keep one or more description lines in the file, it is better to use the "Custom" format and prepare an **XML template file**, see below. If you have multiple datasets in a single file they must be read with the **Custom** option.
 
-If the reading is successful, the dataset will be inserted in the first position with a name taken from the filename. This name can be changed by the user. Only one dataset can be read with this command. 
+If the reading is successful, the dataset will be inserted in the first position in the __Datasets__ list with a name taken from the filename. This name can be changed by the user. Only one dataset can be read with this command. 
 _Note : You should select the proper separator string in the Parameters page prior to use of this function._
 
 ### MFLI, csv
