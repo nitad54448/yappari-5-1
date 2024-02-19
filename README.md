@@ -480,7 +480,7 @@ For reading data the important point to remember is that the datafile separator 
 
 The fitting algorithm (TRDL is the default) and the parameters bounds, if any, can be constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-15, and so on. You may need to adjust these parameters limits either on this page or the starting values that are located in the xml files (you can use the program change_default_parameters_xml). The fitting results may depend on the starting parameters since this is a non-linear system. You should probably start with TRDL to approach some values close to the solution then proceed with a LM fit. Note that esd's of the fitted parameters are calculated only for unconstrained LM fit.
 
-The fit termination parameters can be adjusted here : by default they are set to 2000 iterations and a stop limit at 10E-15 or if you want them, the default values are in the program configuration file which can be edited or saved.
+The fit termination parameters can be adjusted here : by default they are set to 2000 iterations and a stop limit at 10E-15 or if you want, the default values are in the program configuration xml file which can be edited.
 The same value listed as the maximum iteration number in this panel is used for DRT calculated with Gold or Fisk algorithms.
 
 ### Max plots
