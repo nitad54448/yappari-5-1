@@ -147,9 +147,9 @@ These programs should work in Windows 10 64 bits or Win 11 and on my PC and many
 
 There is another way to install it, if you want to complicate things.
 
-	1. If you already installed Yappari 5.1 on your computer you can just download all the files from the green button __Code__ as a zip file and overwrite your yappari-5-1 folder. 
+If you already installed Yappari 5.1 on your computer you can just download all the files from the green button __Code__ as a zip file and overwrite your yappari-5-1 folder. 
  
- 	2.  You have never installed Yappari 5.1 but want to complicate things: Yappari is compiled with Labview 2023. As such it requires a Labview run-time engine which is installed, if needed, by the full installer. You can download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336) then get the zip file from __Code__. The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
+Or, if you have never installed Yappari 5.1 but want to complicate things: Yappari is compiled with Labview 2023. As such it requires a Labview run-time engine which is installed, if needed, by the full installer. You can download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336) then get the zip file from __Code__. The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
 
 
 ## Read data
