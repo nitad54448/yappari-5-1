@@ -229,19 +229,20 @@ The 3D plot is very slow if you have more than 200-300 datasets. Suppose you hav
 This is used only for "Simulate" function, it will calculate a spectrum in this range of frequencies having a number of points defined here. Useful for testing and simulation.
 
 ### Advanced commands
-These can be used for manual control of program, useful mostly for testing. Most of the commands listed here are not available in the regular menu, see more details below (some commands are not very common so I didn't want to have too many entries in the Action menu). For instance: to make a Savitzky-Golay smooth of the active datasets :
+These can be used for manual control of program, useful mostly for testing. Most of the commands listed here are not available in the regular menu, see more details below (some commands are not very common so I didn't want to have too many entries in the Action menu). 
 
-    smooth
-    
+    save_config
+will save the default parameters (method, iterations...) listed on the parameters page.
+To make a Savitzky-Golay smooth of the active datasets :
+
+    smooth  
 This will create new smoothed datasets with the same name and the prefix sm_.
 To change the sign of Zi after reading a file that has -Zi (I always wondered why some softwares request -Zi in the datafile):
 
     negate_zi
-
 You can also interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try it, if you don't have spurious points. The command:
 
-    spline
-    
+    spline  
 will get 128 points interpolated from your data for the first command, in a log scale. 
 You can specify the number of points by adding the number of points, for instance 99 (a parameter is passed with >>). 
 
@@ -267,9 +268,10 @@ You can also search the best Tikhonov parameter for DRT calculations. The comman
  
     drt_search>>0.0002&0.1&256 
     
-will calculate 256 [DRTs](https://github.com/nitad54448/yappari-5-1#drt-active-datasets) in the range 0.0002 and 0.1 and reconstruct all the 256 impedance sets. The best lambda parameter based on the minim squared error between the calculated and experimental sets will be shown. Obviously you can replace 0.0002, 0.1 and 256 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2&200_ is accepted). The interval of lambda will be scaned in log spacing over the interval specified with _start_value&stop_value&steps_
+will calculate 256 [DRTs](https://github.com/nitad54448/yappari-5-1#drt-active-datasets) in the range 0.0002 and 0.1 and reconstruct all the 256 impedance sets. The best lambda parameter based on the minim squared error between the calculated and experimental sets will be shown. Obviously you can replace 0.0002, 0.1 and 256 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2&200_ is accepted). The interval of lambda will be scaned in log spacing over the interval specified with _start_value&stop_value&steps_ 
+The window that appears allow you to set the DRT value (you may need to resize the window, depending on your screen resolution)
 
-For a default range search (10E-4 to 10E-1) you can use the Action/DRT search or 
+For a default range search (10E-4 to 10E-1) you can use the __Action/DRT search__ or directly in Advanced command
 
     drt_search
 
