@@ -2,7 +2,7 @@
 <LVData xmlns="http://www.ni.com/LVData">
 <Version>23.1f276</Version>
 <Cluster>
-<Name>output cluster</Name>
+<Name>config in</Name>
 <NumElts>8</NumElts>
 <EW>
 <Name>Method</Name>
