@@ -133,7 +133,6 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
      - [Save active parameters](#save-active-parameters)
      - [Save data](#save-data)
      - [Save project, xml](#save-project-xml)
-     - [Save config](#save-config)
      - [Help](#help)
    - [Datasets](#datasets)
    - [Fit selected](#fit-selected)
@@ -569,9 +568,6 @@ This option saves the active datasets, as selected by the user, to a single file
 ### Save project, xml
 Save all data, model and parameters, including calculated and DRT data, if any, into an xml file. This file can be read in Yappari.
 _Note : With the release 5.1.74, there is a change in the format of the project xml file. Project xml files that were saved with previous versions of the program can not be read with the latest version._
-
-### Save config
-Save a default configuration file as /config/configuration_yappari.xml.
 
 ### Help
 This will open this website, hopefully the address will not change; while the program file may have some tutorial help files, the most recent help is always on this github page.
