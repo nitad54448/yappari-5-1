@@ -145,7 +145,7 @@ The recommended way to install this program is to use the full package which can
 
 There is another way to install it, if you want to complicate things. Yappari 5.1 is compiled with Labview 2023 for Windows 10. As such it will require a _Labview run-time engine_ which is installed, if needed, by the full installer. So, if you already have the run-time engine (either because you have peviously installed Yappari or you have installed another program compiled with Labview 2023) you can just download all the files from the green button __Code__ as a zip file. If you do not have the run-time engine but still want to go the hard way, you can download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336) then get the zip file from __Code__. The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
 
-After installing the program in a directory of your choice, some other subdirectories will be created : **/config**, **/docs**, **/drt**, **/file**s, **/help** and **/models**. The **/models** directory contains png files with images for showing circuits. The **/config** holds xml configuration files, **/files** directory contains some examples of data files and custom definitions and **/models** some image files for models.  The **/help** directory holds some images for this document and some help files. You can remove **/docs**, **/drt**, **/files** and **/help** if you want but you must keep the **/models** and **/config** folders.
+After installing the program in a directory of your choice, some other subdirectories will be created : **/config**, **/drt**, **/files**, **/help** and **/models**. The **/models** directory contains png files with images for showing circuits. The **/config** holds xml configuration files, **/files** directory contains some examples of data files and custom definitions and **/models** some image files for models.  The **/help** directory holds some images for this document and some help files. You can remove **/docs**, **/drt**, **/files** and **/help** if you want but you must keep the **/models** and **/config** folders.
 
 This program is supposed to work with Windows 10 64 bits or Win 11 and on my PC and many others it works fine; also it should work on win7 64bits, Win8 or Win8.1 as well but I am unable to test it on these systems.
 
@@ -156,7 +156,7 @@ The program has several panels and a parameter list with several commands groupe
 
 ### Zr, -Zi
 This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you need to disable the Auto-axis feature by right clicking on the graph and directly change the ranges. Some other standard graphic functions are available in the top left "palette" such as zoom in, zoom out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
-You can change the plot colors, style, etc.... by clicking on the label; the changes in this graph will affect all the other graphs, except for DRT. You can remove some outlier points by zooming in and use the command _Action_/_Delete points from graph_. Points that are in that range are removed from all active datasets (equivalent with a mask, except that the removal of points is irreversible). You can mask some points, prevent them to appear in graphs and not used them in calculations. Unlike the _Delete points_ you can Unmask points.
+You can change the plot colors, style, etc.... by clicking on the label; the changes in this graph will affect all the other graphs, except for DRT. You can mask or delete some outlier points by zooming in and use the commands _Action_/_Mask points from graph_ or _Action_/_Delete points from graph_. Points that are in that range are removed from all active datasets. When masking some points they will not appear in graphs and not be used in calculations. Unlike the _Delete points_ you can Unmask points.
 The number of plots can be selected by the user, see Max Plots on [Parameters](https://github.com/nitad54448/yappari-5-1#parameters) page. Note that, because of space limitations, only the first 24 plots will have legends. But you can plot as many datasets as you want (I tried 3700 datasets, see the tutorials, it is possible but slow to plot them and I wonder why you'd want to plot that many). 
 
 ### Zr, Zi, ln R, theta
@@ -215,7 +215,7 @@ For reading data, depending on the format you use, the datafile separator _shoul
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/parameters.PNG)
 
-The fitting algorithm (TRDL is the default) and the parameters bounds, if any, can be constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-15, and so on. You may want to adjust these parameters limits either on this page or the default values that are located in the /config/*.xml files. 
+The fitting algorithm (TRDL is the default) and the parameters bounds, if any, can be constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-15, and so on. You may want to adjust these parameters limits either on this page for the session in process or edit the default values that are located in the /config/*.xml files. 
 The fitting results will depend on the starting parameters since this is a non-linear system. You should probably manually adjust the starting parameters then use the fitting procedure you want (TRDL seems to be quite robust). Note that esd's of the fitted parameters are calculated only for unconstrained LM fit.
 
 The fit termination parameters can be adjusted here : by default they are set to 2500 iterations and a stop limit at 10E-15 or if you want them, the default values are in the program configuration file which can be edited manually or by using "Advanced commands" function.
@@ -321,7 +321,7 @@ _Note : Data separator from the Parameters page is ignored for this file._
 
 ### Custom
 If your data file is of text type and has a format that is not usual you may define a _Custom_ format in an XML configuration file. In this case the program will ask the user to select two files : first the datafile then the XML file that describes the format used.
-Several exemples of such files are given in the **/files** directory, you can edit the xml file definition to suit your format. A small program that saves this kind of file is also included, it is named __save_custom_xml.exe__ (I think it is faster to use Notepad and edit one of the existing files).
+Several exemples of such files are given in the **/files** directory, you can edit the xml file definition to suit your format. 
 
 The XML parameters that are required for a definition file are 
 
@@ -415,7 +415,7 @@ In order to read this file we can observe that the datasets are separated by a s
 	</U8>
 </Cluster>undefined</LVData>
 ```
-This file can be created with the __save_custom_xml.exe__ program or just edited with a text editor. 
+
 The command header will split the datafile (an example of this ZMFLI file is located in **/files/ZMFLI_datafile_example.dat**) in as many datasets it can find. The datasets are separated by the header read from the XML file (some repetitive text value). The program will find all the measurements (446 measurements for this case), then label each data set with the text following the header, ignore the following 4 lines then read the data found in the three columns separated by the delimiter specified in **data_separator**  (here, it is TAB, it is the index nr 3 of the list, the list start at index 0). After the data is read, an additional 4 lines are skipped.
 
 Note that even if you don't use a label, i.e. label_length is 0, the dataset will have an index indicating the position of the data in the file : 0 is for the first dataset, 1 the second, and so on.
@@ -492,7 +492,7 @@ In the **/files** folder and in **/drt** you will find some other files, experim
 Be aware that the separator character is defined in the definition file only if you use a Custom file, otherwise the separator is defined in the **Parameters** page. 
 
 ### Read project, xml
-This command will read an xml file saved with Yappari. It can read all data, models and parameters obtained. This is an xml file so it can be seen in a browser, but reading it is slow, it requires parsing all ASCII fields.
+This command will read an xml file saved with Yappari. It can read all data, models and parameters obtained. This is an xml file so it can be seen in a browser, but reading it is slow, it requires parsing all ASCII fields. 
 
 ## Action
 This button can trigger several commands, some other are in [Advanced commands](https://github.com/nitad54448/yappari-5-1#advanced-commands) :
@@ -519,9 +519,6 @@ This option will calculate an impedance spectrum based on the model and the valu
 
 ### Z-Hit active datasets
 This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given previously. This is a procedure similar to the better known Kramers-Kronig test.
-
-
-
 
 ### DRT active datasets
 This performs a calculation of Distribution of Relaxation Times for one or more datasets for the case of serial RC circuits. The methods used and theory is detailed [here](https://github.com/nitad54448/yappari-5-1/blob/main/docs/theory.md).  
