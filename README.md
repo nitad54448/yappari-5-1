@@ -246,11 +246,15 @@ This will create new smoothed datasets with the same name and the prefix sm_.
 
 
 To change the sign of Zi after reading a file that has -Zi (I always wondered why some softwares request -Zi in the datafile):
+
     negate_zi
+
 You can also interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try it, if you don't have spurious points. The command:
 
     spline  
-will get 128 points interpolated from your data for the first command, in a log scale. 
+    
+will get 128 points interpolated from your data, in a log scale. 
+
 You can specify the number of points by adding the number of points, for instance 99 (a parameter is passed with >>). 
 
     spline>>99
