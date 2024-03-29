@@ -228,22 +228,22 @@ The 3D plot is very slow if you have more than 200-300 datasets. Suppose you hav
 This is used only for "Simulate" function, it will calculate a spectrum in this range of frequencies having a number of points defined here. Useful for testing and simulation.
 
 ### Advanced commands
-These can be used for manual control of program, useful mostly for testing. Most of the commands listed here are not available in the regular menu, see more details below (some commands are not very common so I didn't want to have too many entries in the Action menu). 
+These can be used for manual control or advanced functions. Most of the commands listed here are not available in the regular menu, see more details below (some commands are not very common so I didn't want to have too many entries in the Action menu). 
 
-    Change_default_limits
-Will open a window which allows to change the default values of the limits and the starting value for the circuit elements.
+    change_default_limits
+Will open a window which allows to change the default values of the limits and the starting value for the circuit elements. Adapt it for your use cases.
 
     save_custom_xml
 Will open a new window where you can select the parameters for a custom format definition.
 
     save_config
 will save the default parameters (method, iterations...) listed on the parameters page.
+
 To make a Savitzky-Golay smooth of the active datasets :
 
     smooth  
 This will create new smoothed datasets with the same name and the prefix sm_.
 To change the sign of Zi after reading a file that has -Zi (I always wondered why some softwares request -Zi in the datafile):
-
     negate_zi
 You can also interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try it, if you don't have spurious points. The command:
 
