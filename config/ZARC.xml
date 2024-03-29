@@ -12,7 +12,7 @@
 <NumElts>3</NumElts>
 <DBL>
 <Name>min</Name>
-<Val>1.00000000000000E-3</Val>
+<Val>1.00000000000000E-2</Val>
 </DBL>
 <String>
 <Name>param</Name>
@@ -28,7 +28,7 @@
 <NumElts>3</NumElts>
 <DBL>
 <Name>min</Name>
-<Val>1.00000000000000E-15</Val>
+<Val>1.00000000000000E-16</Val>
 </DBL>
 <String>
 <Name>param</Name>
@@ -36,7 +36,7 @@
 </String>
 <DBL>
 <Name>max</Name>
-<Val>1.00000000000000E-3</Val>
+<Val>2.00000000000000E-3</Val>
 </DBL>
 </Cluster>
 <Cluster>
@@ -44,7 +44,7 @@
 <NumElts>3</NumElts>
 <DBL>
 <Name>min</Name>
-<Val>1.00000000000000E-3</Val>
+<Val>0.10000000000000</Val>
 </DBL>
 <String>
 <Name>param</Name>
@@ -52,7 +52,7 @@
 </String>
 <DBL>
 <Name>max</Name>
-<Val>1.00000000000000</Val>
+<Val>3.00000000000000</Val>
 </DBL>
 </Cluster>
 </Array>
@@ -93,11 +93,11 @@
 <Dimsize>3</Dimsize>
 <DBL>
 <Name>Value</Name>
-<Val>100.00000000000000</Val>
+<Val>1000.00000000000000</Val>
 </DBL>
 <DBL>
 <Name>Value</Name>
-<Val>1.00000000000000E-10</Val>
+<Val>1.00000000000000E-11</Val>
 </DBL>
 <DBL>
 <Name>Value</Name>
