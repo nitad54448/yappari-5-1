@@ -1,5 +1,5 @@
 # YAPPARI
-version 28-03-2024
+version 29-03-2024, release 5.1.74.1
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
@@ -35,7 +35,7 @@ You are encouraged to contribute to this help file or write tutorials. If you wa
   <summary>Changes</summary>
 
 ## Changes 
-   - March 28, 2024 : Added a "Mask" function to disable plotting of spurious points (these points will not be used in the fit). Release 5.1.74.0.
+   - March 29, 2024 : Added a "Mask" function to disable plotting of spurious points (these points will not be used in the fit). Release 5.1.74.1.
    - February 19, 2024 : Custom data format is now defined with xml files. Configuration file is saved and read from /config. Default parameters and limits of the circuits can be changed with by editing the /config/*.xml files or by using an additional program. Release 5.1.71.1
    - February 14, 2024 : Project files (all data, parameters, models) can be saved to or read from xml file. Release 5.1.71.
    - February 10, 2024 : Order of datasets can be changed by drag and drop. Release 5.1.70.6.
@@ -118,9 +118,9 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
      - [Custom](#custom)
      - [Read project, xml](#read-project-xml)
    - [Action](#action)
-     - [Mask points from graph](#mask-points-from-graph)
+     - [Mask points active datasets](#mask-points-active-datasets)
      - [Unmask active datasets](#unmask-active-datasets)
-     - [Delete points from graph](#delete-points-from-graph)
+     - [Delete points active datasets](#delete-points-active-datasets)
      - [Delete active datasets](#delete-active-datasets)
      - [Apply correction to active](#apply-correction-to-active)
      - [Simulate spectrum](#simulate-spectrum)
@@ -155,7 +155,7 @@ The program has several panels and a parameter list with several commands groupe
 
 ### Zr, -Zi
 This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you need to disable the Auto-axis feature by right clicking on the graph and directly change the ranges. Some other standard graphic functions are available in the top left "palette" such as zoom in, zoom out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
-You can change the plot colors, style, etc.... by clicking on the label; the changes in this graph will affect all the other graphs, except for DRT. You can mask or delete some outlier points by zooming in and use the commands _Action_/_Mask points from graph_ or _Action_/_Delete points from graph_. Points that are in that range are removed from all active datasets. When masking some points they will not appear in graphs and not be used in calculations. Unlike the _Delete points_ you can Unmask points.
+You can change the plot colors, style, etc.... by clicking on the label; the changes in this graph will affect all the other graphs, except for DRT. You can mask or delete some outlier points by zooming in and use the commands _Action_/_Mask points active datasets_ or _Action_/_Delete points active datasets_. Points that are in that range are removed from all active datasets. When masking some points they will not appear in graphs and not be used in calculations. Unlike the _Delete points_ you can Unmask points.
 The number of plots can be selected by the user, see Max Plots on [Parameters](https://github.com/nitad54448/yappari-5-1#parameters) page. Note that, because of space limitations, only the first 24 plots will have legends. But you can plot as many datasets as you want (I tried 3700 datasets, see the tutorials, it is possible but slow to plot them and I wonder why you'd want to plot that many). 
 
 ### Zr, Zi, ln R, theta
@@ -201,20 +201,20 @@ Each parameter listed on the right side of the page, is labeled with a decimal, 
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/param_values.PNG)
 
-As the circuit is valid, with a Zarc in element 4 position and a Zarc in element 5 position, six parameters will appear in the tab of the right side of the panel: 4ZARR, 4ZARQ and 4ZARN and 5ZARR, 5ZARQ and 5ZARN; the names are rather self-explaining for the parameters describing a Zarc located in the position 4 of the circuit and a Zarc in the position 5. You can use a RQ element and fix the N to 1 to obtain the equivalent RC circuit. The equivalent capacitance for a RQ circuit is C=((RQ)<sup>1/n</sup>)/R.
+As the circuit is valid, with a Zarc in element 4 position and a Zarc in element 5 position, six parameters will appear in the tab of the right side of the panel: 4ZARR, 4ZARQ and 4ZARN and 5ZARR, 5ZARQ and 5ZARN; the names are rather self-explaining for the parameters describing a Zarc located in the position 4 of the circuit and a Zarc in the position 5. You can use a RQ element and fix the N to 1 to obtain the equivalent RC circuit. The equivalent capacitance for a RQ circuit is C=((RQ)<sup>1/n</sup>)/R, if n is close to 1. 
 
 For a more complex circuit, you can find on the right side of the screen names such as 2MR1D, 2MQ2D, 2MN2D, 2MR3D, 2MR4D, 2MR5D, and 2MW6D. The first number, "2", indicates which element case the device is in. The letters "M" and "D" are internal notations that are used by the program to identify the device type, but they are not important for the user. The type of device is listed after the "M" notation, such as "R" for resistor or "W" for Warburg. The numbering of the devices goes from left to right and top to bottom.
 
 Overall, the notation is quite straightforward once you become familiar with the conventions used.
 
 ## Parameters
-On this page you can adjust some parameters of the program. The basic parameters (but not the parameters related to electrical model) are loaded from a configuration file named _yappari_configuration.xml that is located in __/config__ folder. You can edit or save a different default configuration file. The default circuit parameters are loaded from model definitions in **/config** xml files. You can edit all these xml to adapt the default values to your liking by directly editing the xml files (be careful with these changes, the XML format shoud be respected or the program will not work).
+On this page you can adjust some parameters of the program. The basic parameters (but not the parameters related to electrical model) are loaded from a configuration file named _yappari_configuration.xml that is located in __/config__ folder. You can edit or save a different default configuration file. The default circuit parameters are loaded from model definitions in **/config** xml files. You can edit all these xml to adapt the default values to your liking by directly editing the xml files (be careful with these changes, the XML format shoud be respected or the program will not work) or you can use  __Advanced commands/save_custom_xml__
 
 For reading data, depending on the format you use, the datafile separator _should_ be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. This data separator __will not be used__ when reading files with a Custom configuration, see below (in this case the definition file sets the separator to be used).
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/parameters.PNG)
 
-The fitting algorithm (TRDL is the default) and the parameters bounds, if any, can be constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-15, and so on. You may want to adjust these parameters limits either on this page for the session in process or edit the default values that are located in the /config/*.xml files. 
+The fitting algorithm (TRDL is the default) and the parameters bounds, if any, can be constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-15, and so on. You may want to adjust these parameters limits either on this page for the session in process or edit the default values that are located in the /config/*.xml files. You can edit the files manually or use __Advanced commands/change_default_limits__ 
 The fitting results will depend on the starting parameters since this is a non-linear system. You should probably manually adjust the starting parameters then use the fitting procedure you want (TRDL seems to be quite robust). Note that esd's of the fitted parameters are calculated only for unconstrained LM fit.
 
 The fit termination parameters can be adjusted here : by default they are set to 2500 iterations and a stop limit at 10E-15 or if you want them, the default values are in the program configuration file which can be edited manually or by using "Advanced commands" function.
@@ -228,21 +228,33 @@ The 3D plot is very slow if you have more than 200-300 datasets. Suppose you hav
 This is used only for "Simulate" function, it will calculate a spectrum in this range of frequencies having a number of points defined here. Useful for testing and simulation.
 
 ### Advanced commands
-These can be used for manual control of program, useful mostly for testing. Most of the commands listed here are not available in the regular menu, see more details below (some commands are not very common so I didn't want to have too many entries in the Action menu). 
+These can be used for manual control or advanced functions. Most of the commands listed here are not available in the regular menu, see more details below (some commands are not very common so I didn't want to have too many entries in the Action menu). 
+
+    change_default_limits
+Will open a window which allows to change the default values of the limits and the starting value for the circuit elements. Adapt it for your use cases.
+
+    save_custom_xml
+Will open a new window where you can select the parameters for a custom format definition.
 
     save_config
 will save the default parameters (method, iterations...) listed on the parameters page.
+
 To make a Savitzky-Golay smooth of the active datasets :
 
     smooth  
 This will create new smoothed datasets with the same name and the prefix sm_.
+
+
 To change the sign of Zi after reading a file that has -Zi (I always wondered why some softwares request -Zi in the datafile):
 
     negate_zi
+
 You can also interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try it, if you don't have spurious points. The command:
 
     spline  
-will get 128 points interpolated from your data for the first command, in a log scale. 
+    
+will get 128 points interpolated from your data, in a log scale. 
+
 You can specify the number of points by adding the number of points, for instance 99 (a parameter is passed with >>). 
 
     spline>>99
@@ -322,7 +334,7 @@ _Note : Data separator from the Parameters page is ignored for this file._
 
 ### Custom
 If your data file is of text type and has a format that is not usual you may define a _Custom_ format in an XML configuration file. In this case the program will ask the user to select two files : first the datafile then the XML file that describes the format used.
-Several exemples of such files are given in the **/files** directory, you can edit the xml file definition to suit your format. 
+Several exemples of such files are given in the **/files** directory, you can manually edit the xml file definition or use an command, see __Advanced commands__, to suit your format.  
 
 The XML parameters that are required for a definition file are 
 
@@ -498,16 +510,16 @@ This command will read an xml file saved with Yappari. It can read all data, mod
 ## Action
 This button can trigger several commands, some other are in [Advanced commands](https://github.com/nitad54448/yappari-5-1#advanced-commands) :
 
-### Mask points from graph
-This function will hide points that are shown in the graph. So, before applying this command you need to zoom in the graph to the region which you want to hide. You can "Unmask" them, see the next command.
+### Mask points active datasets
+This function will hide all points from the active datasets, that are in the range shown in the graph. So, before applying this command you need to zoom in the graph to the region which you want to hide. You can "Unmask" them, see the next command.
 This is useful if you want to exclude some points from the fit, if they are bad, or if you want to separately fit regions of the spectra.
-All points, from all selected datasets, that are in the area defined by the graph (Nyquist, Zr, Zi or R, but not 3D) will be hidden and not plotted nor used in calculations aftewards. This command applies to all selected (named active) datasets even when they are not plotted : if the Max plots parameter is smaller than the number of active datasets, some of the datasets are not shown... but this command applies to all selected datasets. It is the same case for the __Delete points__ command.
+All points, _from all selected datasets_, that are in the area defined by the graph (Nyquist, Zr, Zi or R, but not 3D) will be hidden and not plotted nor used in calculations aftewards. This command applies to all selected (named active) datasets even when they are not plotted : if the Max plots parameter is smaller than the number of active datasets, some of the datasets are not shown... but this command applies to all selected datasets. It is the same case for the __Delete points__ command.
 
 ### Unmask active datasets
-Cancel the mask function.
+Cancel the mask function for all selected datasets.
 
-### Delete points from graph
-You can delete experimental points from selected datasets in the Nyquist, Zr, Zi or lnR plots: just zoom in the region to show only the points you want to delete then select this command (this is irreversible). Be aware that the points having values in the range shown on the plots are removed from _all selected datasets_ irrespective if they are actually seen on the plots or not. The datasets visible on the graph depends on the [Max plots](https://github.com/nitad54448/yappari-5-1#max-plots) value.
+### Delete points active datasets
+You can delete experimental points from selected datasets in the Nyquist, Zr, Zi or lnR plots: just zoom in the region to show only the points you want to delete then select this command (this is irreversible). Be aware that all the points having values in the range shown on the plots are removed from _all selected datasets_ irrespective if they are actually seen on the plots or not. The datasets visible on the graph depends on the [Max plots](https://github.com/nitad54448/yappari-5-1#max-plots) value. Be careful : there is no warning.
 
 ### Delete active datasets
 Irreversible action removing one or more datasets and all related parameters from memory (by active one should understand “selected”). Datasets can be deleted also with the Key "Delete".
