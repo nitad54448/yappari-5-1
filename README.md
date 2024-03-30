@@ -19,7 +19,7 @@ You are encouraged to contribute to this help file or write tutorials. If you wa
 <details>
   <summary>Note to users</summary>
 
-  There is no warrantee whatsoever for using this program. Use it if you want, see CC-BY-NC-ND [licence](https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. If you find an error (reproducible) you can send the details so I can check but don't ask questions unless they are not covered by this Help file.
+  There is no warrantee whatsoever for using this program. Use it if you want, see CC-BY-NC-ND [licence](https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. If you find an error (reproducible) you can post the details in Release/Discussion forum so I can check. I will answer if there is a bug or if the issue is not covered by this Help file (I will not answer email messages though).
 </details>
 
 <details>
