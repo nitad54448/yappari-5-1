@@ -1,5 +1,5 @@
 # YAPPARI
-version 29-03-2024, release 5.1.74.1
+version 31-03-2024, release 5.1.75
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
@@ -35,6 +35,7 @@ You are encouraged to contribute to this help file or write tutorials. If you wa
   <summary>Changes</summary>
 
 ## Changes 
+   - March 31, 2024 : Added a Global fit function. Grouped Advanced commands in a list.
    - March 29, 2024 : Added a "Mask" function to disable plotting of spurious points (these points will not be used in the fit). Release 5.1.74.1.
    - February 19, 2024 : Custom data format is now defined with xml files. Configuration file is saved and read from /config. Default parameters and limits of the circuits can be changed with by editing the /config/*.xml files or by using an additional program. Release 5.1.71.1
    - February 14, 2024 : Project files (all data, parameters, models) can be saved to or read from xml file. Release 5.1.71.
@@ -229,58 +230,56 @@ This is used only for "Simulate" function, it will calculate a spectrum in this 
 
 ### Advanced commands
 These can be used for manual control or advanced functions. Most of the commands listed here are not available in the regular menu, see more details below (some commands are not very common so I didn't want to have too many entries in the Action menu). 
-
-    change_default_limits
-Will open a window which allows to change the default values of the limits and the starting value for the circuit elements. Adapt it for your use cases.
-
-    save_custom_xml
-Will open a new window where you can select the parameters for a custom format definition.
+    
+    read_config
+will update the default parameters (method, iterations...) from values saved in /config/_yappari_configuration.xml
 
     save_config
-will save the default parameters (method, iterations...) listed on the parameters page.
+will save the default parameters (method, iterations...) listed on the parameters page, in the file /config/_yappari_configuration.xml
 
-To make a Savitzky-Golay smooth of the active datasets :
+    read_project
+Will read an xml file containing all data and parameters (this works only for files saved with Yappari 5.1.74 or after).
 
-    smooth  
-This will create new smoothed datasets with the same name and the prefix sm_.
+    save_project
+Will save an xml file containing all data and parameters.
 
+    save_custom_definition_file
+Will save a definition file, in an xml format, for custom datafiles.
 
-To change the sign of Zi after reading a file that has -Zi (I always wondered why some softwares request -Zi in the datafile):
+    change_parameters_default_values
+Change the default values and the limits for electrical parameters of the model. Adapt these values for your use cases.
+
+    drt_search
+will calculate a number of [DRTs](https://github.com/nitad54448/yappari-5-1#drt-active-datasets) in the range defined by the user and reconstruct all the impedance sets. The best lambda parameter based on the minim squared error between the calculated and experimental sets will be shown. The interval of lambda will be scaned in log spacing over the interval specified by the user.
+The window that appears allow you to set the DRT value (you may need to resize the window, depending on your screen resolution)
+
+    drt_explore
+This will calculate and plot a 3D graph with all DRTs as a function of lambda, like this graph. Be patient, it takes time.
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/explore_lambda.png)
+For Tikhonov or Fisk the parameter changed is Lambda while for Gold optimization you need to specify the number of iterations.
+
+    fit_selected_datasets
+Equivalent to the __Fit selected__ command.
+
+    global_fit_selected_datasets
+Perform a fit for a unique set of parameters for several Active datasets. This will calculate the variance of each point and use 1/variance for weight in non-linear fit.
+
+    add noise to z 
+Add random noise up to X percent, X being a value defined by the user. Nois can also be added to frequency (for testing purposes), Zr and Zi.
 
     negate_zi
-
-You can also interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try it, if you don't have spurious points. The command:
+To change the sign of Zi after reading a file that has -Zi (I always wondered why some softwares request -Zi in the datafile).
 
     spline  
-    
-will get 128 points interpolated from your data, in a log scale. 
+will get a number of points interpolated from your data, in a log scale. It might not be good to increase too much the number of points from he original ones, nor to use this function on noisy data. This command will create new datasets for every selected dataset, so you can play around to see how it is working. The log scale is important for DRT and Z-hit.
 
-You can specify the number of points by adding the number of points, for instance 99 (a parameter is passed with >>). 
+    smooth
+To make a Savitzky-Golay smooth of the active datasets, with parameters defined by the user. This will create new smoothed datasets with the same name and the prefix sm_.
 
-    spline>>99
-    
-It might not be good to increase too much the number of points from he original ones, nor to use this function on noisy data. This command will create new datasets for every selected dataset, so you can play around to see how it is working. The log scale is important for DRT and Z-hit.
-
-To add white noise to the selected impedance datasets in the range Z-1% to Z+1%   
-    
-    rndz>>1 
-
-while
-  
-    rndzr>>0.5
-    
-will add white noise to the real part of the impedance in the range Z-0.5% to Z+0.5%
-Other accepted parameters are _rndzi>>u_ for Zi white noise and _rndf>>u_ for frequency.
-
-     average
-     
+    average   
 will calculate the mean of Zr and Zi for the selected datasets. This function has a sense if it is applied to datasets measured at the same frequencies.
 You can also search the best Tikhonov parameter for DRT calculations. The command :
  
-    drt_search>>0.0002&0.1&256 
-    
-will calculate 256 [DRTs](https://github.com/nitad54448/yappari-5-1#drt-active-datasets) in the range 0.0002 and 0.1 and reconstruct all the 256 impedance sets. The best lambda parameter based on the minim squared error between the calculated and experimental sets will be shown. Obviously you can replace 0.0002, 0.1 and 256 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2&200_ is accepted). The interval of lambda will be scaned in log spacing over the interval specified with _start_value&stop_value&steps_ 
-The window that appears allow you to set the DRT value (you may need to resize the window, depending on your screen resolution)
 
 For a default range search (10E-4 to 10E-1) you can use the __Action/DRT search__ or directly in Advanced command
 
@@ -288,19 +287,7 @@ For a default range search (10E-4 to 10E-1) you can use the __Action/DRT search_
 
 If you want to see all DRT data and save them, you can use
 
-    drt_explore
 
-This will plot a 3D graph with all DRTs as a function of lambda, like this graph. Be patient, it takes time.
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/explore_lambda.png)
-
-
-For drt_explore you can specify the defined values separated with & such as
-    
-    drt_explore>>0.0001&0.01&99
-
-This will calculate 99 DRT datasets in the interval 0.001 and 0.01. For Gold optimization you need to specify the number of iterations, for instance this command will calculate 80 datasets in the 500 to 5000 iterations interval:
-
-    drt_search>>500&5000&80
 
 ## About
 Brief help listing the version of the program, this is also the landing page of the program. 
