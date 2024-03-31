@@ -244,7 +244,7 @@ Will read an xml file containing all data and parameters (this works only for fi
 Will save an xml file containing all data and parameters.
 
     save_custom_definition_file
-Will save a definition file, in an xml format, for custom datafiles.
+Will save a definition file, in an xml format, for reading custom datafiles.
 
     change_parameters_default_values
 Change the default values and the limits for electrical parameters of the model. Adapt these values for your use cases.
@@ -262,7 +262,7 @@ For Tikhonov or Fisk the parameter changed is Lambda while for Gold optimization
 Equivalent to the __Fit selected__ command.
 
     global_fit_selected_datasets
-Perform a fit for a unique set of parameters for several Active datasets. This will calculate the variance of each point and use 1/variance for weight in non-linear fit.
+Perform a fit for a unique set of parameters for several Active datasets. This will calculate the variance of each point and use 1/variance for weight in non-linear fit. The parameters of the first selected dataset will be taken as strating point.
 
     add noise to z 
 Add random noise up to X percent, X being a value defined by the user. Nois can also be added to frequency (for testing purposes), Zr and Zi.
@@ -277,7 +277,7 @@ will get a number of points interpolated from your data, in a log scale. It migh
 To make a Savitzky-Golay smooth of the active datasets, with parameters defined by the user. This will create new smoothed datasets with the same name and the prefix sm_.
 
     average   
-will calculate the mean of Zr and Zi for the selected datasets. This function has a sense if it is applied to datasets measured at the same frequencies.
+will calculate the mean of Zr and Zi for the selected datasets. This function has a sense if the selected datasets measured at the same frequencies. Not very useful, for fitting several datasets it is better to use __Global fit__.
 
 ## About
 Brief help listing the version of the program, this is also the landing page of the program. 
