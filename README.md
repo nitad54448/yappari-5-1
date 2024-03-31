@@ -278,16 +278,6 @@ To make a Savitzky-Golay smooth of the active datasets, with parameters defined 
 
     average   
 will calculate the mean of Zr and Zi for the selected datasets. This function has a sense if it is applied to datasets measured at the same frequencies.
-You can also search the best Tikhonov parameter for DRT calculations. The command :
- 
-
-For a default range search (10E-4 to 10E-1) you can use the __Action/DRT search__ or directly in Advanced command
-
-    drt_search
-
-If you want to see all DRT data and save them, you can use
-
-
 
 ## About
 Brief help listing the version of the program, this is also the landing page of the program. 
