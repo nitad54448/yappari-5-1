@@ -3,7 +3,7 @@ version 31-03-2024, release 5.1.75
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
-This document applies to version 5.1.74 or after. For prior releases see the **/help** folder.
+This document applies to version 5.1.75 or after. For prior releases see the **/help** folder.
 
 <details>
   <summary>About this program</summary>
@@ -37,7 +37,7 @@ You are encouraged to contribute to this help file or write tutorials. If you wa
 ## Changes 
    - March 31, 2024 : Added a Global fit function. Grouped Advanced commands in a list.
    - March 29, 2024 : Added a "Mask" function to disable plotting of spurious points (these points will not be used in the fit). Release 5.1.74.1.
-   - February 19, 2024 : Custom data format is now defined with xml files. Configuration file is saved and read from /config. Default parameters and limits of the circuits can be changed with by editing the /config/*.xml files or by using an additional program. Release 5.1.71.1
+   - February 19, 2024 : Custom data format is now defined with xml files. Configuration file is saved and read from /config. Default parameters and limits of the circuits can be changed by editing the /config/*.xml files or by using an additional program. Release 5.1.71.1
    - February 14, 2024 : Project files (all data, parameters, models) can be saved to or read from xml file. Release 5.1.71.
    - February 10, 2024 : Order of datasets can be changed by drag and drop. Release 5.1.70.6.
    - February 7, 2024 : Corrected an error in the "Report" function. Release 5.1.70.5.
@@ -143,9 +143,9 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 ## How to install
 The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the _Volume.zip_ file and not what is labelled as source file archives. Several versions are available, in general the last one is the best choice. In case of bugs please report them and grab an earlier version.
 
-There is another way to install it, if you want to complicate things. Yappari 5.1 is compiled with Labview 2023 for Windows 10. As such it will require a _Labview run-time engine_ which is installed, if needed, by the full installer. So, if you already have the run-time engine (either because you have peviously installed Yappari or you have installed another program compiled with Labview 2023) you can just download all the files from the green button __Code__ as a zip file. If you do not have the run-time engine but still want to go the hard way, you can download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336) then get the zip file from __Code__. The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
+There is another way to install it, if you want to complicate things. Yappari 5.1 is compiled with Labview 2023 for Windows. As such it will require a _Labview run-time engine_ which is installed, if needed, by the full installer. So, if you already have the run-time engine (either because you have peviously installed Yappari or you have installed another program compiled with Labview 2023) you can just download all the files from the green button __Code__ as a zip file. If you do not have the run-time engine but still want to go the hard way, you can download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336) then get the zip file from __Code__. The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
 
-After installing the program in a directory of your choice, some other subdirectories will be created : **/config**, **/drt**, **/files**, **/help** and **/models**. The **/models** directory contains png files with images for showing circuits. The **/config** holds xml configuration files, **/files** directory contains some examples of data files and custom definitions and **/models** some image files for models.  The **/help** directory holds some images for this document and some help files. You can remove **/docs**, **/drt**, **/files** and **/help** if you want but you must keep the **/models** and **/config** folders.
+After installing the program in a directory of your choice, some other subdirectories will be created : **/config**, **/drt**, **/files**, **/help** and **/models**. The **/models** directory contains png files with images for showing circuits. The **/config** holds xml configuration files, **/files** directory contains some examples of data files and custom definitions and **/models** some image files for models.  The **/help** directory holds some images for this document and some help files. You can remove **/docs**, **/drt**, **/files** and **/help** but you must keep the **/models** and **/config** folders.
 
 This program is supposed to work with Windows 10 64 bits or Win 11 and on my PC and many others it works fine; also it should work on win7 64bits, Win8 or Win8.1 as well but I am unable to test it on these systems.
 
