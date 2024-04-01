@@ -19,7 +19,7 @@ You are encouraged to contribute to this help file or write tutorials. If you wa
 <details>
   <summary>Note to users</summary>
 
-  There is no warrantee whatsoever for using this program. Use it if you want, see CC-BY-NC-ND [licence](https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. If you find an error (reproducible) you can post the details in __Releases/Join discussion__ forum so I can check. I will answer if there is a bug or if the issue is not covered by this Help file (I will not answer any email messages related to Yappari, basically read the doc file, think, and if something is wrong go to __Join discussion__).
+There is no warrantee whatsoever for using this program. Use it if you want, see CC-BY-NC-ND [licence](https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. If you find an error (reproducible) you can post the details in __Releases/Join discussion__ forum so I can check. I will answer if there is a bug or if the issue is not covered by this Help file (I will not answer any email messages related to Yappari, basically read the doc file, think, and if something is wrong go to __Join discussion__).
 </details>
 
 <details>
@@ -284,7 +284,9 @@ will calculate the mean of Zr and Zi for the selected datasets. This function ha
 Brief help listing the version of the program, this is also the landing page of the program. 
 
 ## Read data
-This command opens a menu with several options indicating the type of file to read. Reading a new file will just add more data at the beginning of the list wihtout losing the previous ones. You can remove some of the datasets with the command [Delete selected datasets](https://github.com/nitad54448/yappari-5-1#delete-active-datasets). You will need to select one or more datasets in order to perform operations like fit, save, plot.. etc. A selected dataset is coloured differently, it is named in this document as _active_. 
+This command opens a menu with several options indicating the type of file to read. 
+__Warning: in order to read the files submitted with the program, located in /files directory, you must have the number separator as "." in Windows and not "," (like in France, for instance). You can still use this program with "," but not these files which were formated with "."__
+Reading a new file will just add more data at the beginning of the list wihtout losing the previous ones. You can remove some of the datasets with the command [Delete selected datasets](https://github.com/nitad54448/yappari-5-1#delete-active-datasets). You will need to select one or more datasets in order to perform operations like fit, save, plot.. etc. A selected dataset is coloured differently, it is named in this document as _active_. 
 _Note : the files given as examples in the /files directory have a decimal separator . (a dot). When saving data there is a character separation between the numerical values (usually a TAB), this should be adjusted in Yappari, see the __Parameters__ page.
 
 ### 3 columns
