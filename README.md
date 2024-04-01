@@ -142,13 +142,13 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 # やっぱり #
 
 ## How to install
-The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the _Volume.zip_ file and not what is labelled as source file archives. Several versions are available, in general the last one is the best choice. In case of bugs please report them and grab an earlier version.
+The recommended way to install this program is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the _Volume.zip_ file and not what is labelled as source file archives. Several versions are available, in general the last one is the best choice. In case of bugs please report them and grab an earlier version. 
 
 There is another way to install it, if you want to complicate things. Yappari 5.1 is compiled with Labview 2023 for Windows. As such it will require a _Labview run-time engine_ which is installed, if needed, by the full installer. So, if you already have the run-time engine (either because you have peviously installed Yappari or you have installed another program compiled with Labview 2023) you can just download all the files from the green button __Code__ as a zip file. If you do not have the run-time engine but still want to go the hard way, you can download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336) then get the zip file from __Code__. The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
 
 After installing the program in a directory of your choice, some other subdirectories will be created : **/config**, **/drt**, **/files**, **/help** and **/models**. The **/models** directory contains png files with images for showing circuits. The **/config** holds xml configuration files, **/files** directory contains some examples of data files and custom definitions and **/models** some image files for models.  The **/help** directory holds some images for this document and some help files. You can remove **/docs**, **/drt**, **/files** and **/help** but you must keep the **/models** and **/config** folders.
 
-This program will work on Windows 10 64 bits or Win 11 with regular screen resolutions. The main panel has a 1200*700 pixels; if you have very large resolutions of the screen the program may appear too small. I am planning on making an auto-resolution version but it's not my priority right now.
+This program will work on Windows 10 64 bits or Win 11 with regular screen resolutions. The main panel has a 1200*700 pixels; if you have very large resolutions of the screen the program may appear too small. I am planning on making an auto-resolution version but it's not my priority right now. Note that the decimal separator in Windows may have an impact on reading some datafile, see the __Read data__ section.
 
 ## Panels
 The program has several panels and a parameter list with several commands grouped on the right side of the window. When you start the program, if everything is normal, you should see something like this
@@ -285,7 +285,8 @@ Brief help listing the version of the program, this is also the landing page of 
 
 ## Read data
 This command opens a menu with several options indicating the type of file to read. 
-__Warning: in order to read the files submitted with the program, located in /files directory, you must have the number separator as "." in Windows and not "," (like in France, for instance). You can still use this program with "," but not these files which were formated with "."__
+__Warning: in order to read the files submitted with the program, located in /files directory, you must have the number separator as "." in Windows and not "," (like in France, for instance). 
+A number can be represented as 1.25 or 1,25 (in some countries). so if your Windows separator setting is set to "," the program expects 1,25 and not 1.25. You can still use this program with "," but you cannot read the files given here which were formated with "." If your system is setup with ',' you can read your files since the numbers are written as 1,25.__
 Reading a new file will just add more data at the beginning of the list wihtout losing the previous ones. You can remove some of the datasets with the command [Delete selected datasets](https://github.com/nitad54448/yappari-5-1#delete-active-datasets). You will need to select one or more datasets in order to perform operations like fit, save, plot.. etc. A selected dataset is coloured differently, it is named in this document as _active_. 
 _Note : the files given as examples in the /files directory have a decimal separator . (a dot). When saving data there is a character separation between the numerical values (usually a TAB), this should be adjusted in Yappari, see the __Parameters__ page.
 
