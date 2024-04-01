@@ -19,7 +19,7 @@ You are encouraged to contribute to this help file or write tutorials. If you wa
 <details>
   <summary>Note to users</summary>
 
-  There is no warrantee whatsoever for using this program. Use it if you want, see CC-BY-NC-ND [licence](https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. If you find an error (reproducible) you can post the details in __Releases/Join discussion__ forum so I can check. I will answer if there is a bug or if the issue is not covered by this Help file (I will not answer any email messages related to Yappari, basically read the doc file, think, and if something os wrong go to __Join discussion__).
+  There is no warrantee whatsoever for using this program. Use it if you want, see CC-BY-NC-ND [licence](https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. If you find an error (reproducible) you can post the details in __Releases/Join discussion__ forum so I can check. I will answer if there is a bug or if the issue is not covered by this Help file (I will not answer any email messages related to Yappari, basically read the doc file, think, and if something is wrong go to __Join discussion__).
 </details>
 
 <details>
@@ -148,7 +148,7 @@ There is another way to install it, if you want to complicate things. Yappari 5.
 
 After installing the program in a directory of your choice, some other subdirectories will be created : **/config**, **/drt**, **/files**, **/help** and **/models**. The **/models** directory contains png files with images for showing circuits. The **/config** holds xml configuration files, **/files** directory contains some examples of data files and custom definitions and **/models** some image files for models.  The **/help** directory holds some images for this document and some help files. You can remove **/docs**, **/drt**, **/files** and **/help** but you must keep the **/models** and **/config** folders.
 
-This program will work on Windows 10 64 bits or Win 11.
+This program will work on Windows 10 64 bits or Win 11 with regular screen resolutions. The main panel has a 1200*700 pixels; if you have very large resolutions of the screen the program may appear too small. I am planning on making an auto-resolution version but it's not my priority right now.
 
 ## Panels
 The program has several panels and a parameter list with several commands grouped on the right side of the window. When you start the program, if everything is normal, you should see something like this
