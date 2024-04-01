@@ -1,5 +1,5 @@
 # YAPPARI
-version 31-03-2024, release 5.1.75
+version 01-04-2024, release 5.1.75-1
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
@@ -35,8 +35,9 @@ You are encouraged to contribute to this help file or write tutorials. If you wa
   <summary>Changes</summary>
 
 ## Changes 
-   - March 31, 2024 : Added a Global fit function. Grouped Advanced commands in a list.
-   - March 29, 2024 : Added a "Mask" function to disable plotting of spurious points (these points will not be used in the fit). Release 5.1.74.1.
+   - April 1, 2024 : Cosmetics. Release 5.1.75.1
+   - March 31, 2024 : Added a Global fit function. Grouped Advanced commands in a list. Release 5.1.75 
+   - March 29, 2024 : Added a "Mask" function to disable plotting of spurious points (these points will not be used in the fit). Release 5.1.74.1. (__Major upgrade, corrected a bug in XML files__)
    - February 19, 2024 : Custom data format is now defined with xml files. Configuration file is saved and read from /config. Default parameters and limits of the circuits can be changed by editing the /config/*.xml files or by using an additional program. Release 5.1.71.1
    - February 14, 2024 : Project files (all data, parameters, models) can be saved to or read from xml file. Release 5.1.71.
    - February 10, 2024 : Order of datasets can be changed by drag and drop. Release 5.1.70.6.
