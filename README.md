@@ -155,6 +155,8 @@ The program has several panels and a parameter list with several commands groupe
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/panels.PNG)
 
+You can resize the graphic part and the parameters panel, just move the sliding divider. The controls will change their size if you change the window size, this behaviour might be erratic though.
+
 ### Zr, -Zi
 This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you need to disable the Auto-axis feature by right clicking on the graph and directly change the ranges. Some other standard graphic functions are available in the top left "palette" such as zoom in, zoom out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
 You can change the plot colors, style, etc.... by clicking on the label; the changes in this graph will affect all the other graphs, except for DRT. You can mask or delete some outlier points by zooming in and use the commands _Action_/_Mask points active datasets_ or _Action_/_Delete points active datasets_. Points that are in that range are removed from all active datasets. When masking some points they will not appear in graphs and not be used in calculations. Unlike the _Delete points_ you can Unmask points.
