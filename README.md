@@ -1,5 +1,5 @@
 # YAPPARI
-version 01-04-2024, release 5.1.75.1
+version 01-04-2024, release 5.1.76
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
@@ -35,7 +35,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
   <summary>Changes</summary>
 
 ## Changes 
-   - April 1, 2024 : Cosmetics. Release 5.1.75.1
+   - April 1, 2024 : Cosmetics. Release 5.1.76.
    - March 31, 2024 : Added a Global fit function. Grouped Advanced commands in a list. Release 5.1.75 
    - March 29, 2024 : Added a "Mask" function to disable plotting of spurious points (these points will not be used in the fit). Release 5.1.74.1. (__Major upgrade, corrected a bug in XML files__)
    - February 19, 2024 : Custom data format is now defined with xml files. Configuration file is saved and read from /config. Default parameters and limits of the circuits can be changed by editing the /config/*.xml files or by using an additional program. Release 5.1.71.1
@@ -154,8 +154,6 @@ This program will work on Windows 10 64 bits or Win 11 with regular screen resol
 The program has several panels and a parameter list with several commands grouped on the right side of the window. When you start the program, if everything is normal, you should see something like this
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/panels.PNG)
-
-You can resize the graphic part and the parameters panel, just move the sliding divider. The controls will change their size if you change the window size, this behaviour might be erratic though.
 
 ### Zr, -Zi
 This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you need to disable the Auto-axis feature by right clicking on the graph and directly change the ranges. Some other standard graphic functions are available in the top left "palette" such as zoom in, zoom out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
