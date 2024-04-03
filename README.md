@@ -149,7 +149,9 @@ There is another way to install it, if you want to complicate things. Yappari 5.
 
 After installing the program in a directory of your choice, some other subdirectories will be created : **/config**, **/drt**, **/files**, **/help** and **/models**. The **/models** directory contains png files with images for showing circuits. The **/config** holds xml configuration files, **/files** directory contains some examples of data files and custom definitions and **/models** some image files for models.  The **/help** directory holds some images for this document and some help files. You can remove **/docs**, **/drt**, **/files** and **/help** but you must keep the **/models** and **/config** folders.
 
-This program will work on Windows 10 64 bits or Win 11 with regular screen resolutions. The main panel has a 1200*700 pixels; if you have very large resolutions of the screen the program may appear too small. I am planning on making an auto-resolution version but it's not my priority right now. Note that the decimal separator in Windows may have an impact on reading some datafile, see the __Read data__ section.
+Note that the decimal separator in Windows may have an impact on reading some datafile, see the __Read data__ section.
+
+This program will work on Windows 10 64 bits or Win 11 with regular screen resolutions. The main panel has a 1200*700 pixels; if you have very large resolutions of the screen the program may appear too small. In most of the case the objects will adapt to the resolution of the scree; it is also possible to resize the two panels (drag the middle slider).
 
 ## Panels
 The program has several panels and a parameter list with several commands grouped on the right side of the window. When you start the program, if everything is normal, you should see something like this
