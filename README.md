@@ -35,7 +35,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
   <summary>Changes</summary>
 
 ## Changes 
-   - April 3, 2024 : More cosmetics. Added resisable panels. Release 5.1.77.
+   - April 3, 2024 : More cosmetics. Release 5.1.77.
    - April 2, 2024 : Cosmetics. Release 5.1.76.
    - March 31, 2024 : Added a Global fit function. Grouped Advanced commands in a list. Release 5.1.75 
    - March 29, 2024 : Added a "Mask" function to disable plotting of spurious points (these points will not be used in the fit). Release 5.1.74.1. (__Major upgrade, corrected a bug in XML files__)
@@ -151,7 +151,7 @@ After installing the program in a directory of your choice, some other subdirect
 
 Note that the decimal separator in Windows may have an impact on reading some datafile, see the __Read data__ section.
 
-This program will work on Windows 10 64 bits or Win 11 with regular screen resolutions. The main panel has a 1200*700 pixels; if you have very large resolutions of the screen the program may appear too small. In most of the case the objects will adapt to the resolution of the scree; it is also possible to resize the two panels (drag the middle slider).
+This program will work on Windows 10 64 bits or Win 11 with regular screen resolutions. The main panel has a 1200*700 pixels; if you have very large resolutions of the screen the program may appear too small. 
 
 ## Panels
 The program has several panels and a parameter list with several commands grouped on the right side of the window. When you start the program, if everything is normal, you should see something like this
