@@ -508,7 +508,7 @@ will calculate the mean of Zr and Zi for the selected datasets. This function ha
 ## Panels
 The program has several panels and a parameter list with several commands grouped on the right side of the window. When you start the program, if everything is normal, you should see something like this
 
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/panels77.PNG)
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/panel77.PNG)
 
 ### Zr, -Zi
 This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you need to disable the Auto-axis feature by right clicking on the graph and directly change the ranges. Some other standard graphic functions are available in the top left "palette" such as zoom in, zoom out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
