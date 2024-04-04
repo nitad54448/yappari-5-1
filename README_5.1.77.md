@@ -3,7 +3,7 @@ version 04-04-2024, release 5.1.77
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
-This document applies to version 5.1.75 or after. For prior releases see the **/help** folder.
+This document applies to version 5.1.77 or after. For prior releases see the **/help** folder.
 
 <details>
   <summary>About this program</summary>
