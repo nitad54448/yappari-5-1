@@ -31,6 +31,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
 - [Another general tutorial](https://github.com/nitad54448/yappari-5-1/blob/main/help/another_tutorial_yappari_24_jan_2024.pdf).
 </details>
 
+
 <details>
   <summary>Changes</summary>
 
@@ -97,50 +98,59 @@ For (hopefully few) questions or comments:
 
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 </details>
-
-# Index
-   - [How to install](#how-to-install)
-   - [Panels](#panels)
-     - [Zr, -Zi](#zr--zi)
-     - [Zr, Zi, ln R, theta](#zr-zi-ln-r-theta)
-     - [3D plot](#3d-plot)
-     - [Model](#model)
-     - [Elements](#elements)
-     - [Create a model](#create-a-model)
-   - [Parameters](#parameters)
-     - [Max plots](#max-plots)
-     - [Simulation limits](#simulation-limits)
-     - [Advanced commands](#advanced-commands)
-   - [About](#about)
-   - [Read data](#read-data)
-     - [3 columns](#3-columns)
-     - [MFLI, csv](#mfli-csv)
-     - [MFLI, Zview txt](#mfli-zview-txt)
-     - [Versa Studio par](#versa-studio-par)
-     - [Z-MFLI](#z-mfli)
-     - [Custom](#custom)
-     - [Read project, xml](#read-project-xml)
-   - [Action](#action)
-     - [Mask points active datasets](#mask-points-active-datasets)
-     - [Unmask active datasets](#unmask-active-datasets)
-     - [Delete points active datasets](#delete-points-active-datasets)
-     - [Delete active datasets](#delete-active-datasets)
-     - [Apply correction to active](#apply-correction-to-active)
-     - [Simulate spectrum](#simulate-spectrum)
-     - [Z-Hit active datasets](#z-hit-active-datasets)
-     - [DRT active datasets](#drt-active-datasets)
-     - [DRT search](#drt-search)
-     - [Clone the parameters to all](#clone-the-parameters-to-all)
-     - [Clone the parameters to active](#clone-the-parameters-to-active)
-     - [Report active datasets](#report-active-datasets)
-     - [Save active parameters](#save-active-parameters)
-     - [Save data](#save-data)
-     - [Save project, xml](#save-project-xml)
-     - [Help](#help)
-   - [Datasets](#datasets)
-   - [Fit selected](#fit-selected)
  
 # やっぱり #
+
+
+
+<!-- TOC start -->
+- [How to install](#how-to-install)
+- [Get started](#get-started)
+   * [Read data](#read-data)
+      + [3 columns](#3-columns)
+      + [MFLI, csv](#mfli-csv)
+      + [MFLI, Zview txt](#mfli-zview-txt)
+      + [Versa Studio par](#versa-studio-par)
+      + [Z-MFLI](#z-mfli)
+      + [Custom](#custom)
+      + [Read project, xml](#read-project-xml)
+   * [Action](#action)
+      + [Mask points active datasets](#mask-points-active-datasets)
+      + [Unmask active datasets](#unmask-active-datasets)
+      + [Delete points active datasets](#delete-points-active-datasets)
+      + [Delete active datasets](#delete-active-datasets)
+      + [Apply correction to active](#apply-correction-to-active)
+      + [Simulate spectrum](#simulate-spectrum)
+      + [Z-Hit active datasets](#z-hit-active-datasets)
+      + [DRT active datasets](#drt-active-datasets)
+      + [DRT search](#drt-search)
+      + [Clone the parameters to all](#clone-the-parameters-to-all)
+      + [Clone the parameters to active](#clone-the-parameters-to-active)
+      + [Report active datasets](#report-active-datasets)
+      + [Save active parameters](#save-active-parameters)
+      + [Save data](#save-data)
+      + [Save project, xml](#save-project-xml)
+      + [Help](#help)
+      + [Exit](#exit)
+   * [Advanced](#advanced)
+   * [Panels](#panels)
+      + [Zr, -Zi](#zr-zi)
+      + [Zr, Zi, ln R, theta](#zr-zi-ln-r-theta)
+      + [3D plot](#3d-plot)
+      + [Model](#model)
+      + [Elements](#elements)
+      + [Create a model](#create-a-model)
+   * [Parameters](#parameters)
+      + [Max plots](#max-plots)
+      + [Simulation limits](#simulation-limits)
+   * [About](#about)
+   * [Datasets](#datasets)
+   * [Fit selected](#fit-selected)
+
+<!-- TOC end -->
+
+
+
 
 # How to install
 If this is the first time to install this program, the recommended and easiest way to install it is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the _Volume.zip_ file and not what is labelled as source file archives. Several versions are available, in general the last one is the best choice. In case of bugs please report them and grab an earlier version. 
@@ -498,7 +508,7 @@ will calculate the mean of Zr and Zi for the selected datasets. This function ha
 ## Panels
 The program has several panels and a parameter list with several commands grouped on the right side of the window. When you start the program, if everything is normal, you should see something like this
 
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/panels77.PNG)
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/panel77.png)
 
 ### Zr, -Zi
 This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you need to disable the Auto-axis feature by right clicking on the graph and directly change the ranges. Some other standard graphic functions are available in the top left "palette" such as zoom in, zoom out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
