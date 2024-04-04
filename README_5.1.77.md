@@ -3,7 +3,7 @@ version 04-04-2024, release 5.1.77
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
-This document applies to version 5.1.75 or after. For prior releases see the **/help** folder.
+This document applies to version 5.1.77 or after. For prior releases see the **/help** folder.
 
 <details>
   <summary>About this program</summary>
@@ -360,6 +360,10 @@ This instructs the program to read the fourth column as Zr and the fifth as Zi. 
 In the **/files** folder and in **/drt** you will find some other files, experimental or simulated with other impedance programs and exemples of configurations for XML templates (or definition files).
 Be aware that the separator character is defined in the definition file only if you use a Custom file, otherwise the separator is defined in the **Parameters** page. 
 
+### Read project, xml
+This command will read an xml file saved with Yappari. It can read all data, models and parameters obtained. This is an xml file so it can be seen in a browser, but reading it is slow, very slow, it requires parsing all ASCII fields. 
+
+
 ## Action
 This button can trigger several commands.
 
@@ -555,7 +559,7 @@ On this page you can adjust some parameters of the program. The basic parameters
 
 For reading data, depending on the format you use, the datafile separator _should_ be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. This data separator __will not be used__ when reading files with a Custom configuration, see below (in this case the definition file sets the separator to be used).
 
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/parameters.PNG)
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/parameters77.PNG)
 
 The fitting algorithm (TRDL is the default) and the parameters bounds, if any, can be constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-15, and so on. You may want to adjust these parameters limits either on this page for the session in process or edit the default values that are located in the /config/*.xml files. You can edit the files manually or use __Advanced commands/change_default_limits__ 
 The fitting results will depend on the starting parameters since this is a non-linear system. You should probably manually adjust the starting parameters then use the fitting procedure you want (TRDL seems to be quite robust). Note that esd's of the fitted parameters are calculated only for unconstrained LM fit.
@@ -573,10 +577,6 @@ This is used only for "Simulate" function, it will calculate a spectrum in this 
 
 ## About
 Brief help listing the version of the program, this is also the landing page of the program. 
-
-
-### Read project, xml
-This command will read an xml file saved with Yappari. It can read all data, models and parameters obtained. This is an xml file so it can be seen in a browser, but reading it is slow, it requires parsing all ASCII fields. 
 
 
 ## Datasets
