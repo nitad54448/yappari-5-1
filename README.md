@@ -603,7 +603,7 @@ Brief help listing the version of the program, this is also the landing page of 
 
 
 ## Datasets
-This list box shows all the datasets in memory. You can select one or more datasets and you can use common Windows shortcut like Ctrl+A, Delete.... The parameters listed are those of the dataset selected (or the first selected dataset if you have more than one selection). The datasets label can be edited.
+This list box shows all the datasets in memory. You can select one or more datasets, edit the label or drag and drop them to rearrange them (you can use common Windows shortcut like Ctrl+A, Delete...). The parameters listed are those of the dataset selected (or the first selected dataset if you have more than one selection). 
 
 ## Fit selected
 This command is used to fit the set of parameters that describes the circuit, if the circuit is valid (i.e., there are parameters to fit on the right side of the window) and if you have data. The user can select which parameters to fit and it is recommended to start with a few parameters first, ensuring that the initial values are close to the expected values. The simulated spectrum will be updated with every change in the parameters, and the user can perform manual adjustments as necessary. The data can be selected by standard click, ctrl+click,.. or if you want you can select all by using Ctrl+A.
