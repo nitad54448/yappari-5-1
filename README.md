@@ -480,11 +480,11 @@ Will save a definition file, in an xml format, for reading custom datafiles.
 Change the default values and the limits for electrical parameters of the model. Adapt these values for your use cases.
 
     drt_search
-will calculate a number of [DRTs](https://github.com/nitad54448/yappari-5-1#drt-active-datasets) in the range defined by the user and reconstruct all the impedance sets. The best lambda parameter based on the minim squared error between the calculated and experimental sets will be shown. The interval of lambda will be scaned in log spacing over the interval specified by the user.
+will calculate a number of DRTs in the range defined by the user and reconstruct all the impedance sets. The best lambda parameter based on the minim squared error between the calculated and experimental sets will be shown. The interval of lambda will be scaned in log spacing over the interval specified by the user (for Gold optimization, the adjusting parameter is the number of iterations).
 The window that appears allow you to set the DRT value (you may need to resize the window, depending on your screen resolution)
 
     drt_explore
-This will calculate and plot a 3D graph with all DRTs as a function of lambda, like this graph. Be patient, it takes time.
+This will calculate and plot a 3D graph with all DRTs as a function of lambda (or iterations), like this graph. Be patient, it takes time.
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/explore_lambda.png)
 For Tikhonov or Fisk the parameter changed is Lambda while for Gold optimization you need to specify the number of iterations.
 
@@ -492,10 +492,10 @@ For Tikhonov or Fisk the parameter changed is Lambda while for Gold optimization
 Equivalent to the __Fit selected__ command.
 
     global_fit_selected_datasets
-Perform a fit for a unique set of parameters for the selected datasets. This will calculate the variance of each point and use 1/variance for weight in the non-linear fit. The parameters of the first selected dataset will be taken as starting point.
+Perform a fit for a unique set of parameters for the selected datasets. This will calculate the variance of each point and use 1/variance for weight in the non-linear fit. The parameters of the first selected dataset will be taken as starting point. all selected datasets will be taken as input data and all selected datasets will have the same parameters.
 
     add noise to z 
-Add random noise up to X percent, X being a value defined by the user. Nois can also be added to frequency (for testing purposes), Zr and Zi.
+Add random noise up to X percent, X being a value defined by the user. Noise can also be added to frequency (for testing purposes, there is no point in adding errors in frequencies), Z, Zr and Zi.
 
     negate_zi
 To change the sign of Zi after reading a file that has -Zi (I always wondered why some softwares request -Zi in the datafile).
@@ -518,7 +518,7 @@ The program has several panels and a parameter list with several commands groupe
 ### Zr, -Zi
 This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you need to disable the Auto-axis feature by right clicking on the graph and directly change the ranges. Some other standard graphic functions are available in the top left "palette" such as zoom in, zoom out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
 You can change the plot colors, style, etc.... by clicking on the label; the changes in this graph will affect all the other graphs, except for DRT. You can mask or delete some outlier points by zooming in and use the commands _Action_/_Mask points active datasets_ or _Action_/_Delete points active datasets_. Points that are in that range are removed from all active datasets. When masking some points they will not appear in graphs and not be used in calculations. Unlike the _Delete points_ you can Unmask points.
-The number of plots can be selected by the user, see Max Plots on [Parameters](https://github.com/nitad54448/yappari-5-1#parameters) page. Note that, because of space limitations, only the first 24 plots will have legends. But you can plot as many datasets as you want (I tried 3700 datasets, see the tutorials, it is possible but slow to plot them and I wonder why you'd want to plot that many). 
+The number of plots can be selected by the user, see Max Plots on __Parameters__ page. Note that, because of space limitations, only the first 24 plots will have legends. But you can plot as many datasets as you want (I tried 3700 datasets, see the tutorials, it is possible but slow to plot them and I wonder why you'd want to plot that many). 
 
 ### Zr, Zi, ln R, theta
 These panels will show the dependency of impedances (real, imaginary, modulus or phase) as a function of frequency and the differences between the calculated and experimental values, something like this
@@ -528,7 +528,7 @@ These panels will show the dependency of impedances (real, imaginary, modulus or
 Note that points that are masked will not be shown, nor the difference with the calculations, it's like they don't exist.
 
 ### 3D plot
-This panel will show a 3D plot of selected datasets or a part of them, either in Nyquist, Zr or Zi or their differences, as selected by the user. This is useful for many datasets, more than 20 I guess, it will allow the user to see tendencies or check systematic errors in the fits. You can right click on the graph to adjust plotting properties to your liking (3D Plot Properties) or change the size of the graph. If you have many datasets, it will take some time to plot all data so to limit the waiting time, you may want to "decimate" the data for plotting). The number of plots shown is defined by the smallest value between the number of selected datasets and the "Max plots" value, see [Parameters](https://github.com/nitad54448/yappari-5-1#parameters). Depending on your computer, a few hunderth datasets can be plotted easily. If you try more than 1000 you'll have to wait, the program will appear irresponsive.
+This panel will show a 3D plot of selected datasets or a part of them, either in Nyquist, Zr or Zi or their differences, as selected by the user. This is useful for many datasets, more than 20 I guess, it will allow the user to see tendencies or check systematic errors in the fits. You can right click on the graph to adjust plotting properties to your liking (3D Plot Properties) or change the size of the graph. If you have many datasets, it will take some time to plot all data so to limit the waiting time, you may want to "decimate" the data for plotting). The number of plots shown is defined by the smallest value between the number of selected datasets and the "Max plots" value, see --Parameters__. Depending on your computer, a few hunderth datasets can be plotted easily. If you try more than 1000 you'll have to wait, the program will appear irresponsive.
 The 3D plot might be useful to look for tendencies, a plot looks like this :
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/Zidiff_3D.PNG)
 
@@ -573,7 +573,7 @@ Overall, the notation is quite straightforward once you become familiar with the
 On this page you can adjust some parameters of the program. The basic parameters (but not the parameters related to electrical model) are loaded from a configuration file named _yappari_configuration.xml that is located in __/config__ folder. You can edit or save a different default configuration file. The default circuit parameters are loaded from model definitions in **/config** xml files. You can edit all these xml to adapt the default values to your liking by directly editing the xml files (be careful with these changes, the XML format shoud be respected or the program will not work) or you can use  __Advanced/save_custom_xml__
 
 ### Datafile separator
-For reading data, depending on the format you use, the datafile separator _should_ be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. This data separator __will not be used__ when reading files with a Custom configuration, see below (in this case the definition file sets the separator to be used).
+For reading _and saving_ data, depending on the format you use, the datafile separator _should_ be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. This data separator __will not be used__ when reading files which have a defined configuration, see below (in this case the definition file sets the separator to be used).
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/parameters77.png)
 
