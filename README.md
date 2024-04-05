@@ -459,6 +459,7 @@ _Note : With the release 5.1.74, there is a change in the format of the project 
 This will open this website, hopefully the address will not change; while the program file may have some tutorial help files, the most recent help is always on this github page.
 
 ### Exit
+Close the program and Exit.
 
 ## Advanced
 These can be used for manual control or advanced functions. Most of the commands listed here are not available in the regular menu, see more details below (some commands are not very common so I didn't want to have too many entries in the __Action__ menu). 
