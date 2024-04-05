@@ -405,7 +405,7 @@ This option will provide a Z-HIT simulation (which is a Hilbert transform of the
 ### DRT active datasets
 This performs a calculation of Distribution of Relaxation Times for one or more datasets for the case of serial RC circuits. The methods used and theory is detailed [here](https://github.com/nitad54448/yappari-5-1/blob/main/docs/theory.md).  
  
-Data should be acquired with log spacing and with a decent number of points per decade (otherwise you may try to rearrange data with the command _spline>>number_ if you want a total _number_ interpolated datapoints scaled in log space).
+Data should be acquired with log spacing and with a decent number of points per decade (otherwise you may try to rearrange data with the command _spline_).
 For the fit, the optimal regularization parameter is decided by the user (there is no universal value for this, it can be estimated with a procedure known as L-curve). If the Tikhonov parameter, noted Lambda in this program, is too small some spurious peaks will appear while a parameter too large will just squash the information. 
 
 Criteria for selecting the optimal value are included in this program. You can either use [DRT search](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#drt-search) command or see other options in _Advanced commands_. 
