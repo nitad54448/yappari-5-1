@@ -579,7 +579,7 @@ For reading data, depending on the format you use, the datafile separator _shoul
 
 ### Fit method
 The fitting algorithm (TRDL is the default) and the parameters bounds, if any, can be constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-15, and so on. You may want to adjust these parameters limits either on this page for the session in process or edit the default values that are located in the /config/*.xml files. You can edit the files manually or use __Advanced commands/change_default_limits__ 
-The fitting results will depend on the starting parameters since this is a non-linear system. You should probably manually adjust the starting parameters then use the fitting procedure you want (TRDL seems to be quite robust). Note that esd's of the fitted parameters are calculated only for unconstrained LM fit.
+The fitting results will depend on the starting parameters since this is a non-linear system. You should probably manually adjust the starting parameters then use the fitting procedure you want (TRDL seems to be quite robust). Note that esd's of the fitted parameters are calculated only for unconstrained LM fit. You need to fit all parameters to get proper esds and chi squared values.
 
 ### Fit termination
 The fit termination parameters can be adjusted here : by default they are set to 2500 iterations and a stop limit at 10E-15 or if you want them, the default values are in the program configuration file which can be edited manually or by using "Advanced commands" function.
