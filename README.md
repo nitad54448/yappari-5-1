@@ -163,46 +163,51 @@ After installing the program in a directory of your choice, some other subdirect
 
 Note that the decimal separator in Windows may have an impact on reading some datafile, see the __Read data__ section.
 
-This program will work on Windows 10 64 bits or Win 11 with regular screen resolutions. The main panel has a 1200*700 pixels; if you have very large resolutions of the screen the program may appear too small. 
+This program will work on Windows 10 64 bits or Win 11 with regular screen resolutions. 
 
 # Get started
 Two important things of a computer program are how to start it and how to end it. To end this program just close the window or select __Action/Exit__ function. A confirmation window will appear and that's it. 
-Starting this program requires to give it some data. This is achieved with the __Read data__ function. Be aware of the numeric separator of your system: in most cases is a dot, in some others is a period, see the __Read data__ part. There are three main commands in this program: __Read data__, __Action__ and __Advanced__.
+To use this program requires to give it some data, in general, or you can generate some data. Be aware of the numeric separator of your system: in most cases is a dot, in some others is a period, see the __Read data__ part. There are three main commands in this program: __Read data__, __Action__ and __Advanced__.
 
 ## Read data
 This command opens a menu with several options indicating the type of file to read.
 
 __Warning : A number can be represented as 1.25 or 1,25 (in some countries, like in France). So if your Windows separator setting is set to "," the program expects a number as 1,25 and not 1.25. You can still use this program with "," but you cannot read the files given as examples in /files, which were formated with "."__
 
-Reading a new file will just add more data at the beginning of the list wihtout losing the previous ones. You can remove some of the datasets with the command [Delete selected datasets](https://github.com/nitad54448/yappari-5-1#delete-active-datasets). You will need to select one or more datasets in order to perform operations like fit, save, plot.. etc. A selected dataset is coloured differently, it is named in this document as _active_. 
+Reading a new file will just add more data at the beginning of the list wihtout losing the previous ones. You will need to select one or more datasets in order to perform operations like fit, save, plot.. etc. A selected dataset is coloured differently, it is named in this document and in the program as _active_. 
 _Note : the files given as examples in the /files directory have a decimal separator . (a dot). When saving data there is a character separation between the numerical values (usually a TAB), this should be adjusted in Yappari, see the __Parameters__ page.
 
 ### 3 columns
 This option reads a **single dataset** from a three-column ASCII file, which should be separated by the character selected in the [Parameters](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#parameters) page, and it should contain frequency in Hz, Zr, and Zi. The data separator can be "TAB", "space", ",", ";".
-The file may contain a description line (like parameters or type of the sample), if the description does not contain numbers which might be interpreted as data values by the program. The best option is to have only 3 columns and no text or empty lines in the file. If you want to keep one or more description lines in the file, it is better to use the "Custom" format and prepare an **XML template file**, see below. If you have multiple datasets in a single files (other than Z_MFLI and MFLI_Zview files)they must be read with the **Custom** option.
+The file may contain a description line (like parameters or type of the sample), if the description does not contain numbers which might be interpreted as data values by the program. The best option is to have only 3 columns and no text or empty lines in the file. If you want to keep one or more description lines in the file, it is better to use the "Custom" format and prepare an **XML template file**, see below. If you have multiple datasets in a single file (other than Z_MFLI and MFLI_Zview files) they must be read with the **Custom** option.
 
-If the reading is successful, the dataset will be inserted in the first position with a name taken from the filename. This name can be changed by the user. Only one dataset can be read with this command. 
+If the reading is successful, the dataset will be inserted in the first position with a name taken from the filename. This name can be changed by the user. Only one dataset can be read with this command.
+
 _Note : You should select the proper separator string in the Parameters page prior to use of this function._
 
 ### MFLI, csv
 This is a ';' or ',' separated values file as obtained from MFLI/MFIA, a Zurich Instruments impedance analyzer. As in the __MFLI, Zview text__, multiple data sets can be read from this file. In the /files folder that is provided with the installer you can find such a file containing 34 measurements of the same sample. It would be boring and useless to fit all these 34 datasets one by one. Yappari-5 can handle such multiple data sets. The dataseset are labeled with a name taken from the file name and a suffix indicating the position in the file : the first datasets in the file will have __0__, then __1__, .. and so on.
+
 _Note : You should select the proper separator string in the Parameters page prior to of use this function._
 
 ### MFLI, Zview txt
 This is a MFLI text file, an ASCII type, that can hold multiple data sets. Yappari will read all datasets it finds in this file and insert them in the datasets listing, with a name taken from the file name and a suffix indicating the position in the file : the first datasets will have __0__, then __1__,  and so on. 
-_Note : Data separator from the Parameters page is not required for this file type._
+
+_Note : Data separator from the Parameters page is ignored for this file._
 
 ### Versa Studio par
 This type of file contains data delimited by <Segments> and >/Segments>. I did not extensively checked this type of file, an example is given in the /data folder. If you encounter errors, feel free to drop me a line with examples of datafile saved by this system.
+
 _Note : Data separator from the Parameters page is ignored for this file._
 
 ### Z-MFLI
 This is a custom text file, that can hold multiple data sets, which is obtained by the programs I wrote in my lab. An exemple of such file is given in the /data directory but it has probably little interest for other users except that a Custom definition file is provided for this file, so the users may understand how to define such a file for reading custom formats.
+
 _Note : Data separator from the Parameters page is ignored for this file._
 
 ### Custom
-If your data file is of text type and has a format that is not usual you may define a _Custom_ format in an XML configuration file. In this case the program will ask the user to select two files : first the datafile then the XML file that describes the format used.
-Several exemples of such files are given in the **/files** directory, you can manually edit the xml file definition or use an command, see __Advanced commands__, to suit your format.  
+If your data file is of text type and has a format that is not usual you may define a _Custom_ format in an XML configuration file. In this case the program will ask the user to select two files: first the datafile then the XML file that describes the format used.
+Several exemples of such files are given in the **/files** directory, you can manually edit the xml file definitions or use a command, see __Advanced__.  
 
 The XML parameters that are required for a definition file are 
 
@@ -405,7 +410,7 @@ This option will provide a Z-HIT simulation (which is a Hilbert transform of the
 ### DRT active datasets
 This performs a calculation of Distribution of Relaxation Times for one or more datasets for the case of serial RC circuits. The methods used and theory is detailed [here](https://github.com/nitad54448/yappari-5-1/blob/main/docs/theory.md).  
  
-Data should be acquired with log spacing and with a decent number of points per decade (otherwise you may try to rearrange data with the command _spline>>number_ if you want a total _number_ interpolated datapoints scaled in log space).
+Data should be acquired with log spacing and with a decent number of points per decade (otherwise you may try to rearrange data with the command _spline_).
 For the fit, the optimal regularization parameter is decided by the user (there is no universal value for this, it can be estimated with a procedure known as L-curve). If the Tikhonov parameter, noted Lambda in this program, is too small some spurious peaks will appear while a parameter too large will just squash the information. 
 
 Criteria for selecting the optimal value are included in this program. You can either use [DRT search](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#drt-search) command or see other options in _Advanced commands_. 
@@ -454,6 +459,7 @@ _Note : With the release 5.1.74, there is a change in the format of the project 
 This will open this website, hopefully the address will not change; while the program file may have some tutorial help files, the most recent help is always on this github page.
 
 ### Exit
+Close the program and Exit.
 
 ## Advanced
 These can be used for manual control or advanced functions. Most of the commands listed here are not available in the regular menu, see more details below (some commands are not very common so I didn't want to have too many entries in the __Action__ menu). 
