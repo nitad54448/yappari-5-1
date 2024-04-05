@@ -161,12 +161,9 @@ There is another way to install it, if you want to complicate things. Yappari 5.
 
 After installing the program in a directory of your choice, some other subdirectories will be created : **/config**, **/drt**, **/files**, **/help** and **/models**. The **/models** directory contains png files with images for showing circuits. The **/config** holds xml configuration files, **/files** directory contains some examples of data files and custom definitions and **/models** some image files for models.  The **/help** directory holds some images for this document and some help files. You can remove **/docs**, **/drt**, **/files** and **/help** but you must keep the **/models** and **/config** folders.
 
-Note that the decimal separator in Windows may have an impact on reading some datafile, see the __Read data__ section.
-
 This program will work on Windows 10 64 bits or Win 11 with regular screen resolutions. 
 
 # Get started
-Two important things of a computer program are how to start it and how to end it. To end this program just close the window or select __Action/Exit__ function. A confirmation window will appear and that's it. 
 To use this program requires to give it some data, in general, or you can generate some data. Be aware of the numeric separator of your system: in most cases is a dot, in some others is a period, see the __Read data__ part. There are three main commands in this program: __Read data__, __Action__ and __Advanced__.
 
 ## Read data
