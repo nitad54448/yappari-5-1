@@ -390,7 +390,7 @@ All points, _from all selected datasets_, that are in the area defined by the gr
 Cancel the mask function for all selected datasets.
 
 ### Delete points active datasets
-You can delete experimental points from selected datasets in the Nyquist, Zr, Zi or lnR plots: just zoom in the region to show only the points you want to delete then select this command (this is irreversible). Be aware that all the points having values in the range shown on the plots are removed from _all selected datasets_ irrespective if they are actually seen on the plots or not. The datasets visible on the graph depends on the [Max plots](https://github.com/nitad54448/yappari-5-1#max-plots) value. Be careful : there is no warning.
+You can delete experimental points from selected datasets in the Nyquist, Zr, Zi or lnR plots: just zoom in the region to show only the points you want to delete then select this command (this is irreversible). Be aware that all the points having values in the range shown on the plots are removed from _all selected datasets_ irrespective if they are actually seen on the plots or not. The datasets visible on the graph depends on the __Max plot__ value. Be careful : there is no warning.
 
 ### Delete active datasets
 Irreversible action removing one or more datasets and all related parameters from memory (by active one should understand “selected”). Datasets can be deleted also with the Key "Delete".
@@ -430,8 +430,8 @@ A window with an indication of the optimal parameter will appear. The plot shows
 It should look like this
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/params_drt_alten.PNG)
 
-The optimal regularization parameter is the minimum of the MSE (or just at the change of the variance). You can zoom this image to check the selection made. The program proposes the optimum as the value of lambda where there is a minimum in MSE and show a red cursor position. You can drag this cusor to another position to impose another value for lambda. By default for Gold the program will calculate 50 points and for Tikhonov and Fisk 100 points. You can modify these values, see Advanced commands.
-Similar to this function there is drt_explore which can be accesed in [Advanced commands](https://github.com/nitad54448/yappari-5-1#advanced-commands).
+The optimal regularization parameter is the minimum of the MSE (or just at the change of the variance). You can zoom this image to check the selection made. The program proposes the optimum as the value of lambda where there is a minimum in MSE and show a red cursor position. You can drag this cusor to another position to impose another value for lambda or the number of iterations if you are using Gold. You can select the number of parameters to search.
+Similar to this function there is __drt_explore__ which can be accesed in __Advanced__.
 
 ### Clone the parameters to all
 Copy the listed parameters to all datasets. Useful for bulk fitting in order to set proper starting point for all the sets.
@@ -492,7 +492,7 @@ For Tikhonov or Fisk the parameter changed is Lambda while for Gold optimization
 Equivalent to the __Fit selected__ command.
 
     global_fit_selected_datasets
-Perform a fit for a unique set of parameters for several Active datasets. This will calculate the variance of each point and use 1/variance for weight in non-linear fit. The parameters of the first selected dataset will be taken as strating point.
+Perform a fit for a unique set of parameters for the selected datasets. This will calculate the variance of each point and use 1/variance for weight in the non-linear fit. The parameters of the first selected dataset will be taken as starting point.
 
     add noise to z 
 Add random noise up to X percent, X being a value defined by the user. Nois can also be added to frequency (for testing purposes), Zr and Zi.
@@ -575,21 +575,21 @@ On this page you can adjust some parameters of the program. The basic parameters
 ### Datafile separator
 For reading data, depending on the format you use, the datafile separator _should_ be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. This data separator __will not be used__ when reading files with a Custom configuration, see below (in this case the definition file sets the separator to be used).
 
-![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/parameters77.PNG)
+![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/parameters77.png)
 
 ### Fit method
 The fitting algorithm (TRDL is the default) and the parameters bounds, if any, can be constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-15, and so on. You may want to adjust these parameters limits either on this page for the session in process or edit the default values that are located in the /config/*.xml files. You can edit the files manually or use __Advanced commands/change_default_limits__ 
 The fitting results will depend on the starting parameters since this is a non-linear system. You should probably manually adjust the starting parameters then use the fitting procedure you want (TRDL seems to be quite robust). Note that esd's of the fitted parameters are calculated only for unconstrained LM fit. You need to fit all parameters to get proper esds and chi squared values.
 
 ### Fit termination
-The fit termination parameters can be adjusted here : by default they are set to 2500 iterations and a stop limit at 10E-15 or if you want them, the default values are in the program configuration file which can be edited manually or by using "Advanced commands" function.
-The same value listed as the maximum iteration number in this panel is used for DRT calculated with Gold or Fisk algorithms.
+The fit termination parameters can be adjusted here : by default they are set to 2500 iterations and a stop limit at 10E-18. The default values are in the program /config/.xml configuration file which can be edited manually or by using an __Advanced__ function.
+The same value listed as the maximum iteration number in this panel is also used for DRT calculated with Gold or Fisk algorithms.
 
 ### Simulation limits
-This is used only for "Simulate" function, it will calculate a spectrum in this range of frequencies having a number of points defined here. Useful for testing and simulation.
+This is used only for __Simulate__ function, it will calculate a spectrum in this range of frequencies having a number of points defined here. Useful for testing and simulation.
 
 ### Decimate / Max plots
-This is the maximum number of plots to show on the graphs (excluding DRT which will show only the first selected dataset). It should be small (up to about 100) if you are dealing with many datasets. The number of plots is determined by the number of selected datasets or this number, whichever is smaller. The program will "decimate" the available data for plots but all selected datasets (aka active datasets) are considered for mathematical operation. So, if you have 300 datasets and show only 100 on the graph, when perfoming "Delete points", the points of all 300 datasets will be deleted.
+This is the maximum number of plots to show on the graphs (excluding DRT which will show only the first selected dataset). It should be small (up to about 100) if you are dealing with many datasets. The number of plots is determined by the number of selected datasets or this number, whichever is smaller. The program will "decimate" the available data for plots but all selected datasets (aka active datasets) are considered for mathematical operations. So, if you have 300 datasets and show only 100 on the graph, when perfoming "Delete points", the points of all 300 datasets will be deleted.
 The 3D plot is very slow if you have more than 200-300 datasets. Suppose you have 500 datasets selected (you can perform calculations on all of them), for plotting them it may be better to show only a part, let's say 100. The program will "decimate" the 500 datasets and show only 100, equally distributed among the 500. The tendencies will still be visible on the graphs, no need to plot all of them. If you want, you can, but for more than 500 datasets it will be very slow (on my desktop computer slow means a few seconds for 500 datasets plotted on 3D graph, and several minutes for 3000 datasets on 3D graph).
 
 ### DRT
