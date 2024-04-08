@@ -95,7 +95,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
 This program can be used freely and distributed according to CC-BY-NC-ND 4.0.
 It was written in Labview 2023, National Instruments and it includes the JKI toolkits for Labview, © 2023, JKI and NI. All rights reserved.
 
-For (hopefully few) questions or comments:
+For questions or comments see __Note to users__:
 
 __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 </details>
