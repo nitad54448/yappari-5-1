@@ -10,7 +10,7 @@ This document applies to version 5.1.77 or after. For prior releases see the **/
   
 This program can perform several mathematical operations of interest in impedance spectroscopy: non-linear parametric fits for one or multiple datasets, DRT, Hilbert transform, spectra simulations etc. For a single dataset and non-linear optimization you may use an old and simpler program [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2). This single dataset program is not developed further and it has limited features so it might be better to start with this version. No support will be provided for the previous versions.
 
-Some theoretical notions are given in the [theory file](https://github.com/nitad54448/yappari-5-1/blob/main/docs/theory.md) in this repository.
+Some theoretical notions are given in the [theory file](https://github.com/nitad54448/yappari-5-1/blob/main/help/theory.md) in this repository.
 
 You are encouraged to contribute to this help file or write tutorials. If you want to contribute to the help file or tutorials, send them to me and I will add them to this repository. As much as I like programming, writing documentation is boring. The most updated description of the program is always here on this page.
   
@@ -406,7 +406,7 @@ This option will calculate an impedance spectrum based on the model and the valu
 This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given previously. This is a procedure similar to the better known Kramers-Kronig test.
 
 ### DRT active datasets
-This performs a calculation of Distribution of Relaxation Times for one or more datasets for the case of serial RC circuits. The methods used and theory is detailed [here](https://github.com/nitad54448/yappari-5-1/blob/main/docs/theory.md).  
+This performs a calculation of Distribution of Relaxation Times for one or more datasets for the case of serial RC circuits. The methods used and theory is detailed [here](https://github.com/nitad54448/yappari-5-1/blob/main/help/theory.md).  
  
 Data should be acquired with log spacing and with a decent number of points per decade (otherwise you may try to rearrange data with the command _spline_).
 For the fit, the optimal regularization parameter is decided by the user (there is no universal value for this, it can be estimated with a procedure known as L-curve). If the Tikhonov parameter, noted Lambda in this program, is too small some spurious peaks will appear while a parameter too large will just squash the information. 
@@ -548,7 +548,7 @@ The elements used are rather common: Resistor, Capacitor, Inductor, CPE, Zarc, s
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/circuit.PNG)
 
-Equations are described in the [theory](https://github.com/nitad54448/yappari-5-1/blob/main/docs/theory.md) file. 
+Equations are described in the [theory](https://github.com/nitad54448/yappari-5-1/blob/main/help/theory.md) file. 
 
 ### Create a model
 
@@ -609,7 +609,7 @@ For many datasets, the data are described by the same model circuit, I suggest t
 
 The fitting can be performed using different methods, which are discussed before, although there is not much difference in the output of these methods (except for the esd, see below). The fitting process involves a number of cycles, by default 1000 for a dataset, and it will stop a limit is reached. These termination parameters can be adjusted on the _Parameters_ page or in configuration file. Multiple iterations may be necessary, particularly if the initial values are far from the actual values.
 
-The quality of the fit is evaluated using the R<sup>2</sup> statistical parameter and the chi<sup>2</sup> value. However, the use of the chi<sup>2</sup> value as a statistical parameter is debatable, as discussed in the paper ["Dos and don'ts of reduced chi-squared"](https://github.com/nitad54448/yappari-5-1/blob/main/theory.md) by Andrae et al. The chi<sup>2</sup> value reported here is calculated as (Sum ((Z<sub>obs</sub>-Z<sub>calc</sub>)<sup>2</sup>/Z<sub>calc</sub>))/DOF. The degree of freedom (DOF) is considered as Nr_of_points - nr_of_fitted_params. 
+The quality of the fit is evaluated using the R<sup>2</sup> statistical parameter and the chi<sup>2</sup> value. However, the use of the chi<sup>2</sup> value as a statistical parameter is debatable, as discussed in the paper "Dos and don'ts of reduced chi-squared" by Andrae et al. The chi<sup>2</sup> value reported here is calculated as (Sum ((Z<sub>obs</sub>-Z<sub>calc</sub>)<sup>2</sup>/Z<sub>calc</sub>))/DOF. The degree of freedom (DOF) is considered as Nr_of_points - nr_of_fitted_params. 
 The standard deviation is estimated, assumming independent errors, only for unconstrained Levenberg-Marquardt fit.
 
 [# やっぱり #](https://github.com/nitad54448/yappari-5-1)
