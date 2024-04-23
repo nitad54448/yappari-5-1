@@ -8,7 +8,7 @@
 <Name>param limits</Name>
 <Dimsize>3</Dimsize>
 <Cluster>
-<Name>ParameterSelect</Name>
+<Name>Cluster</Name>
 <NumElts>3</NumElts>
 <DBL>
 <Name>min</Name>
@@ -19,12 +19,12 @@
 <Val>ZARR</Val>
 </String>
 <DBL>
-<Name>max</Name>
+<Name>ParameterSelect</Name>
 <Val>1000000000.00000000000000</Val>
 </DBL>
 </Cluster>
 <Cluster>
-<Name>ParameterSelect</Name>
+<Name>Cluster</Name>
 <NumElts>3</NumElts>
 <DBL>
 <Name>min</Name>
@@ -35,12 +35,12 @@
 <Val>ZARQ</Val>
 </String>
 <DBL>
-<Name>max</Name>
+<Name>ParameterSelect</Name>
 <Val>2.00000000000000E-3</Val>
 </DBL>
 </Cluster>
 <Cluster>
-<Name>ParameterSelect</Name>
+<Name>Cluster</Name>
 <NumElts>3</NumElts>
 <DBL>
 <Name>min</Name>
@@ -51,8 +51,8 @@
 <Val>ZARN</Val>
 </String>
 <DBL>
-<Name>max</Name>
-<Val>3.00000000000000</Val>
+<Name>ParameterSelect</Name>
+<Val>1.05000000000000</Val>
 </DBL>
 </Cluster>
 </Array>
