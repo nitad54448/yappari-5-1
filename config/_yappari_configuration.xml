@@ -7,6 +7,7 @@
 <EW>
 <Name>Method</Name>
 <Choice>TRDL</Choice>
+<Choice>Nelder-Mead</Choice>
 <Choice>LM with limits</Choice>
 <Choice>LM</Choice>
 <Val>0</Val>
@@ -40,11 +41,11 @@
 <NumElts>3</NumElts>
 <DBL>
 <Name>start /Hz</Name>
-<Val>1.00000000000000E-3</Val>
+<Val>5000000.00000000000000</Val>
 </DBL>
 <DBL>
 <Name>end /Hz</Name>
-<Val>1000000.00000000000000</Val>
+<Val>1.00000000000000E-3</Val>
 </DBL>
 <I32>
 <Name>points</Name>
