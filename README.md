@@ -1,5 +1,5 @@
 # YAPPARI
-version 06-04-2024, release 5.1.78
+version 25-04-2024, release 5.1.79
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
@@ -36,6 +36,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
   <summary>Changes</summary>
 
 ## Changes 
+   - April 25, 2024 : Added a Nelder-Mead optimization method. Configuration and XML project files have new entries therefore old projects files cannot be read with this version and later. Release 5.1.79.
    - April 6, 2024 : Dynamically enable or disable options in the menus. Release 5.1.78. 
    - April 4, 2024 : More cosmetics. Release 5.1.77.
    - April 2, 2024 : Cosmetics. Release 5.1.76.
@@ -580,7 +581,7 @@ For reading _and saving_ data, depending on the format you use, the datafile sep
 
 ### Fit method
 The fitting algorithm (TRDL is the default) and the parameters bounds, if any, can be constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-15, and so on. You may want to adjust these parameters limits either on this page for the session in process or edit the default values that are located in the /config/*.xml files. You can edit the files manually or use __Advanced commands/change_default_limits__ 
-The fitting results will depend on the starting parameters since this is a non-linear system. You should probably manually adjust the starting parameters then use the fitting procedure you want (TRDL seems to be quite robust). Note that esd's of the fitted parameters are calculated only for unconstrained LM fit. You need to fit all parameters to get proper esds and chi squared values.
+The fitting results will depend on the starting parameters since this is a non-linear system. You should probably manually adjust the starting parameters then use the fitting procedure you want (TRDL seems to be quite robust). For Levenberg-Marquardt method, the initial parameters should be rather close to good values. Note that esd's of the fitted parameters are calculated only for unconstrained LM fit. You need to fit all parameters to get proper esds and chi squared values.
 
 ### Fit termination
 The fit termination parameters can be adjusted here : by default they are set to 2500 iterations and a stop limit at 10E-18. The default values are in the program /config/.xml configuration file which can be edited manually or by using an __Advanced__ function.
