@@ -1,5 +1,5 @@
 # YAPPARI
-version 25-04-2024, release 5.1.79
+version 26-04-2024, release 5.1.79.1
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
@@ -36,7 +36,8 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
   <summary>Changes</summary>
 
 ## Changes 
-   - April 25, 2024 : Added a Nelder-Mead optimization method. Changed the weighting factor for the minimization process to 1/abs(Z). Configuration and XML project files have new entries therefore old projects files cannot be read with this version and later. Release 5.1.79.
+   - April 26, 2024 : Changed the auto zoom behavior on Nyquist plot, it can be disabled.
+   - April 25, 2024 : Added a Nelder-Mead optimization method. Changed the weighting factor for the minimization process to 1/abs(Z). Configuration and XML project files have new entries therefore old projects files cannot be read with this version and later. Release 5.1.79. 
    - April 6, 2024 : Dynamically enable or disable options in the menus. Release 5.1.78. 
    - April 4, 2024 : More cosmetics. Release 5.1.77.
    - April 2, 2024 : Cosmetics. Release 5.1.76.
