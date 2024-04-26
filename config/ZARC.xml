@@ -36,7 +36,7 @@
 </String>
 <DBL>
 <Name>ParameterSelect</Name>
-<Val>2.00000000000000E-3</Val>
+<Val>1.00000000000000E-4</Val>
 </DBL>
 </Cluster>
 <Cluster>

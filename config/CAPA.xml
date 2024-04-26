@@ -20,7 +20,7 @@
 </String>
 <DBL>
 <Name>ParameterSelect</Name>
-<Val>1.00000000000000E-2</Val>
+<Val>1.00000000000000E-5</Val>
 </DBL>
 </Cluster>
 </Array>
