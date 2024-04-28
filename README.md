@@ -1,5 +1,5 @@
 # YAPPARI
-version 26-04-2024, release 5.1.79.2
+version 28-04-2024, release 5.1.79.3
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
@@ -36,7 +36,8 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
   <summary>Changes</summary>
 
 ## Changes 
-   - April 26, 2024 : The weight factor can be selected on the Parameters page. Release 5.1.79.2
+   - April 28, 2024 : The reduced chi^2 parameter is now reported, instead of chi^2. Release 5.1.79.3.
+   - April 26, 2024 : The weight factor can be selected on the Parameters page. Release 5.1.79.2.
    - April 26, 2024 : Changed the auto zoom behavior on Nyquist plot, it can be disabled. Resease 5.1.79.1.
    - April 25, 2024 : Added a Nelder-Mead optimization method. Changed the weighting factor for the minimization process to 1/abs(Z). Configuration and XML project files have new entries therefore old projects files cannot be read with this version and later. Release 5.1.79. 
    - April 6, 2024 : Dynamically enable or disable options in the menus. Release 5.1.78. 
@@ -616,8 +617,8 @@ For many datasets, the data are described by the same model circuit, I suggest t
 
 The fitting can be performed using different methods, which are discussed before, although there is not much difference in the output of these methods (except for the esd, see below). The fitting process involves a number of cycles, by default 1000 for a dataset, and it will stop a limit is reached. These termination parameters can be adjusted on the _Parameters_ page or in configuration file. Multiple iterations may be necessary, particularly if the initial values are far from the actual values.
 
-The quality of the fit is evaluated using the R<sup>2</sup> statistical parameter and the chi<sup>2</sup> value. However, the use of the chi<sup>2</sup> value as a statistical parameter is debatable, as discussed in the paper "Dos and don'ts of reduced chi-squared" by Andrae et al, see the /help/theory/md file. The chi<sup>2</sup> value reported here is calculated as (Sum ((Z<sub>obs</sub>-Z<sub>calc</sub>)<sup>2</sup>/Z<sub>calc</sub>))/DOF. The degree of freedom (DOF) is considered as Nr_of_points - nr_of_fitted_params. 
-The standard deviation is estimated, assumming independent errors, only for unconstrained Levenberg-Marquardt fit.
+The quality of the fit is evaluated using the R<sup>2</sup> statistical parameter and the reduced_chi<sup>2</sup> value. However, the use of the chi<sup>2</sup> value as a statistical parameter for non-linear fit is debatable, as discussed in the paper "Dos and don'ts of reduced chi-squared" by Andrae et al, see the /help/theory/md file. The reduced_chi<sup>2</sup> is calculated as (Sum (weight(Z<sub>obs</sub>-Z<sub>calc</sub>)<sup>2</sup>/Z<sub>calc</sub>))/DOF. The degree of freedom (DOF) is considered as Nr_of_points - nr_of_fitted_parameters. 
+
 
 [# やっぱり #](https://github.com/nitad54448/yappari-5-1)
 --
