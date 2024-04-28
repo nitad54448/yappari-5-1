@@ -150,7 +150,7 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
       + [ing factor](#)
       + [Fit termination](#fit-termination)
       + [Simulation limits](#simulation-limits)
-      + [Decimate / Max plots](#decimate-max-plots)
+      + [Decimate / Max plots](#decimate--max-plots)
       + [DRT](#drt)
    * [About](#about)
    * [Datasets](#datasets)
