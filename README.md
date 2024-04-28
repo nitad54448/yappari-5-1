@@ -138,7 +138,7 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
       + [Exit](#exit)
    * [Advanced](#advanced)
    * [Panels](#panels)
-      + [Zr, -Zi](#zr-zi)
+      + [Zr, -Zi](#zr--zi)
       + [Zr, Zi, ln R, theta](#zr-zi-ln-r-theta)
       + [3D plot](#3d-plot)
       + [Model](#model)
@@ -208,10 +208,9 @@ This is a custom text file, that can hold multiple data sets, which is obtained 
 
 _Note : Data separator from the Parameters page is ignored for this file._
 
-<details>
-  <summary>Custom files</summary>
-
 ### Custom
+<details>
+  <summary>Expand for details</summary>
 If your data file is of text type and has a format that is not usual you may define a _Custom_ format in an XML configuration file. In this case the program will ask the user to select two files: first the datafile then the XML file that describes the format used.
 Several exemples of such files are given in the **/files** directory, you can manually edit the xml file definitions or use a command, see __Advanced__.  
 
