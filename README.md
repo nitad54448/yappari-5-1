@@ -147,7 +147,7 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
    * [Parameters](#parameters)
       + [Datafile separator](#datafile-separator)
       + [Fit method](#fit-method)
-      + [Weighting factor](#weight)
+      + [ing factor](#)
       + [Fit termination](#fit-termination)
       + [Simulation limits](#simulation-limits)
       + [Decimate / Max plots](#decimate-max-plots)
@@ -498,7 +498,7 @@ For Tikhonov or Fisk the parameter changed is Lambda while for Gold optimization
 Equivalent to the __Fit selected__ command.
 
     global_fit_selected_datasets
-Perform a fit for a unique set of parameters for the selected datasets. This will calculate the variance of each point and use 1/variance for weight in the non-linear fit. The parameters of the first selected dataset will be taken as starting point. all selected datasets will be taken as input data and all selected datasets will have the same parameters.
+Perform a fit for a unique set of parameters for the selected datasets. The parameters of the first selected dataset will be taken as starting point. All selected datasets will be taken as input data and all selected datasets will have the same parameters.
 
     add noise to z 
 Add random noise up to X percent, X being a value defined by the user. Noise can also be added to frequency (for testing purposes, there is no point in adding errors in frequencies), Z, Zr and Zi.
@@ -588,7 +588,7 @@ There are four fitting methods implemented: __Trusted Region Dog-Led__, __Nelder
 The fitting results will depend on the starting parameters since this is a non-linear system. You should probably manually adjust the starting parameters then use the fitting procedure you want (TRDL seems to be quite robust). For Levenberg-Marquardt method, the initial parameters should be rather close to good values. Note that esd's of the fitted parameters are properly calculated for unconstrained LM fit. You need to fit all parameters to get proper esds and chi squared values.
 
 ### Weight
-This value selects the weighting method. The best is usually the "absolute Z".
+This value selects the weighting method. The best is usually the "absolute Z" and the applied weight will be the inverse of this parameter.
 
 ### Fit termination
 The fit termination parameters can be adjusted here : by default they are set to 2500 iterations and a stop limit at 10E-18. The default values are in the program /config/.xml configuration file which can be edited manually or by using an __Advanced__ function.
