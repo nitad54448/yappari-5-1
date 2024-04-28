@@ -105,7 +105,8 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 </details>
  
 # やっぱり #
-
+<details>
+  <summary>Index</summary>
 <!-- TOC start  -->
 
 - [How to install](#how-to-install)
@@ -138,7 +139,7 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
       + [Exit](#exit)
    * [Advanced](#advanced)
    * [Panels](#panels)
-      + [Zr, -Zi](#zr-zi)
+      + [Zr, -Zi](#zr--zi)
       + [Zr, Zi, ln R, theta](#zr-zi-ln-r-theta)
       + [3D plot](#3d-plot)
       + [Model](#model)
@@ -157,7 +158,7 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
    * [Fit selected](#fit-selected)
 
 <!-- TOC end -->
-
+</details>
 
 
 # How to install
@@ -199,16 +200,18 @@ This is a MFLI text file, an ASCII type, that can hold multiple data sets. Yappa
 _Note : Data separator from the Parameters page is ignored for this file._
 
 ### Versa Studio par
-This type of file contains data delimited by <Segments> and >/Segments>. I did not extensively checked this type of file, an example is given in the /data folder. If you encounter errors, feel free to drop me a line with examples of datafile saved by this system.
+This type of file contains data delimited by <Segments> and >/Segments>. I did not extensively checked this type of file, an example is given in the /files folder. If you encounter errors, feel free to drop me a line with examples of datafile saved by this system.
 
 _Note : Data separator from the Parameters page is ignored for this file._
 
 ### Z-MFLI
-This is a custom text file, that can hold multiple data sets, which is obtained by the programs I wrote in my lab. An exemple of such file is given in the /data directory but it has probably little interest for other users except that a Custom definition file is provided for this file, so the users may understand how to define such a file for reading custom formats.
+This is a custom text file, that can hold multiple data sets, which is obtained by the programs I wrote in my lab. An exemple of such file is given in the /files directory but it has probably little interest for other users except that a Custom definition file is provided for this file, so the users may understand how to define such a file for reading custom formats.
 
 _Note : Data separator from the Parameters page is ignored for this file._
 
 ### Custom
+<details>
+  <summary>Expand for details</summary>
 If your data file is of text type and has a format that is not usual you may define a _Custom_ format in an XML configuration file. In this case the program will ask the user to select two files: first the datafile then the XML file that describes the format used.
 Several exemples of such files are given in the **/files** directory, you can manually edit the xml file definitions or use a command, see __Advanced__.  
 
@@ -379,6 +382,7 @@ This instructs the program to read the fourth column as Zr and the fifth as Zi. 
 
 In the **/files** folder and in **/drt** you will find some other files, experimental or simulated with other impedance programs and exemples of configurations for XML templates (or definition files).
 Be aware that the separator character is defined in the definition file only if you use a Custom file, otherwise the separator is defined in the **Parameters** page. 
+</details>
 
 ### Read project, xml
 This command will read an xml file saved with Yappari. It can read all data, models and parameters obtained. This is an xml file so it can be seen in a browser, but reading it is slow, very slow, it requires parsing all ASCII fields. 
