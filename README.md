@@ -636,7 +636,7 @@ reduced chi^2= chi^2/DOF
 $$
 
 With the degree of freedom (DOF) taken as Nr_of_points - nr_of_fitted_parameters.
-A better way of fitting is to use several datasets, measured at exactly the same frequencies and an equal number of points. In this case the variance can be calculated and the fit will give a proper chi^2.
+
 
 [# やっぱり #](https://github.com/nitad54448/yappari-5-1)
 --
