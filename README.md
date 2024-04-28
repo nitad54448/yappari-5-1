@@ -162,11 +162,11 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 
 
 # How to install
-If this is the first time to install this program, the recommended and easiest way to install it is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the _Volume.zip_ file and not what is labelled as source file archives. Several versions are available, in general the last one is the best choice. In case of bugs please report them and grab an earlier version. 
+The recommended and easiest way to install it is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the _Volume.zip_ file and not what is labelled as source file archives. Several versions are available, in general the last one is the best choice. In case of bugs please report them and grab an earlier version. 
 
 There is another way to install it, if you want to complicate things. Yappari 5.1 is compiled with Labview 2023 for Windows. As such it will require a _Labview run-time engine_ which is installed, if needed, by the full installer. So, if you already have the run-time engine (either because you have peviously installed Yappari or you have installed another program compiled with Labview 2023) you can just download all the files from the green button __Code__ as a zip file. If you do not have the run-time engine but still want to go the hard way, you can download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336) then get the zip file from __Code__. The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
 
-After installing the program in a directory of your choice, some other subdirectories will be created : **/config**, **/drt**, **/files**, **/help** and **/models**. The **/models** directory contains png files with images for showing circuits. The **/config** holds xml configuration files, **/files** directory contains some examples of data files and custom definitions and **/models** some image files for models.  The **/help** directory holds some images for this document and some help files. You can remove **/docs**, **/drt**, **/files** and **/help** but you must keep the **/models** and **/config** folders.
+After installing the program in a directory of your choice, some other subdirectories will be created : **/config**, **/drt**, **/files**, **/help** and **/models**. The **/models** directory contains png files with images for showing circuits. The **/config** holds xml configuration files, **/files** directory contains some examples of data files and custom definitions.  The **/help** directory holds some images for this document and some help files. You can remove **/drt**, **/files** and **/help** but you must keep the **/models** and **/config** folders.
 
 This program will work on Windows 10 64 bits or Win 11 with regular screen resolutions. 
 
@@ -205,7 +205,7 @@ This type of file contains data delimited by <Segments> and >/Segments>. I did n
 _Note : Data separator from the Parameters page is ignored for this file._
 
 ### Z-MFLI
-This is a custom text file, that can hold multiple data sets, which is obtained by the programs I wrote in my lab. An exemple of such file is given in the /files directory but it has probably little interest for other users except that a Custom definition file is provided for this file, so the users may understand how to define such a file for reading custom formats.
+This is a custom text file, that can hold multiple data sets, which is obtained by the programs I wrote in my lab. An exemple of such file is given in the /files directory but it has probably little interest for other users except that a Custom definition file is provided for this file, so you may understand how to define such a file for reading custom formats.
 
 _Note : Data separator from the Parameters page is ignored for this file._
 
@@ -213,7 +213,7 @@ _Note : Data separator from the Parameters page is ignored for this file._
 <details>
   <summary>Expand for details</summary>
 If your data file is of text type and has a format that is not usual you may define a _Custom_ format in an XML configuration file. In this case the program will ask the user to select two files: first the datafile then the XML file that describes the format used.
-Several exemples of such files are given in the **/files** directory, you can manually edit the xml file definitions or use a command, see __Advanced__.  
+Several exemples of such files are given in the **/files** directory, you can manually edit the xml file definitions or use an additional program, see __Advanced__ below.  
 
 The XML parameters that are required for a definition file are 
 
