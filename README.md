@@ -627,11 +627,11 @@ chi^2= \sum w(Yobs-Ycalc)^2
 \end{equation*}
 $$
 
-With w=weight, which ideally should be 1/variance. In this case, for an ideal fit chi^2 should be equal to 1, smaller values indicating "overfitting". since we don't know the variance for each data point, the weight is selected by the user, which typically 1/Z. The reduced_chi<sup>2</sup> is calculated as 
+With w=weight, which ideally should be 1/variance. In this case, for an ideal fit chi^2 should be equal to 1, smaller values indicating "overfitting". Since we don't know the variance for each data point, the weight is selected by the user, which is typically 1/Z to balance the influence of larger Z values compared to small ones. The reduced_chi<sup>2</sup> is calculated as 
 
 $$
 \begin{equation*}
-reduced_chi^2= chi^2/DOF
+reduced chi^2= chi^2/DOF
 \end{equation*}
 $$
 
