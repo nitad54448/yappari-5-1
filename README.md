@@ -617,8 +617,25 @@ For many datasets, the data are described by the same model circuit, I suggest t
 
 The fitting can be performed using different methods, which are discussed before, although there is not much difference in the output of these methods (except for the esd, see below). The fitting process involves a number of cycles, by default 1000 for a dataset, and it will stop a limit is reached. These termination parameters can be adjusted on the _Parameters_ page or in configuration file. Multiple iterations may be necessary, particularly if the initial values are far from the actual values.
 
-The quality of the fit is evaluated using the R<sup>2</sup> statistical parameter and the reduced_chi<sup>2</sup> value. However, the use of the chi<sup>2</sup> value as a statistical parameter for non-linear fit is debatable, as discussed in the paper "Dos and don'ts of reduced chi-squared" by Andrae et al, see the /help/theory/md file. The reduced_chi<sup>2</sup> is calculated as (Sum (weight*(Z<sub>obs</sub>-Z<sub>calc</sub>)<sup>2</sup>))/DOF. The degree of freedom (DOF) is considered as Nr_of_points - nr_of_fitted_parameters. 
+The quality of the fit is evaluated using the R<sup>2</sup> statistical parameter and the reduced_chi<sup>2</sup> value. However, the use of the chi<sup>2</sup> value as a statistical parameter for non-linear fit is debatable, as discussed in the paper "Dos and don'ts of reduced chi-squared" by Andrae et al, see the /help/theory/md file. 
 
+Chi<sup>2</sup> is calculated with 
+
+$$
+\begin{equation*}
+chi^2= \sum w(Yobs-Ycalc)^2 
+\end{equation*}
+$$
+
+With w=weight, which ideally should be 1/variance. In this case, for an ideal fit chi^2 should be equal to 1, smaller values indicating "overfitting". since we don't know the variance for each data point, the weight is selected by the user, which typically 1/Z. The reduced_chi<sup>2</sup> is calculated as 
+
+$$
+\begin{equation*}
+reduced_chi^2= chi^2/DOF
+\end{equation*}
+$$
+
+The degree of freedom (DOF) is taken as Nr_of_points - nr_of_fitted_parameters.
 
 [# やっぱり #](https://github.com/nitad54448/yappari-5-1)
 --
