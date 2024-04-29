@@ -623,19 +623,20 @@ The fitting can be performed using different methods, which are discussed before
 
 The quality of the fit is evaluated using the R<sup>2</sup> statistical parameter and the chi<sup>2</sup> value. However, the use of the chi<sup>2</sup> value as a statistical parameter for non-linear fit is debatable, as discussed in the paper "Dos and don'ts of reduced chi-squared" by Andrae et al, see the /help/theory/md file. 
 
-In Yappari chi<sup>2</sup> is calculated with the formula
+In Yappari chi<sup>2</sup> which, is the weighted value, is calculated with the formula
 
 $$
 \begin{equation*}
-chi^2= \sum w*(Yobs-Ycalc)^2 
+wchi^2= \sum w*(Yobs-Ycalc)^2 
 \end{equation*}
 $$
 
-With w=weight, which ideally should be 1/variance. In this case, for an ideal fit chi^2 should be equal to 1, smaller values indicating "overfitting". Since we don't know the variance for each data point, the weight is selected by the user, which is typically 1/Z to balance the influence of larger Z values compared to small ones. This norming scheme (with the weigth decided by the user) might not be a good statistical indication of the fit. The reduced_chi<sup>2</sup> can be calculated as 
+With w=weight, which ideally should be 1/variance. In this case, for an ideal fit chi^2 should be equal to 1, smaller values indicating "overfitting". Since we don't know the variance for each data point, the weight is selected by the user, which is typically 1/Z to balance the influence of larger Z values compared to small ones. This norming scheme (with the weigth decided by the user) might not be a good statistical indication of the fit. The weighting scheme will change the influence of Z values in the fit. In some programs the squared Z is used, I include this as well, but for large values of impedance the fit might not be very stable with this scheme. If you want to get the unweighted chi^2, or SSE, use "equal" as weighting parameter which means w=1.
+The reduced_chi<sup>2</sup> is reported and is calculated as 
 
 $$
 \begin{equation*}
-reduced chi^2= chi^2/DOF
+reduced chi^2= w chi^2/DOF
 \end{equation*}
 $$
 
