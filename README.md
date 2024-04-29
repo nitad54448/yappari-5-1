@@ -1,5 +1,5 @@
 # YAPPARI
-version 28-04-2024, release 5.1.79.3
+version 29-04-2024, release 5.1.80
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
@@ -36,6 +36,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
   <summary>Changes</summary>
 
 ## Changes 
+   - April 28, 2024 : Added |Z|^2 as weighting scheme. The weighted and reduced chi^2 parameters are now reported. The structure of xml project file has changed. Release 5.1.80.
    - April 28, 2024 : The reduced chi^2 parameter is now reported, instead of chi^2. Release 5.1.79.3.
    - April 26, 2024 : The weight factor can be selected on the Parameters page. Release 5.1.79.2.
    - April 26, 2024 : Changed the auto zoom behavior on Nyquist plot, it can be disabled. Resease 5.1.79.1.
@@ -148,7 +149,7 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
    * [Parameters](#parameters)
       + [Datafile separator](#datafile-separator)
       + [Fit method](#fit-method)
-      + [Weighting factor](#weight)
+      + [ing factor](#)
       + [Fit termination](#fit-termination)
       + [Simulation limits](#simulation-limits)
       + [Decimate / Max plots](#decimate--max-plots)
@@ -592,7 +593,7 @@ There are four fitting methods implemented: __Trusted Region Dog-Led__, __Nelder
 The fitting results will depend on the starting parameters since this is a non-linear system. You should probably manually adjust the starting parameters then use the fitting procedure you want (TRDL seems to be quite robust). For Levenberg-Marquardt method, the initial parameters should be rather close to good values. Note that esd's of the fitted parameters are properly calculated for unconstrained LM fit. You need to fit all parameters to get proper esds and chi squared values.
 
 ### Weight
-This value selects the weighting method. The best is usually the "absolute Z" and the applied weight will be the inverse of this parameter.
+This value selects the weighting method. User can select from |Z|, Z_real, Z_imag, equal (no weight) or |Z|^2. In my opinion the best is way the "absolute Z". The applied weight will be the inverse of this parameter. Use of |Z|^2 will force the fit to give more power to larger Z, sometimes the system is not stable with this parameter.
 
 ### Fit termination
 The fit termination parameters can be adjusted here : by default they are set to 2500 iterations and a stop limit at 10E-18. The default values are in the program /config/.xml configuration file which can be edited manually or by using an __Advanced__ function.
