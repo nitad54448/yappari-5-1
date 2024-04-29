@@ -620,11 +620,11 @@ This list box shows all the datasets in memory. You can select one or more datas
 This command is used to fit the set of parameters that describes the circuit, if the circuit is valid (i.e., there are parameters to fit on the right side of the window) and if you have data. The user can select which parameters to fit and it is recommended to start with a few parameters first, ensuring that the initial values are close to the expected values. The simulated spectrum will be updated with every change in the parameters, and the user can perform manual adjustments as necessary. The data can be selected by standard click, ctrl+click,.. or if you want you can select all by using Ctrl+A.
 For many datasets, the data are described by the same model circuit, I suggest to select one measurement, adjust the parameters manually to be close to solution, then fit. You may want to take a look at this [tutorial](https://github.com/nitad54448/yappari-5-1/blob/main/help/fit_multiple.pdf). After fit you can “Clone” these parameters to all other datasets and select all datasets, then _Fit all selected_ in a go.
 
-The fitting can be performed using different methods, which are discussed before, although there is not much difference in the output of these methods (except for the esd, see below). The fitting process involves a number of cycles, by default 1000 for a dataset, and it will stop a limit is reached. These termination parameters can be adjusted on the _Parameters_ page or in configuration file. Multiple iterations may be necessary, particularly if the initial values are far from the actual values.
+The fitting can be performed using different methods, which are discussed before, although there is not much difference in the output of these methods (except for the esd, see below). The fitting process involves a number of cycles, selected by the user, and it will stop a limit is reached. These termination parameters can be adjusted on the _Parameters_ page or in configuration file. Multiple iterations may be necessary, particularly if the initial values are far from the actual values.
 
 The quality of the fit is evaluated using the R<sup>2</sup> statistical parameter and the chi<sup>2</sup> value. However, the use of the chi<sup>2</sup> value as a statistical parameter for non-linear fit is debatable, as discussed in the paper "Dos and don'ts of reduced chi-squared" by Andrae et al, see the /help/theory/md file. 
 
-In Yappari chi<sup>2</sup> which, is the weighted value, is calculated with the formula
+In Yappari chi<sup>2</sup> which, is the weighted value it should be called something like SSE __-sum of weighted squared errors-__, is the term that is minimized by least-squares and is calculated with the formula
 
 $$
 \begin{equation*}
@@ -632,7 +632,7 @@ wchi^2= \sum w*(Yobs-Ycalc)^2
 \end{equation*}
 $$
 
-With w=weight, which ideally should be 1/variance. In this case, for an ideal fit chi^2 should be equal to 1, smaller values indicating "overfitting". Since we don't know the variance for each data point, the weight is selected by the user, which is typically 1/Z to balance the influence of larger Z values compared to small ones. This norming scheme (with the weigth decided by the user) might not be a good statistical indication of the fit. The weighting scheme will change the influence of Z values in the fit. In some programs the squared Z is used, I include this as well, but for large values of impedance the fit might not be very stable with this scheme. If you want to get the unweighted chi^2, or SSE, use "equal" as weighting parameter which means w=1.
+With w=weight, which ideally should be 1/variance. In this case, for an ideal fit chi^2 should be equal to 1, smaller values indicating "overfitting". Since we don't know the variance for each data point, the weight is selected by the user, which is typically 1/Z to balance the influence of larger Z values compared to small ones. This norming scheme (with the weigth decided by the user) might not be a good statistical indication of the fit. The weighting scheme will change the influence of Z values in the fit. In some programs the squared Z is used, I include this as well, but for large values of impedance the fit might not be very stable with this scheme. If you want to get the unweighted chi^2, use "equal" as weighting parameter which means w=1.
 The reduced_chi<sup>2</sup> is reported and is calculated as 
 
 $$
