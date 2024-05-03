@@ -3,7 +3,7 @@
 <Version>23.1f276</Version>
 <Cluster>
 <Name>config</Name>
-<NumElts>8</NumElts>
+<NumElts>9</NumElts>
 <EW>
 <Name>Method</Name>
 <Choice>TRDL</Choice>
@@ -17,11 +17,11 @@
 <NumElts>2</NumElts>
 <I32>
 <Name>max iteration</Name>
-<Val>2500</Val>
+<Val>1000</Val>
 </I32>
 <DBL>
 <Name>tolerance</Name>
-<Val>1.00000000000000E-18</Val>
+<Val>1.00000000000000E-15</Val>
 </DBL>
 </Cluster>
 <EW>
@@ -41,7 +41,7 @@
 <NumElts>3</NumElts>
 <DBL>
 <Name>start /Hz</Name>
-<Val>5000000.00000000000000</Val>
+<Val>1000000.00000000000000</Val>
 </DBL>
 <DBL>
 <Name>end /Hz</Name>
@@ -70,5 +70,14 @@
 <Name>DRT parameter</Name>
 <Val>1.00000000000000E-3</Val>
 </DBL>
+<EW>
+<Name>Weight</Name>
+<Choice>abs Z</Choice>
+<Choice>Z_real</Choice>
+<Choice>Z_im</Choice>
+<Choice>equal</Choice>
+<Choice>|Z|^2</Choice>
+<Val>0</Val>
+</EW>
 </Cluster>
 </LVData>
