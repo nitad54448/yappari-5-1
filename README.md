@@ -1,5 +1,5 @@
 # YAPPARI
-version 29-04-2024, release 5.1.80
+version 03-05-2024, release 5.1.81
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
@@ -36,6 +36,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
   <summary>Changes</summary>
 
 ## Changes 
+   - May 3, 2024 : Notes can be added to Nyquist plots. Changed the structure of yappari_configuration.xml file. Release 5.1.81.
    - April 28, 2024 : Added |Z|^2 as weighting scheme. The weighted and reduced chi^2 parameters are now reported. The structure of xml project file has changed. Release 5.1.80.
    - April 28, 2024 : The reduced chi^2 parameter is now reported, instead of chi^2. Release 5.1.79.3.
    - April 26, 2024 : The weight factor can be selected on the Parameters page. Release 5.1.79.2.
@@ -470,7 +471,7 @@ This will open this website, hopefully the address will not change; while the pr
 Close the program and Exit.
 
 ## Advanced
-These can be used for manual control or advanced functions. Most of the commands listed here are not available in the regular menu, see more details below (some commands are not very common so I didn't want to have too many entries in the __Action__ menu). 
+These can be used for manual control or advanced functions. Some commands are not very common so I didn't want to have too many entries in the __Action__ menu). 
     
     read_config
 will update the default parameters (method, iterations...) from values saved in /config/_yappari_configuration.xml
@@ -520,6 +521,8 @@ To make a Savitzky-Golay smooth of the active datasets, with parameters defined 
     average   
 will calculate the mean of Zr and Zi for the selected datasets. This function has a sense if the selected datasets measured at the same frequencies. Not very useful, for fitting several datasets it is better to use __Global fit__.
 
+   tweak Nyquist plots
+Can add cursor notes on Nyquist plots, for indicating frequency for instance (since 5.1.81).
 
 ## Panels
 The program has several panels and a parameter list with several commands grouped on the right side of the window. When you start the program, if everything is normal, you should see something like this
