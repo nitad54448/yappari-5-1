@@ -29,6 +29,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
 - [Basic introduction](https://github.com/nitad54448/yappari-5-1/blob/main/help/tutorial_YAPPARI_5_1.pdf).
 - [Fit multiple datasets](https://github.com/nitad54448/yappari-5-1/blob/main/help/fit_multiple.pdf).
 - [Another general tutorial](https://github.com/nitad54448/yappari-5-1/blob/main/help/another_tutorial_yappari_24_jan_2024.pdf).
+- [Tweak Nyquist plots](https://github.com/nitad54448/yappari-5-1/blob/main/help/tutorial_tweak_Nyquist.pdf).
 </details>
 
 
@@ -522,7 +523,7 @@ To make a Savitzky-Golay smooth of the active datasets, with parameters defined 
 will calculate the mean of Zr and Zi for the selected datasets. This function has a sense if the selected datasets measured at the same frequencies. Not very useful, for fitting several datasets it is better to use __Global fit__.
 
    tweak Nyquist plots
-Can add cursor notes on Nyquist plots, for indicating frequency for instance (since 5.1.81).
+Can add cursor notes on Nyquist plots, for indicating frequency for instance (since 5.1.81). A short tutorial on this matter can be found in /help directory.
 
 ## Panels
 The program has several panels and a parameter list with several commands grouped on the right side of the window. When you start the program, if everything is normal, you should see something like this
