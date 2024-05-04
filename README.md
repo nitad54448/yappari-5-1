@@ -454,7 +454,7 @@ Copy the listed parameters to all datasets. Useful for bulk fitting in order to 
 Copy the listed parameters to selected datasets. Note that the listed parameters are those of the first selected dataset.
 
 ### Report active datasets
-This command generates an HTML report containing information about the model used, the parameters used, the fitted parameters, and their standard deviation (if an LM fit was done, otherwise esd will appear as 0). It also includes images of the fit. The report is saved in your temporary directory and automatically opened in a browser. Beware that for each datasets you'll get 5 images and text with the obtained results, therefore if you fit 3700 datasets may get a 10000 pages pdf file. A warning is issued if the report will be too large.
+This command generates an HTML report containing information about the model used, the parameters used, the fitted parameters, and their standard deviation. It also includes images of the fit. The report is saved in your temporary directory and automatically opened in a browser. Beware that for each datasets you'll get 5 images and text with the obtained results, therefore if you fit 3700 datasets may get a 10000 pages pdf file. A warning is issued if the report will be too large.
 
 ### Save active parameters
 Saves a file with the parameters for all selected datasets. Useful for multiple datasets, for a small number of datasets you may use also __Report__. Note that if the dataset was not fitted the parameter line corresponding to that dataset will be empty.
