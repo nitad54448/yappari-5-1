@@ -525,7 +525,7 @@ To make a Savitzky-Golay smooth of the active datasets, with parameters defined 
 will calculate the mean of Zr and Zi for the selected datasets. This function has a sense if the selected datasets measured at the same frequencies. Not very useful, for fitting several datasets it is better to use __Global fit__.
 
     tweak Nyquist plots
-Can add cursor notes on Nyquist plots, for indicating frequency for instance (since 5.1.81). A short tutorial on this matter can be found in /help directory. You can edit multiple datasets at once (up to 24). You can get something like this:
+Can add cursor notes on Nyquist plots, for indicating frequency for instance (since 5.1.81). A short tutorial on this matter can be found in [here](https://github.com/nitad54448/yappari-5-1/blob/main/help/tutorial_YAPPARI_5_1.pdf). You can edit multiple datasets simultaneously (up to 24) but I dot recommend it other than searching automatically a frequence for all plots. Changing other parameters will change all parameters for all datasets. You can get something like this:
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/markers.png)
 
