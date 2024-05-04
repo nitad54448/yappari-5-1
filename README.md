@@ -24,6 +24,8 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
 
 <details>
   <summary>Tutorials</summary>
+
+ 
 ![Quickstart](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/yappari_quick_start.gif)
 
 - [A quick start](https://github.com/nitad54448/yappari-5-1/blob/main/help/A_quick_start.pdf).
