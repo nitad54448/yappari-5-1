@@ -17,11 +17,11 @@
 <NumElts>2</NumElts>
 <I32>
 <Name>max iteration</Name>
-<Val>1000</Val>
+<Val>2500</Val>
 </I32>
 <DBL>
 <Name>tolerance</Name>
-<Val>1.00000000000000E-15</Val>
+<Val>1.00000000000000E-18</Val>
 </DBL>
 </Cluster>
 <EW>
@@ -41,7 +41,7 @@
 <NumElts>3</NumElts>
 <DBL>
 <Name>start /Hz</Name>
-<Val>1000000.00000000000000</Val>
+<Val>13000000.00000000000000</Val>
 </DBL>
 <DBL>
 <Name>end /Hz</Name>
