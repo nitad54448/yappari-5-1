@@ -38,7 +38,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
   <summary>Changes</summary>
 
 ## Changes 
-   - May 4, 2024 : Annotations on multiple plots at the same time. Release 5.1.81.1.
+   - May 4, 2024 : Annotations on multiple plots at the same time. Plots can be shown or not, independently, by using the legenfs. Release 5.1.81.1.
    - May 3, 2024 : Notes can be added to Nyquist plots. Changed the structure of yappari_configuration.xml file. Release 5.1.81.
    - April 28, 2024 : Added |Z|^2 as weighting scheme. The weighted and reduced chi^2 parameters are now reported. The structure of xml project file has changed. Release 5.1.80.
    - April 28, 2024 : The reduced chi^2 parameter is now reported, instead of chi^2. Release 5.1.79.3.
@@ -524,7 +524,7 @@ To make a Savitzky-Golay smooth of the active datasets, with parameters defined 
     average   
 will calculate the mean of Zr and Zi for the selected datasets. This function has a sense if the selected datasets measured at the same frequencies. Not very useful, for fitting several datasets it is better to use __Global fit__.
 
-   tweak Nyquist plots
+    tweak Nyquist plots
 Can add cursor notes on Nyquist plots, for indicating frequency for instance (since 5.1.81). A short tutorial on this matter can be found in /help directory. You can edit multiple datasets at once (up to 24). You can get something like this:
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/markers.png)
@@ -537,7 +537,7 @@ The program has several panels and a parameter list with several commands groupe
 ### Zr, -Zi
 This panel shows a Nyquist plot, which is a standard way to visualize impedance data. The scale on the graph will adjust automatically based on the data, with the same axis range for the imaginary part and real part. However, if you want to manually set a specific range, you need to disable the Auto-axis feature by right clicking on the graph and directly change the ranges. Some other standard graphic functions are available in the top left "palette" such as zoom in, zoom out... etc. All graphic panels will plot experimental and simulated data (if any) of selected datasets.
 You can change the plot colors, style, etc.... by clicking on the label; the changes in this graph will affect all the other graphs, except for DRT. You can mask or delete some outlier points by zooming in and use the commands _Action_/_Mask points active datasets_ or _Action_/_Delete points active datasets_. Points that are in that range are removed from all active datasets. When masking some points they will not appear in graphs and not be used in calculations. Unlike the _Delete points_ you can Unmask points.
-The number of plots can be selected by the user, see Max Plots on __Parameters__ page. Note that, because of space limitations, only the first 24 plots will have legends. But you can plot as many datasets as you want (I tried 3700 datasets, see the tutorials, it is possible but slow to plot them and I wonder why you'd want to plot that many). 
+The number of plots can be selected by the user, see Max Plots on __Parameters__ page. Note that, because of space limitations, only the first 24 plots will have legends. But you can plot as many datasets as you want (I tried 3700 datasets, see the tutorials, it is possible but slow to plot them and I wonder why you'd want to plot that many). You can select among the 24 legends which plot to show or hide (this is independent of the Max Plots parameter).
 
 ### Zr, Zi, ln R, theta
 These panels will show the dependency of impedances (real, imaginary, modulus or phase) as a function of frequency and the differences between the calculated and experimental values, something like this
