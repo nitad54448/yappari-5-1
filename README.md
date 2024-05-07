@@ -40,6 +40,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
   <summary>Changes</summary>
 
 ## Changes 
+   - May 7, 2024 : Cosmetics on message boxes. Release 5.1.81.2.
    - May 4, 2024 : Annotations on multiple plots at the same time. Release 5.1.81.1.
    - May 3, 2024 : Notes can be added to Nyquist plots. Changed the structure of yappari_configuration.xml file. Release 5.1.81.
    - April 28, 2024 : Added |Z|^2 as weighting scheme. The weighted and reduced chi^2 parameters are now reported. The structure of xml project file has changed. Release 5.1.80.
