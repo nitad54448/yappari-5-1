@@ -194,25 +194,64 @@ If you hold the mouse on the graph a Tip with an estimation of RC values will be
 These can be used for manual control of program, useful mostly for testing. 
 
 ### Smooth ###
-To make a Savitzky-Golay smooth of the active datasets. By default the number of sidepoints and the polynomial degree are 5 and 2 respectively. They can be changed.
+To make a Savitzky-Golay smooth of the active datasets you may use:
+
+    smooth
+    
+This will create new smoothed datasets with the same name and the prefix sm_. By default the number of sidepoints and the polynomial degree are 5 and 2 respectively. If you want o change them specify the new values
+
+    smooth>>7&3
 
 ### Interpolate ###
-You can interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try it, if you don't have spurious points. 
+You can interpolate to log scale or upscale by spline interpolation (i.e. getting "artificially" more points). You can try it, if you don't have spurious points. The command with 128 points as default is :
+
+    spline
+
+you will get 128 points from your data, in a log scale. It might not be good to increase too much the number of points from he original ones, nor to use this function on noisy data. This command will create new datasets for every selected dataset, so you can play around to see how it is working. The log scale is important for DRT and Z-hit. For a different number of points you may use :
+
+    spline>>100
 
 ### Noise ###
-To add white noise to the selected impedance datasets in the range Z-1% to Z+1%  Other accepted parameters are _rndzi>>u_ for Zi white noise and _rndf>>u_ for frequency.
+To add white noise to the selected impedance datasets in the range Z-1% to Z+1%   
+    
+    rndz>>1 
+
+while
+  
+    rndzr_>>0.5
+    
+will add white noise to the real part of the impedance in the range Z-0.5% to Z+0.5%
+Other accepted parameters are _rndzi>>u_ for Zi white noise and _rndf>>u_ for frequency.
 
 ### Average ###
-This command will calculate the mean of Zr and Zi for the selected datasets. This function has a sense if it is applied to datasets measured at the same frequencies.
+The command 
+
+     average
+     
+will calculate the mean of Zr and Zi for the selected datasets. This function has a sense if it is applied to datasets measured at the same frequencies.
 
 ### DRT search ###
-You can search the best regularization parameter for DRT calculations. Three algorithms can be used: Tikhonov, Fisk or Gold
-
+You can search the best regularization parameter for DRT calculations. The command :
+ 
+    drt-_search>>0.0002&0.1&256 
     
+will calculate 256 DRT in the range 0.0002 and 0.1 and reconstruct all the 256 impedance sets. The best lambda parameter based on the minim squared error between the calculated and experimental sets will be shown. Obviously you can replace 0.0002, 0.1 and 256 with other values you want but you must separate them with _&_. No space should be in the command (you can use fractional or E string, for instance _search_lambda>>1E-6&2E-2&200_ is accepted). The interval of lambda will be scaned in log spacing over the interval specified with _start_value&stop_value&steps_
+
+For a default range search (10E-4 to 10E-1 for Tikhonov or Fisk, and 300 o 30000 fo Gold method) you can use the Action/DRT search or the manual command 
+
+    drt_search
+
+If you want to see all DRT data and save them, you can use
+
     drt_explore
    
 This will plot a 3D graph with all DRTs as a function of lambda, like this graph.
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/explore_lambda.png)
+
+You can modify the range for explore with similar commands, for 100 points in the 1 to 10 range
+
+    drt_explore>>1&10&100
+
 
 ### Z-Hit active datasets ###
 This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given previously. This is a procedure similar to the better known Kramers-Kronig test.
