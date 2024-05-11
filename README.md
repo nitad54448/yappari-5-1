@@ -1,5 +1,5 @@
 # YAPPARI
-version 04-05-2024, release 5.1.81.1
+version 07-05-2024, release 5.1.81.2
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
 
@@ -40,6 +40,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
   <summary>Changes</summary>
 
 ## Changes 
+   - May 7, 2024 : Cosmetics on message boxes. Release 5.1.81.2.
    - May 4, 2024 : Annotations on multiple plots at the same time. Release 5.1.81.1.
    - May 3, 2024 : Notes can be added to Nyquist plots. Changed the structure of yappari_configuration.xml file. Release 5.1.81.
    - April 28, 2024 : Added |Z|^2 as weighting scheme. The weighted and reduced chi^2 parameters are now reported. The structure of xml project file has changed. Release 5.1.80.
@@ -617,7 +618,7 @@ This is the maximum number of plots to show on the graphs (excluding DRT which w
 The 3D plot is very slow if you have more than 200-300 datasets. Suppose you have 500 datasets selected (you can perform calculations on all of them), for plotting them it may be better to show only a part, let's say 100. The program will "decimate" the 500 datasets and show only 100, equally distributed among the 500. The tendencies will still be visible on the graphs, no need to plot all of them. If you want, you can, but for more than 500 datasets it will be very slow (on my desktop computer slow means a few seconds for 500 datasets plotted on 3D graph, and several minutes for 3000 datasets on 3D graph).
 
 ### DRT
-Select the method and the source for DRT calculations.
+Select the method and the source for DRT calculations. See help/theory.md for details. 
 
 ## About
 Brief help listing the version of the program, this is also the landing page of the program. 
