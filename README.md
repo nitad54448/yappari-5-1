@@ -1,7 +1,7 @@
 # YAPPARI
 version 07-05-2024, release 5.1.81.2
 
-__YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as http://dx.doi.org/10.13140/RG.2.2.15160.83200
+__YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as _Materials Lab_, 2023, 2, 230031, you can download a paper describing this program at https://doi.org/10.54227/mlab.20230031. 
 
 This document applies to version 5.1.77 or after. For prior releases see the **/help** folder.
 
