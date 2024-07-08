@@ -496,7 +496,7 @@ Will save an xml file containing all data and parameters.
 Will save a definition file, in an xml format, for reading custom datafiles.
 
     change_parameters_default_values
-Change the default values and the limits for electrical parameters of the model. Adapt these values for your use cases.
+Change the default values and the limits for electrical parameters of the model. Adapt these values for your use cases (can be used only as administrator). 
 
     drt_search
 will calculate a number of DRTs in the range defined by the user and reconstruct all the impedance sets. The best lambda parameter based on the minim squared error between the calculated and experimental sets will be shown. The interval of lambda will be scaned in log spacing over the interval specified by the user (for Gold optimization, the adjusting parameter is the number of iterations).
