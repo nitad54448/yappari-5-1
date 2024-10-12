@@ -1,5 +1,5 @@
 # YAPPARI
-version 07-05-2024, release 5.1.81.3
+version 12-10-2024, release 5.1.81.4
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as _Materials Lab_, 2023, 2, 230031, you can download a paper describing this program at https://doi.org/10.54227/mlab.20230031. 
 
@@ -40,6 +40,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
   <summary>Changes</summary>
 
 ## Changes 
+   - Oct 12, 2024 : For some screen resolutions the message boxes appeared strange. Now the size of the boxes are fixed. In case of problems (like size too small) use the the release 5.1.81.3.
    - July 7, 2024 : Changed some routines to "clone in memory". Should be a little faster than previous version. Release 5.1.81.3.
    - May 7, 2024 : Cosmetics on message boxes. Release 5.1.81.2.
    - May 4, 2024 : Annotations on multiple plots at the same time. Release 5.1.81.1.
