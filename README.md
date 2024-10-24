@@ -3,7 +3,7 @@ version 12-10-2024, release 5.1.81.4
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as _N. Dragoe, Materials Lab_, 2024, 3, 230031, you can download a paper describing this program at https://doi.org/10.54227/mlab.20230031. 
 
-The models and equations used in this program, together with tutorials can be found in the [help](https://github.com/nitad54448/yappari-5-1/blob/main/help) folder.
+The models and equations used in this program, and some tutorials, can be found in the [help](https://github.com/nitad54448/yappari-5-1/blob/main/help) folder.
 
 <details>
   <summary>About this program</summary>
