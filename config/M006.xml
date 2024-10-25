@@ -8,7 +8,7 @@
 <Name>param limits</Name>
 <Dimsize>6</Dimsize>
 <Cluster>
-<Name>ParameterSelect</Name>
+<Name>Cluster</Name>
 <NumElts>3</NumElts>
 <DBL>
 <Name>min</Name>
@@ -24,11 +24,11 @@
 </DBL>
 </Cluster>
 <Cluster>
-<Name>ParameterSelect</Name>
+<Name>Cluster</Name>
 <NumElts>3</NumElts>
 <DBL>
 <Name>min</Name>
-<Val>1.00000000000000E-3</Val>
+<Val>1.00000000000000</Val>
 </DBL>
 <String>
 <Name>param</Name>
@@ -40,7 +40,7 @@
 </DBL>
 </Cluster>
 <Cluster>
-<Name>ParameterSelect</Name>
+<Name>Cluster</Name>
 <NumElts>3</NumElts>
 <DBL>
 <Name>min</Name>
@@ -56,11 +56,11 @@
 </DBL>
 </Cluster>
 <Cluster>
-<Name>ParameterSelect</Name>
+<Name>Cluster</Name>
 <NumElts>3</NumElts>
 <DBL>
 <Name>min</Name>
-<Val>1.00000000000000E-3</Val>
+<Val>1.00000000000000</Val>
 </DBL>
 <String>
 <Name>param</Name>
@@ -72,7 +72,7 @@
 </DBL>
 </Cluster>
 <Cluster>
-<Name>ParameterSelect</Name>
+<Name>Cluster</Name>
 <NumElts>3</NumElts>
 <DBL>
 <Name>min</Name>
@@ -88,11 +88,11 @@
 </DBL>
 </Cluster>
 <Cluster>
-<Name>ParameterSelect</Name>
+<Name>Cluster</Name>
 <NumElts>3</NumElts>
 <DBL>
 <Name>min</Name>
-<Val>1.00000000000000E-3</Val>
+<Val>1.00000000000000</Val>
 </DBL>
 <String>
 <Name>param</Name>

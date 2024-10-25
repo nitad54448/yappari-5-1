@@ -12,14 +12,14 @@
 <NumElts>3</NumElts>
 <DBL>
 <Name>min</Name>
-<Val>1.00000000000000E-14</Val>
+<Val>1.00000000000000E-12</Val>
 </DBL>
 <String>
 <Name>param</Name>
 <Val>CAPA</Val>
 </String>
 <DBL>
-<Name>ParameterSelect</Name>
+<Name>max</Name>
 <Val>1.00000000000000E-5</Val>
 </DBL>
 </Cluster>
