@@ -1,9 +1,9 @@
 # YAPPARI
 version 12-10-2024, release 5.1.81.4
 
-__YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as _Materials Lab_, 2023, 2, 230031, you can download a paper describing this program at https://doi.org/10.54227/mlab.20230031. 
+__YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as _N. Dragoe, Materials Lab_, 2024, 3, 230031, you can download a paper describing this program at https://doi.org/10.54227/mlab.20230031. 
 
-This document applies to version 5.1.77 or after. For prior releases see the **/help** folder.
+The models and equations used in this program, and some tutorials, can be found in the [help](https://github.com/nitad54448/yappari-5-1/blob/main/help) folder.
 
 <details>
   <summary>About this program</summary>
@@ -594,7 +594,7 @@ For a more complex circuit, you can find on the right side of the screen names s
 Overall, the notation is quite straightforward once you become familiar with the conventions used.
 
 ## Parameters
-On this page you can adjust some parameters of the program. The basic parameters (but not the parameters related to electrical model) are loaded from a configuration file named _yappari_configuration.xml that is located in __/config__ folder. You can edit or save a different default configuration file. The default circuit parameters are loaded from model definitions in **/config** xml files. You can edit all these xml to adapt the default values to your liking by directly editing the xml files (be careful with these changes, the XML format shoud be respected or the program will not work) or you can use  __Advanced/save_custom_xml__
+On this page you can adjust some parameters of the program. The basic parameters (but not the parameters related to electrical model) are loaded, at the start of the program, from a configuration file named _yappari_configuration.xml that is located in __/config__ folder. You can edit or save a different default configuration file. The default circuit parameters are loaded from model definitions in **/config** xml files. You can edit all these xml to adapt the default values to your liking by directly editing the xml files (be careful with these changes, the XML format shoud be respected or the program will not work) or you can use  __Advanced/save_custom_xml__
 
 ### Datafile separator
 For reading _and saving_ data, depending on the format you use, the datafile separator _should_ be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. This data separator __will not be used__ when reading files which have a defined configuration, see below (in this case the definition file sets the separator to be used).
