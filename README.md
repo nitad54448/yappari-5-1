@@ -225,7 +225,7 @@ _Note : Data separator from the Parameters page is ignored for this file._
 <details>
   <summary>Expand for details</summary>
 If your data file is of text type and has a format that is not usual you may define a _Custom_ format in an XML configuration file. In this case the program will ask the user to select two files: first the datafile then the XML file that describes the format used.
-Several exemples of such files are given in the **/files** directory, you can manually edit the xml file definitions or use an additional program, see __Advanced__ below.  
+Several exemples of such files are given in the **/files** directory, you can manually edit the xml file definitions or use an additional program, see _Advanced_ below.  
 
 The XML parameters that are required for a definition file are 
 
@@ -415,13 +415,13 @@ Cancel the mask function for all selected datasets.
 You can delete experimental points from selected datasets in the Nyquist, Zr, Zi or lnR plots: just zoom in the region to show only the points you want to delete then select this command (this is irreversible). Be aware that all the points having values in the range shown on the plots are removed from _all selected datasets_ irrespective if they are actually seen on the plots or not. The datasets visible on the graph depends on the __Max plot__ value. Be careful : there is no warning.
 
 ### Delete active datasets
-Irreversible action removing one or more datasets and all related parameters from memory (by active one should understand “selected”). Datasets can be deleted also with the Key "Delete".
+Irreversible action removing one or more active datasets and all related parameters from memory (by active one should understand “selected”). Datasets can be deleted also with the Key "Delete".
 
 ### Apply correction to active
-Apply a correction factor to the experimental Zr and Zi for all selected datasets.  The impedance values will be multiplied with the factor you input here.  Be careful: this will change the units, it is actually its purpose. For ionic conductivity multiply with S/L will give resistivity (in Ohm cm or Ohm m, depending on what unit you used for the S/L correction factor) instead of Ohm. For reactions at electrode surface you need to multiply with the electrode surface to get Ohm cm^2 or Ohm m^2. The already calculated impedances will not be affected by this command.
+Apply a correction factor to the experimental Zr and Zi for all selected datasets.  The impedance values will be multiplied with the factor you input here.  Be careful: this will change the units, it is actually its purpose. For resistance measurements if you multiply with S/L will give resistivity (in Ohm cm or Ohm m, depending on what unit you used for the S/L correction factor) instead of Ohm. For reactions at electrode surface you need to multiply with the electrode surface to get Ohm cm^2 or Ohm m^2. The already calculated impedances will not be affected by this command.
 
 ### Simulate spectrum
-This option will calculate an impedance spectrum based on the model and the values of the parameters of the model, in the frequency range that are on Parameters page. It will create a new dataset (called "sim_" but you can change its name). 
+This option will calculate an impedance spectrum based on the model and the values of the parameters of the model, in the frequency range that are on Parameters page. It will create a new dataset (called "sim_", you can change its name). 
 
 ### Z-Hit active datasets
 This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given previously. This is a procedure similar to the better known Kramers-Kronig test. The data will be interpolated, if needed, to log scale and duplicate frequencies will be removed.
@@ -447,7 +447,7 @@ Only the first selected dataset will be shown on the DRT graph, if the DRT calcu
 If you hold the mouse on the graph a Tip with an estimation of RC values will be shown (or you can right click on the graph and look for Description and Tips). These parameters are calculated based on the Rpol and the surface of the peaks and can be used as starting points for fitting a model. 
 
 ### DRT search
-This command performs a search of optimal regularization parameter for the first active (aka selected) dataset.
+This command performs a search of optimal regularization parameter for the first active (i.e. selected) dataset.
 A window with an indication of the optimal parameter will appear. The plot shows the mean squared error (MSE) between the experimental Zr and Zr calculated from DRT data as well as the variance (this is based on the method proposed [here](https://chemistry-europe.onlinelibrary.wiley.com/doi/full/10.1002/celc.201901863)).
 It should look like this
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/params_drt_alten.PNG)
