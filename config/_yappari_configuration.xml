@@ -34,7 +34,7 @@
 </EW>
 <U32>
 <Name>max Plots</Name>
-<Val>60</Val>
+<Val>24</Val>
 </U32>
 <Cluster>
 <Name>simulation limits</Name>
