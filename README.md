@@ -7,19 +7,97 @@ The models and equations used in this program, and some tutorials, can be found 
 
 <details>
   <summary>About this program</summary>
-  
-This program can perform several mathematical operations of interest in impedance spectroscopy: non-linear parametric fits for one or multiple datasets, DRT, Hilbert transform, spectra simulations etc. For a single dataset and non-linear optimization you may use an old and simpler program [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2). This single dataset program is not developed further and it has limited features so it might be better to start with this version. No support will be provided for the previous versions.
 
-Some theoretical notions are given in the [theory file](https://github.com/nitad54448/yappari-5-1/blob/main/help/theory.md) in this repository.
+ # Program Overview
 
-You are encouraged to contribute to this help file or write tutorials. If you want to contribute to the help file or tutorials, send them to me and I will add them to this repository. As much as I like programming, writing documentation is boring. The most updated description of the program is always here on this page.
-  
+## Main functions
+This program specializes in impedance spectroscopy analysis, offering:
+- Non-linear parametric fitting (single/multiple datasets)
+- Distribution of Relaxation Times (DRT) analysis
+- Hilbert transform calculations
+- Spectra simulations
+- Additional mathematical operations like spline interpolation, smooth, upscale,...
+
+## Version Information
+### Current Version (5.1.x)
+- Handles multiple datasets (thousands...)
+- Maintained and updated
+- Recommended for new users
+
+### Older Version (4.2)
+- Simpler interface
+- Single dataset analysis only
+- Limited to basic features
+- No longer maintained or supported
+- May be useful for learning basics
+
+## Technical Resources
+- Theoretical background available in repository's help folder
+- Latest documentation maintained on this page
+
+## Community Contributions Welcome!
+I value community input, especially for:
+- Help file improvements
+- New tutorials
+- Usage guides
+- Documentation enhancements
+
+### How to Contribute
+1. Prepare your documentation or tutorial
+2. Send it directly to program maintainer
+3. Content will be added to official repository
+
+Note: I like programming but writting documentation is boring !
+
+## Documentation Status
+- This page serves as the authoritative, current documentation
+- Updated regularly with latest features and changes
+- Some theoretical notions are given in the [theory file](https://github.com/nitad54448/yappari-5-1/blob/main/help/theory.md) in this repository.
+ 
  </details>
 
 <details>
   <summary>Note to users</summary>
 
-There is no warrantee whatsoever for using this program. Use it if you want, see CC-BY-NC-ND [licence](https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. If you find an error (reproducible) you can post the details in __Releases/Join discussion__ forum so I can check. I will answer if there is a bug or if the issue is not covered by this Help file (I will not answer any email messages related to Yappari, basically read the doc file, think, and if something is wrong go to __Join discussion__).
+# Program Terms and Support Policy
+
+## Disclaimer
+This program is provided "as is" without any warranties or guarantees of any kind. It is released under the CC-BY-NC-ND license.
+
+## Support Policy
+### Getting Help
+1. Primary Resource: This documentation
+   - Please read thoroughly
+   - Contains answers to most questions
+   - Should be your first stop for information
+
+### Bug Reporting
+If you encounter issues:
+1. Verify the bug is reproducible
+2. Visit the **Releases/Join discussion** forum
+3. Post detailed information about the issue
+4. Support will be provided if:
+   - There is a confirmed bug
+   - The issue isn't covered in documentation
+
+### Important Notes
+- Email inquiries about Yappari will not receive responses
+- Support is exclusively provided through the **Join discussion** forum
+- Read documentation → Think → Then post if necessary
+
+## Alternative Solutions
+- Many alternatives exist (both commercial and free)
+- Some may better suit your needs
+- You're encouraged to explore other options if this program doesn't meet your requirements
+
+## Communication Channel
+**Releases/Join discussion** forum is the ONLY official support channel:
+- For bug reports
+- For undocumented issues
+- For reproducible problems
+
+Remember: The best support is in this documentation. Take time to read it carefully before seeking additional help.
+
 </details>
 
 <details>
