@@ -1,5 +1,5 @@
 # YAPPARI
-version october 27th, 2024, release 5.1.82.1
+version november 5th, release 5.1.82.2
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as _N. Dragoe, Materials Lab_, 2024, 3, 230031, you can download a paper describing this program at https://doi.org/10.54227/mlab.20230031. 
 
@@ -40,6 +40,7 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
   <summary>Changes</summary>
 
 ## Changes 
+   - November 5, 2024 : Cosmetics. Release 5.1.82.2.
    - Oct 27, 2024 : In the case of constrained fit, when editing the parameters, only values whitin limits will be accepted. Release 5.1.82.1 (updated 3rd of nov 2024, changed some code to inlining with pre-allocation clones, fitting is now faster).
    - Oct 25, 2024 : When editing an electrical circuit, the values of the elements that are not affected are maintained. In the former versions, when the circuit was edited, all the parameters were initialized to default values. Release 5.1.82.
    - Oct 12, 2024 : For some screen resolutions the message boxes appeared strange. Now the size of the boxes can be changed. In case of problems (like size too small) use the the release 5.1.81.3.
