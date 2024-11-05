@@ -175,13 +175,54 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 
 
 # How to install
-The recommended and easiest way to install it is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the _Volume.zip_ file and not what is labelled as source file archives. Several versions are available, in general the last one is the best choice. In case of bugs please report them and grab an earlier version. 
 
-There is another way to install it, if you want to complicate things. Yappari 5.1 is compiled with Labview 2023 for Windows. As such it will require a _Labview run-time engine_ which is installed, if needed, by the full installer. So, if you already have the run-time engine (either because you have peviously installed Yappari or you have installed another program compiled with Labview 2023) you can just download all the files from the green button __Code__ as a zip file. If you do not have the run-time engine but still want to go the hard way, you can download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336) then get the zip file from __Code__. The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
+## Quick Installation (Recommended)
+1. Download latest `Volume.zip` from [Releases](https://github.com/nitad54448/yappari-5-1/releases) section
+   - Do NOT download source file archives
+   - Select most recent version unless encountering bugs
+   - If bugs occur, download earlier release version
 
-After installing the program in a directory of your choice, some other subdirectories will be created : **/config**, **/drt**, **/files**, **/help** and **/models**. The **/models** directory contains png files with images for showing circuits. The **/config** holds xml configuration files, **/files** directory contains some examples of data files and custom definitions.  The **/help** directory holds some images for this document and some help files. You can remove **/drt**, **/files** and **/help** but you must keep the **/models** and **/config** folders.
+## Advanced Installation (Optional)
+### Prerequisites:
+- Windows 10 (64-bit) or Windows 11
+- Standard screen resolution
+- LabVIEW 2023 runtime engine, obtained through either:
+  - Previous Yappari installation
+  - Other LabVIEW 2023 programs
+  - Manual download from ni.com
 
-This program will work on Windows 10 64 bits or Win 11 with regular screen resolutions. 
+### Advanced Installation Steps:
+1. If runtime engine is not present:
+   - Download LabVIEW 2023 engine from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336)
+2. Download files:
+   - Use green "Code" button
+   - Download as ZIP file
+   - Note: Contains latest version only
+   - For older versions, check Releases section
+
+## Directory Structure
+### Required Directories, created at install:
+- `/config`
+  - Contains: XML configuration files
+  - Status: MUST KEEP
+- `/models`
+  - Contains: PNG circuit images
+  - Status: MUST KEEP
+
+### Optional Directories:
+- `/drt`
+  - Status: Can be removed
+- `/files`
+  - Contains: Example data files, custom definitions
+  - Status: Can be removed
+- `/help`
+  - Contains: Documentation images, help files
+  - Status: Can be removed
+
+## System Requirements
+- Operating System: Windows 10 (64-bit) or Windows 11
+- Display: Standard screen resolution
+- Runtime: LabVIEW 2023 runtime engine
 
 # Get started
 To use this program requires to give it some data, in general, or you can generate some data. Be aware of the numeric separator of your system: in most cases is a dot, in some others is a period, see the __Read data__ part. There are three main commands in this program: __Read data__, __Action__ and __Advanced__.
