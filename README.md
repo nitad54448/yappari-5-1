@@ -118,7 +118,7 @@ Remember: The best support is in this documentation. Take time to read it carefu
   <summary>Changes</summary>
 
 ## Changes 
-   - November 5, 2024 : Cosmetics. Release 5.1.82.2.
+   - November 7, 2024 : Cosmetics. Adapted the sizes of objects and fonts. The program can be used at resolutions from 1280x1080 to 3440x1440. Release 5.1.82.2.
    - Oct 27, 2024 : In the case of constrained fit, when editing the parameters, only values whitin limits will be accepted. Release 5.1.82.1 (updated 3rd of nov 2024, changed some code to inlining with pre-allocation clones, fitting is now faster).
    - Oct 25, 2024 : When editing an electrical circuit, the values of the elements that are not affected are maintained. In the former versions, when the circuit was edited, all the parameters were initialized to default values. Release 5.1.82.
    - Oct 12, 2024 : For some screen resolutions the message boxes appeared strange. Now the size of the boxes can be changed. In case of problems (like size too small) use the the release 5.1.81.3.
