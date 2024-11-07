@@ -15,77 +15,40 @@ This is a brief description of theorethical basis used in this program.
 ## Elements ##
 The elements used are rather standard, the equations used in Yappari are described here.
 
+
+Here is the rephrased information about the Zarc and Warburg elements:
+
 ### Zarc ###
-A Zarc is a resistor $R_{p}$ in parallel with a Constant Phase Element (CPE). The CPE is defined as
+A Zarc is an electrical circuit element composed of a resistor (Rp) in parallel with a Constant Phase Element (CPE). The CPE is defined by the equation:
 
-$$
-\begin{equation*}
-Z_{CPE}=\frac{1}{Q_{0}(i \omega)^{n}} 
-\end{equation*}
-$$
+$$Z_{CPE} = \frac{1}{Q_0(i\omega)^n}$$
 
-where $\omega$ is angular frequency, $Q_{0}$ and $n$ are the characteristic parameters of the CPE (some authors use $Y_{0}$ instead of $Q_{0}$). If you fix the $n$ value to 1, you'll get a simple capacitor instead of CPE.
+where ω is the angular frequency, and Q_0 and n are the characteristic parameters of the CPE (some authors use Y_0 instead of Q_0). If n is fixed to 1, the CPE becomes a simple capacitor.
 
-A Zarc can also be described by distribution of time constants and has the electrical impedance expressed as
+The impedance of a Zarc can also be described by a distribution of time constants, expressed as:
 
-$$
-\begin{equation*}
-Z=\frac{R_{p}}{\left[1+(i \omega T)^{n}\right]}
-\end{equation*}
-$$
+$$Z = \frac{R_p}{1 + (i\omega T)^n}$$
 
-with the time constant  
+where the time constant T is defined as:
 
-$$
-\begin{equation*}
-T=C_{eff} \cdot R_{eff} 
-\end{equation*}
-$$
+$$T = C_{eff} \cdot R_{eff}$$
 
-and 
+and the effective resistance and capacitance are given by, see [ref](https://jecst.org/journal/view.php?doi=10.33961/jecst.2020.00815) :
 
-$$
-\begin{equation*}
-Z=\frac{R_{p}}{\left[1+(i \omega)^{n} Q_{0} R_{p}\right]}
-\end{equation*}
-$$
+$$R_{eff} = \frac{R_p}{\sin(\frac{n\pi}{2})}$$
+$$C_{eff} = \frac{(Q_0 R_p)^{1/n}}{R_p} \sin(\frac{n\pi}{2})$$
 
+For n close to 1, these equations can be approximated as R_eff = R_p and:
 
-$$
-\begin{equation*}
-T=\left(Q_{0} R_{p}\right)^{1 / n}=C_{e f f} \cdot R_{eff}
-\end{equation*}
-$$
-
-It follows (see [ref](https://jecst.org/journal/view.php?doi=10.33961/jecst.2020.00815)) that 
-
-$$
-\begin{equation*}
-R_{eff}=R_{p} / \sin \left(\frac{n \pi}{2}\right) 
-\end{equation*}
-$$
-
-$$
-\begin{equation*}
-C_{eff}=\frac{\left(Q_{0} R_{p}\right)^{1 / n}}{R_{p}} \sin \left(\frac{n \pi}{2}\right)
-\end{equation*}
-$$
-
-For $n$ close to 1, the equations can be approximated as $R_{eff}$ = $R_{p}$ and 
-
-$$
-\begin{equation*}
-C=\frac{\left(Q_{0} R_{p}\right)^{1 / n}}{R_{p}}
-\end{equation*}
-$$
-
+$$C = \frac{(Q_0 R_p)^{1/n}}{R_p}$$
 
 ### Warburg ###
-Warburg element represents semi-infinite diffusion to or from a flat electrode, expressed in this program as:
+The Warburg element represents semi-infinite diffusion to or from a flat electrode, and is expressed as:
 
-Z(ω)= A<sub>w</sub>/($\sqrt{ω})$ -jA<sub>w</sub>/($\sqrt{ω})$
+$$Z(\omega) = A_w/\sqrt{\omega} - jA_w/\sqrt{\omega}$$
 
-This element contributes equally to Zr and Zi so it appears as a straight line in a Nyquist plot, at 45 degrees or a straight line in Bode plot (log |Z| vs. log ω) with a slope of value –1/2. The A<sub>w</sub> term is expressed in Ohm sec<Sup>-1/2</sup> and is called Warburg coefficient. It is expressed as
+Where A_w is the Warburg coefficient, expressed in Ohm·sec^(-1/2). The Warburg element contributes equally to the real and imaginary parts of the impedance, resulting in a straight line at 45 degrees in a Nyquist plot, or a straight line with a slope of -1/2 in a Bode plot (log|Z| vs. log ω).
+The A<sub>w</sub> term is expressed in Ohm sec<Sup>-1/2</sup> and is called Warburg coefficient. It is expressed as
 
 $$
 A w=\frac{R T}{n^2 F^2 A \sqrt{2}}\left(\frac{1}{\sqrt{D o} \cdot C b_o}-\frac{1}{\sqrt{D r} \cdot C b_r}\right)
