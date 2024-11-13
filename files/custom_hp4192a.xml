@@ -1,16 +1,16 @@
 <?xml version='1.0' standalone='yes' ?>
 <LVData xmlns="http://www.ni.com/LVData">
-<Version>23.1f272</Version>
+<Version>23.1f276</Version>
 <Cluster>
 <Name>custom datafile format</Name>
 <NumElts>8</NumElts>
 <String>
 <Name>header</Name>
-<Val>freq  ; Re Z ; Im Z</Val>
+<Val>Frequency /Hz, Z_r, Z_im, cycle :</Val>
 </String>
 <U8>
 <Name>label length</Name>
-<Val>0</Val>
+<Val>4</Val>
 </U8>
 <EW>
 <Name>data_separator</Name>
@@ -38,7 +38,7 @@
 </U8>
 <U8>
 <Name>ignore last</Name>
-<Val>2</Val>
+<Val>0</Val>
 </U8>
 </Cluster>
 </LVData>
