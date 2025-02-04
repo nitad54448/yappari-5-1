@@ -13,10 +13,7 @@ This is a brief description of theorethical basis used in this program.
 # やっぱり #
 
 ## Elements ##
-The elements used are rather standard, the equations used in Yappari are described here.
-
-
-Here is the rephrased information about the Zarc and Warburg elements:
+The elements used are rather standard, the equations used in Yappari for Zarc and Warburg are detailed in the following.
 
 ### Zarc ###
 A Zarc is an electrical circuit element composed of a resistor (Rp) in parallel with a Constant Phase Element (CPE). The CPE is defined by the equation:
