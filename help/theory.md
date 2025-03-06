@@ -13,10 +13,7 @@ This is a brief description of theorethical basis used in this program.
 # やっぱり #
 
 ## Elements ##
-The elements used are rather standard, the equations used in Yappari are described here.
-
-
-Here is the rephrased information about the Zarc and Warburg elements:
+The elements used are rather standard, the equations used in Yappari for Zarc and Warburg are detailed in the following.
 
 ### Zarc ###
 A Zarc is an electrical circuit element composed of a resistor (Rp) in parallel with a Constant Phase Element (CPE). The CPE is defined by the equation:
@@ -134,7 +131,7 @@ $$
 u_\alpha^{(k+1)}=\omega u_\alpha^{(k)}+(1-\omega)\left(D\left(u_\alpha^{(k)}\right) A^T A D\left(u_\alpha^{(k)}\right)+\lambda I\right)^{-1} D\left(u_\alpha^{(k)}\right) A^T p
 $$
 
-where $\omega$ is a relaxation parameter, fixed at 0.1 in this program and $\lambda$ is the regularization parameter. 
+where $\omega$ is a relaxation parameter, fixed at 0.1 in this program, D is a diagonal matrix and $\lambda$ is the regularization parameter. 
 
 In releases posterior to 5.1.69.2 there is also an iterative algorithm named Gold, based on this [paper](https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cphc.202200012). It does not require a fitting parameter like Tikhonov but a given number of iterations is requested. In my tests I had to use 10^4 iterations or more. In my tests on simulated data it works better for Zi data.
 
