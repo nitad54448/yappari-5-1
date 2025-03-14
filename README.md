@@ -1,5 +1,5 @@
 # YAPPARI
-version march 06, 2025, release 5.1.82.4
+version march 14, 2025, release 5.1.82.5
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as _N. Dragoe, Materials Lab_, 2024, 3, 230031, you can download a paper describing this program at https://doi.org/10.54227/mlab.20230031. 
 
@@ -118,6 +118,7 @@ Remember: The best support is in this documentation. Take time to read it carefu
   <summary>Changes</summary>
 
 ## Changes 
+   - March 14, 2025 : A new export function from the graphs is implementad. Release 5.1.82.5.
    - March 06, 2025 : Export function from the graphs does not work properly. It is for now disabled. Release 5.1.82.4.
    - November 20, 2024 : Cosmetics and some minor improvements in speed. Release 5.1.82.3.
    - November 7, 2024 : Cosmetics. Adapted the sizes of objects and fonts. The program can be used at resolutions from 1280x1080 to 3440x1440. Release 5.1.82.2.
