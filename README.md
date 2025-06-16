@@ -268,14 +268,15 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 - Windows 10 (64-bit) or Windows 11
 - Standard screen resolution
 - LabVIEW 2023 runtime engine, obtained through either:
-  - Previous Yappari installation
+  - Direct Yappari installation
   - Other LabVIEW 2023 programs
   - Manual download from ni.com
 
 ### Advanced Installation Steps:
 1. If runtime engine is not present:
+   - Use the full install available in Releases, or
    - Download LabVIEW 2023 engine from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336)
-2. Download files:
+3. Download files:
    - Use green "Code" button
    - Download as ZIP file
    - Note: Contains latest version only
