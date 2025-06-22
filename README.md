@@ -261,23 +261,21 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 ## Quick Installation (Recommended)
 1. Download latest `Volume.zip` from [Releases](https://github.com/nitad54448/yappari-5-1/releases) section
    - Do NOT download source file archives
-   - Select most recent version unless encountering bugs
-   - If bugs occur, download earlier release version
+   - Select most recent version
+   - If bugs occur, download earlier release version and use the Forum to describe the problem.
 
 ## Advanced Installation (Optional)
 ### Prerequisites:
-- Windows 10 (64-bit) or Windows 11
-- Standard screen resolution
 - LabVIEW 2023 runtime engine, obtained through either:
-  - Direct Yappari installation
+  - A previous direct Yappari installation
   - Other LabVIEW 2023 programs
   - Manual download from ni.com
 
 ### Advanced Installation Steps:
-1. If runtime engine is not present:
+1. If Labview 2023 runtime engine is not present:
    - Use the full install available in Releases, or
    - Download LabVIEW 2023 engine from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336)
-3. Download files:
+2. Download files:
    - Use green "Code" button
    - Download as ZIP file
    - Note: Contains latest version only
@@ -304,11 +302,11 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 
 ## System Requirements
 - Operating System: Windows 10 (64-bit) or Windows 11
-- Display: Standard screen resolution
-- Runtime: LabVIEW 2023 runtime engine
+- Display: Standard screen resolutions, tested on 1200 pixels to 2400 pixels wide
+- Runtime: LabVIEW 2023 runtime engine (installed automatically if using the Releases versions)
 
 # Get started
-To use this program requires to give it some data, in general, or you can generate some data. Be aware of the numeric separator of your system: in most cases is a dot, in some others is a period, see the __Read data__ part. There are three main commands in this program: __Read data__, __Action__ and __Advanced__.
+To use this program requires to give it some data, in general, or you can generate some data. Be aware of the numeric separator of your system: in most cases it is a dot, in some others is a period, see the __Read data__ part. There are three main commands in this program: __Read data__, __Action__ and __Advanced__.
 
 ## Read data
 This command opens a menu with several options indicating the type of file to read.
