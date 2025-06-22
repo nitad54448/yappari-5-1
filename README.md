@@ -69,7 +69,7 @@ This program is provided "as is" without any warranties or guarantees of any kin
 1. Primary Resource: This documentation
    - Please read thoroughly
    - Contains answers to most questions
-   - Should be your first stop for information
+   - This is your first point of information
 
 ### Bug Reporting
 If you encounter issues:
