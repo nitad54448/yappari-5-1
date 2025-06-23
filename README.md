@@ -243,7 +243,6 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
    * [Parameters](#parameters)
       + [Datafile separator](#datafile-separator)
       + [Fit method](#fit-method)
-      + [ing factor](#)
       + [Fit termination](#fit-termination)
       + [Simulation limits](#simulation-limits)
       + [Decimate / Max plots](#decimate--max-plots)
