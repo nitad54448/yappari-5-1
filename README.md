@@ -260,9 +260,9 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 
 ## Quick Installation (Recommended)
 1. Download latest `Volume.zip` from [Releases](https://github.com/nitad54448/yappari-5-1/releases) section
-   - Do NOT download source file archives
+   - Do NOT download what is labelled as source file archives
    - Select most recent version
-   - If bugs occur, download earlier release version and use the Forum to describe the problem.
+   - If you encounter any problems report them in the Forum and download a previous version.
 
 ## Advanced Installation (Optional)
 ### Prerequisites:
@@ -272,14 +272,12 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
   - Manual download from ni.com
 
 ### Advanced Installation Steps:
-1. If Labview 2023 runtime engine is not present:
-   - Use the full install available in Releases, or
+1. If Labview 2023 runtime engine is not present you should have chosen the easy way but if you want to experiment yourself:
    - Download LabVIEW 2023 engine from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336)
 2. Download files:
    - Use green "Code" button
    - Download as ZIP file
    - Note: Contains latest version only
-   - For older versions, check Releases section
 
 ## Directory Structure
 ### Required Directories, created at install:
