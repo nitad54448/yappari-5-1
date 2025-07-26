@@ -1,5 +1,5 @@
 # YAPPARI
-last version July 1st, 2025, release 5.1.83.1
+last version July 26, 2025, release 5.1.83.2
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as _N. Dragoe, Materials Lab_, 2024, 3, 230031, you can download a paper describing this program at https://doi.org/10.54227/mlab.20230031. 
 
@@ -118,6 +118,7 @@ Remember: The best support is in this documentation. Take time to read it carefu
   <summary>Changes</summary>
 
 ## Changes 
+   - July 26, 2025 : Minor cosmetics in window size to fit with common screens. Release 5.1.83.2.
    - July 1, 2025 : Minor cosmetics in DRT_search graphics. Release 5.1.83.1.
    - June 22, 2025 : A new UI with scalable graphics. Release 5.1.83.
    - March 14, 2025 : A new export function from the graphs is implementad. Release 5.1.82.5.
