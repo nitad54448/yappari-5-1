@@ -310,7 +310,7 @@ To use this program requires to give it some data, in general, or you can genera
 ## Read data
 This command opens a menu with several options indicating the type of file to read.
 
-__Warning : A number can be represented as 1.25 or 1,25 (in some countries, like in France). So if your Windows separator setting is set to "," the program expects a number as 1,25 and not 1.25. You can still use this program with "," but you cannot read the files given as examples in /files, which were formated with "."__
+__Warning : A number can be represented as 1.25 or 1,25. So if your Windows separator setting is set to "," the program expects a number as 1,25 and not as 1.25. The example files given in the the /files folder are written as ".". If your computer does not have a "." separator, you can not use these files. You can still use this program with "," but with your won files (or you can convert the ones in the files to have ",", by using a simple script__
 
 Reading a new file will just add more data at the beginning of the list wihtout losing the previous ones. You will need to select one or more datasets in order to perform operations like fit, save, plot.. etc. A selected dataset is coloured differently, it is named in this document and in the program as _active_. 
 _Note : the files given as examples in the /files directory have a decimal separator . (a dot). When saving data there is a character separation between the numerical values (usually a TAB), this should be adjusted in Yappari, see the __Parameters__ page.
