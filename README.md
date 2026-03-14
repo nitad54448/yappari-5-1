@@ -1,25 +1,103 @@
 # YAPPARI
-version 07-05-2024, release 5.1.81.2
+last version March 14, 2026, release 5.1.84
 
-__YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as _Materials Lab_, 2023, 2, 230031, you can download a paper describing this program at https://doi.org/10.54227/mlab.20230031. 
+__YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as _N. Dragoe, Materials Lab_, 2024, 3, 230031, you can download a paper describing this program at https://doi.org/10.54227/mlab.20230031. 
 
-This document applies to version 5.1.77 or after. For prior releases see the **/help** folder.
+The models and equations used in this program, and some tutorials, can be found in the [help](https://github.com/nitad54448/yappari-5-1/blob/main/help) folder.
 
 <details>
   <summary>About this program</summary>
-  
-This program can perform several mathematical operations of interest in impedance spectroscopy: non-linear parametric fits for one or multiple datasets, DRT, Hilbert transform, spectra simulations etc. For a single dataset and non-linear optimization you may use an old and simpler program [Yappari 4.2](https://github.com/nitad54448/win10-installer-yappari-4.2). This single dataset program is not developed further and it has limited features so it might be better to start with this version. No support will be provided for the previous versions.
 
-Some theoretical notions are given in the [theory file](https://github.com/nitad54448/yappari-5-1/blob/main/help/theory.md) in this repository.
+ # Program Overview
 
-You are encouraged to contribute to this help file or write tutorials. If you want to contribute to the help file or tutorials, send them to me and I will add them to this repository. As much as I like programming, writing documentation is boring. The most updated description of the program is always here on this page.
-  
+## Main functions
+This program specializes in impedance spectroscopy analysis, offering:
+- Non-linear parametric fitting (single/multiple datasets)
+- Distribution of Relaxation Times (DRT) analysis
+- Hilbert transform calculations
+- Spectra simulations
+- Additional mathematical operations like spline interpolation, smooth, upscale,...
+
+## Version Information
+### Current Version (5.1.x)
+- Handles multiple datasets (thousands...)
+- Maintained and updated
+- Recommended for new users
+
+### Older Version (4.2)
+- Simpler interface
+- Single dataset analysis only
+- Limited to basic features
+- No longer maintained or supported
+- May be useful for learning basics
+
+## Technical Resources
+- Theoretical background available in repository's help folder
+- Latest documentation maintained on this page
+
+## Community Contributions Welcome!
+I value community input, especially for:
+- Help file improvements
+- New tutorials
+- Usage guides
+- Documentation enhancements
+
+### How to Contribute
+1. Prepare your documentation or tutorial
+2. Send it directly to program maintainer
+3. Content will be added to official repository
+
+Note: I like programming but writting documentation is boring !
+
+## Documentation Status
+- This page serves as the authoritative, current documentation
+- Updated regularly with latest features and changes
+- Some theoretical notions are given in the [theory file](https://github.com/nitad54448/yappari-5-1/blob/main/help/theory.md) in this repository.
+ 
  </details>
 
 <details>
   <summary>Note to users</summary>
 
-There is no warrantee whatsoever for using this program. Use it if you want, see CC-BY-NC-ND [licence](https://creativecommons.org/licenses/by-nc-nd/4.0/), but you will probably not receive much help from me as everything is in this documentation file. If you don't want to use it... don't use it. There are many other programs, some commercial and some free... and likely some are better than this one. If you find an error (reproducible) you can post the details in __Releases/Join discussion__ forum so I can check. I will answer if there is a bug or if the issue is not covered by this Help file (I will not answer any email messages related to Yappari, basically read the doc file, think, and if something is wrong go to __Join discussion__).
+# Program Terms and Support Policy
+
+## Disclaimer
+This program is provided "as is" without any warranties or guarantees of any kind. It is released under the CC-BY-NC-ND license.
+
+## Support Policy
+### Getting Help
+1. Primary Resource: This documentation
+   - Please read thoroughly
+   - Contains answers to most questions
+   - This is your first point of information
+
+### Bug Reporting
+If you encounter issues:
+1. Verify the bug is reproducible
+2. Visit the **Releases/Join discussion** forum
+3. Post detailed information about the issue
+4. Support will be provided if:
+   - There is a confirmed bug
+   - The issue isn't covered in documentation
+
+### Important Notes
+- Email inquiries about Yappari will not receive responses
+- Support is exclusively provided through the **Join discussion** forum
+- Read documentation → Think → Then post if necessary
+
+## Alternative Solutions
+- Many alternatives exist (both commercial and free)
+- Some may better suit your needs
+- You're encouraged to explore other options if this program doesn't meet your requirements
+
+## Communication Channel
+**Releases/Join discussion** forum is the ONLY official support channel:
+- For bug reports
+- For undocumented issues
+- For reproducible problems
+
+Remember: The best support is in this documentation. Take time to read it carefully before seeking additional help.
+
 </details>
 
 <details>
@@ -40,6 +118,18 @@ There is no warrantee whatsoever for using this program. Use it if you want, see
   <summary>Changes</summary>
 
 ## Changes 
+   -March 14, 2026 : Cosmetic changes to UI; the plots were not always properly redrawn. Release 5.1.84. If the UI is working fine in the 5.1.83 version, keep that one. In this new version the 3D plots are not shown anymore.
+   - July 26, 2025 : Minor cosmetics in window size to fit with common screens. Release 5.1.83.2.
+   - July 1, 2025 : Minor cosmetics in DRT_search graphics. Release 5.1.83.1.
+   - June 22, 2025 : A new UI with scalable graphics. Release 5.1.83.
+   - March 14, 2025 : A new export function from the graphs is implementad. Release 5.1.82.5.
+   - March 06, 2025 : Export function from the graphs does not work properly. It is for now disabled. Release 5.1.82.4.
+   - November 20, 2024 : Cosmetics and some minor improvements in speed. Release 5.1.82.3.
+   - November 7, 2024 : Cosmetics. Adapted the sizes of objects and fonts. The program can be used at resolutions from 1280x1080 to 3440x1440. Release 5.1.82.2.
+   - Oct 27, 2024 : In the case of constrained fit, when editing the parameters, only values whitin limits will be accepted. Release 5.1.82.1 (updated 3rd of nov 2024, changed some code to inlining with pre-allocation clones, fitting is now faster).
+   - Oct 25, 2024 : When editing an electrical circuit, the values of the elements that are not affected are maintained. In the former versions, when the circuit was edited, all the parameters were initialized to default values. Release 5.1.82.
+   - Oct 12, 2024 : For some screen resolutions the message boxes appeared strange. Now the size of the boxes can be changed. In case of problems (like size too small) use the the release 5.1.81.3.
+   - July 7, 2024 : Changed some routines to "clone in memory". Should be a little faster than previous version. Release 5.1.81.3.
    - May 7, 2024 : Cosmetics on message boxes. Release 5.1.81.2.
    - May 4, 2024 : Annotations on multiple plots at the same time. Release 5.1.81.1.
    - May 3, 2024 : Notes can be added to Nyquist plots. Changed the structure of yappari_configuration.xml file. Release 5.1.81.
@@ -156,7 +246,6 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
    * [Parameters](#parameters)
       + [Datafile separator](#datafile-separator)
       + [Fit method](#fit-method)
-      + [ing factor](#)
       + [Fit termination](#fit-termination)
       + [Simulation limits](#simulation-limits)
       + [Decimate / Max plots](#decimate--max-plots)
@@ -170,24 +259,62 @@ __Nita DRAGOE__, Université Paris-Saclay, ICMMO/SP2M, 91400 Orsay, France
 
 
 # How to install
-The recommended and easiest way to install it is to use the full package which can be downloaded from [Releases](https://github.com/nitad54448/yappari-5-1/releases). Make sure you download the _Volume.zip_ file and not what is labelled as source file archives. Several versions are available, in general the last one is the best choice. In case of bugs please report them and grab an earlier version. 
 
-There is another way to install it, if you want to complicate things. Yappari 5.1 is compiled with Labview 2023 for Windows. As such it will require a _Labview run-time engine_ which is installed, if needed, by the full installer. So, if you already have the run-time engine (either because you have peviously installed Yappari or you have installed another program compiled with Labview 2023) you can just download all the files from the green button __Code__ as a zip file. If you do not have the run-time engine but still want to go the hard way, you can download the LV 2023 engine freely from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336) then get the zip file from __Code__. The files in __Code__ are always the latest version. For previous ones, look in [Releases](https://github.com/nitad54448/yappari-5-1/releases).
+## Quick Installation (Recommended)
+1. Download latest `Volume.zip` from [Releases](https://github.com/nitad54448/yappari-5-1/releases) section
+   - Do NOT download what is labelled as source file archives
+   - Select most recent version
+   - If you encounter any problems report them in the Forum and download a previous version.
 
-After installing the program in a directory of your choice, some other subdirectories will be created : **/config**, **/drt**, **/files**, **/help** and **/models**. The **/models** directory contains png files with images for showing circuits. The **/config** holds xml configuration files, **/files** directory contains some examples of data files and custom definitions.  The **/help** directory holds some images for this document and some help files. You can remove **/drt**, **/files** and **/help** but you must keep the **/models** and **/config** folders.
+## Advanced Installation (Optional)
+### Prerequisites:
+- LabVIEW 2023 runtime engine, obtained through either:
+  - A previous direct Yappari installation
+  - Other LabVIEW 2023 programs
+  - Manual download from ni.com
 
-This program will work on Windows 10 64 bits or Win 11 with regular screen resolutions. 
+### Advanced Installation Steps:
+1. If Labview 2023 runtime engine is not present you should have chosen the easy way but if you want to experiment yourself:
+   - Download LabVIEW 2023 engine from [ni.com](https://www.ni.com/fr/support/downloads/software-products/download.labview-runtime.html#484336)
+2. Download files:
+   - Use green "Code" button
+   - Download as ZIP file
+   - Note: Contains latest version only
+
+## Directory Structure
+### Required Directories, created at install:
+- `/config`
+  - Contains: XML configuration files
+  - Status: MUST KEEP
+- `/models`
+  - Contains: PNG circuit images
+  - Status: MUST KEEP
+
+### Optional Directories:
+- `/drt`
+  - Status: Can be removed
+- `/files`
+  - Contains: Example data files, custom definitions
+  - Status: Can be removed
+- `/help`
+  - Contains: Documentation images, help files
+  - Status: Can be removed
+
+## System Requirements
+- Operating System: Windows 10 (64-bit) or Windows 11
+- Display: Standard screen resolutions, tested on 1200 pixels to 2400 pixels wide
+- Runtime: LabVIEW 2023 runtime engine (installed automatically if using the Releases versions)
 
 # Get started
-To use this program requires to give it some data, in general, or you can generate some data. Be aware of the numeric separator of your system: in most cases is a dot, in some others is a period, see the __Read data__ part. There are three main commands in this program: __Read data__, __Action__ and __Advanced__.
+To use this program requires to give it some data, in general, or you can generate some data. Be aware of the numeric separator of your system: in most cases it is a dot, in some others is a period, see the __Read data__ part. There are three main commands in this program: __Read data__, __Action__ and __Advanced__.
 
 ## Read data
 This command opens a menu with several options indicating the type of file to read.
 
-__Warning : A number can be represented as 1.25 or 1,25 (in some countries, like in France). So if your Windows separator setting is set to "," the program expects a number as 1,25 and not 1.25. You can still use this program with "," but you cannot read the files given as examples in /files, which were formated with "."__
+__Warning : A number can be represented as 1.25 or 1,25. So if your Windows separator setting is set to "," the program expects a number as 1,25 and not as 1.25. The example files given in the the /files folder are written as ".". If your computer does not have a "." separator, you can not use these files. You can still use this program with "," but with your own files (or you can convert the ones in the files to have ",", by using a simple script.__
 
-Reading a new file will just add more data at the beginning of the list wihtout losing the previous ones. You will need to select one or more datasets in order to perform operations like fit, save, plot.. etc. A selected dataset is coloured differently, it is named in this document and in the program as _active_. 
-_Note : the files given as examples in the /files directory have a decimal separator . (a dot). When saving data there is a character separation between the numerical values (usually a TAB), this should be adjusted in Yappari, see the __Parameters__ page.
+Reading a new file will just add more data at the beginning of the datalist wihtout losing the previous ones. You will need to select one or more datasets in order to perform operations like fit, save, plot.. etc. A selected dataset is coloured differently, it is named in this document and in the program as _active_. 
+_Note : When reading or saving files there is a character separation between the numerical values (usually a TAB), this should be adjusted in Yappari, see the __Parameters__ page.
 
 ### 3 columns
 This option reads a **single dataset** from a three-column ASCII file, which should be separated by the character selected in the [Parameters](https://github.com/nitad54448/yappari-5-1/blob/main/README.md#parameters) page, and it should contain frequency in Hz, Zr, and Zi. The data separator can be "TAB", "space", ",", ";".
@@ -221,7 +348,7 @@ _Note : Data separator from the Parameters page is ignored for this file._
 <details>
   <summary>Expand for details</summary>
 If your data file is of text type and has a format that is not usual you may define a _Custom_ format in an XML configuration file. In this case the program will ask the user to select two files: first the datafile then the XML file that describes the format used.
-Several exemples of such files are given in the **/files** directory, you can manually edit the xml file definitions or use an additional program, see __Advanced__ below.  
+Several exemples of such files are given in the **/files** directory, you can manually edit the xml file definitions or use an additional program, see _Advanced_ below.  
 
 The XML parameters that are required for a definition file are 
 
@@ -411,13 +538,13 @@ Cancel the mask function for all selected datasets.
 You can delete experimental points from selected datasets in the Nyquist, Zr, Zi or lnR plots: just zoom in the region to show only the points you want to delete then select this command (this is irreversible). Be aware that all the points having values in the range shown on the plots are removed from _all selected datasets_ irrespective if they are actually seen on the plots or not. The datasets visible on the graph depends on the __Max plot__ value. Be careful : there is no warning.
 
 ### Delete active datasets
-Irreversible action removing one or more datasets and all related parameters from memory (by active one should understand “selected”). Datasets can be deleted also with the Key "Delete".
+Irreversible action removing one or more active datasets and all related parameters from memory (by active one should understand “selected”). Datasets can be deleted also with the Key "Delete".
 
 ### Apply correction to active
-Apply a correction factor to the experimental Zr and Zi for all selected datasets.  The impedance values will be multiplied with the factor you input here.  Be careful: this will change the units, it is actually its purpose. For ionic conductivity multiply with S/L will give resistivity (in Ohm cm or Ohm m, depending on what unit you used for the S/L correction factor) instead of Ohm. For reactions at electrode surface you need to multiply with the electrode surface to get Ohm cm^2 or Ohm m^2. The already calculated impedances will not be affected by this command.
+Apply a correction factor to the experimental Zr and Zi for all selected datasets.  The impedance values will be multiplied with the factor you input here.  Be careful: this will change the units, it is actually its purpose. For resistance measurements if you multiply with S/L will give resistivity (in Ohm cm or Ohm m, depending on what unit you used for the S/L correction factor) instead of Ohm. For reactions at electrode surface you need to multiply with the electrode surface to get Ohm cm^2 or Ohm m^2. The already calculated impedances will not be affected by this command.
 
 ### Simulate spectrum
-This option will calculate an impedance spectrum based on the model and the values of the parameters of the model, in the frequency range that are on Parameters page. It will create a new dataset (called "sim_" but you can change its name). 
+This option will calculate an impedance spectrum based on the model and the values of the parameters of the model, in the frequency range that are on Parameters page. It will create a new dataset (called "sim_", you can change its name). 
 
 ### Z-Hit active datasets
 This option will provide a Z-HIT simulation (which is a Hilbert transform of the phase into the real part of the impedance) for one or more datasets. The procedure, when and why to use it, is described [here](https://en.wikipedia.org/wiki/Z-HIT). In this implementation I am using the corrections including the 5th derivative of the phase as described in the link given previously. This is a procedure similar to the better known Kramers-Kronig test. The data will be interpolated, if needed, to log scale and duplicate frequencies will be removed.
@@ -443,7 +570,7 @@ Only the first selected dataset will be shown on the DRT graph, if the DRT calcu
 If you hold the mouse on the graph a Tip with an estimation of RC values will be shown (or you can right click on the graph and look for Description and Tips). These parameters are calculated based on the Rpol and the surface of the peaks and can be used as starting points for fitting a model. 
 
 ### DRT search
-This command performs a search of optimal regularization parameter for the first active (aka selected) dataset.
+This command performs a search of optimal regularization parameter for the first active (i.e. selected) dataset.
 A window with an indication of the optimal parameter will appear. The plot shows the mean squared error (MSE) between the experimental Zr and Zr calculated from DRT data as well as the variance (this is based on the method proposed [here](https://chemistry-europe.onlinelibrary.wiley.com/doi/full/10.1002/celc.201901863)).
 It should look like this
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/params_drt_alten.PNG)
@@ -495,7 +622,7 @@ Will save an xml file containing all data and parameters.
 Will save a definition file, in an xml format, for reading custom datafiles.
 
     change_parameters_default_values
-Change the default values and the limits for electrical parameters of the model. Adapt these values for your use cases.
+Change the default values and the limits for electrical parameters of the model. Adapt these values for your use cases (can be used only as administrator). 
 
     drt_search
 will calculate a number of DRTs in the range defined by the user and reconstruct all the impedance sets. The best lambda parameter based on the minim squared error between the calculated and experimental sets will be shown. The interval of lambda will be scaned in log spacing over the interval specified by the user (for Gold optimization, the adjusting parameter is the number of iterations).
@@ -592,7 +719,7 @@ For a more complex circuit, you can find on the right side of the screen names s
 Overall, the notation is quite straightforward once you become familiar with the conventions used.
 
 ## Parameters
-On this page you can adjust some parameters of the program. The basic parameters (but not the parameters related to electrical model) are loaded from a configuration file named _yappari_configuration.xml that is located in __/config__ folder. You can edit or save a different default configuration file. The default circuit parameters are loaded from model definitions in **/config** xml files. You can edit all these xml to adapt the default values to your liking by directly editing the xml files (be careful with these changes, the XML format shoud be respected or the program will not work) or you can use  __Advanced/save_custom_xml__
+On this page you can adjust some parameters of the program. The basic parameters (but not the parameters related to electrical model) are loaded, at the start of the program, from a configuration file named _yappari_configuration.xml that is located in __/config__ folder. You can edit or save a different default configuration file. The default circuit parameters are loaded from model definitions in **/config** xml files. You can edit all these xml to adapt the default values to your liking by directly editing the xml files (be careful with these changes, the XML format shoud be respected or the program will not work) or you can use  __Advanced/save_custom_xml__
 
 ### Datafile separator
 For reading _and saving_ data, depending on the format you use, the datafile separator _should_ be selected here. When reading a MFLI csv file you have probably a _,_ or _;_ separator. You need to inspect the data file then select the proper string here. For 3 columns, _tabs_ are typically used. Note that the separator used here for reading will also be used for exporting the data files. This data separator __will not be used__ when reading files which have a defined configuration, see below (in this case the definition file sets the separator to be used).
@@ -659,5 +786,4 @@ With the degree of freedom (DOF) taken as Nr_of_points - nr_of_fitted_parameters
 --
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-
 
