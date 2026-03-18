@@ -1,5 +1,5 @@
 # YAPPARI
-last version March 15, 2026, release 5.1.84.1
+last version March 18, 2026, release 5.1.84.2
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as _N. Dragoe, Materials Lab_, 2024, 3, 230031, you can download a paper describing this program at https://doi.org/10.54227/mlab.20230031. 
 
@@ -118,7 +118,7 @@ Remember: The best support is in this documentation. Take time to read it carefu
   <summary>Changes</summary>
 
 ## Changes 
-   -March 14, 2026 : Cosmetic changes to UI; the plots were not always properly redrawn. Release 5.1.84. If the UI is working fine in the 5.1.83 version, keep that one. In this new version the 3D plots are not shown anymore.
+   - March 18, 2026 : Cosmetic changes to UI; the plots were not always properly redrawn. Release 5.1.84. If the UI is working fine in the 5.1.83 version, keep that one.
    - July 26, 2025 : Minor cosmetics in window size to fit with common screens. Release 5.1.83.2.
    - July 1, 2025 : Minor cosmetics in DRT_search graphics. Release 5.1.83.1.
    - June 22, 2025 : A new UI with scalable graphics. Release 5.1.83.
@@ -681,8 +681,6 @@ This panel will show a 3D plot of selected datasets or a part of them, either in
 The 3D plot might be useful to look for tendencies, a plot looks like this :
 
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/Zidiff_3D.PNG)
-
-The 3D plot is not plotted in versions after 5.1.83.2 (some screen resolutions or window resizes were not properly seen). Since this is mostly a cosmetic feature, this function was dropped in 5.1.84.
 
 ### Model
 In this panel a model can be created by the user, by selecting element circuits. 
