@@ -679,8 +679,10 @@ Note that points that are masked will not be shown, nor the difference with the 
 ### 3D plot
 This panel will show a 3D plot of selected datasets or a part of them, either in Nyquist, Zr or Zi or their differences, as selected by the user. This is useful for many datasets, more than 20 I guess, it will allow the user to see tendencies or check systematic errors in the fits. You can right click on the graph to adjust plotting properties to your liking (3D Plot Properties) or change the size of the graph. If you have many datasets, it will take some time to plot all data so to limit the waiting time, you may want to "decimate" the data for plotting). The number of plots shown is defined by the smallest value between the number of selected datasets and the "Max plots" value, see --Parameters__. Depending on your computer, a few hunderth datasets can be plotted easily. If you try more than 1000 you'll have to wait, the program will appear irresponsive.
 The 3D plot might be useful to look for tendencies, a plot looks like this :
+
 ![plot](https://github.com/nitad54448/yappari-5-1/blob/main/help/images/Zidiff_3D.PNG)
-The 3D plot is not plotted in versions after 5.1.83.2 (some screen resolutions or window resizes were not properly seen). Since the 3D plot is mostly a cosmetic feature, this function was dropped.
+
+The 3D plot is not plotted in versions after 5.1.83.2 (some screen resolutions or window resizes were not properly seen). Since this is mostly a cosmetic feature, this function was dropped in 5.1.84.
 
 ### Model
 In this panel a model can be created by the user, by selecting element circuits. 
