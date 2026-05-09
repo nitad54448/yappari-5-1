@@ -118,6 +118,7 @@ Remember: The best support is in this documentation. Take time to read it carefu
   <summary>Changes</summary>
 
 ## Changes 
+   - May 09, 2026 : Corrected an error in the 3D plot that exists in the previous version.
    - March 18, 2026 : Cosmetic changes to UI; the plots were not always properly redrawn. Release 5.1.84. If the UI is working fine in the 5.1.83 version, keep that one.
    - July 26, 2025 : Minor cosmetics in window size to fit with common screens. Release 5.1.83.2.
    - July 1, 2025 : Minor cosmetics in DRT_search graphics. Release 5.1.83.1.
