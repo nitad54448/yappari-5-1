@@ -2,7 +2,7 @@
 <LVData xmlns="http://www.ni.com/LVData">
 <Version>23.1f276</Version>
 <Cluster>
-<Name>config in</Name>
+<Name>config</Name>
 <NumElts>9</NumElts>
 <EW>
 <Name>Method</Name>
@@ -17,11 +17,11 @@
 <NumElts>2</NumElts>
 <I32>
 <Name>max iteration</Name>
-<Val>1000</Val>
+<Val>2500</Val>
 </I32>
 <DBL>
 <Name>tolerance</Name>
-<Val>1.00000000000000E-15</Val>
+<Val>1.00000000000000E-18</Val>
 </DBL>
 </Cluster>
 <EW>
