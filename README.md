@@ -1,5 +1,5 @@
 # YAPPARI
-last version March 18, 2026, release 5.1.85
+last version May 26, 2026, release 5.1.86
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as _N. Dragoe, Materials Lab_, 2024, 3, 230031, you can download a paper describing this program at https://doi.org/10.54227/mlab.20230031. 
 
@@ -118,6 +118,7 @@ Remember: The best support is in this documentation. Take time to read it carefu
   <summary>Changes</summary>
 
 ## Changes 
+   - May 26, 2026 : Corrected an error in the estimation of the Standard Error calculations, reported by **tangriz**, see Discussions. 5.1.86
    - May 09, 2026 : Corrected an error in the 3D plot that exists in the previous version. 5.1.85
    - March 18, 2026 : Cosmetic changes to UI; the plots were not always properly redrawn. Release 5.1.84. If the UI is working fine in the 5.1.83 version, keep that one.
    - July 26, 2025 : Minor cosmetics in window size to fit with common screens. Release 5.1.83.2.
@@ -730,7 +731,7 @@ For reading _and saving_ data, depending on the format you use, the datafile sep
 
 ### Fit method
 There are four fitting methods implemented: __Trusted Region Dog-Led__, __Nelder Mead__, __Constrained Levenberg-Marquardt__ and unconstrained __Levenberg-Marquardt__. The TRDL fitting algorithm is the default and the parameters bounds can be constrained to certain intervals that are listed on this page. Initial limits are rather large, for example, resistors are limited to the range of 1 mOhm to 1 GOhm, capacitors are between 10^-4 and 10^-15, and so on. You may want to adjust these parameters limits either on this page for the session in process or edit the default values that are located in the /config/*.xml files. You can edit the files manually or use __Advanced commands/change_default_limits__ 
-The fitting results will depend on the starting parameters since this is a non-linear system. You should probably manually adjust the starting parameters then use the fitting procedure you want (TRDL seems to be quite robust). For Levenberg-Marquardt method, the initial parameters should be rather close to good values. Note that esd's of the fitted parameters are properly calculated for unconstrained LM fit. *The esd's are expressed in relative values in % and represent the Standard Erro, e.g. the square root of the diagonal of the covariance matrix.*
+The fitting results will depend on the starting parameters since this is a non-linear system. You should probably manually adjust the starting parameters then use the fitting procedure you want (TRDL seems to be quite robust). For Levenberg-Marquardt method, the initial parameters should be rather close to good values. The standard error of the fitted parameters are calculated for unconstrained LM fit. *The SE's are expressed in relative values in % and represent the Standard Error, e.g. the square root of the diagonal of the covariance matrix.*
 
 ### Weight
 This value selects the weighting method. User can select from |Z|, Z_real, Z_imag, equal (no weight) or |Z|^2. In my opinion the best is way the "absolute Z". The applied weight will be the inverse of this parameter. Use of |Z|^2 will force the fit to give more power to larger Z, sometimes the system is not stable with this parameter.
@@ -760,7 +761,7 @@ This list box shows all the datasets in memory. You can select one or more datas
 This command is used to fit the set of parameters that describes the circuit, if the circuit is valid (i.e., there are parameters to fit on the right side of the window) and if you have data. The user can select which parameters to fit and it is recommended to start with a few parameters first, ensuring that the initial values are close to the expected values. The simulated spectrum will be updated with every change in the parameters, and the user can perform manual adjustments as necessary. The data can be selected by standard click, ctrl+click,.. or if you want you can select all by using Ctrl+A.
 For many datasets, the data are described by the same model circuit, I suggest to select one measurement, adjust the parameters manually to be close to solution, then fit. You may want to take a look at this [tutorial](https://github.com/nitad54448/yappari-5-1/blob/main/help/fit_multiple.pdf). After fit you can “Clone” these parameters to all other datasets and select all datasets, then _Fit all selected_ in a go.
 
-The fitting can be performed using different methods, which are discussed before, although there is not much difference in the output of these methods (except for the esd, see below). The fitting process involves a number of cycles, selected by the user, and it will stop a limit is reached. These termination parameters can be adjusted on the _Parameters_ page or in configuration file. Multiple iterations may be necessary, particularly if the initial values are far from the actual values.
+The fitting can be performed using different methods, which are discussed before, although there is not much difference in the output of these methods (except for the error, see below). The fitting process involves a number of cycles, selected by the user, and it will stop a limit is reached. These termination parameters can be adjusted on the _Parameters_ page or in configuration file. Multiple iterations may be necessary, particularly if the initial values are far from the actual values.
 
 The quality of the fit is evaluated using the R<sup>2</sup> statistical parameter and the chi<sup>2</sup> value. However, the use of the chi<sup>2</sup> value as a statistical parameter for non-linear fit is debatable, as discussed in the paper "Dos and don'ts of reduced chi-squared" by Andrae et al, see the /help/theory/md file. 
 
