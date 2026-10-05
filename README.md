@@ -1,5 +1,6 @@
 # YAPPARI
 last version May 26, 2026, release 5.1.86
+#### This program was recently ported to browser, it can be launched [directly](https://nitad54448.github.io/yappari_js/index.html), or you can read the [repository](https://github.com/nitad54448/yappari_js/blob/main).
 
 __YAPPARI__ stands for Yet Another Program for Analysis and Research in Impedance, it can be referenced in publications as _N. Dragoe, Materials Lab_, 2024, 3, 230031, you can download a paper describing this program at https://doi.org/10.54227/mlab.20230031. 
 
